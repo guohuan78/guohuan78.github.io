@@ -3,7 +3,11 @@
   <entry>
     <title>第三篇文章</title>
     <url>/2021/12/31/%E7%AC%AC%E4%B8%89%E7%AF%87%E6%96%87%E7%AB%A0/</url>
-    <content><![CDATA[]]></content>
+    <content><![CDATA[<p>摘要：本文是一个测试文档。</p>
+<span id="more"></span>
+
+<p>这些是文章的全部内容</p>
+]]></content>
   </entry>
   <entry>
     <title>第二篇文章</title>
