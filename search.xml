@@ -16,6 +16,75 @@
       </categories>
   </entry>
   <entry>
+    <title>Matlab图像边缘检测制作视频</title>
+    <url>/posts/17737/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>用Matlab来进行图像边缘检测，输出边缘线条视频，过程全记录，内含全部源码。</p>
+<span id="more"></span>
+
+<h1 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h1><div style="position:relative; padding-bottom:75%; width:100%; height:0">
+    <iframe src="//player.bilibili.com/player.html?bvid=BV1934y1z74s&amp;page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="position:absolute; height: 100%; width: 100%;"></iframe>
+</div>
+
+<p>AE原作：<a href="https://www.bilibili.com/video/BV1xL4y1E7nT">大二AE结课作业 《过 年》（已摆烂）_哔哩哔哩_bilibili</a></p>
+<p>《友 商 链 接》：<br><a href="https://www.bilibili.com/video/BV1wT4y1m7rs">我用Matlab摆烂了你的AE作业_哔哩哔哩_bilibili</a> （他是红色的<br><a href="https://www.bilibili.com/video/BV1Mu411U78T">我用Matlab摆烂了你的ae作业_哔哩哔哩_bilibili</a> （黑色，点更细致了<br><a href="https://www.bilibili.com/video/BV1Xm4y1S7rm">我用Matlab摆烂了你的ae作业_哔哩哔哩_bilibili</a> （这个跟第一个差不多，甚至个人感觉比第一个要清晰，<del>但是没有第一个火</del>，第一个比这个早发布六小时，那这样说我岂不是更加凉凉了。。。</p>
+<hr>
+<h1 id="如何制作"><a href="#如何制作" class="headerlink" title="如何制作"></a>如何制作</h1><p>吃瓜的到这里可以走了（若想当个故事看也不是不行），有matlab的同学想玩一玩可以往下看，源码全分享。（这里不讲怎么下载matlab，为此专门下载30G大小的matlab不划算。）</p>
+<h2 id="1-工作目录"><a href="#1-工作目录" class="headerlink" title="1 工作目录"></a>1 工作目录</h2><p>创建<code>edges</code>和<code>pics</code>两个空文件夹，<code>pics</code>是视频逐帧输出后的图片存放的路径，<code>edges</code>是<code>pics</code>文件夹中图片经边缘处理后生成图片的存放路径。</p>
+<p><code>out2pic.m</code>，<code>zed.m</code>和<code>pic2video.m</code>三个matlab脚本文件</p>
+<p>放入<code>source.mp4</code>原视频</p>
+<p><code>output.mp4</code>是处理后生成的视频</p>
+<img src="/posts/17737/%E5%B7%A5%E4%BD%9C%E7%9B%AE%E5%BD%95.png" class="" title="工作目录文件图片">
+
+<h2 id="2-源码"><a href="#2-源码" class="headerlink" title="2 源码"></a>2 源码</h2><p>代码中 “你的工作路径” 要替换为自己的，就是上图中的文件存放在哪里了。例如我的是</p>
+<p><code>D:\0programing\matlab_work\ImageEdgeDetection</code></p>
+<p><code>zed.m</code>和<code>pic2video.m</code>代码中的for循环用到了帧数，要根据具体视频来改变，运行完<code>out2pic.m</code>后，<code>pics</code>文件夹中有几张图片就是几帧。</p>
+<h3 id="2-1-out2pic-m：将视频分割逐帧分割为图片"><a href="#2-1-out2pic-m：将视频分割逐帧分割为图片" class="headerlink" title="2.1 out2pic.m：将视频分割逐帧分割为图片"></a>2.1 <code>out2pic.m</code>：将视频分割逐帧分割为图片</h3><figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">clear;</span><br><span class="line">clc;</span><br><span class="line">se = strel(<span class="string">&#x27;line&#x27;</span>,<span class="number">11</span>,<span class="number">90</span>);</span><br><span class="line">path=<span class="string">&#x27;你的工作路径\source.mp4&#x27;</span>;   <span class="comment">%视频存放路径</span></span><br><span class="line">obj=VideoReader(path);</span><br><span class="line">num=obj.NumberOfFrames;</span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span>=<span class="number">1</span>:num  <span class="comment">%帧数，这里的i最终为1801</span></span><br><span class="line">    frame=read(obj,<span class="built_in">i</span>);</span><br><span class="line">    lujing=strcat(<span class="string">&#x27;你的工作路径\pics\&#x27;,num2str(i));  %帧图输出路径</span></span><br><span class="line"><span class="string">    lujing=strcat(lujing,&#x27;</span>.jpg&#x27;);</span><br><span class="line">    imwrite(frame,lujing)</span><br><span class="line"><span class="keyword">end</span> </span><br></pre></td></tr></table></figure>
+
+<h3 id="2-2-zed-m：逐个图片运用边缘检测算法"><a href="#2-2-zed-m：逐个图片运用边缘检测算法" class="headerlink" title="2.2 zed.m：逐个图片运用边缘检测算法"></a>2.2 <code>zed.m</code>：逐个图片运用边缘检测算法</h3><figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">close all;</span><br><span class="line">clc;</span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span>=<span class="number">1</span>:<span class="number">1801</span>  <span class="comment">%前面所得的视频帧数</span></span><br><span class="line">    path=<span class="string">&#x27;你的工作路径\pics\&#x27;; %帧图路径</span></span><br><span class="line"><span class="string">     disp(i); </span></span><br><span class="line"><span class="string">     path=strcat(path,num2str(i));</span></span><br><span class="line"><span class="string">    p=strcat(path,&#x27;</span>.jpg&#x27;);</span><br><span class="line">    f=imread(p);</span><br><span class="line">    f=rgb2gray(f);</span><br><span class="line">   roberts=edge(f,<span class="string">&#x27;roberts&#x27;</span>);   <span class="comment">%roberts算子</span></span><br><span class="line">   [m,n]=<span class="built_in">find</span>(roberts==<span class="number">1</span>);</span><br><span class="line">  <span class="comment">%scatter(n,-m,&#x27;.&#x27;);   %  1     去掉注释直接展示</span></span><br><span class="line">    mh=<span class="built_in">scatter</span>(n,-m,<span class="string">&#x27;.&#x27;</span>); <span class="comment">%  2     确定输出</span></span><br><span class="line">    axis([<span class="number">0</span> <span class="number">1280</span> <span class="number">-720</span> <span class="number">0</span>]);   <span class="comment">%可依据窗口大小自行调整坐标系，这里输出图片是1280x720</span></span><br><span class="line">    lujing=strcat(<span class="string">&#x27;你的工作路径\edges\&#x27;,num2str(i)); %  3    输出存放路径</span></span><br><span class="line"><span class="string">    lujing=strcat(lujing,&#x27;</span>.jpg&#x27;); <span class="comment">%  4     输出格式为ipg</span></span><br><span class="line">    saveas(mh,lujing); <span class="comment">%  5     保存</span></span><br><span class="line">    <span class="comment">%这里默认是将边缘检测的每一张图片保存，方便后续合成视频；也可以不用保存直接展示，只需将注释编号为1的语句取消注释，将2、3、4、5加上注释即可。但直接展示的话效果不太好，比较卡。</span></span><br><span class="line">    pause(<span class="number">0.05</span>);</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<p>9:28开始运行边缘检测算法，10:15运行结束，1801张图片跑了四五十分钟，最后可以生成一分多钟的视频。</p>
+<h3 id="2-3-pic2video-m：将生成的边缘检测图片合成视频"><a href="#2-3-pic2video-m：将生成的边缘检测图片合成视频" class="headerlink" title="2.3 pic2video.m：将生成的边缘检测图片合成视频"></a>2.3 <code>pic2video.m</code>：将生成的边缘检测图片合成视频</h3><figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">clear;</span><br><span class="line">clc;</span><br><span class="line">WriterObj=VideoWriter(<span class="string">&#x27;output.mp4&#x27;</span>, <span class="string">&#x27;MPEG-4&#x27;</span>);   <span class="comment">%这里输出的路径是默认路径，合成的视频的格式是mp4</span></span><br><span class="line">WriterObj.FrameRate = <span class="number">25</span>; <span class="comment">%控制输出视频帧率，原视频为25，没有这行的话默认30</span></span><br><span class="line">open(WriterObj);</span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span>=<span class="number">1</span>:<span class="number">1801</span>  <span class="comment">%帧图数量</span></span><br><span class="line">  pic=<span class="string">&#x27;你的工作路径\edges\&#x27;;  %前面边缘检测的图片的存储路径</span></span><br><span class="line"><span class="string">  pic=strcat(pic,num2str(i));</span></span><br><span class="line"><span class="string">  ppic=strcat(pic,&#x27;</span>.jpg&#x27;);</span><br><span class="line">  frame=imread(ppic);  <span class="comment">% 读取图像，放在变量frame中</span></span><br><span class="line">  <span class="built_in">disp</span>(ppic);</span><br><span class="line">  writeVideo(WriterObj,frame);  <span class="comment">% 将frame放到变量WriterObj中</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line">close(WriterObj);</span><br></pre></td></tr></table></figure>
+
+<p>至此，视频合成好了，但是没有声音，用剪辑软件添加声音。</p>
+<h2 id="3-遇到的问题"><a href="#3-遇到的问题" class="headerlink" title="3 遇到的问题"></a>3 遇到的问题</h2><h3 id="3-1-运行zed-m时弹出的figure窗口不要关闭！！！"><a href="#3-1-运行zed-m时弹出的figure窗口不要关闭！！！" class="headerlink" title="3.1 运行zed.m时弹出的figure窗口不要关闭！！！"></a>3.1 运行<code>zed.m</code>时弹出的figure窗口不要关闭！！！</h3><p>别问我怎么知道的，说多了都是泪……</p>
+<p>这个是figure窗口：</p>
+<img src="/posts/17737/figure%E7%AA%97%E5%8F%A3.png" class="" title="这是一个figure窗口">
+
+<p>这个是可能报的错：</p>
+<img src="/posts/17737/%E5%85%B3%E9%97%ADfigure%E7%AA%97%E5%8F%A3%E6%8A%A5%E9%94%99.png" class="" title="这是关闭figure窗口后可能报的错">
+
+<p>千万别关！！！！</p>
+<h3 id="3-2-合成视频时图片分辨率不符报错"><a href="#3-2-合成视频时图片分辨率不符报错" class="headerlink" title="3.2 合成视频时图片分辨率不符报错"></a>3.2 合成视频时图片分辨率不符报错</h3><img src="/posts/17737/%E5%88%86%E8%BE%A8%E7%8E%87%E6%8A%A5%E9%94%99.png" class="" title="图片分辨率不符报的错">
+
+<p>查一下472.jpg和473.jpg的分辨率属性</p>
+<img src="/posts/17737/472%E5%88%86%E8%BE%A8%E7%8E%87%E5%B1%9E%E6%80%A7.png" class="" title="这是472图片的分辨率属性">
+
+<img src="/posts/17737/473%E5%88%86%E8%BE%A8%E7%8E%87%E5%B1%9E%E6%80%A7.png" class="" title="这是473图片的分辨率属性">
+
+<p>我也不知道什么原因，原图都是1280x720，可能上面我图中关闭了一下figure导致的？但是我关闭窗口的时候应该没合成到472吧。472及以前的分辨率是875x65<strong>6</strong>,473及以后的分辨率是875x65<strong>7</strong>。给<code>writeVideo</code>整不会了，罢工了。</p>
+<p>再跑一遍<code>zed.m</code>是不可能的，累死。机智如我，把前472张合成一下<code>output1.mp4</code>，473后面的合成一个<code>output2.mp4</code>，通过控制<code>pic2video.m</code>中for循环i的取值来实现，记得合成后改名，不然合成第二个会覆盖第一个。之后用剪辑软件拼接起来，就算前后两个视频分辨率不同，剪辑软件可不会像<code>writeVideo</code>那样罢工。</p>
+<h3 id="3-3-合成视频后与原视频帧数不符"><a href="#3-3-合成视频后与原视频帧数不符" class="headerlink" title="3.3 合成视频后与原视频帧数不符"></a>3.3 合成视频后与原视频帧数不符</h3><p>合成视频发现它短了，查属性，发现原视频是25帧的，我输出的是30帧的。</p>
+<img src="/posts/17737/source%E5%B8%A7%E6%95%B0.png" class="" title="原视频帧数属性25帧">
+
+<img src="/posts/17737/output%E5%B8%A7%E6%95%B0.png" class="" title="合成的视频帧数属性30帧">
+
+<p>网上查了一下怎么改<code>VideoWriter</code>输出的帧数，代码里加了一行。</p>
+<p>再次输出视频，帧数还为30，离谱。。。幸好我慧眼如炬，发现我从网上抄的代码和原来的代码大小写不一样，如下：（我不说你们也发现不了W和w不一样吧</p>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">WriterObj=VideoWriter(<span class="string">&#x27;output.mp4&#x27;</span>, <span class="string">&#x27;MPEG-4&#x27;</span>);</span><br><span class="line">writerObj.FrameRate = <span class="number">25</span>;</span><br></pre></td></tr></table></figure>
+<p>改了以后代码运行正常（上面给的源码已经是修改过的了，放心食用。</p>
+<h2 id="4-待改进"><a href="#4-待改进" class="headerlink" title="4 待改进"></a>4 待改进</h2><p>在只有matlab进程的条件下：</p>
+<img src="/posts/17737/%E4%BB%BB%E5%8A%A1%E7%AE%A1%E7%90%86%E5%99%A8%E8%BF%9B%E7%A8%8B.png" class="" title="这是运行边缘检测算法时电脑的进程">
+
+<p>CPU利用率：</p>
+<img src="/posts/17737/cpu%E5%88%A9%E7%94%A8%E7%8E%87.png" class="" title="这是只运行边缘检测算法时电脑CPU利用率">
+
+<p>GPU利用率：</p>
+<img src="/posts/17737/gpu%E5%88%A9%E7%94%A8%E7%8E%87.png" class="" title="这是只运行边缘检测算法时电脑GPU利用率">
+
+<p>我也不知道怎么能把CPU占满一点，也不知道怎么调用GPU来处理，产出个一分钟的视频要操作将近一个小时，辛苦我的CPU了。</p>
+<p>全文到此结束，这是本站第一篇实质性内容的文章，实操的小伙伴遇到什么问题可以在评论区留言，如果觉得有用的话，欢迎来个一分钱的赞赏鼓励一下！（精神意义</p>
+]]></content>
+  </entry>
+  <entry>
     <title>站本站声明</title>
     <url>/posts/10508/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>“站本站”分类的声明文档</p>
