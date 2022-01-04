@@ -16,6 +16,14 @@
       </categories>
   </entry>
   <entry>
+    <title>科技区导航</title>
+    <url>/posts/26019/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script>]]></content>
+      <categories>
+        <category>科技区</category>
+      </categories>
+  </entry>
+  <entry>
     <title>Matlab图像边缘检测制作视频</title>
     <url>/posts/17737/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>用Matlab来进行图像边缘检测，输出边缘线条视频，过程全记录，内含全部源码。</p>
@@ -83,6 +91,9 @@
 <p>我也不知道怎么能把CPU占满一点，也不知道怎么调用GPU来处理，产出个一分钟的视频要操作将近一个小时，辛苦我的CPU了。</p>
 <p>全文到此结束，这是本站第一篇实质性内容的文章，实操的小伙伴遇到什么问题可以在评论区留言，如果觉得有用的话，欢迎来个一分钱的赞赏鼓励一下！（精神意义</p>
 ]]></content>
+      <categories>
+        <category>科技区</category>
+      </categories>
   </entry>
   <entry>
     <title>站本站声明</title>
