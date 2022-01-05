@@ -3,7 +3,7 @@
   <entry>
     <title>点击文章标题查看全文</title>
     <url>/posts/24643/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><table ><tr>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><table ><tr>
 <td><a href="https://guohuan78.github.io/" >首页</a></td>
 <td><a href="https://guohuan78.github.io/about/">关于</a></td>
 <td><a href="https://guohuan78.github.io/categories/">分类</a></td>
@@ -16,17 +16,22 @@
       </categories>
   </entry>
   <entry>
-    <title>科技区导航</title>
-    <url>/posts/26019/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script>]]></content>
+    <title>站本站声明</title>
+    <url>/posts/10508/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>“站本站”分类的声明文档</p>
+<span id="more"></span>
+
+<p>道可道,非常道;名可名,非常名。</p>
+<p>大抵是联想到这句话了罢，便有了此分类的名字。“站本站”分类用于存放网站本身的文档，包括但不限于网站公告，更新日志，建站声明等，区别于其他各分类的内容产出。</p>
+]]></content>
       <categories>
-        <category>科技区</category>
+        <category>站本站</category>
       </categories>
   </entry>
   <entry>
     <title>Matlab图像边缘检测制作视频</title>
     <url>/posts/17737/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>用Matlab来进行图像边缘检测，输出边缘线条视频，过程全记录，内含全部源码。</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>用Matlab来进行图像边缘检测，输出边缘线条视频，过程全记录，内含全部源码。</p>
 <span id="more"></span>
 
 <h1 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h1><div style="position:relative; padding-bottom:75%; width:100%; height:0">
@@ -96,16 +101,11 @@
       </categories>
   </entry>
   <entry>
-    <title>站本站声明</title>
-    <url>/posts/10508/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>“站本站”分类的声明文档</p>
-<span id="more"></span>
-
-<p>道可道,非常道;名可名,非常名。</p>
-<p>大抵是联想到这句话了罢，便有了此分类的名字。“站本站”分类用于存放网站本身的文档，包括但不限于网站公告，更新日志，建站声明等，区别于其他各分类的内容产出。</p>
-]]></content>
+    <title>科技区导航</title>
+    <url>/posts/26019/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css">]]></content>
       <categories>
-        <category>站本站</category>
+        <category>科技区</category>
       </categories>
   </entry>
 </search>
