@@ -1,27 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>科技区导航</title>
-    <url>/posts/26019/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script>]]></content>
-      <categories>
-        <category>科技区</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>站本站声明</title>
-    <url>/posts/10508/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>“站本站”分类的声明文档</p>
-<span id="more"></span>
-
-<p>道可道,非常道;名可名,非常名。</p>
-<p>大抵是联想到这句话了罢，便有了此分类的名字。“站本站”分类用于存放网站本身的文档，包括但不限于网站公告，更新日志，建站声明等，区别于其他各分类的内容产出。</p>
-]]></content>
-      <categories>
-        <category>站本站</category>
-      </categories>
-  </entry>
-  <entry>
     <title>点击文章标题查看全文</title>
     <url>/posts/24643/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><table ><tr>
@@ -34,6 +13,14 @@
 </tr></table>]]></content>
       <categories>
         <category>站本站</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>科技区导航</title>
+    <url>/posts/26019/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script>]]></content>
+      <categories>
+        <category>科技区</category>
       </categories>
   </entry>
   <entry>
@@ -106,6 +93,19 @@
 ]]></content>
       <categories>
         <category>科技区</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>站本站声明</title>
+    <url>/posts/10508/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>“站本站”分类的声明文档</p>
+<span id="more"></span>
+
+<p>道可道,非常道;名可名,非常名。</p>
+<p>大抵是联想到这句话了罢，便有了此分类的名字。“站本站”分类用于存放网站本身的文档，包括但不限于网站公告，更新日志，建站声明等，区别于其他各分类的内容产出。</p>
+]]></content>
+      <categories>
+        <category>站本站</category>
       </categories>
   </entry>
 </search>
