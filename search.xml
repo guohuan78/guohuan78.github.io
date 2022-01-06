@@ -101,7 +101,8 @@
 <p><code>output.mp4</code>是处理后生成的视频</p>
 <img src="/posts/17737/%E5%B7%A5%E4%BD%9C%E7%9B%AE%E5%BD%95.png" class="" title="工作目录文件图片">
 
-<h2 id="2-源码-1"><a href="#2-源码-1" class="headerlink" title="2 源码[1]"></a>2 源码<sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="源码是我从网上搜来的，改了一点，但是那是好几十天前的事情了，原网站我已经找不到了，侵删。其实我把代码放网上搜了一下确实搜到一个，但那个和我最初参考的不一样，他也没放源码链接，我也不知道哪个是原创，反正我不是原创。但是本文章的内容确实是原创。天下代码一大抄">[1]</span></a></sup></h2><p>代码中 “你的工作路径” 要替换为自己的，就是上图中的文件存放在哪里了。例如我的是</p>
+<h2 id="2-源码"><a href="#2-源码" class="headerlink" title="2 源码"></a>2 源码</h2><p>源码是我从网上搜来的，改了一点，但是那是好几十天前的事情了，原网站我已经找不到了，侵删。其实我把代码放网上搜了一下确实搜到一个，但那个和我最初参考的不一样，他也没放源码链接，我也不知道哪个是原创，反正代码我不是原创。但是本文章的内容确实是原创。天下代码一大抄</p>
+<p>代码中 “你的工作路径” 要替换为自己的，就是上图中的文件存放在哪里了。例如我的是</p>
 <p><code>D:\0programing\matlab_work\ImageEdgeDetection</code></p>
 <p><code>zed.m</code>和<code>pic2video.m</code>代码中的for循环用到了帧数，要根据具体视频来改变，运行完<code>out2pic.m</code>后，<code>pics</code>文件夹中有几张图片就是几帧。</p>
 <h3 id="2-1-out2pic-m：将视频分割逐帧分割为图片"><a href="#2-1-out2pic-m：将视频分割逐帧分割为图片" class="headerlink" title="2.1 out2pic.m：将视频分割逐帧分割为图片"></a>2.1 <code>out2pic.m</code>：将视频分割逐帧分割为图片</h3><figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">clear;</span><br><span class="line">clc;</span><br><span class="line">se = strel(<span class="string">&#x27;line&#x27;</span>,<span class="number">11</span>,<span class="number">90</span>);</span><br><span class="line">path=<span class="string">&#x27;你的工作路径\source.mp4&#x27;</span>;   <span class="comment">%视频存放路径</span></span><br><span class="line">obj=VideoReader(path);</span><br><span class="line">num=obj.NumberOfFrames;</span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span>=<span class="number">1</span>:num  <span class="comment">%帧数，这里的i最终为1801</span></span><br><span class="line">    frame=read(obj,<span class="built_in">i</span>);</span><br><span class="line">    lujing=strcat(<span class="string">&#x27;你的工作路径\pics\&#x27;,num2str(i));  %帧图输出路径</span></span><br><span class="line"><span class="string">    lujing=strcat(lujing,&#x27;</span>.jpg&#x27;);</span><br><span class="line">    imwrite(frame,lujing)</span><br><span class="line"><span class="keyword">end</span> </span><br></pre></td></tr></table></figure>
@@ -148,6 +149,6 @@
 
 <p>我也不知道怎么能把CPU占满一点，也不知道怎么调用GPU来处理，产出个一分钟的视频要操作将近一个小时，辛苦我的CPU了。</p>
 <p>这是本站第一篇实质性内容的文章，实操的小伙伴遇到什么问题可以在评论区留言。</p>
-<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">源码是我从网上搜来的，改了一点，但是那是好几十天前的事情了，原网站我已经找不到了，侵删。其实我把代码放网上搜了一下确实搜到一个，但那个和我最初参考的不一样，他也没放源码链接，我也不知道哪个是原创，反正我不是原创。但是本文章的内容确实是原创。天下代码一大抄<a href="#fnref:1" rev="footnote"> ↩</a></span></li></ol></div></div>]]></content>
+]]></content>
   </entry>
 </search>
