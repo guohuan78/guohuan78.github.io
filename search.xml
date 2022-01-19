@@ -1,9 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Python加Squoosh批量压缩图片</title>
+    <url>/posts/39501/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="Squoosh-介绍"><a href="#Squoosh-介绍" class="headerlink" title="Squoosh 介绍"></a>Squoosh 介绍</h1><p>网站传送门：<a href="https://squoosh.app/">Squoosh</a> 谷歌推出的在线免费图像压缩工具。</p>
+<p>很好用，可惜在线网页没有批量压缩的选项，我一开始是十几张图片一张一张上传下载，自己想着能不能搞一个批处理功能呢？</p>
+<p>很开心实现了，本地批量图片压缩。</p>
+<h1 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h1><p>python 环境：我的 3.9，应该 python3 都行</p>
+<p>由于是用 npm 安装 Squoosh，先保证安装了 Node.js</p>
+<p><a href="https://www.runoob.com/nodejs/nodejs-install-setup.html">Node.js 安装配置 | 菜鸟教程 (runoob.com)</a></p>
+<h1 id="安装-Squoosh"><a href="#安装-Squoosh" class="headerlink" title="安装 Squoosh"></a>安装 Squoosh</h1><p>命令行输入：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm i -g @squoosh/cli</span><br></pre></td></tr></table></figure>
+
+<p>检查 Squooh 是否安装成功：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">squoosh-cli -v</span><br></pre></td></tr></table></figure>
+
+<h1 id="Python-源码"><a href="#Python-源码" class="headerlink" title="Python 源码"></a>Python 源码</h1><p>非常骄傲，这次代码我真的是原创。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="comment"># 直接复制两个地址栏路径src和des分别填入前一个引号里面</span></span><br><span class="line">src_folder = <span class="string">r&#x27;&#x27;</span>+<span class="string">&#x27;\\&#x27;</span></span><br><span class="line">des_folder = <span class="string">r&#x27;&#x27;</span>+<span class="string">&#x27;\\&#x27;</span></span><br><span class="line"></span><br><span class="line">files = os.listdir(src_folder)</span><br><span class="line"><span class="comment"># 这里的config是网页默认的压缩配置</span></span><br><span class="line">config = <span class="string">&#x27;[\&#x27;&#123;&quot;quality&quot;:75,&quot;baseline&quot;:false,&quot;arithmetic&quot;:false,&quot;progressive&quot;:true,&quot;optimize_coding&quot;:true,&quot;smoothing&quot;:0,&quot;color_space&quot;:3,&quot;quant_table&quot;:3,&quot;trellis_multipass&quot;:false,&quot;trellis_opt_zero&quot;:false,&quot;trellis_opt_table&quot;:false,&quot;trellis_loops&quot;:1,&quot;auto_subsample&quot;:true,&quot;chroma_subsample&quot;:2,&quot;separate_chroma_quality&quot;:false,&quot;chroma_quality&quot;:75&#125;\&#x27;]&#x27;</span></span><br><span class="line"><span class="comment"># 支持 jpg png webp 格式</span></span><br><span class="line">format_dic = &#123;<span class="string">&#x27;jpg&#x27;</span>:<span class="string">&quot;--mozjpeg&quot;</span>,<span class="string">&#x27;png&#x27;</span>:<span class="string">&quot;--oxipng&quot;</span>,<span class="string">&#x27;webp&#x27;</span>:<span class="string">&quot;--webp&quot;</span>&#125;</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> files:</span><br><span class="line">    src_path = src_folder + i</span><br><span class="line">    suffix = i.split(<span class="string">&#x27;.&#x27;</span>)[-<span class="number">1</span>]</span><br><span class="line">    <span class="built_in">print</span>(src_path)</span><br><span class="line">    <span class="keyword">if</span> os.path.isfile(src_path) <span class="keyword">and</span> suffix <span class="keyword">in</span> format_dic:</span><br><span class="line">        <span class="comment"># 通过用 python 调用命令行来实现批处理</span></span><br><span class="line">        os.system(<span class="string">&quot;squoosh-cli &quot;</span> + format_dic[suffix] + <span class="string">&quot; &quot;</span> + config + <span class="string">&quot; &quot;</span> + src_path + <span class="string">&quot; -d &quot;</span> + des_folder)</span><br></pre></td></tr></table></figure>
+
+<h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><p>设置好 python 代码 三四 行的 src 和 des 路径，直接运行即可。</p>
+<hr>
+<p>进阶操作：</p>
+<p>将 des 路径填为与 src 相同可原地处理，此时原文件会被覆盖，无法找回，谨慎使用。</p>
+<p>config 可以自己调整，一个好的办法是自己在网页修改为合适的参数，在网页可以实时查看效果。调整合适后，通过网页右边的 <code>Copy npx command</code>来复制，得到类似如下内容：</p>
+<p>npx @squoosh/cli –mozjpeg ‘{<strong>“quality”:75,”baseline”:false,”arithmetic”:false,”progressive”:true,”optimize_coding”:true,”smoothing”:0,”color_space”:3,”quant_table”:3,”trellis_multipass”:false,”trellis_opt_zero”:false,”trellis_opt_table”:false,”trellis_loops”:1,”auto_subsample”:true,”chroma_subsample”:2,”separate_chroma_quality”:false,”chroma_quality”:75</strong>}’</p>
+<p>花括号内的内容直接更换 config 中花括号的内容就更改了图片压缩配置。</p>
+<p>需要注意的是，不同格式的文件可能处理效果不同。</p>
+]]></content>
+  </entry>
+  <entry>
     <title>四种各具特色的纸飞机折法</title>
     <url>/posts/566/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>面向1到6年级小朋友的 志愿 支教 折纸课，基于 <a href="https://www.foldnfly.com/#/1-1-1-1-1-1-0-0-2">FoldNFly</a>网站，尝试了22种飞机，最终确定四种，详细图文教程。</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>面向1到6年级小朋友的 <strong>志愿 支教 折纸课</strong>，基于 <a href="https://www.foldnfly.com/#/1-1-1-1-1-1-0-0-2">FoldNFly</a>网站，尝试了22种飞机，最终确定四种，详细图文教程。</p>
 <span id="more"></span>
 
 <h1 id="铺垫"><a href="#铺垫" class="headerlink" title="铺垫"></a>铺垫</h1><p>只想学折飞机，不想听碎碎念的朋友务必跳过此部分。</p>
