@@ -32,10 +32,13 @@
 <meta property="og:site_name" content="睆 | 个人博客">
 <meta property="og:description" content="十几行的 Python 调用命令行，利用 Squoosh 实现本地批量压缩图片，内含源码与使用教程。">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://guohuan78.github.io/posts/39501/screen_shot.jpg">
+<meta property="og:image" content="https://guohuan78.github.io/posts/39501/error.jpg">
 <meta property="article:published_time" content="2022-01-19T13:25:49.000Z">
 <meta property="article:modified_time" content="2022-01-19T13:25:49.000Z">
 <meta property="article:author" content="睆">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://guohuan78.github.io/posts/39501/screen_shot.jpg">
 
 <link rel="canonical" href="https://guohuan78.github.io/posts/39501/">
 
@@ -246,14 +249,14 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2.1k</span>
+              <span>2.9k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="fa fa-clock-o"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
+              <span>3 分钟</span>
             </span>
 
         </div>
@@ -269,6 +272,7 @@
 <span id="more"></span>
 
 <h1 id="Squoosh-介绍"><a href="#Squoosh-介绍" class="headerlink" title="Squoosh 介绍"></a>Squoosh 介绍</h1><p>网站传送门：<a target="_blank" rel="noopener" href="https://squoosh.app/">Squoosh</a> 谷歌推出的在线免费图像压缩工具。</p>
+<p>GitHub : <a target="_blank" rel="noopener" href="https://github.com/GoogleChromeLabs/squoosh">GoogleChromeLabs/squoosh: Make images smaller using best-in-class codecs, right in the browser. (github.com)</a></p>
 <p>若是只需处理一张图片，可以直接用网页版，很方便高效。</p>
 <p>很好用，可惜在线网页没有批量压缩的选项，我一开始是十几张图片一张一张上传下载，自己想着能不能搞一个批处理功能呢？</p>
 <p>很开心实现了，本地批量图片压缩。</p>
@@ -286,13 +290,34 @@
 
 <h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><p>设置好 python 代码 三四 行的 src 和 des 路径，直接运行即可。</p>
 <hr>
-<p>进阶操作：</p>
+<p><strong>进阶玩法：</strong></p>
 <p>将 des 路径填为与 src 相同可原地处理，此时原文件会被覆盖，无法找回，谨慎使用。</p>
-<p>config 可以自己调整，一个好的办法是自己在网页修改为合适的参数，在网页可以实时查看效果。调整合适后，通过网页右边的 <code>Copy npx command</code>来复制，得到类似如下内容：</p>
+<p>config 可以自己调整，一个好的办法是自己在网页修改为合适的参数，在网页可以实时查看效果。调整合适后，通过网页右边的 <code>Copy npx command</code>来复制：</p>
+<img src="/posts/39501/screen_shot.jpg" class="">
+
+<p>得到类似如下内容：</p>
 <p>npx @squoosh/cli –mozjpeg ‘{<strong>“quality”:75,”baseline”:false,”arithmetic”:false,”progressive”:true,”optimize_coding”:true,”smoothing”:0,”color_space”:3,”quant_table”:3,”trellis_multipass”:false,”trellis_opt_zero”:false,”trellis_opt_table”:false,”trellis_loops”:1,”auto_subsample”:true,”chroma_subsample”:2,”separate_chroma_quality”:false,”chroma_quality”:75</strong>}’</p>
 <p>花括号内的内容直接更换 config 中花括号的内容就更改了图片压缩配置。</p>
 <p>需要注意的是，不同格式的文件可能处理效果不同。</p>
+<p>默认会处理 jpg png webp 三种格式的图片，文件夹和其他类型的文件会被忽略，处理完成后还按原格式输出。很多情况下，将 png 改为 jpg 格式压缩输出会更小，把 <code>format_dic</code> 中 <code>&#39;png&#39;:&quot;--oxipng&quot;</code>改为<code>&#39;png&#39;:&quot;--mozjpeg&quot;</code>即可实现将 png 图片压缩为 jpg 图片。</p>
+<h1 id="踩过的坑"><a href="#踩过的坑" class="headerlink" title="踩过的坑"></a>踩过的坑</h1><p>一开始没有自己配置 config，使用了它提供的 <code>--auto</code> 选项，压缩率暂且不提（事实上也不好），图片大的话（四五兆），会直接报错退出。</p>
+<img src="/posts/39501/error.jpg" class="">
 
+<p>我想了一下，本地压缩会报错，在线压缩秒出结果。我初步猜想是自己电脑上 CPU 算力有限，内存占满了，而网页的那端可能会有很大的处理器集群，所以秒出。</p>
+<p>我都已经打算放弃本地处理了，寻求用 python 提交图片到网页处理，再取回结果的在线处理方法。可惜我不会用 python 提交图片，更不会取回结果，对网页的操作知道的很有限。</p>
+<p>万籁俱灰之际，我就自己在网页上玩，找到了一个 copy 指令的地方，拿到了网页默认压缩图片的配置。虽然是 npx 指令，我以敏锐的洞察力观察到后面的一大堆东西就是配置。</p>
+<p>拿到配置，我直接把它替换了 <code>--auto</code> ，不妙，运行错误。</p>
+<p>命令行的 README.md 中，给出指令形式为 <code>--mozjpeg [config]</code>，起初我以为方括号<code>[]</code>为占位符，直接把整个替换了。</p>
+<div class="note info">
+            <p>马克思主义基本原理说的没错，人的意识具有创造性。 </p>
+          </div>
+
+<p>我保留了方括号，内部填入配置，运行成功！</p>
+<p>所以现在的配置和直接把图片拖到网页的处理效果相同。</p>
+<p>这里面的每个坑，我都以为是死胡同，但人的主观能动性是很强的，无法解释我怎么就突然想到了解决办法，可我就是想出来了解决办法，但凡有一步想不出来，整个工程就挂了。</p>
+<div class="note danger">
+            <p>绝望之处，寻找希望。 </p>
+          </div>
     </div>
 
     
@@ -389,7 +414,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Squoosh-%E4%BB%8B%E7%BB%8D"><span class="nav-text">Squoosh 介绍</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87"><span class="nav-text">环境准备</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-Squoosh"><span class="nav-text">安装 Squoosh</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Python-%E6%BA%90%E7%A0%81"><span class="nav-text">Python 源码</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8"><span class="nav-text">使用</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Squoosh-%E4%BB%8B%E7%BB%8D"><span class="nav-text">Squoosh 介绍</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87"><span class="nav-text">环境准备</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-Squoosh"><span class="nav-text">安装 Squoosh</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Python-%E6%BA%90%E7%A0%81"><span class="nav-text">Python 源码</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8"><span class="nav-text">使用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%B8%A9%E8%BF%87%E7%9A%84%E5%9D%91"><span class="nav-text">踩过的坑</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -451,7 +476,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="站点总字数">15k</span>
+    <span title="站点总字数">16k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
