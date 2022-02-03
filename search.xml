@@ -7,7 +7,7 @@
 <span id="more"></span>
 
 <h1 id="Squoosh-介绍"><a href="#Squoosh-介绍" class="headerlink" title="Squoosh 介绍"></a>Squoosh 介绍</h1><p>网站传送门：<a href="https://squoosh.app/">Squoosh</a> 谷歌推出的在线免费图像压缩工具。</p>
-<p>GitHub : <a href="https://github.com/GoogleChromeLabs/squoosh">GoogleChromeLabs/squoosh: Make images smaller using best-in-class codecs, right in the browser. (github.com)</a></p>
+<p>GitHub : <a href="https://github.com/GoogleChromeLabs/squoosh">GoogleChromeLabs&#x2F;squoosh: Make images smaller using best-in-class codecs, right in the browser. (github.com)</a></p>
 <p>若是只需处理一张图片，可以直接用网页版，很方便高效。</p>
 <p>很好用，可惜在线网页没有批量压缩的选项，我一开始是十几张图片一张一张上传下载，自己想着能不能搞一个批处理功能呢？</p>
 <p>很开心实现了，本地批量图片压缩。</p>
@@ -31,7 +31,7 @@
 <img src="/posts/39501/screen_shot.jpg" class="">
 
 <p>得到类似如下内容：</p>
-<p>npx @squoosh/cli –mozjpeg ‘{<strong>“quality”:75,”baseline”:false,”arithmetic”:false,”progressive”:true,”optimize_coding”:true,”smoothing”:0,”color_space”:3,”quant_table”:3,”trellis_multipass”:false,”trellis_opt_zero”:false,”trellis_opt_table”:false,”trellis_loops”:1,”auto_subsample”:true,”chroma_subsample”:2,”separate_chroma_quality”:false,”chroma_quality”:75</strong>}’</p>
+<p>npx @squoosh&#x2F;cli –mozjpeg ‘{<strong>“quality”:75,”baseline”:false,”arithmetic”:false,”progressive”:true,”optimize_coding”:true,”smoothing”:0,”color_space”:3,”quant_table”:3,”trellis_multipass”:false,”trellis_opt_zero”:false,”trellis_opt_table”:false,”trellis_loops”:1,”auto_subsample”:true,”chroma_subsample”:2,”separate_chroma_quality”:false,”chroma_quality”:75</strong>}’</p>
 <p>花括号内的内容直接更换 config 中花括号的内容就更改了图片压缩配置。</p>
 <p>需要注意的是，不同格式的文件可能处理效果不同。</p>
 <p>默认会处理 jpg png webp 三种格式的图片，文件夹和其他类型的文件会被忽略，处理完成后还按原格式输出。很多情况下，将 png 改为 jpg 格式压缩输出会更小，把 <code>format_dic</code> 中 <code>&#39;png&#39;:&quot;--oxipng&quot;</code>改为<code>&#39;png&#39;:&quot;--mozjpeg&quot;</code>即可实现将 png 图片压缩为 jpg 图片。</p>
@@ -43,16 +43,14 @@
 <p>万籁俱灰之际，我就自己在网页上玩，找到了一个 copy 指令的地方，拿到了网页默认压缩图片的配置。虽然是 npx 指令，我以敏锐的洞察力观察到后面的一大堆东西就是配置。</p>
 <p>拿到配置，我直接把它替换了 <code>--auto</code> ，不妙，运行错误。</p>
 <p>命令行的 README.md 中，给出指令形式为 <code>--mozjpeg [config]</code>，起初我以为方括号<code>[]</code>为占位符，直接把整个替换了。</p>
-<div class="note info">
-            <p>马克思主义基本原理说的没错，人的意识具有创造性。 </p>
-          </div>
+<div class="note info"><p>马克思主义基本原理说的没错，人的意识具有创造性。 </p>
+</div>
 
 <p>我保留了方括号，内部填入配置，运行成功！</p>
 <p>所以现在的配置和直接把图片拖到网页的处理效果相同。</p>
 <p>这里面的每个坑，我都以为是死胡同，但人的主观能动性是很强的，无法解释我怎么就突然想到了解决办法，可我就是想出来了解决办法，但凡有一步想不出来，整个工程就挂了。</p>
-<div class="note danger">
-            <p>绝望之处，寻找希望。 </p>
-          </div>]]></content>
+<div class="note danger"><p>绝望之处，寻找希望。 </p>
+</div>]]></content>
   </entry>
   <entry>
     <title>四种各具特色的纸飞机折法</title>
@@ -284,18 +282,17 @@
 <span id="more"></span>
 
 <h1 id="0-前情提要"><a href="#0-前情提要" class="headerlink" title="0.前情提要"></a>0.前情提要</h1><blockquote class="blockquote-center">
-            <p>起初，没有人在意这场灾难，这不过是一场山火，一场旱灾，一个物种的灭绝，一座城市的消失<br>直到这场灾难与每个人息息相关。</p>
+<p>起初，没有人在意这场灾难，这不过是一场山火，一场旱灾，一个物种的灭绝，一座城市的消失<br>直到这场灾难与每个人息息相关。</p>
 
-          </blockquote>
+</blockquote>
 
 <p>2021.12.27，记得那是一个寒冷的下午，疫情初露锋芒，每两天要做一次核酸，那天也是要做核酸的。</p>
 <p>我那天原本是有场英语考试的，考试前两天进行了认真系统的复习，终于，在考试的前一天下午考试推迟了。同学们大多是开心的，据说，通知下来的十分钟里，图书馆的人走了一大半。我只觉得离谱，虽然自己也没背什么，复习的总会一点点忘却，夜长梦多，我只想考试早点结束。</p>
 <p>没有了考试，大家纷纷喊着“开摆”“上号”。吐槽了许久，发觉考试虽然推迟，复习还得继续，这波叫秋后问斩。</p>
 <p>没有了考试，有了更多的休闲时间。那天，好友邀我去打乒乓球，打的很尽兴。期间，他说这可能是这学期最后一次出来打球了。我笑了笑，说不至于吧。</p>
 <p>打完球做完核酸，途径大超（注：大学生超市），想着买点东西，远远的就看到一条队伍长龙，得，东西是买不成了。差一个小时到饭点，纠结于直接吃饭还是再玩儿会儿。猛地听到有过路的同学说要封宿舍了，心里咯噔一下，看了看自己的通知群，还没发，在原地踌躇了一会儿，通知下来了</p>
-<div class="note danger">
-            <p>封宿舍了。 </p>
-          </div>
+<div class="note danger"><p>封宿舍了。 </p>
+</div>
 
 <h1 id="1-开端"><a href="#1-开端" class="headerlink" title="1.开端"></a>1.开端</h1><p>我们不用选择了，我们没有选择了。</p>
 <p>收到通知，下一步直接从不确定状态塌陷为确定状态，回宿舍。我们相互道别，再见，明年再见。</p>
@@ -306,28 +303,23 @@
 <p>我是比较幸运的，第一批拿到的饭。然而我也开心不起来，我最担心的也来了，从听到有封宿舍的消息就开始担心，家在北方，晚饭基本不吃米饭，天天米饭，胃要遭殃了。（此处禁止地域对立，大家相互理解）</p>
 <p>好在第二天开始，学校确实解决了有没有的问题。</p>
 <p>每天就是，睡觉，吃饭，做核酸。</p>
-<div class="note warning">
-            <p>我们没有选择。 </p>
-          </div>
+<div class="note warning"><p>我们没有选择。 </p>
+</div>
 
 <p>“今天的饭好凉啊。今天的包子怎么是辣的，吃不了辣怎么办。这什么呀，吃不惯。今天的菜怎么这么难吃。我不喜欢吃这个菜怎么全是这个菜。怎么别的宿舍楼饭那么好我们这里这么差。怎么饭这么少不够吃。怎么刚吃完早饭就来午饭了。怎么这都几点了还不来饭。怎么我刚开一把游戏就来饭了。我不敢玩游戏等着饭来怎么还不来。”</p>
-<div class="note warning">
-            <p>我们没有选择。 </p>
-          </div>
+<div class="note warning"><p>我们没有选择。 </p>
+</div>
 
 <p>“我们做核酸为什么非要集中走。我们回来的时候为什么要绕远路。那么远为什么不让我们骑车去。好远啊能不能在宿舍附近做核酸。怎么刚吃完饭就让我们去做核酸。饭刚来还没吃呢就走了。怎么这么早就要去做核酸。怎么那么晚才让我们做核酸。怎么说好的九点一直不走。怎么你八点二十才通知八点半就要去。怎么你说错峰核酸了还要排这么长的队。”</p>
-<div class="note warning">
-            <p>我们没有选择。 </p>
-          </div>
+<div class="note warning"><p>我们没有选择。 </p>
+</div>
 
 <p>刚开始的时候两天一次核酸，后面一天一次核酸。偶尔一次可能没事，做多了以后，喉咙真的会变的很敏感。导员跟我们开线上会议的时候就一直咳嗽，他特意解释是因为做了很多次核酸以后嗓子真是很敏感。深有同感，有时候有的医生检测时候棉签会伸很深还会很大力左右晃（当然很多大部分医生还是很温柔的），做完的一段时间里，正常的呼吸都会触发它，很痒，止不住的咳。</p>
-<div class="note warning">
-            <p>我们没有选择。 </p>
-          </div>
+<div class="note warning"><p>我们没有选择。 </p>
+</div>
 
-<h1 id="2-发展"><a href="#2-发展" class="headerlink" title="2.发展"></a>2.发展</h1><div class="note primary">
-            <p>我们其实有的选。 </p>
-          </div>
+<h1 id="2-发展"><a href="#2-发展" class="headerlink" title="2.发展"></a>2.发展</h1><div class="note primary"><p>我们其实有的选。 </p>
+</div>
 
 <p>我们可以选择去当志愿者。帮助组织核酸检测工作，帮助送餐。有一分热，便发一分光。</p>
 <p>至少，我们可以选择去配合，去尊重，去感恩。工作刚开始难免有不足的地方，但只要有一个我们都去遵守的规定，那它起码还是有序的。事后可以合理的提出建议。我们可以选择在志愿者送饭的时候，在食堂阿姨打饭的时候，说声谢谢。</p>
@@ -344,14 +336,12 @@
 <p>平时天天吃宿舍附近这个食堂，嘴上都说吃腻了，天天到饭点不知道吃什么。经过了十天的分配制度，现在选择权重新回到了自己手上。</p>
 <p>经历过黑暗后，发觉平常就是幸福。我们习以为常的一切被夺走以后，才发现，那些我们早已习惯的已经是最幸福的了。放学的途中看看夕阳，没课的上午去打个乒乓球，不想复习的晚上去跑步打卡，和好朋友站在食堂的窗口前说“吃什么”“随便”。这些都会慢慢回来的。</p>
 <p>这次疫情的亲身经历提醒我，多珍惜自己已经拥有的。</p>
-<div class="note info">
-            <p>日常就是幸福。 </p>
-          </div>
+<div class="note info"><p>日常就是幸福。 </p>
+</div>
 
 <h1 id="4-结局"><a href="#4-结局" class="headerlink" title="4.结局"></a>4.结局</h1><p>我希望是，</p>
-<div class="note success">
-            <p>世界健康 </p>
-          </div>]]></content>
+<div class="note success"><p>世界健康 </p>
+</div>]]></content>
   </entry>
   <entry>
     <title>我把环境变量Path搞没了</title>
