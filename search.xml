@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Next主题升级</title>
+    <url>/posts/40193/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="修改文章内链接文本样式"><a href="#修改文章内链接文本样式" class="headerlink" title="修改文章内链接文本样式"></a>修改文章内链接文本样式</h2><p>参考文章：<a href="https://www.jianshu.com/p/3a05351a37dc">Hexo的Next主题详细配置 - 简书 (jianshu.com)</a> 第12点</p>
+<p>Next主题自带的链接文本只有下划线，看起来很不明显，主题配置文件中也没有提供可供更改的配置项，只能通过更改 css 文件来实现，这种是升级主题过程中最麻烦的一种。</p>
+<p>找了很多文章，都让改 <code>./themes/source/css/_custom/custom.styl</code> ，但是我根本没找到 <code>_custom</code> 这个文件夹，用了参考文章的办法做出来了。</p>
+<p>打开文件 <code>themes/next/source/css/_common/components/post/post-body.styl</code>，在末尾添加</p>
+<figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.post-body</span> <span class="selector-tag">p</span> <span class="selector-tag">a</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#0593d3</span>;</span><br><span class="line">  <span class="attribute">border-bottom</span>: none;</span><br><span class="line">  <span class="attribute">border-bottom</span>: <span class="number">1px</span> solid <span class="number">#0593d3</span>;</span><br><span class="line">  <span class="selector-pseudo">&amp;:hover</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: <span class="number">#fc6423</span>;</span><br><span class="line">    <span class="attribute">border-bottom</span>: none;</span><br><span class="line">    <span class="attribute">border-bottom</span>: <span class="number">1px</span> solid <span class="number">#fc6423</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这里的末尾是真真正正的末尾，我还自作聪明在那个最大的花括号里面加的，但是不行。拉到文件最最后什么的也没有的地方粘贴以上代码。</p>
+]]></content>
+  </entry>
+  <entry>
     <title>Python加Squoosh批量压缩图片</title>
     <url>/posts/39501/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>十几行的 Python 调用命令行，利用 Squoosh 实现本地批量压缩图片，内含源码与使用教程。</p>
