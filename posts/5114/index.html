@@ -22,29 +22,30 @@
   <script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"guohuan78.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.9.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
-<meta name="description" content="安装 JAVA 要配置环境变量，跟着教程新建了 path 变量，结果原本的 Path 变量没了。。。">
+<meta name="description" content="动机用 WPS 下载模版的时候，WPS 会把 PPT 外面套一个文件夹的壳，如下图：   可能是为了防止 PPT 名字一样而覆盖？不清楚为什么，但是很影响使用，下载的多了的话还要手动一个一个拖出来。 重复机械的工作不应该由人类去干，于是就想着用 Python 写一个自动化脚本来帮助去掉文件夹的壳，一劳永逸。 源码123456789101112131415161718192021222324impo">
 <meta property="og:type" content="article">
-<meta property="og:title" content="我把环境变量Path搞没了">
-<meta property="og:url" content="https://guohuan78.github.io/posts/55469/index.html">
+<meta property="og:title" content="python解放文件夹脚本">
+<meta property="og:url" content="https://guohuan78.github.io/posts/5114/index.html">
 <meta property="og:site_name" content="睆 | 个人博客">
-<meta property="og:description" content="安装 JAVA 要配置环境变量，跟着教程新建了 path 变量，结果原本的 Path 变量没了。。。">
+<meta property="og:description" content="动机用 WPS 下载模版的时候，WPS 会把 PPT 外面套一个文件夹的壳，如下图：   可能是为了防止 PPT 名字一样而覆盖？不清楚为什么，但是很影响使用，下载的多了的话还要手动一个一个拖出来。 重复机械的工作不应该由人类去干，于是就想着用 Python 写一个自动化脚本来帮助去掉文件夹的壳，一劳永逸。 源码123456789101112131415161718192021222324impo">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://guohuan78.github.io/posts/55469/%E7%BD%91%E4%B8%8A%E6%95%99%E7%A8%8B%E6%88%AA%E5%9B%BE.png">
-<meta property="article:published_time" content="2022-01-06T01:07:16.000Z">
-<meta property="article:modified_time" content="2022-01-06T01:07:16.000Z">
+<meta property="og:image" content="https://guohuan78.github.io/posts/undefined/WPS%E6%B7%BB%E5%8A%A0%E7%9A%84%E6%96%87%E4%BB%B6%E5%A4%B9.jpg">
+<meta property="og:image" content="https://guohuan78.github.io/posts/undefined/%E5%A4%84%E7%90%86%E6%95%88%E6%9E%9C.jpg">
+<meta property="article:published_time" content="2022-03-11T14:00:03.000Z">
+<meta property="article:modified_time" content="2022-03-11T14:00:03.000Z">
 <meta property="article:author" content="睆">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://guohuan78.github.io/posts/55469/%E7%BD%91%E4%B8%8A%E6%95%99%E7%A8%8B%E6%88%AA%E5%9B%BE.png">
+<meta name="twitter:image" content="https://guohuan78.github.io/posts/undefined/WPS%E6%B7%BB%E5%8A%A0%E7%9A%84%E6%96%87%E4%BB%B6%E5%A4%B9.jpg">
 
 
-<link rel="canonical" href="https://guohuan78.github.io/posts/55469/">
+<link rel="canonical" href="https://guohuan78.github.io/posts/5114/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://guohuan78.github.io/posts/55469/","path":"posts/55469/","title":"我把环境变量Path搞没了"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://guohuan78.github.io/posts/5114/","path":"posts/5114/","title":"python解放文件夹脚本"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>我把环境变量Path搞没了 | 睆 | 个人博客</title>
+<title>python解放文件夹脚本 | 睆 | 个人博客</title>
   
 
   <script src="/js/third-party/analytics/baidu-analytics.js"></script>
@@ -153,7 +154,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-%E7%8A%AF%E7%BD%AA%E8%AE%B0%E5%BD%95"><span class="nav-text">1.犯罪记录</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95"><span class="nav-text">2.解决办法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-%E6%80%BB%E7%BB%93"><span class="nav-text">3.总结</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-%E6%8B%93%E5%B1%95"><span class="nav-text">4.拓展</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8A%A8%E6%9C%BA"><span class="nav-text">动机</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%BA%90%E7%A0%81"><span class="nav-text">源码</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%88%E6%9E%9C"><span class="nav-text">效果</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%8B%93%E5%B1%95"><span class="nav-text">拓展</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -213,7 +214,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://guohuan78.github.io/posts/55469/">
+    <link itemprop="mainEntityOfPage" href="https://guohuan78.github.io/posts/5114/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -226,7 +227,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          我把环境变量Path搞没了
+          python解放文件夹脚本
         </h1>
 
         <div class="post-meta-container">
@@ -237,7 +238,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2022-01-06 09:07:16" itemprop="dateCreated datePublished" datetime="2022-01-06T09:07:16+08:00">2022-01-06</time>
+      <time title="创建时间：2022-03-11 22:00:03" itemprop="dateCreated datePublished" datetime="2022-03-11T22:00:03+08:00">2022-03-11</time>
     </span>
 
   
@@ -256,8 +257,8 @@
     </span>
     <span class="post-meta-item-text">Waline：</span>
   
-    <a title="waline" href="/posts/55469/#waline-comments" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" id="/posts/55469/" data-xid="/posts/55469/" itemprop="commentCount"></span>
+    <a title="waline" href="/posts/5114/#waline-comments" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" id="/posts/5114/" data-xid="/posts/5114/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -268,7 +269,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>1.4k</span>
+      <span>1.3k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -286,33 +287,21 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>安装 JAVA 要配置环境变量，跟着教程新建了 path 变量，结果原本的 Path 变量没了。。。</p>
-<span id="more"></span>
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="动机"><a href="#动机" class="headerlink" title="动机"></a>动机</h1><p>用 WPS 下载模版的时候，WPS 会把 PPT 外面套一个文件夹的壳，如下图：</p>
+<img src="/posts/undefined/WPS%E6%B7%BB%E5%8A%A0%E7%9A%84%E6%96%87%E4%BB%B6%E5%A4%B9.jpg" class="" title="WPS添加的文件夹">
 
-<h1 id="1-犯罪记录"><a href="#1-犯罪记录" class="headerlink" title="1.犯罪记录"></a>1.犯罪记录</h1><p>大二下学期要学习 JAVA，还有四天开下一学期的线上课，我就寻思着自己先把 JAVA 装了，先学习着，还跟老师要了安装包。</p>
-<p>然后就自己上网搜安装教程，看到了要配置环境变量，这我熟啊。Matlab，Python 等等我都配置过环境变量，看到下图的时候我已经心生疑惑了</p>
-<img src="/posts/55469/%E7%BD%91%E4%B8%8A%E6%95%99%E7%A8%8B%E6%88%AA%E5%9B%BE.png" class="" title="这是网上安装教程的截图">
+<p>可能是为了防止 PPT 名字一样而覆盖？不清楚为什么，但是很影响使用，下载的多了的话还要手动一个一个拖出来。</p>
+<p>重复机械的工作不应该由人类去干，于是就想着用 Python 写一个自动化脚本来帮助去掉文件夹的壳，一劳永逸。</p>
+<h1 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> shutil</span><br><span class="line">src_folder = <span class="string">r&#x27;D:\3下载\WPS下载模板\下载&#x27;</span>+<span class="string">&#x27;\\&#x27;</span></span><br><span class="line">des_folder = <span class="string">r&#x27;D:\3下载\WPS下载模板\科技风&#x27;</span>+<span class="string">&#x27;\\&#x27;</span></span><br><span class="line"><span class="comment">#直接粘贴地址栏复制好的src和des分别替换前一个引号里面的</span></span><br><span class="line">folders = os.listdir(src_folder)<span class="comment">#读取src下的文件及文件夹</span></span><br><span class="line"><span class="keyword">if</span> <span class="keyword">not</span> os.path.exists(des_folder):<span class="comment">#不存在目标路径就创建</span></span><br><span class="line">    os.makedirs(des_folder)</span><br><span class="line">des_folders =os.listdir(des_folder)<span class="comment">#读取des下文件及文件夹</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> folders:<span class="comment">#遍历得到的文件及文件夹</span></span><br><span class="line">    <span class="keyword">if</span> os.path.isdir(src_folder + i):<span class="comment">#如果是文件夹，向下执行</span></span><br><span class="line">        files = os.listdir(src_folder + i)<span class="comment">#读取子文件夹下的所有文件及文件夹</span></span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">len</span>(files) == <span class="number">0</span>:<span class="comment">#空文件夹直接删除</span></span><br><span class="line">            os.rmdir(src_folder + i)</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> files:<span class="comment">#遍历子文件夹下所有文件</span></span><br><span class="line">            <span class="keyword">if</span> j <span class="keyword">in</span> des_folders:<span class="comment">#若与目标路径文件夹中内容有同名不予操作，并输出路径</span></span><br><span class="line">                <span class="built_in">print</span>(<span class="string">&quot;有同名文件:&quot;</span> + src_folder + i + <span class="string">&#x27;\\&#x27;</span> + j)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                src_path = src_folder + i + <span class="string">&#x27;\\&#x27;</span> + j<span class="comment">#得到子文件夹下的内容路径</span></span><br><span class="line">                <span class="keyword">if</span> os.path.isfile(src_path):<span class="comment">#如果是文件，准备移动</span></span><br><span class="line">                    shutil.move(src_path,des_folder)<span class="comment">#移动</span></span><br><span class="line">                    des_folders = os.listdir(des_folder)<span class="comment">#更新des_folders内容</span></span><br><span class="line">                    <span class="keyword">if</span> <span class="built_in">len</span>(os.listdir(src_folder + i)) == <span class="number">0</span>:<span class="comment">#移动后再次检查文件夹是否为空，是则删除</span></span><br><span class="line">                        os.rmdir(src_folder + i)</span><br></pre></td></tr></table></figure>
 
-<p>“直接新建path变量会不会把我原来的覆盖掉啊。。。”</p>
-<p>我每一步都走的小心翼翼，我先打开命令输入 javac，看看不配置行不行，结果是不行。</p>
-<p>我又像我原来配置 Python 环境变量那样，在原系统环境变量 Path 下新建了一个项，再测试 javac，但还是不行。</p>
-<p>细心如我，发现了已有的名字叫 <strong>P</strong>ath，新建的变量叫 <strong>p</strong>ath。根据我一年半的编程经验，大小写敏感已经刻在了我的基因里，所以我觉得没事，就直接新建了。</p>
-<p>但是万万没想到，这样输入 javac 也不行，突然意识到，每次更改环境变量后要重启 cmd 窗口，大意了。</p>
-<p>但是至此我还是不慌的，根据我上面大小写敏感的推断，这也不影响什么。于是我开开心心的去找 JAVA 教程去了，直到。。。</p>
-<p>临睡觉前，我想把我那天写的文章推上去，运行 hexo 提示 node 不是命令。哇的发？我这个时候已经意识到问题开始严重了，配置 JAVA 的环境把 node 的环境搞坏了，又好气又好笑。</p>
-<p>然而我意识的没有那么深刻，事情的严重性远远超乎我想象，但那个时候我只想睡觉，每天十一点上床是必须的。直接关了电脑去洗漱了。然而我体内的编程之魂在召唤我，心里痒痒的，总想现在就看看是什么情况，不然睡不好觉。</p>
-<p>还是没忍住，又打开了电脑。再试了一下，发现还是提示 node 不是命令，根据我一年半编程经验的直觉，这肯定是环境变量的问题，我再把它的路径加进去应该就找到了。</p>
-<p>熟练的打开环境变量配置，找了半天，发现 </p>
-<p><strong>没 有 Path 了</strong></p>
-<p>只剩下一个 path 安静的躺在那里，我的内心也只剩下凌乱，慌的一批。</p>
-<h1 id="2-解决办法"><a href="#2-解决办法" class="headerlink" title="2.解决办法"></a>2.解决办法</h1><p>我马上搜一下环境变量 Path 没了怎么办，emmm，没发现什么有用的。</p>
-<p>有一个提供了系统初始的几个常见 Path，我直接新建了 Path 变量，把它加入进去了。</p>
-<p>灵机一动，我想到我有一个好习惯，原来配置环境变量的时候 Path 会往用户里面的 Path 和系统里面的 Path 都加上。于是我把用户里面的 Path 复制了一下到系统的 Path 里。</p>
-<p>然而运行 hexo 还是报找不到 node 命令，这时候再配合 Everything 这个软件，找到 node.exe，把它所在目录添加到环境变量里，再次运行 hexo，大功告成。</p>
-<p>检查了一下，上面创建的 JAVA 的 path 路径又没了，这时候把那个路径添加到 Path 的子项里面，<strong>重启cmd</strong>，运行 javac，成功。</p>
-<h1 id="3-总结"><a href="#3-总结" class="headerlink" title="3.总结"></a>3.总结</h1><p>1.配置完环境变量后要重启 cmd 窗口再测试环境是否装好<br>2.设置环境变量名的时候，它的名字是大小写不敏感的，会直接覆盖<br>3.留下了一个巨大的后患，以后可能会出现乱七八糟的找不到命令类似的报错，要自己找路径加进去了</p>
-<h1 id="4-拓展"><a href="#4-拓展" class="headerlink" title="4.拓展"></a>4.拓展</h1><p>其实文件夹名字也是大小写不敏感的，创建一个 JAVA 的文件夹和 java 的文件夹，它会提示重复。我竟然刚刚知道，震惊我一百年。</p>
-<p>在我的理解里，Path的作用其实是给系统一个路径，你要在 cmd 中运行一个命令，本质上就像打开一个 .exe 文件，比如运行 javac，系统要知道 javac.exe 在哪儿。我系统找不到 node 这个命令，那我就搜索一下 node.exe 在哪儿，（可能会有好几个，看路径决定是哪一个），把它的路径加入到 Path 里面就好了。</p>
+<h1 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h1><img src="/posts/undefined/%E5%A4%84%E7%90%86%E6%95%88%E6%9E%9C.jpg" class="" title="处理效果">
+
+<p>PPT 被从原路径输出到目标路径，没有了文件夹，可以选择 <code>src_folder</code> 和 <code>des_folder</code> 相同，原地输出。</p>
+<p>若碰到同名的文件，会输出提示信息，并打印出来同名文件的路径，可以自行处理。</p>
+<p>移动过后剩下的空文件夹会被删除。</p>
+<h1 id="拓展"><a href="#拓展" class="headerlink" title="拓展"></a>拓展</h1><p>其实上述代码完全符合在我最初场景的期望，所以可以到此为止了。</p>
+<p>可以改进的地方，同名以后直接加后缀再移动，不过考虑到重名的几率很小，基本不会重名，或者重名的文件也不会太多，就留下自行处理吧。</p>
+<p>此代码只移动一级目录，文件夹里套文件夹会被忽略。自己目前也没有遇到这种需求，故没有加入这个功能。或许遇到了再实现吧。</p>
 
     </div>
 
@@ -340,14 +329,11 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/posts/8001/" rel="prev" title="建站第六天的反思">
-                  <i class="fa fa-chevron-left"></i> 建站第六天的反思
+                <a href="/posts/40193/" rel="prev" title="评论区改版">
+                  <i class="fa fa-chevron-left"></i> 评论区改版
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/posts/48849/" rel="next" title="疫情封宿舍第十一天有感">
-                  疫情封宿舍第十一天有感 <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>
@@ -430,7 +416,7 @@
 
 
 
-<script class="next-config" data-name="waline" type="application/json">{"lang":"zh-cn","enable":true,"serverURL":"blog-api-guohuan78.vercel.app","placeholder":"请文明评论呀","avatar":"mm","pageSize":10,"visitor":false,"comment_count":true,"requiredFields":[],"meta":["nick","mail","link"],"libUrl":"https://cdn.jsdelivr.net/npm/@waline/client/dist/Waline.min.js","dark":"body.darkmode--activated","el":"#waline-comments","path":"/posts/55469/"}</script>
+<script class="next-config" data-name="waline" type="application/json">{"lang":"zh-cn","enable":true,"serverURL":"blog-api-guohuan78.vercel.app","placeholder":"请文明评论呀","avatar":"mm","pageSize":10,"visitor":false,"comment_count":true,"requiredFields":[],"meta":["nick","mail","link"],"libUrl":"https://cdn.jsdelivr.net/npm/@waline/client/dist/Waline.min.js","dark":"body.darkmode--activated","el":"#waline-comments","path":"/posts/5114/"}</script>
 <script>
 document.addEventListener('page:loaded', () => {
   NexT.utils.loadComments(CONFIG.waline.el).then(() => 

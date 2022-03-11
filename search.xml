@@ -1,9 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Next主题升级</title>
+    <title>python解放文件夹脚本</title>
+    <url>/posts/5114/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="动机"><a href="#动机" class="headerlink" title="动机"></a>动机</h1><p>用 WPS 下载模版的时候，WPS 会把 PPT 外面套一个文件夹的壳，如下图：</p>
+<img src="/posts/undefined/WPS%E6%B7%BB%E5%8A%A0%E7%9A%84%E6%96%87%E4%BB%B6%E5%A4%B9.jpg" class="" title="WPS添加的文件夹">
+
+<p>可能是为了防止 PPT 名字一样而覆盖？不清楚为什么，但是很影响使用，下载的多了的话还要手动一个一个拖出来。</p>
+<p>重复机械的工作不应该由人类去干，于是就想着用 Python 写一个自动化脚本来帮助去掉文件夹的壳，一劳永逸。</p>
+<h1 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h1><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> shutil</span><br><span class="line">src_folder = <span class="string">r&#x27;D:\3下载\WPS下载模板\下载&#x27;</span>+<span class="string">&#x27;\\&#x27;</span></span><br><span class="line">des_folder = <span class="string">r&#x27;D:\3下载\WPS下载模板\科技风&#x27;</span>+<span class="string">&#x27;\\&#x27;</span></span><br><span class="line"><span class="comment">#直接粘贴地址栏复制好的src和des分别替换前一个引号里面的</span></span><br><span class="line">folders = os.listdir(src_folder)<span class="comment">#读取src下的文件及文件夹</span></span><br><span class="line"><span class="keyword">if</span> <span class="keyword">not</span> os.path.exists(des_folder):<span class="comment">#不存在目标路径就创建</span></span><br><span class="line">    os.makedirs(des_folder)</span><br><span class="line">des_folders =os.listdir(des_folder)<span class="comment">#读取des下文件及文件夹</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> folders:<span class="comment">#遍历得到的文件及文件夹</span></span><br><span class="line">    <span class="keyword">if</span> os.path.isdir(src_folder + i):<span class="comment">#如果是文件夹，向下执行</span></span><br><span class="line">        files = os.listdir(src_folder + i)<span class="comment">#读取子文件夹下的所有文件及文件夹</span></span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">len</span>(files) == <span class="number">0</span>:<span class="comment">#空文件夹直接删除</span></span><br><span class="line">            os.rmdir(src_folder + i)</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> files:<span class="comment">#遍历子文件夹下所有文件</span></span><br><span class="line">            <span class="keyword">if</span> j <span class="keyword">in</span> des_folders:<span class="comment">#若与目标路径文件夹中内容有同名不予操作，并输出路径</span></span><br><span class="line">                <span class="built_in">print</span>(<span class="string">&quot;有同名文件:&quot;</span> + src_folder + i + <span class="string">&#x27;\\&#x27;</span> + j)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                src_path = src_folder + i + <span class="string">&#x27;\\&#x27;</span> + j<span class="comment">#得到子文件夹下的内容路径</span></span><br><span class="line">                <span class="keyword">if</span> os.path.isfile(src_path):<span class="comment">#如果是文件，准备移动</span></span><br><span class="line">                    shutil.move(src_path,des_folder)<span class="comment">#移动</span></span><br><span class="line">                    des_folders = os.listdir(des_folder)<span class="comment">#更新des_folders内容</span></span><br><span class="line">                    <span class="keyword">if</span> <span class="built_in">len</span>(os.listdir(src_folder + i)) == <span class="number">0</span>:<span class="comment">#移动后再次检查文件夹是否为空，是则删除</span></span><br><span class="line">                        os.rmdir(src_folder + i)</span><br></pre></td></tr></table></figure>
+
+<h1 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h1><img src="/posts/undefined/%E5%A4%84%E7%90%86%E6%95%88%E6%9E%9C.jpg" class="" title="处理效果">
+
+<p>PPT 被从原路径输出到目标路径，没有了文件夹，可以选择 <code>src_folder</code> 和 <code>des_folder</code> 相同，原地输出。</p>
+<p>若碰到同名的文件，会输出提示信息，并打印出来同名文件的路径，可以自行处理。</p>
+<p>移动过后剩下的空文件夹会被删除。</p>
+<h1 id="拓展"><a href="#拓展" class="headerlink" title="拓展"></a>拓展</h1><p>其实上述代码完全符合在我最初场景的期望，所以可以到此为止了。</p>
+<p>可以改进的地方，同名以后直接加后缀再移动，不过考虑到重名的几率很小，基本不会重名，或者重名的文件也不会太多，就留下自行处理吧。</p>
+<p>此代码只移动一级目录，文件夹里套文件夹会被忽略。自己目前也没有遇到这种需求，故没有加入这个功能。或许遇到了再实现吧。</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>评论区改版</title>
     <url>/posts/40193/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="修改文章内链接文本样式"><a href="#修改文章内链接文本样式" class="headerlink" title="修改文章内链接文本样式"></a>修改文章内链接文本样式</h2><p>参考文章：<a href="https://www.jianshu.com/p/3a05351a37dc">Hexo的Next主题详细配置 - 简书 (jianshu.com)</a> 第12点</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h3 id="原评论区用-Livere"><a href="#原评论区用-Livere" class="headerlink" title="原评论区用 Livere"></a>原评论区用 Livere</h3><p>初步调研选定 Livere 和 gittalk，考虑到很多浏览的小伙伴都没有 Github 账号，又因为</p>
+<p>我大天朝无奇不有，Github 处于半墙状态，不好弄</p>
+<p>而 Livere 支持 QQ，微信等第三方登陆，降低大众评论门槛，<del>然而还是没有一个人评论</del>。</p>
+<p>最终选定 Livere ，这个评论系统好在配置简单，主题直接集成，缺点嘛就是由于是韩国公司提供的，而且只有刷到文章最下面才会加载，Livere 的评论系统加载有一丢丢慢，不过也不是不能用。</p>
+<p>可就在今天，我竟然在 Livere 的评论区下看到了很大一栏的广告，还是韩文的。搜了一下了解到它确实和广告公司合作在评论区插广告了。</p>
+<p>重度强迫症患者不会允许自己的网站有别人家的广告，不能惯着，直接把评论区关了。</p>
+<p>还把自己的 Livere 账户冻结了，下一步企图删除账户（<del>反正也没有一条评论</del>），很气人的不知道为什么到了最后一步点击确定删除，一直点都没反应，一点取消就取消了，我不知道是它的问题还是我的问题，如果它故意这样，那就真气人。</p>
+<p>想着评论区要不就直接关了吧，再三强调，访客次数到一千了也没有一条评论，确实没有存在的必要。</p>
+<p>又想着不忘初心，自己本来也就没打算怎样，都是出于兴趣，自己爱折腾，就继续折腾一下，找别的评论系统。</p>
+<h3 id="从-Valine-到-Waline"><a href="#从-Valine-到-Waline" class="headerlink" title="从 Valine 到 Waline"></a>从 Valine 到 Waline</h3><p>又进一步发掘，找到了 Valine 这个评论系统，也经常在别人博客中看见，无需登陆，可以留下自己的信息，进一步降低评论门槛，留下邮箱还有评论回复提醒，功能挺符合我想要的呢。</p>
+<p>动手干了以后，第一遍不行，评论区的框是有了，可是写完提交没反应，数据库里也没有记录。又找了个教程，一步一步跟着做了一遍，还是不行。搜为什么 Valine 提交没反应，按着几个解决方案来了一遍，就是不行。真能折腾啊。</p>
+<p>更让我没想到的是，要折腾的更在后面。</p>
+<p>一篇文章说，Valine 停止对高版本 Next 主题的支持，所以想用 Valine 建议回退到 5.x 的 Next 版本，让我退步是不可能的。它还说现在有一个更好的 Waline，听名字就是 Valine 的兄弟，说是等于 Valine + 后端，咱也不懂，就说这个比 Valine 更难部署一点，但是更加安全，于是就继续折腾。</p>
+<p>还说使用这个 Next 主题最好要更到 8.x ，我的是 7.x ，看它升级一次主题好麻烦呀，配置文件要重新搞，还有原来功能就没了，兼容问题也要考虑。纠结了老大一会儿，试着搞了一下，还真给搞坏了。幸好我改之前备份了一下，立马式的换回来了。想着要不就算了。。。</p>
+<p>但咱就是爱折腾</p>
+<p>就是为了这个评论区才升级了 Next 主题</p>
+<p>整个主题都变了，又从头修改了一下 Next 主题 config.yml 的配置，第二遍弄就是不一样，大概一个晚上就基本配置完成了。</p>
+<p>最令人头疼的是那种改了 css 文件的更改项，比如下面这个修改文章内链接文本样式。这种需要直接改网页生成文件，而 Next 主题变了以后这些文件又变成初始那样了，还有可能跟原版文件结构不同。</p>
+<h3 id="修改文章内链接文本样式"><a href="#修改文章内链接文本样式" class="headerlink" title="修改文章内链接文本样式"></a>修改文章内链接文本样式</h3><p>参考文章：<a href="https://www.jianshu.com/p/3a05351a37dc">Hexo的Next主题详细配置 - 简书 (jianshu.com)</a> 第12点</p>
 <p>Next主题自带的链接文本只有下划线，看起来很不明显，主题配置文件中也没有提供可供更改的配置项，只能通过更改 css 文件来实现，这种是升级主题过程中最麻烦的一种。</p>
 <p>找了很多文章，都让改 <code>./themes/source/css/_custom/custom.styl</code> ，但是我根本没找到 <code>_custom</code> 这个文件夹，用了参考文章的办法做出来了。</p>
 <p>打开文件 <code>themes/next/source/css/_common/components/post/post-body.styl</code>，在末尾添加</p>
