@@ -255,7 +255,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>1.3k</span>
+      <span>1.4k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -273,22 +273,10 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="动机"><a href="#动机" class="headerlink" title="动机"></a>动机</h1><p>用 WPS 下载模版的时候，WPS 会把 PPT 外面套一个文件夹的壳，如下图：</p>
-<img src="/posts/undefined/WPS%E6%B7%BB%E5%8A%A0%E7%9A%84%E6%96%87%E4%BB%B6%E5%A4%B9.jpg" class="" title="WPS添加的文件夹">
-
-<p>可能是为了防止 PPT 名字一样而覆盖？不清楚为什么，但是很影响使用，下载的多了的话还要手动一个一个拖出来。</p>
-<p>重复机械的工作不应该由人类去干，于是就想着用 Python 写一个自动化脚本来帮助去掉文件夹的壳，一劳永逸。</p>
-<h1 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> shutil</span><br><span class="line">src_folder = <span class="string">r&#x27;D:\3下载\WPS下载模板\下载&#x27;</span>+<span class="string">&#x27;\\&#x27;</span></span><br><span class="line">des_folder = <span class="string">r&#x27;D:\3下载\WPS下载模板\科技风&#x27;</span>+<span class="string">&#x27;\\&#x27;</span></span><br><span class="line"><span class="comment">#直接粘贴地址栏复制好的src和des分别替换前一个引号里面的</span></span><br><span class="line">folders = os.listdir(src_folder)<span class="comment">#读取src下的文件及文件夹</span></span><br><span class="line"><span class="keyword">if</span> <span class="keyword">not</span> os.path.exists(des_folder):<span class="comment">#不存在目标路径就创建</span></span><br><span class="line">    os.makedirs(des_folder)</span><br><span class="line">des_folders =os.listdir(des_folder)<span class="comment">#读取des下文件及文件夹</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> folders:<span class="comment">#遍历得到的文件及文件夹</span></span><br><span class="line">    <span class="keyword">if</span> os.path.isdir(src_folder + i):<span class="comment">#如果是文件夹，向下执行</span></span><br><span class="line">        files = os.listdir(src_folder + i)<span class="comment">#读取子文件夹下的所有文件及文件夹</span></span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">len</span>(files) == <span class="number">0</span>:<span class="comment">#空文件夹直接删除</span></span><br><span class="line">            os.rmdir(src_folder + i)</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> files:<span class="comment">#遍历子文件夹下所有文件</span></span><br><span class="line">            <span class="keyword">if</span> j <span class="keyword">in</span> des_folders:<span class="comment">#若与目标路径文件夹中内容有同名不予操作，并输出路径</span></span><br><span class="line">                <span class="built_in">print</span>(<span class="string">&quot;有同名文件:&quot;</span> + src_folder + i + <span class="string">&#x27;\\&#x27;</span> + j)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                src_path = src_folder + i + <span class="string">&#x27;\\&#x27;</span> + j<span class="comment">#得到子文件夹下的内容路径</span></span><br><span class="line">                <span class="keyword">if</span> os.path.isfile(src_path):<span class="comment">#如果是文件，准备移动</span></span><br><span class="line">                    shutil.move(src_path,des_folder)<span class="comment">#移动</span></span><br><span class="line">                    des_folders = os.listdir(des_folder)<span class="comment">#更新des_folders内容</span></span><br><span class="line">                    <span class="keyword">if</span> <span class="built_in">len</span>(os.listdir(src_folder + i)) == <span class="number">0</span>:<span class="comment">#移动后再次检查文件夹是否为空，是则删除</span></span><br><span class="line">                        os.rmdir(src_folder + i)</span><br></pre></td></tr></table></figure>
-
-<h1 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h1><img src="/posts/undefined/%E5%A4%84%E7%90%86%E6%95%88%E6%9E%9C.jpg" class="" title="处理效果">
-
-<p>PPT 被从原路径输出到目标路径，没有了文件夹，可以选择 <code>src_folder</code> 和 <code>des_folder</code> 相同，原地输出。</p>
-<p>若碰到同名的文件，会输出提示信息，并打印出来同名文件的路径，可以自行处理。</p>
-<p>移动过后剩下的空文件夹会被删除。</p>
-<h1 id="拓展"><a href="#拓展" class="headerlink" title="拓展"></a>拓展</h1><p>其实上述代码完全符合在我最初场景的期望，所以可以到此为止了。</p>
-<p>可以改进的地方，同名以后直接加后缀再移动，不过考虑到重名的几率很小，基本不会重名，或者重名的文件也不会太多，就留下自行处理吧。</p>
-<p>此代码只移动一级目录，文件夹里套文件夹会被忽略。自己目前也没有遇到这种需求，故没有加入这个功能。或许遇到了再实现吧。</p>
-
+          <p>本文用 Python 实现了将文件夹中 一级子文件夹内的文件 批量自动化移动脚本，内涵源码。</p>
+          <!--noindex-->
+          <!--/noindex-->
+        
       
     </div>
 
