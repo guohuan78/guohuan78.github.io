@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>AI写作外挂开发随笔</title>
+    <url>/posts/2376/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css">]]></content>
+  </entry>
+  <entry>
     <title>python解放文件夹脚本</title>
     <url>/posts/5114/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>本文用 Python 实现了将文件夹中 一级子文件夹内的文件 批量自动化移动脚本，内涵源码。</p>
@@ -26,7 +31,10 @@
   <entry>
     <title>评论区改版</title>
     <url>/posts/40193/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h3 id="原评论区用-Livere"><a href="#原评论区用-Livere" class="headerlink" title="原评论区用 Livere"></a>原评论区用 Livere</h3><p>初步调研选定 Livere 和 gittalk，考虑到很多浏览的小伙伴都没有 Github 账号，又因为</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>从 Livere 到 Waline</p>
+<span id="more"></span>
+
+<h3 id="原评论区用-Livere"><a href="#原评论区用-Livere" class="headerlink" title="原评论区用 Livere"></a>原评论区用 Livere</h3><p>初步调研选定 Livere 和 gittalk，考虑到很多浏览的小伙伴都没有 Github 账号，又因为</p>
 <p>我大天朝无奇不有，Github 处于半墙状态，不好弄</p>
 <p>而 Livere 支持 QQ，微信等第三方登陆，降低大众评论门槛，<del>然而还是没有一个人评论</del>。</p>
 <p>最终选定 Livere ，这个评论系统好在配置简单，主题直接集成，缺点嘛就是由于是韩国公司提供的，而且只有刷到文章最下面才会加载，Livere 的评论系统加载有一丢丢慢，不过也不是不能用。</p>
