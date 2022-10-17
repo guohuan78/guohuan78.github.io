@@ -1,50 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>OS笔记</title>
-    <url>/posts/27249/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>计算机操作系统（双语）学习笔记，持续更新中……</p>
-<span id="more"></span>
-
-<h1 id="计算机操作系统（双语）学习笔记"><a href="#计算机操作系统（双语）学习笔记" class="headerlink" title="计算机操作系统（双语）学习笔记"></a>计算机操作系统（双语）学习笔记</h1><h2 id="绪论"><a href="#绪论" class="headerlink" title="绪论"></a>绪论</h2><h3 id="OS定义"><a href="#OS定义" class="headerlink" title="OS定义"></a>OS定义</h3><p>操作系统是<u>管理系统资源</u>、<u>控制程序执行</u>、<u>改善人机交互</u>，为其他软件系统提供支持的一种系统软件，是软件系统的核心。</p>
-<p>向上提供公共服务</p>
-<p>向下管理资源</p>
-<h3 id="functionalities-of-os"><a href="#functionalities-of-os" class="headerlink" title="functionalities of os"></a>functionalities of os</h3><ul>
-<li>process management</li>
-<li>memory management</li>
-<li>file management</li>
-<li>I&#x2F;O devices management</li>
-<li>user interface</li>
-</ul>
-<h3 id="characteristics-of-os"><a href="#characteristics-of-os" class="headerlink" title="characteristics of os"></a>characteristics of os</h3><ul>
-<li>concurrence</li>
-<li>sharing</li>
-<li>virtual</li>
-<li>asynchronism&#x2F;nondeterminacy</li>
-</ul>
-]]></content>
-  </entry>
-  <entry>
-    <title>习思想笔记</title>
-    <url>/posts/58646/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>习近平新时代中国特色社会主义思想概论学习笔记，持续更新中……</p>
-<span id="more"></span>
-
-
-<h1 id="习近平新时代中国特色社会主义思想概论学习笔记"><a href="#习近平新时代中国特色社会主义思想概论学习笔记" class="headerlink" title="习近平新时代中国特色社会主义思想概论学习笔记"></a>习近平新时代中国特色社会主义思想概论学习笔记</h1><h2 id="第十讲-加强以民生为重点的社会建设"><a href="#第十讲-加强以民生为重点的社会建设" class="headerlink" title="第十讲 加强以民生为重点的社会建设"></a>第十讲 加强以民生为重点的社会建设</h2><h3 id="马斯洛需求层次理论"><a href="#马斯洛需求层次理论" class="headerlink" title="马斯洛需求层次理论"></a>马斯洛需求层次理论</h3><ol>
-<li>生理需求</li>
-<li>安全需求</li>
-<li>情感和归属需求</li>
-<li>尊重需求</li>
-<li>自我实现</li>
-</ol>
-<h3 id="悠悠万事，民生为天"><a href="#悠悠万事，民生为天" class="headerlink" title="悠悠万事，民生为天"></a>悠悠万事，民生为天</h3><p>微观层面：关乎国民个人的生计与生活问题</p>
-<p>宏观层面：关乎社会秩序稳定与长治久安</p>
-<h4 id="民生是最大的政治"><a href="#民生是最大的政治" class="headerlink" title="民生是最大的政治"></a>民生是最大的政治</h4><p>民生连着民心，民心凝聚人心，民生稳，人心就稳，社会就稳</p>
-<p>抓民生也是抓发展，做好经济社会发展工作，民生是“指南针”。解决群众后顾之忧，增加社会消费预期。</p>
-<p>要全面把握民生和发展相互牵动，互为条件的关系，使民生改善和经济发展有效对接、良性循环、相得益彰。</p>
-<h4 id="人民美好生活需要日益增长"><a href="#人民美好生活需要日益增长" class="headerlink" title="人民美好生活需要日益增长"></a>人民美好生活需要日益增长</h4><p>在发展中保障民生</p>
-<h3 id="怎样增强人民获得感，幸福感，安全感"><a href="#怎样增强人民获得感，幸福感，安全感" class="headerlink" title="怎样增强人民获得感，幸福感，安全感"></a>怎样增强人民获得感，幸福感，安全感</h3><h4 id="抓住人民最关心最直接最现实的利益问题"><a href="#抓住人民最关心最直接最现实的利益问题" class="headerlink" title="抓住人民最关心最直接最现实的利益问题"></a>抓住人民最关心最直接最现实的利益问题</h4><h4 id="坚决打赢脱贫攻坚战"><a href="#坚决打赢脱贫攻坚战" class="headerlink" title="坚决打赢脱贫攻坚战"></a>坚决打赢脱贫攻坚战</h4><h4 id="抗疫斗争最大限度保护人民生命安全和身体健康"><a href="#抗疫斗争最大限度保护人民生命安全和身体健康" class="headerlink" title="抗疫斗争最大限度保护人民生命安全和身体健康"></a>抗疫斗争最大限度保护人民生命安全和身体健康</h4>]]></content>
+    <title>miniob比赛实录</title>
+    <url>/posts/4446/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css">]]></content>
   </entry>
   <entry>
     <title>AI写作外挂开发随笔</title>
