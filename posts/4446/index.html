@@ -22,10 +22,12 @@
   <script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"guohuan78.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.9.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<meta name="description" content="参加比赛 OceanBase 社区，初赛阶段基于 miniob，在此记录全过程。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="miniob比赛实录">
 <meta property="og:url" content="https://guohuan78.github.io/posts/4446/index.html">
 <meta property="og:site_name" content="睆 | 个人博客">
+<meta property="og:description" content="参加比赛 OceanBase 社区，初赛阶段基于 miniob，在此记录全过程。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-10-17T05:57:53.000Z">
 <meta property="article:modified_time" content="2022-10-17T05:57:53.000Z">
@@ -136,7 +138,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -149,6 +151,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87"><span class="nav-text">环境准备</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85docker%E5%B9%B6%E6%8B%89%E5%8F%96%E9%95%9C%E5%83%8F"><span class="nav-text">安装docker并拉取镜像</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -263,7 +266,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>0</span>
+      <span>586</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -281,7 +284,18 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css">
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>参加比赛 <a target="_blank" rel="noopener" href="https://open.oceanbase.com/competition/index#info">OceanBase 社区</a>，初赛阶段基于 miniob，在此记录全过程。</p>
+<span id="more"></span>
+
+<h1 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h1><h2 id="安装docker并拉取镜像"><a href="#安装docker并拉取镜像" class="headerlink" title="安装docker并拉取镜像"></a>安装docker并拉取镜像</h2><p>为了防止 c 盘爆红，创建软链接，将 docker 和 images 迁移到D盘。<a target="_blank" rel="noopener" href="https://blog.csdn.net/liangcsdn111/article/details/110236655">windows10 docker 安装在D盘_凉晓风的博客-CSDN博客_docker安装在d盘</a> 我这里在迁移images的时候使用的也是软链接的方法，路径为：<code>C:\Users\%username%\AppData\Local\Docker</code></p>
+<p>之后打开docker报错，参考 <a target="_blank" rel="noopener" href="https://blog.csdn.net/mythest/article/details/92999646">安装docker报错Hardware assisted virtualization and data execution protection must be enabled in the BIOS_松松哥、的博客-CSDN博客_virtualization and data execution protection enabl</a> ，解决了，其中需要多次重启才能生效。</p>
+<p>换源，docker设置里docker engine，最后添加</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;registry-mirrors&quot;</span>: [</span><br><span class="line">    <span class="string">&quot;https://9cpn8tt6.mirror.aliyuncs.com&quot;</span></span><br><span class="line">  ]</span><br></pre></td></tr></table></figure>
+
+<p>从<a target="_blank" rel="noopener" href="https://hub.docker.com/r/oceanbase/miniob">oceanbase&#x2F;miniob - Docker Image | Docker Hub</a>官方拉取，cmd执行</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull oceanbase/miniob:1.0.1</span><br></pre></td></tr></table></figure>
+
+
     </div>
 
     
@@ -351,7 +365,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">39 分钟</span>
+    <span title="站点阅读时长">40 分钟</span>
   </span>
 </div>
 <div class="busuanzi-count">

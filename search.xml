@@ -3,7 +3,18 @@
   <entry>
     <title>miniob比赛实录</title>
     <url>/posts/4446/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css">]]></content>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>参加比赛 <a href="https://open.oceanbase.com/competition/index#info">OceanBase 社区</a>，初赛阶段基于 miniob，在此记录全过程。</p>
+<span id="more"></span>
+
+<h1 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h1><h2 id="安装docker并拉取镜像"><a href="#安装docker并拉取镜像" class="headerlink" title="安装docker并拉取镜像"></a>安装docker并拉取镜像</h2><p>为了防止 c 盘爆红，创建软链接，将 docker 和 images 迁移到D盘。<a href="https://blog.csdn.net/liangcsdn111/article/details/110236655">windows10 docker 安装在D盘_凉晓风的博客-CSDN博客_docker安装在d盘</a> 我这里在迁移images的时候使用的也是软链接的方法，路径为：<code>C:\Users\%username%\AppData\Local\Docker</code></p>
+<p>之后打开docker报错，参考 <a href="https://blog.csdn.net/mythest/article/details/92999646">安装docker报错Hardware assisted virtualization and data execution protection must be enabled in the BIOS_松松哥、的博客-CSDN博客_virtualization and data execution protection enabl</a> ，解决了，其中需要多次重启才能生效。</p>
+<p>换源，docker设置里docker engine，最后添加</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="string">&quot;registry-mirrors&quot;</span>: [</span><br><span class="line">    <span class="string">&quot;https://9cpn8tt6.mirror.aliyuncs.com&quot;</span></span><br><span class="line">  ]</span><br></pre></td></tr></table></figure>
+
+<p>从<a href="https://hub.docker.com/r/oceanbase/miniob">oceanbase&#x2F;miniob - Docker Image | Docker Hub</a>官方拉取，cmd执行</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker pull oceanbase/miniob:1.0.1</span><br></pre></td></tr></table></figure>
+
+]]></content>
   </entry>
   <entry>
     <title>AI写作外挂开发随笔</title>
