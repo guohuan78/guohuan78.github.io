@@ -151,7 +151,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87"><span class="nav-text">环境准备</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85docker%E5%B9%B6%E6%8B%89%E5%8F%96%E9%95%9C%E5%83%8F"><span class="nav-text">安装docker并拉取镜像</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87"><span class="nav-text">环境准备</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85docker"><span class="nav-text">安装docker</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8B%89%E5%8F%96%E9%95%9C%E5%83%8F%E5%B9%B6%E8%BF%90%E8%A1%8C"><span class="nav-text">拉取镜像并运行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BC%96%E8%AF%91%E8%BF%90%E8%A1%8Cminiob"><span class="nav-text">编译运行miniob</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BC%96%E8%AF%91"><span class="nav-text">编译</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%90%E8%A1%8C"><span class="nav-text">运行</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BC%96%E8%AF%91%E8%BF%90%E8%A1%8C%E8%B8%A9%E5%9D%91"><span class="nav-text">编译运行踩坑</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%89%BE%E4%B8%8D%E5%88%B0jsoncpp-so-25"><span class="nav-text">找不到jsoncpp.so.25</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BF%90%E8%A1%8Cobserve%E5%8D%A1%E4%BD%8F"><span class="nav-text">运行observe卡住</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E4%B8%8A%E4%BC%A0docker%E9%95%9C%E5%83%8F"><span class="nav-text">创建上传docker镜像</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BC%96%E5%86%99%E8%B0%83%E8%AF%95%E7%8E%AF%E5%A2%83"><span class="nav-text">编写调试环境</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#vscode-%E8%BF%9E%E6%8E%A5-docker"><span class="nav-text">vscode 连接 docker</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vscode%E8%B0%83%E8%AF%95miniob"><span class="nav-text">vscode调试miniob</span></a></li></ol></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -266,14 +266,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>586</span>
+      <span>4.2k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
+      <span>7 分钟</span>
     </span>
 </div>
 
@@ -284,17 +284,72 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>参加比赛 <a target="_blank" rel="noopener" href="https://open.oceanbase.com/competition/index#info">OceanBase 社区</a>，初赛阶段基于 miniob，在此记录全过程。</p>
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>参加比赛 <a target="_blank" rel="noopener" href="https://open.oceanbase.com/competition/index#info">OceanBase 社区</a>，初赛阶段基于 <code>miniob</code>，在此记录全过程。</p>
 <span id="more"></span>
 
-<h1 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h1><h2 id="安装docker并拉取镜像"><a href="#安装docker并拉取镜像" class="headerlink" title="安装docker并拉取镜像"></a>安装docker并拉取镜像</h2><p>为了防止 c 盘爆红，创建软链接，将 docker 和 images 迁移到D盘。<a target="_blank" rel="noopener" href="https://blog.csdn.net/liangcsdn111/article/details/110236655">windows10 docker 安装在D盘_凉晓风的博客-CSDN博客_docker安装在d盘</a> 我这里在迁移images的时候使用的也是软链接的方法，路径为：<code>C:\Users\%username%\AppData\Local\Docker</code></p>
+<h1 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h1><h2 id="安装docker"><a href="#安装docker" class="headerlink" title="安装docker"></a>安装docker</h2><p>为了防止 c 盘爆红，创建软链接，将 <code>docker</code> 和 <code>images</code> 迁移到D盘。<a target="_blank" rel="noopener" href="https://blog.csdn.net/liangcsdn111/article/details/110236655">windows10 docker 安装在D盘_凉晓风的博客-CSDN博客_docker安装在d盘</a> 我这里在迁移<code>images</code>的时候使用的也是软链接的方法，路径为：<code>C:\Users\%username%\AppData\Local\Docker</code></p>
 <p>之后打开docker报错，参考 <a target="_blank" rel="noopener" href="https://blog.csdn.net/mythest/article/details/92999646">安装docker报错Hardware assisted virtualization and data execution protection must be enabled in the BIOS_松松哥、的博客-CSDN博客_virtualization and data execution protection enabl</a> ，解决了，其中需要多次重启才能生效。</p>
-<p>换源，docker设置里docker engine，最后添加</p>
+<p>换源，<code>docker</code>设置里<code>docker engine</code>，最后添加</p>
 <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;registry-mirrors&quot;</span>: [</span><br><span class="line">    <span class="string">&quot;https://9cpn8tt6.mirror.aliyuncs.com&quot;</span></span><br><span class="line">  ]</span><br></pre></td></tr></table></figure>
 
-<p>从<a target="_blank" rel="noopener" href="https://hub.docker.com/r/oceanbase/miniob">oceanbase&#x2F;miniob - Docker Image | Docker Hub</a>官方拉取，cmd执行</p>
+<h2 id="拉取镜像并运行"><a href="#拉取镜像并运行" class="headerlink" title="拉取镜像并运行"></a>拉取镜像并运行</h2><p>从<a target="_blank" rel="noopener" href="https://hub.docker.com/r/oceanbase/miniob">oceanbase&#x2F;miniob - Docker Image | Docker Hub</a>官方拉取，<code>cmd</code>执行</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull oceanbase/miniob:1.0.1</span><br></pre></td></tr></table></figure>
 
+<p>在 <code>docker images</code> 栏可以找到拉取的镜像，<code>run</code>，设置参数，启动时可以配置共享文件夹。</p>
+<p><code>run</code> 的时候展开 <code>Optional settings</code> ，<code>Volumes </code>是设置共享文件夹的，配置示例如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Host path: D:\work</span><br><span class="line">Container path: /shared</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>主机路径文件夹需要存在，直接复制路径即可</li>
+<li>容器内路径需不存在，前面要有斜杠，示例会在容器的根目录下创建，进入主机默认<code>root</code>目录，需要通过<code>cd ..</code>回到根目录查看</li>
+</ul>
+<h2 id="编译运行miniob"><a href="#编译运行miniob" class="headerlink" title="编译运行miniob"></a>编译运行miniob</h2><p>看官网<a target="_blank" rel="noopener" href="https://open.oceanbase.com/competition/index#info">OceanBase 社区</a> 视频，《MiniOB上手操作指南》，由于拉取的镜像已经配置了依赖，不需要编译安装前面的依赖，直接到后半部分编译<code>miniob</code>。</p>
+<p>由于我多次尝试（因为一直报错，<a href="#%E7%BC%96%E8%AF%91%E8%BF%90%E8%A1%8C%E8%B8%A9%E5%9D%91">编译运行踩坑</a>），已经熟练的让人心疼，在此默写一下。</p>
+<h3 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h3><p>在<code>miniob</code>的项目文件夹下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mkdir build</span><br><span class="line">cd build</span><br><span class="line">cmake ..</span><br><span class="line">make -j</span><br></pre></td></tr></table></figure>
+<p>其中<code>cmake ..</code> 可以改为<code> cmake .. -DDEBUG-ON</code>，这样是编译<code>debug</code>模式</p>
+<h3 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h3><p>在<code>build</code>目录下，启动<code>observer</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./bin/observer -f ../etc/observer.ini</span><br></pre></td></tr></table></figure>
+
+<div class="note danger"><p>出现 successfully load …即表示成功启动，详情见<a href="#%E8%BF%90%E8%A1%8Cobserve%E5%8D%A1%E4%BD%8F">踩坑:运行observe卡住</a></p>
+</div>
+
+<p>新开终端，同样在<code>build</code>目录下，启动<code>obclient</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./bin/obclient</span><br></pre></td></tr></table></figure>
+
+<p>可以输入<code>help;</code>查看帮助，注意<code>help</code>后面有个分号，支持部分基本的<code>sql</code>语法。</p>
+<h3 id="编译运行踩坑"><a href="#编译运行踩坑" class="headerlink" title="编译运行踩坑"></a>编译运行踩坑</h3><h4 id="找不到jsoncpp-so-25"><a href="#找不到jsoncpp-so-25" class="headerlink" title="找不到jsoncpp.so.25"></a>找不到jsoncpp.so.25</h4><p>从官网拉取的镜像运行<code>observe</code>的时候会报错，找不到<code>jsoncpp.so.25</code>，费了九牛二虎之力，一开始怀疑是不是从官网拉取的镜像没有安装依赖，反复确认官网上清楚写了已经包含依赖，而且找系统的<code>lib</code>是可以看到别的依赖的，就是找不到<code>jsoncpp.so.25</code>，于是各处寻找这个链接库。</p>
+<p>从一篇博客<a target="_blank" rel="noopener" href="https://blog.csdn.net/xl19900502/article/details/51944550">linux添加库后出现 error while loading shared libraries: libjson.so_sail0323的博客-CSDN博客</a>中看到，很多<code>so</code>会放在<code>/usr/local/lib</code>，找了一下发现没有，灵光一现打开<code>lib64</code>看了一下，真的有！根据这篇博客的说明，修改<code>/etc/ld.so.conf</code>，添加一行<code>/usr/local/lib64</code>，保存后退出，<code>ldconfig</code>更新配置。</p>
+<h4 id="运行observe卡住"><a href="#运行observe卡住" class="headerlink" title="运行observe卡住"></a>运行observe卡住</h4><p>解决了上面的问题，运行<code>observe</code>的时候，卡在<code>successfully load …</code>，然后就一直没有动静了。</p>
+<p>最初仍然怀疑是官网拉取的镜像没有安装依赖，再次多次反复确认。决定把官网上的三个镜像都拉下来试试，发现<code>latest</code>和<code>1.0.1</code>应该是同一个，<code>1.0.0</code>版本没有<code>找不到jsoncpp.so.25</code>的报错，但是同样会卡在<code>successfully load …</code>，然而官网给的演示视频是可以输出一大堆东西，最后有一个成功连接<code>service</code>。</p>
+<p>尝试了很久决定先去吃饭，给它一个小时时间，回来后很惊讶的发现，成功了！！！异常高兴，大喊大叫，手舞足蹈，平复心情，定睛一看，幻视了，只看到了<code>success</code>，仍然卡在<code>successfully load …</code>。</p>
+<p>网上寻求解决方案，看到一位老哥，在别人有关<code>miniob</code>的博客下评论卡在<code>successfully load …</code>，不止一个地方，然而没有回应，我不是孤单一个人。</p>
+<p>正当我准备放弃<code>docker</code>，考虑转向虚拟机自己配置环境，看到了有日志文件，想着看看日志文件兴许能找到哪里出错了，是不是没有依赖的问题。打开一看，日志文件和演示视频里面的输出几乎（因为没仔细看）一模一样，于是准备<code>observer</code>在这里放着，去打开<code>obclient</code>试一下，成功了！！！这次是真的。</p>
+<p>破案了，猜测可能是<code>docker</code>里命令行没有捕捉到这些输出？或是不能成功显示输出？导致了我的界面和演示视频里的不一样，以为自己的卡住了，其实服务已经成功启动。</p>
+<h2 id="创建上传docker镜像"><a href="#创建上传docker镜像" class="headerlink" title="创建上传docker镜像"></a>创建上传docker镜像</h2><div class="note success"><p>因为自己淋过雨，所以想给别人撑把伞 </p>
+</div>
+
+<p>我把<code>oceanbase/miniob:1.0.1</code>的镜像拉下来，解决了<a href="#%E6%89%BE%E4%B8%8D%E5%88%B0jsoncpp.so.25">找不到jsoncpp.so.25</a>的问题，并且直接编译了一下，这个版本可以直接成功运行<code>miniob</code>，感觉这个对新入手是很重要的，环境报错真的很搞人。</p>
+<p>其实做这件事的主要动机是，和室友组队参加这个比赛，我帮他配环境，重新配一遍的话不如我直接打包镜像发给他。其实也不完全是这个，因为在他上面配一遍肯定比我在自己电脑上配一遍再打包再上传要省劲，也是为了自己可以尝试一下怎么创建上传镜像。往大了说可以让所有看到的人都可以用。</p>
+<p>拉取命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull cherish7812/miniob:1.0</span><br></pre></td></tr></table></figure>
+
+<p>根据教程<a target="_blank" rel="noopener" href="https://blog.csdn.net/xinaml/article/details/77573644">Docker 容器创建镜像并提交到Docker hub_xinaml的博客-CSDN博客</a>来创建提交了镜像，不在此赘述了。</p>
+<p>需要提一下的是，偶然看到，push 的操作可以直接在<code>docker</code>图形化界面里点一下，<code>images</code>里选择镜像，点击三个点的按钮，<code>push to hub</code>。</p>
+<h2 id="编写调试环境"><a href="#编写调试环境" class="headerlink" title="编写调试环境"></a>编写调试环境</h2><h3 id="vscode-连接-docker"><a href="#vscode-连接-docker" class="headerlink" title="vscode 连接 docker"></a>vscode 连接 docker</h3><p>寻求一种使用本机<code>vscode</code>连接<code>docker</code>内<code>container</code>的使用方法，首先想到的是通过<code>ssh</code>连接，很不妙，最开始花了一天时间研究这个问题，因为我这个的环境比较复杂，首先拉取的镜像是<code>centos</code>系统，不是我之前虚拟机常用的<code>ubuntu</code>系统，<code>apt-get</code>都没有，使用的<code>yum</code>来安装包。其次<code>docker</code>是基于<code>wsl2</code>的，而且不能改回去原来的基于什么什么的，据说基于<code>wsl</code>的性能会更好。</p>
+<p>只说遇到最终把我卡住的错误吧，安装<code>ssh</code>后需要重启服务，使用<code>systemctl</code>命令，会报错，提示不支持。查了一下是因为使用了<code>wsl</code>的原因不支持这个命令。查到一个可行的解决方案是使用大佬写的<code>python</code>脚本代替这个命令，但是需要安装<code>python2</code>，感觉太麻烦了，就放弃了。</p>
+<p>所以前期只能将就凑乎着使用共享文件夹的方式，也就是本机<code>vscode</code>编辑一下，进入<code>docker</code>里编译运行。最开始也不是不能用，但是后面开始写的时候需要调试，因为代码实在太多了，不知道问题出在哪里。</p>
+<p>无奈又尝试<code>vscode</code>连接的办法，又研究了半天<code>ssh</code>怎么连，不断尝试，无果。</p>
+<p>最后突然点了一下<code>vscode</code>远程资源管理器里的<code>container</code>选项，直接就出现了<code>docker</code>里的<code>container</code>，一键连接成功！可能是我装了<code>docker</code>插件的缘故，这里直接无需配置就可以连接。</p>
+<p>此时悲喜交加，喜是一定的，悲是因为折磨了我两天的问题，居然一键就可以解决，哭哭。</p>
+<h3 id="vscode调试miniob"><a href="#vscode调试miniob" class="headerlink" title="vscode调试miniob"></a>vscode调试miniob</h3><p>最初并没有想构建调试环境，因为我知道这个会很难。但是写第一题的时候就遇到了问题，由于代码太多，压根不知道在哪一步出错的。只好来构建调试环境了。</p>
+<p>根据<a target="_blank" rel="noopener" href="https://blog.csdn.net/xk_xx/article/details/126848514">使用vscode编译、调试miniob源码_夏 克的博客-CSDN博客</a>教程，复制了一下他的<code>launch.json</code>，<code>tasks.json</code>，在此前完全不知道这些是干嘛的，没想到一天之后会如此熟悉。最初遇到的问题是，<code>launch.json</code>里报错：<code>cppdbg</code>无法识别，在容器内安装了<code>c/c++</code>插件，就好啦。</p>
+<p>重新运行<code>debug</code>，成功启动，一切仿佛井然有序。可是我发现有些跳不到函数里面，就感觉有些跳转进不去，点击运行下一步，没有跳转，但是也没有出来，不过可以看到局部变量那里变化了。点开了调用堆栈，发现有的调用被折叠了，点击后显示找不到文件。我直接用“转到定义”找到那个文件，打了断点，却不会停在断点处，旁边显示这个断点不会生效。</p>
+<p>大致知道了是因为调试器找不到文件对应的位置，搜了很多很多，改了很多很多，折腾了一下午加一晚上，硬刚了六七个小时吧。感觉自己已经把能找到的相关的博客里面的解决办法都试了一遍了，还是不行。其实是因为搜到的大多不是这个问题，一般是无法调试，就是连<code>main</code>都找不到，我这个只有部分可以找到，文件夹层数深了以后就找不到了。</p>
+<p>后面不断的看代码，搜一些资料，发现<code>extent “C”</code>，搜了一下说这个是指示要用c来编译这段代码。找不到的那个文件不是一般的文件，我发现一般都是<code>.y</code>和<code>.c</code>文件，不是典型的<code>cpp</code>文件，猜测可能跟这个有关系吧。</p>
+<p>到了晚上快十一点，想到了一个最笨也最聪明的办法，调试器会指示说，在这个路径下找不到这个文件。而我是知道文件在哪里的，那我就在它找不到的位置创建一个文件，把代码复制过去，就可以正常调试啦。实测这个办法是可行的。有弊端是，如果文件很多需要创建很多，不过我调试一部分创建一部分的文件，也就四五个，还是可以接受的。还有个弊端是，两个文件夹内容同步的问题，改初始的，被复制的也要记得更新。</p>
+<p>不过上面那些弊端都不重要，因为我发现我根本看不懂这些代码，太多了，还有什么.y文件，好像是做语义分析的，这个文件里面还不能打断点，调试起来贼麻烦。一步步调试，看了一个多小时，大概知道在哪个地方出错了，可是这个文件也太大了，根本不知道改哪里，怎么改，第一题就这么难。</p>
+<p>放弃了。</p>
 
     </div>
 
@@ -359,13 +414,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">24k</span>
+    <span title="站点总字数">28k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">40 分钟</span>
+    <span title="站点阅读时长">46 分钟</span>
   </span>
 </div>
 <div class="busuanzi-count">
