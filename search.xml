@@ -1,6 +1,727 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>评论区改版</title>
+    <url>/posts/40193/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>从 Livere 到 Waline</p>
+<span id="more"></span>
+
+<h3 id="原评论区用-Livere"><a href="#原评论区用-Livere" class="headerlink" title="原评论区用 Livere"></a>原评论区用 Livere</h3><p>初步调研选定 Livere 和 gittalk，考虑到很多浏览的小伙伴都没有 Github 账号，又因为</p>
+<p>我大天朝无奇不有，Github 处于半墙状态，不好弄</p>
+<p>而 Livere 支持 QQ，微信等第三方登陆，降低大众评论门槛，<del>然而还是没有一个人评论</del>。</p>
+<p>最终选定 Livere ，这个评论系统好在配置简单，主题直接集成，缺点嘛就是由于是韩国公司提供的，而且只有刷到文章最下面才会加载，Livere 的评论系统加载有一丢丢慢，不过也不是不能用。</p>
+<p>可就在今天，我竟然在 Livere 的评论区下看到了很大一栏的广告，还是韩文的。搜了一下了解到它确实和广告公司合作在评论区插广告了。</p>
+<p>重度强迫症患者不会允许自己的网站有别人家的广告，不能惯着，直接把评论区关了。</p>
+<p>还把自己的 Livere 账户冻结了，下一步企图删除账户（<del>反正也没有一条评论</del>），很气人的不知道为什么到了最后一步点击确定删除，一直点都没反应，一点取消就取消了，我不知道是它的问题还是我的问题，如果它故意这样，那就真气人。</p>
+<p>想着评论区要不就直接关了吧，再三强调，访客次数到一千了也没有一条评论，确实没有存在的必要。</p>
+<p>又想着不忘初心，自己本来也就没打算怎样，都是出于兴趣，自己爱折腾，就继续折腾一下，找别的评论系统。</p>
+<h3 id="从-Valine-到-Waline"><a href="#从-Valine-到-Waline" class="headerlink" title="从 Valine 到 Waline"></a>从 Valine 到 Waline</h3><p>又进一步发掘，找到了 Valine 这个评论系统，也经常在别人博客中看见，无需登陆，可以留下自己的信息，进一步降低评论门槛，留下邮箱还有评论回复提醒，功能挺符合我想要的呢。</p>
+<p>动手干了以后，第一遍不行，评论区的框是有了，可是写完提交没反应，数据库里也没有记录。又找了个教程，一步一步跟着做了一遍，还是不行。搜为什么 Valine 提交没反应，按着几个解决方案来了一遍，就是不行。真能折腾啊。</p>
+<p>更让我没想到的是，要折腾的更在后面。</p>
+<p>一篇文章说，Valine 停止对高版本 Next 主题的支持，所以想用 Valine 建议回退到 5.x 的 Next 版本，让我退步是不可能的。它还说现在有一个更好的 Waline，听名字就是 Valine 的兄弟，说是等于 Valine + 后端，咱也不懂，就说这个比 Valine 更难部署一点，但是更加安全，于是就继续折腾。</p>
+<p>还说使用这个 Next 主题最好要更到 8.x ，我的是 7.x ，看它升级一次主题好麻烦呀，配置文件要重新搞，还有原来功能就没了，兼容问题也要考虑。纠结了老大一会儿，试着搞了一下，还真给搞坏了。幸好我改之前备份了一下，立马式的换回来了。想着要不就算了。。。</p>
+<p>但咱就是爱折腾</p>
+<p>就是为了这个评论区才升级了 Next 主题</p>
+<p>整个主题都变了，又从头修改了一下 Next 主题 config.yml 的配置，第二遍弄就是不一样，大概一个晚上就基本配置完成了。</p>
+<p>最令人头疼的是那种改了 css 文件的更改项，比如下面这个修改文章内链接文本样式。这种需要直接改网页生成文件，而 Next 主题变了以后这些文件又变成初始那样了，还有可能跟原版文件结构不同。</p>
+<h3 id="修改文章内链接文本样式"><a href="#修改文章内链接文本样式" class="headerlink" title="修改文章内链接文本样式"></a>修改文章内链接文本样式</h3><p>参考文章：<a href="https://www.jianshu.com/p/3a05351a37dc">Hexo的Next主题详细配置 - 简书 (jianshu.com)</a> 第12点</p>
+<p>Next主题自带的链接文本只有下划线，看起来很不明显，主题配置文件中也没有提供可供更改的配置项，只能通过更改 css 文件来实现，这种是升级主题过程中最麻烦的一种。</p>
+<p>找了很多文章，都让改 <code>./themes/source/css/_custom/custom.styl</code> ，但是我根本没找到 <code>_custom</code> 这个文件夹，用了参考文章的办法做出来了。</p>
+<p>打开文件 <code>themes/next/source/css/_common/components/post/post-body.styl</code>，在末尾添加</p>
+<figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.post-body</span> <span class="selector-tag">p</span> <span class="selector-tag">a</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#0593d3</span>;</span><br><span class="line">  <span class="attribute">border-bottom</span>: none;</span><br><span class="line">  <span class="attribute">border-bottom</span>: <span class="number">1px</span> solid <span class="number">#0593d3</span>;</span><br><span class="line">  <span class="selector-pseudo">&amp;:hover</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: <span class="number">#fc6423</span>;</span><br><span class="line">    <span class="attribute">border-bottom</span>: none;</span><br><span class="line">    <span class="attribute">border-bottom</span>: <span class="number">1px</span> solid <span class="number">#fc6423</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这里的末尾是真真正正的末尾，我还自作聪明在那个最大的花括号里面加的，但是不行。拉到文件最最后什么的也没有的地方粘贴以上代码。</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>python解放文件夹脚本</title>
+    <url>/posts/5114/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>本文用 Python 实现了将文件夹中 一级子文件夹内的文件 批量自动化移动脚本，内涵源码。</p>
+<span id="more"></span>
+
+<h1 id="动机"><a href="#动机" class="headerlink" title="动机"></a>动机</h1><p>用 WPS 下载模版的时候，WPS 会把 PPT 外面套一个文件夹的壳，如下图：</p>
+<img src="/posts/5114/WPS%E6%B7%BB%E5%8A%A0%E7%9A%84%E6%96%87%E4%BB%B6%E5%A4%B9.jpg" class="" title="WPS添加的文件夹">
+
+<p>可能是为了防止 PPT 名字一样而覆盖？不清楚为什么，但是很影响使用，下载的多了的话还要手动一个一个拖出来。</p>
+<p>重复机械的工作不应该由人类去干，于是就想着用 Python 写一个自动化脚本来帮助去掉文件夹的壳，一劳永逸。</p>
+<h1 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h1><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> shutil</span><br><span class="line">src_folder = <span class="string">r&#x27;D:\3下载\WPS下载模板\下载&#x27;</span>+<span class="string">&#x27;\\&#x27;</span></span><br><span class="line">des_folder = <span class="string">r&#x27;D:\3下载\WPS下载模板\科技风&#x27;</span>+<span class="string">&#x27;\\&#x27;</span></span><br><span class="line"><span class="comment">#直接粘贴地址栏复制好的src和des分别替换前一个引号里面的</span></span><br><span class="line">folders = os.listdir(src_folder)<span class="comment">#读取src下的文件及文件夹</span></span><br><span class="line"><span class="keyword">if</span> <span class="keyword">not</span> os.path.exists(des_folder):<span class="comment">#不存在目标路径就创建</span></span><br><span class="line">    os.makedirs(des_folder)</span><br><span class="line">des_folders =os.listdir(des_folder)<span class="comment">#读取des下文件及文件夹</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> folders:<span class="comment">#遍历得到的文件及文件夹</span></span><br><span class="line">    <span class="keyword">if</span> os.path.isdir(src_folder + i):<span class="comment">#如果是文件夹，向下执行</span></span><br><span class="line">        files = os.listdir(src_folder + i)<span class="comment">#读取子文件夹下的所有文件及文件夹</span></span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">len</span>(files) == <span class="number">0</span>:<span class="comment">#空文件夹直接删除</span></span><br><span class="line">            os.rmdir(src_folder + i)</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> files:<span class="comment">#遍历子文件夹下所有文件</span></span><br><span class="line">            <span class="keyword">if</span> j <span class="keyword">in</span> des_folders:<span class="comment">#若与目标路径文件夹中内容有同名不予操作，并输出路径</span></span><br><span class="line">                <span class="built_in">print</span>(<span class="string">&quot;有同名文件:&quot;</span> + src_folder + i + <span class="string">&#x27;\\&#x27;</span> + j)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                src_path = src_folder + i + <span class="string">&#x27;\\&#x27;</span> + j<span class="comment">#得到子文件夹下的内容路径</span></span><br><span class="line">                <span class="keyword">if</span> os.path.isfile(src_path):<span class="comment">#如果是文件，准备移动</span></span><br><span class="line">                    shutil.move(src_path,des_folder)<span class="comment">#移动</span></span><br><span class="line">                    des_folders = os.listdir(des_folder)<span class="comment">#更新des_folders内容</span></span><br><span class="line">                    <span class="keyword">if</span> <span class="built_in">len</span>(os.listdir(src_folder + i)) == <span class="number">0</span>:<span class="comment">#移动后再次检查文件夹，空则删除</span></span><br><span class="line">                        os.rmdir(src_folder + i)</span><br></pre></td></tr></table></figure>
+
+<h1 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h1><img src="/posts/5114/%E5%A4%84%E7%90%86%E6%95%88%E6%9E%9C.jpg" class="" title="处理效果">
+
+<p>PPT 被从原路径输出到目标路径，没有了文件夹，可以选择 <code>src_folder</code> 和 <code>des_folder</code> 相同，原地输出。</p>
+<p>若碰到同名的文件，会输出提示信息，并打印出来同名文件的路径，可以自行处理。</p>
+<p>移动过后，<code>src_folder</code> 中剩下的空文件夹会被删除。</p>
+<h1 id="拓展"><a href="#拓展" class="headerlink" title="拓展"></a>拓展</h1><p>其实上述代码完全符合在我最初场景的期望，所以可以到此为止了。</p>
+<p>可以改进的地方，同名以后直接加后缀再移动，不过考虑到重名的几率很小，基本不会重名，或者重名的文件也不会太多，就留下自行处理吧。</p>
+<p>此代码只移动一级目录，文件夹里套文件夹会被忽略。自己目前也没有遇到这种需求，故没有加入这个功能。或许遇到了再实现吧。</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>Matlab图像边缘检测制作视频</title>
+    <url>/posts/17737/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>用Matlab来进行图像边缘检测，输出边缘线条视频，过程全记录，内含全部源码。</p>
+<span id="more"></span>
+
+<h1 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h1><p>放在了我的b站上：<a href="https://www.bilibili.com/video/BV1934y1z74s?spm_id_from=333.999.0.0">我用Matlab摆烂了你的AE作业_哔哩哔哩_bilibili</a></p>
+<p>下面可以直接观看：</p>
+<div style="position:relative; padding-bottom:75%; width:100%; height:0">
+    <iframe src="//player.bilibili.com/player.html?bvid=BV1934y1z74s&amp;page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="position:absolute; height: 100%; width: 100%;"></iframe>
+</div>
+
+<p>源视频在这里：  AE原作：<a href="https://www.bilibili.com/video/BV1xL4y1E7nT">大二AE结课作业 《过 年》（已摆烂）_哔哩哔哩_bilibili</a></p>
+<p>b站上其他版本：《友 商 链 接》：<br><a href="https://www.bilibili.com/video/BV1wT4y1m7rs">我用Matlab摆烂了你的AE作业_哔哩哔哩_bilibili</a> （他是红色的<br><a href="https://www.bilibili.com/video/BV1Mu411U78T">我用Matlab摆烂了你的ae作业_哔哩哔哩_bilibili</a> （黑色，点更细致了<br><a href="https://www.bilibili.com/video/BV1Xm4y1S7rm">我用Matlab摆烂了你的ae作业_哔哩哔哩_bilibili</a> （这个跟第一个差不多，甚至个人感觉比第一个要清晰，<del>但是没有第一个火</del>，第一个比这个早发布六小时，那这样说我岂不是更加凉凉了。。。</p>
+<hr>
+<h1 id="如何制作"><a href="#如何制作" class="headerlink" title="如何制作"></a>如何制作</h1><p>吃瓜的到这里可以走了（若想当个故事看也不是不行），有matlab的同学想玩一玩可以往下看，源码全分享。（这里不讲怎么下载matlab，为此专门下载30G大小的matlab不划算。）</p>
+<h2 id="1-工作目录"><a href="#1-工作目录" class="headerlink" title="1 工作目录"></a>1 工作目录</h2><p>创建<code>edges</code>和<code>pics</code>两个空文件夹，<code>pics</code>是视频逐帧输出后的图片存放的路径，<code>edges</code>是<code>pics</code>文件夹中图片经边缘处理后生成图片的存放路径。</p>
+<p><code>out2pic.m</code>，<code>zed.m</code>和<code>pic2video.m</code>三个matlab脚本文件</p>
+<p>放入<code>source.mp4</code>原视频</p>
+<p><code>output.mp4</code>是处理后生成的视频</p>
+<img src="/posts/17737/%E5%B7%A5%E4%BD%9C%E7%9B%AE%E5%BD%95.png" class="" title="工作目录文件图片">
+
+<h2 id="2-源码"><a href="#2-源码" class="headerlink" title="2 源码"></a>2 源码</h2><p>源码是我从网上搜来的，改了一点，但是那是好几十天前的事情了，原网站我已经找不到了，侵删。其实我把代码放网上搜了一下确实搜到一个，但那个和我最初参考的不一样，他也没放源码链接，我也不知道哪个是原创，反正代码我不是原创。但是本文章的内容确实是原创。天下代码一大抄</p>
+<p>代码中 “你的工作路径” 要替换为自己的，就是上图中的文件存放在哪里了。例如我的是</p>
+<p><code>D:\0programing\matlab_work\ImageEdgeDetection</code></p>
+<p><code>zed.m</code>和<code>pic2video.m</code>代码中的for循环用到了帧数，要根据具体视频来改变，运行完<code>out2pic.m</code>后，<code>pics</code>文件夹中有几张图片就是几帧。</p>
+<h3 id="2-1-out2pic-m：将视频分割逐帧分割为图片"><a href="#2-1-out2pic-m：将视频分割逐帧分割为图片" class="headerlink" title="2.1 out2pic.m：将视频分割逐帧分割为图片"></a>2.1 <code>out2pic.m</code>：将视频分割逐帧分割为图片</h3><figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">clear;</span><br><span class="line">clc;</span><br><span class="line">se = strel(<span class="string">&#x27;line&#x27;</span>,<span class="number">11</span>,<span class="number">90</span>);</span><br><span class="line">path=<span class="string">&#x27;你的工作路径\source.mp4&#x27;</span>;   <span class="comment">%视频存放路径</span></span><br><span class="line">obj=VideoReader(path);</span><br><span class="line">num=obj.NumberOfFrames;</span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span>=<span class="number">1</span>:num  <span class="comment">%帧数，这里的i最终为1801</span></span><br><span class="line">    frame=read(obj,<span class="built_in">i</span>);</span><br><span class="line">    lujing=strcat(<span class="string">&#x27;你的工作路径\pics\&#x27;,num2str(i));  %帧图输出路径</span></span><br><span class="line"><span class="string">    lujing=strcat(lujing,&#x27;</span>.jpg&#x27;);</span><br><span class="line">    imwrite(frame,lujing)</span><br><span class="line"><span class="keyword">end</span> </span><br></pre></td></tr></table></figure>
+
+<h3 id="2-2-zed-m：逐个图片运用边缘检测算法"><a href="#2-2-zed-m：逐个图片运用边缘检测算法" class="headerlink" title="2.2 zed.m：逐个图片运用边缘检测算法"></a>2.2 <code>zed.m</code>：逐个图片运用边缘检测算法</h3><figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">close all;</span><br><span class="line">clc;</span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span>=<span class="number">1</span>:<span class="number">1801</span>  <span class="comment">%前面所得的视频帧数</span></span><br><span class="line">    path=<span class="string">&#x27;你的工作路径\pics\&#x27;; %帧图路径</span></span><br><span class="line"><span class="string">     disp(i); </span></span><br><span class="line"><span class="string">     path=strcat(path,num2str(i));</span></span><br><span class="line"><span class="string">    p=strcat(path,&#x27;</span>.jpg&#x27;);</span><br><span class="line">    f=imread(p);</span><br><span class="line">    f=rgb2gray(f);</span><br><span class="line">   roberts=edge(f,<span class="string">&#x27;roberts&#x27;</span>);   <span class="comment">%roberts算子</span></span><br><span class="line">   [m,n]=<span class="built_in">find</span>(roberts==<span class="number">1</span>);</span><br><span class="line">  <span class="comment">%scatter(n,-m,&#x27;.&#x27;);   %  1     去掉注释直接展示</span></span><br><span class="line">    mh=<span class="built_in">scatter</span>(n,-m,<span class="string">&#x27;.&#x27;</span>); <span class="comment">%  2     确定输出</span></span><br><span class="line">    axis([<span class="number">0</span> <span class="number">1280</span> <span class="number">-720</span> <span class="number">0</span>]);   <span class="comment">%可依据窗口大小自行调整坐标系，这里输出图片是1280x720</span></span><br><span class="line">    lujing=strcat(<span class="string">&#x27;你的工作路径\edges\&#x27;,num2str(i)); %  3    输出存放路径</span></span><br><span class="line"><span class="string">    lujing=strcat(lujing,&#x27;</span>.jpg&#x27;); <span class="comment">%  4     输出格式为ipg</span></span><br><span class="line">    saveas(mh,lujing); <span class="comment">%  5     保存</span></span><br><span class="line">    <span class="comment">%这里默认是将边缘检测的每一张图片保存，方便后续合成视频；也可以不用保存直接展示，只需将注释编号为1的语句取消注释，将2、3、4、5加上注释即可。但直接展示的话效果不太好，比较卡。</span></span><br><span class="line">    pause(<span class="number">0.05</span>);</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<p>9:28开始运行边缘检测算法，10:15运行结束，1801张图片跑了四五十分钟，最后可以生成一分多钟的视频。</p>
+<h3 id="2-3-pic2video-m：将生成的边缘检测图片合成视频"><a href="#2-3-pic2video-m：将生成的边缘检测图片合成视频" class="headerlink" title="2.3 pic2video.m：将生成的边缘检测图片合成视频"></a>2.3 <code>pic2video.m</code>：将生成的边缘检测图片合成视频</h3><figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">clear;</span><br><span class="line">clc;</span><br><span class="line">WriterObj=VideoWriter(<span class="string">&#x27;output.mp4&#x27;</span>, <span class="string">&#x27;MPEG-4&#x27;</span>);   <span class="comment">%这里输出的路径是默认路径，合成的视频的格式是mp4</span></span><br><span class="line">WriterObj.FrameRate = <span class="number">25</span>; <span class="comment">%控制输出视频帧率，原视频为25，没有这行的话默认30</span></span><br><span class="line">open(WriterObj);</span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span>=<span class="number">1</span>:<span class="number">1801</span>  <span class="comment">%帧图数量</span></span><br><span class="line">  pic=<span class="string">&#x27;你的工作路径\edges\&#x27;;  %前面边缘检测的图片的存储路径</span></span><br><span class="line"><span class="string">  pic=strcat(pic,num2str(i));</span></span><br><span class="line"><span class="string">  ppic=strcat(pic,&#x27;</span>.jpg&#x27;);</span><br><span class="line">  frame=imread(ppic);  <span class="comment">% 读取图像，放在变量frame中</span></span><br><span class="line">  <span class="built_in">disp</span>(ppic);</span><br><span class="line">  writeVideo(WriterObj,frame);  <span class="comment">% 将frame放到变量WriterObj中</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line">close(WriterObj);</span><br></pre></td></tr></table></figure>
+
+<p>至此，视频合成好了，但是没有声音，用剪辑软件添加声音。</p>
+<h2 id="3-遇到的问题"><a href="#3-遇到的问题" class="headerlink" title="3 遇到的问题"></a>3 遇到的问题</h2><h3 id="3-1-运行zed-m时弹出的figure窗口不要关闭！！！"><a href="#3-1-运行zed-m时弹出的figure窗口不要关闭！！！" class="headerlink" title="3.1 运行zed.m时弹出的figure窗口不要关闭！！！"></a>3.1 运行<code>zed.m</code>时弹出的figure窗口不要关闭！！！</h3><p>别问我怎么知道的，说多了都是泪……</p>
+<p>这个是figure窗口：</p>
+<img src="/posts/17737/figure%E7%AA%97%E5%8F%A3.png" class="" title="这是一个figure窗口">
+
+<p>这个是可能报的错：</p>
+<img src="/posts/17737/%E5%85%B3%E9%97%ADfigure%E7%AA%97%E5%8F%A3%E6%8A%A5%E9%94%99.png" class="" title="这是关闭figure窗口后可能报的错">
+
+<p>千万别关！！！！</p>
+<h3 id="3-2-合成视频时图片分辨率不符报错"><a href="#3-2-合成视频时图片分辨率不符报错" class="headerlink" title="3.2 合成视频时图片分辨率不符报错"></a>3.2 合成视频时图片分辨率不符报错</h3><img src="/posts/17737/%E5%88%86%E8%BE%A8%E7%8E%87%E6%8A%A5%E9%94%99.png" class="" title="图片分辨率不符报的错">
+
+<p>查一下472.jpg和473.jpg的分辨率属性</p>
+<img src="/posts/17737/472%E5%88%86%E8%BE%A8%E7%8E%87%E5%B1%9E%E6%80%A7.png" class="" title="这是472图片的分辨率属性">
+
+<img src="/posts/17737/473%E5%88%86%E8%BE%A8%E7%8E%87%E5%B1%9E%E6%80%A7.png" class="" title="这是473图片的分辨率属性">
+
+<p>我也不知道什么原因，原图都是1280x720，可能上面我图中关闭了一下figure导致的？但是我关闭窗口的时候应该没合成到472吧。472及以前的分辨率是875x65<strong>6</strong>,473及以后的分辨率是875x65<strong>7</strong>。给<code>writeVideo</code>整不会了，罢工了。</p>
+<p>再跑一遍<code>zed.m</code>是不可能的，累死。机智如我，把前472张合成一下<code>output1.mp4</code>，473后面的合成一个<code>output2.mp4</code>，通过控制<code>pic2video.m</code>中for循环i的取值来实现，记得合成后改名，不然合成第二个会覆盖第一个。之后用剪辑软件拼接起来，就算前后两个视频分辨率不同，剪辑软件可不会像<code>writeVideo</code>那样罢工。</p>
+<h3 id="3-3-合成视频后与原视频帧数不符"><a href="#3-3-合成视频后与原视频帧数不符" class="headerlink" title="3.3 合成视频后与原视频帧数不符"></a>3.3 合成视频后与原视频帧数不符</h3><p>合成视频发现它短了，查属性，发现原视频是25帧的，我输出的是30帧的。</p>
+<img src="/posts/17737/source%E5%B8%A7%E6%95%B0.png" class="" title="原视频帧数属性25帧">
+
+<img src="/posts/17737/output%E5%B8%A7%E6%95%B0.png" class="" title="合成的视频帧数属性30帧">
+
+<p>网上查了一下怎么改<code>VideoWriter</code>输出的帧数，代码里加了一行。</p>
+<p>再次输出视频，帧数还为30，离谱。。。幸好我慧眼如炬，发现我从网上抄的代码和原来的代码大小写不一样，如下：（我不说你们也发现不了W和w不一样吧</p>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">WriterObj=VideoWriter(<span class="string">&#x27;output.mp4&#x27;</span>, <span class="string">&#x27;MPEG-4&#x27;</span>);</span><br><span class="line">writerObj.FrameRate = <span class="number">25</span>;</span><br></pre></td></tr></table></figure>
+<p>改了以后代码运行正常（上面给的源码已经是修改过的了，放心食用。</p>
+<h2 id="4-待改进"><a href="#4-待改进" class="headerlink" title="4 待改进"></a>4 待改进</h2><p>在只有matlab进程的条件下：</p>
+<img src="/posts/17737/%E4%BB%BB%E5%8A%A1%E7%AE%A1%E7%90%86%E5%99%A8%E8%BF%9B%E7%A8%8B.png" class="" title="这是运行边缘检测算法时电脑的进程">
+
+<p>CPU利用率：</p>
+<img src="/posts/17737/cpu%E5%88%A9%E7%94%A8%E7%8E%87.png" class="" title="这是只运行边缘检测算法时电脑CPU利用率">
+
+<p>GPU利用率：</p>
+<img src="/posts/17737/gpu%E5%88%A9%E7%94%A8%E7%8E%87.png" class="" title="这是只运行边缘检测算法时电脑GPU利用率">
+
+<p>我也不知道怎么能把CPU占满一点，也不知道怎么调用GPU来处理，产出个一分钟的视频要操作将近一个小时，辛苦我的CPU了。</p>
+<p>这是本站第一篇实质性内容的文章，实操的小伙伴遇到什么问题可以在评论区留言。</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>词根词缀表</title>
+    <url>/posts/17370/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>《读者的选择(Reader’s Choice)》五个词根词缀表</p>
+<span id="more"></span>
+
+<h1 id="1"><a href="#1" class="headerlink" title="1"></a>1</h1><table>
+<thead>
+<tr>
+<th><strong>Prefixes</strong></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>com-, con-, col-, cor-, co-</td>
+<td>together, with</td>
+<td>cooperate, connect</td>
+</tr>
+<tr>
+<td>in-, im-, il-, ir-</td>
+<td>in, into, on</td>
+<td>invade, insert</td>
+</tr>
+<tr>
+<td>in-, im-, il-, ir-</td>
+<td>not</td>
+<td>impolite, illegal</td>
+</tr>
+<tr>
+<td>micro-</td>
+<td>small</td>
+<td>microscope, microcomputer</td>
+</tr>
+<tr>
+<td>pre-</td>
+<td>before</td>
+<td>prepare, prehistoric</td>
+</tr>
+<tr>
+<td>re-, retro-</td>
+<td>back, again</td>
+<td>return, retrorocket</td>
+</tr>
+<tr>
+<td><strong>Stems</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>-audi-, -audit-</td>
+<td>hear</td>
+<td>auditorium, auditor</td>
+</tr>
+<tr>
+<td>-chron-</td>
+<td>time</td>
+<td>chronology, chronological</td>
+</tr>
+<tr>
+<td>-dic-, -dict-</td>
+<td>say, speak</td>
+<td>dictator, dictation</td>
+</tr>
+<tr>
+<td>-graph-, -gram-</td>
+<td>write, writing</td>
+<td>telegraph, telegram</td>
+</tr>
+<tr>
+<td>-log-, -ology-</td>
+<td>speech, word, study</td>
+<td>biology</td>
+</tr>
+<tr>
+<td>-phon-</td>
+<td>sound</td>
+<td>telephone</td>
+</tr>
+<tr>
+<td>-scrib-, -script-</td>
+<td>write</td>
+<td>describe, script</td>
+</tr>
+<tr>
+<td>-spect-</td>
+<td>look at</td>
+<td>inspect, spectator</td>
+</tr>
+<tr>
+<td>-vid-, -vis-</td>
+<td>see</td>
+<td>video, vision</td>
+</tr>
+<tr>
+<td><strong>Suffixes</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>-er, -or</td>
+<td>one who</td>
+<td>worker, spectator</td>
+</tr>
+<tr>
+<td>-ist</td>
+<td>one who</td>
+<td>typist, biologist</td>
+</tr>
+<tr>
+<td>-tion, -ation</td>
+<td>condition, the act of</td>
+<td>action, celebration</td>
+</tr>
+</tbody></table>
+<h1 id="2"><a href="#2" class="headerlink" title="2"></a>2</h1><table>
+<thead>
+<tr>
+<th><strong>Prefixes</strong></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ante-</td>
+<td>before</td>
+<td>anterior, ante meridiem(A.M.)</td>
+</tr>
+<tr>
+<td>circum-</td>
+<td>around</td>
+<td>circumference</td>
+</tr>
+<tr>
+<td>contra-, anti-</td>
+<td>against</td>
+<td>anti-war, contrast</td>
+</tr>
+<tr>
+<td>inter-</td>
+<td>between</td>
+<td>international, intervene</td>
+</tr>
+<tr>
+<td>intro-, intra-</td>
+<td>within</td>
+<td>introduce, intravenous</td>
+</tr>
+<tr>
+<td>post-</td>
+<td>after</td>
+<td>post-game, post-graduate</td>
+</tr>
+<tr>
+<td>sub-, suc-, suf-, sug-, sup, sus-</td>
+<td>under</td>
+<td>subway, support</td>
+</tr>
+<tr>
+<td>super-</td>
+<td>above, greater, better</td>
+<td>superior, supermarket</td>
+</tr>
+<tr>
+<td>trans-</td>
+<td>across</td>
+<td>trans-Atlantic, transportation</td>
+</tr>
+<tr>
+<td><strong>Stems</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>-ced-</td>
+<td>go, move, yield</td>
+<td>precede</td>
+</tr>
+<tr>
+<td>-duc-</td>
+<td>lead</td>
+<td>introduce</td>
+</tr>
+<tr>
+<td>-flect-</td>
+<td>bend</td>
+<td>reflect, flexible</td>
+</tr>
+<tr>
+<td>-mit-, -miss-</td>
+<td>send</td>
+<td>remit, missionary</td>
+</tr>
+<tr>
+<td>-pon-, -pos-</td>
+<td>put, place</td>
+<td>postpone, position</td>
+</tr>
+<tr>
+<td>-port-</td>
+<td>carry</td>
+<td>portable</td>
+</tr>
+<tr>
+<td>-sequ-, -secut-</td>
+<td>follow</td>
+<td>consequence, consecutive</td>
+</tr>
+<tr>
+<td>-spir-</td>
+<td>breathe</td>
+<td>inspiration, conspiracy</td>
+</tr>
+<tr>
+<td>-tele-</td>
+<td>far</td>
+<td>telegraph, telephone</td>
+</tr>
+<tr>
+<td>-ven-, -vene-</td>
+<td>come</td>
+<td>convene, convention</td>
+</tr>
+<tr>
+<td>-voc-, -vok-</td>
+<td>call</td>
+<td>vocal, revoke</td>
+</tr>
+<tr>
+<td><strong>Suffixes</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>-able, -ible, -ble</td>
+<td>capable of, fit for</td>
+<td>trainable, defensible</td>
+</tr>
+<tr>
+<td>-ous, -ious, -ose</td>
+<td>full of, having the qualities of</td>
+<td>poisonous, anxious, verbose</td>
+</tr>
+</tbody></table>
+<h1 id="3"><a href="#3" class="headerlink" title="3"></a>3</h1><table>
+<thead>
+<tr>
+<th><strong>Prefixes</strong></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>a-, an-</td>
+<td>without, lacking, not</td>
+<td>atypical, apolitical</td>
+</tr>
+<tr>
+<td>bene-</td>
+<td>good</td>
+<td>benefit, benefactor</td>
+</tr>
+<tr>
+<td>bi-</td>
+<td>two</td>
+<td>bicycle, binary</td>
+</tr>
+<tr>
+<td>mis-</td>
+<td>wrong</td>
+<td>misspell, mistake</td>
+</tr>
+<tr>
+<td>mono-</td>
+<td>one, alone</td>
+<td>monarch, monopoly</td>
+</tr>
+<tr>
+<td>poly-</td>
+<td>many</td>
+<td>polynomial, polytechnic</td>
+</tr>
+<tr>
+<td>syn-, sym-, syl-</td>
+<td>with, together</td>
+<td>symphony, sympathy</td>
+</tr>
+<tr>
+<td><strong>Stems</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>-anthro-, -anthropo-</td>
+<td>human</td>
+<td>anthropology</td>
+</tr>
+<tr>
+<td>-arch-</td>
+<td>first, chief, leader</td>
+<td>patriarch, monarch, archbishop</td>
+</tr>
+<tr>
+<td>-fact-, -fect-</td>
+<td>make, do</td>
+<td>affect, benefactor, factory</td>
+</tr>
+<tr>
+<td>-gam-</td>
+<td>marriage</td>
+<td>monogamy, polygamous</td>
+</tr>
+<tr>
+<td>-hetero-</td>
+<td>different, other</td>
+<td>heterosexual, heterogeneous</td>
+</tr>
+<tr>
+<td>-homo-</td>
+<td>same</td>
+<td>homogenized milk</td>
+</tr>
+<tr>
+<td>-man-, -manu-</td>
+<td>hand</td>
+<td>manually, manage</td>
+</tr>
+<tr>
+<td>-morph-</td>
+<td>form, structure</td>
+<td>polymorphous</td>
+</tr>
+<tr>
+<td>-onym-, -nomen-</td>
+<td>name</td>
+<td>synonym, nomenclature</td>
+</tr>
+<tr>
+<td>-pathy-</td>
+<td>feeling, disease</td>
+<td>sympathy, telepathy, pathological</td>
+</tr>
+<tr>
+<td>-theo-, -the-</td>
+<td>god</td>
+<td>theology, polytheism</td>
+</tr>
+<tr>
+<td><strong>Suffixes</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>-ic, -al</td>
+<td>relating to, having the nature of</td>
+<td>comic, chronic, musical</td>
+</tr>
+<tr>
+<td>-ism</td>
+<td>action or practice, theory or doctrine</td>
+<td>Buddhism, communism</td>
+</tr>
+<tr>
+<td>-oid</td>
+<td>like, resembling</td>
+<td>humanoid</td>
+</tr>
+</tbody></table>
+<h1 id="4"><a href="#4" class="headerlink" title="4"></a>4</h1><table>
+<thead>
+<tr>
+<th><strong>Prefixes</strong></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>multi-</td>
+<td>many</td>
+<td>multiply, multiple</td>
+</tr>
+<tr>
+<td>peri-</td>
+<td>around</td>
+<td>periscope, perimeter</td>
+</tr>
+<tr>
+<td>semi-</td>
+<td>half, partly</td>
+<td>semisweet, semicircle</td>
+</tr>
+<tr>
+<td>tri-</td>
+<td>three</td>
+<td>triangle</td>
+</tr>
+<tr>
+<td>ultra-</td>
+<td>beyond, excessive, extreme</td>
+<td>ultramodern</td>
+</tr>
+<tr>
+<td>uni-</td>
+<td>one</td>
+<td>unicycle, unify, universe</td>
+</tr>
+<tr>
+<td><strong>Stems</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>-aster-, -astro-, -stellar-</td>
+<td>star</td>
+<td>astronomy, stellar</td>
+</tr>
+<tr>
+<td>-auto-</td>
+<td>self</td>
+<td>automobile, automatic</td>
+</tr>
+<tr>
+<td>-bio-</td>
+<td>life</td>
+<td>biology</td>
+</tr>
+<tr>
+<td>-cycle-</td>
+<td>circle</td>
+<td>bicycle, cycle</td>
+</tr>
+<tr>
+<td>-mega-</td>
+<td>great, large</td>
+<td>megaton, megalopolis</td>
+</tr>
+<tr>
+<td>-mort-</td>
+<td>death</td>
+<td>mortal, immortality</td>
+</tr>
+<tr>
+<td>-phil-</td>
+<td>love</td>
+<td>philosophy</td>
+</tr>
+<tr>
+<td>-polis-</td>
+<td>city</td>
+<td>metropolis</td>
+</tr>
+<tr>
+<td>-psych-</td>
+<td>mind</td>
+<td>psychology</td>
+</tr>
+<tr>
+<td>-soph-</td>
+<td>wise</td>
+<td>philosophy, sophomore</td>
+</tr>
+<tr>
+<td><strong>Suffixes</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>-ity</td>
+<td>condition, quality, state of being</td>
+<td>unity, ability</td>
+</tr>
+<tr>
+<td>-ness</td>
+<td>condition, quality, state of being</td>
+<td>sadness, happiness</td>
+</tr>
+</tbody></table>
+<h1 id="5"><a href="#5" class="headerlink" title="5"></a>5</h1><table>
+<thead>
+<tr>
+<th><strong>Prefixes</strong></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>by-</td>
+<td>aside or apart from the common, secondary</td>
+<td>bypass, by-product</td>
+</tr>
+<tr>
+<td>de-</td>
+<td>down from, away</td>
+<td>descend, depart</td>
+</tr>
+<tr>
+<td>dia-</td>
+<td>through, across</td>
+<td>diameter, diagonal</td>
+</tr>
+<tr>
+<td>epi-</td>
+<td>upon, over, outer</td>
+<td>epidermis</td>
+</tr>
+<tr>
+<td>hyper-</td>
+<td>above, beyond, excessive</td>
+<td>hypersensitive</td>
+</tr>
+<tr>
+<td>hypo-</td>
+<td>under, beneath, down</td>
+<td>hypothesis, hypothermia</td>
+</tr>
+<tr>
+<td><strong>Stems</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>-capit-</td>
+<td>head, chief</td>
+<td>captain, cap, decapitate</td>
+</tr>
+<tr>
+<td>-corp-</td>
+<td>body</td>
+<td>corporation, incorporate</td>
+</tr>
+<tr>
+<td>-derm-</td>
+<td>skin</td>
+<td>epidermis, dermatology</td>
+</tr>
+<tr>
+<td>-geo-</td>
+<td>earth</td>
+<td>geology, geography</td>
+</tr>
+<tr>
+<td>-hydr-, -hydro</td>
+<td>water</td>
+<td>hydrogen, hydrology</td>
+</tr>
+<tr>
+<td>-ortho-</td>
+<td>straight, correct</td>
+<td>orthodox, orthography</td>
+</tr>
+<tr>
+<td>-pod-, -ped-</td>
+<td>foot</td>
+<td>podiatrist, pedestrian</td>
+</tr>
+<tr>
+<td>-son-</td>
+<td>sound</td>
+<td>sound, sonic</td>
+</tr>
+<tr>
+<td>-therm-, -thermo-</td>
+<td>heat</td>
+<td>thermal, hypothermia</td>
+</tr>
+<tr>
+<td>-ver-</td>
+<td>true</td>
+<td>verity, veritable</td>
+</tr>
+<tr>
+<td><strong>Suffixes</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>-ate</td>
+<td>to make</td>
+<td>activate</td>
+</tr>
+<tr>
+<td>-fy</td>
+<td>to make</td>
+<td>liquify</td>
+</tr>
+<tr>
+<td>-ize</td>
+<td>to make</td>
+<td>crystallize</td>
+</tr>
+</tbody></table>
+]]></content>
+  </entry>
+  <entry>
     <title>miniob比赛实录</title>
     <url>/posts/4446/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>参加比赛 <a href="https://open.oceanbase.com/competition/index#info">OceanBase 社区</a>，初赛阶段基于 <code>miniob</code>，在此记录全过程。</p>
@@ -87,159 +808,95 @@
 <p>彻底伤心了，不在这个比赛上浪费时间了，可以看出来这个视频做的一点都不用心，我就不懂了，为什么错误的写代码过程还要放上来，然后不了了之。</p>
 <p>结论就是这个比赛据它自己说是从0开始，其实根本不适合从来没有接触过这个项目的人参加，教程做的不详细，甚至不正确。</p>
 <p>官方的<code>docker</code>镜像环境都有问题，录制的教学视频跟着做下来跑不了，及时止损才是明智之举。</p>
+<p>然而，老师召集我们开了一次会，发现我居然在十几个队伍里面进度还是比较快的，甚至可以说是名列前茅。只有一个三个研究生本命还是做数据库研究的团队得了120分，还有一个队伍是20分，有五个队伍十分，别的队伍连提交都没有。也就是大部分人（一共14个队伍）基本上要么搭建不了环境，要么不会用git，要么还没开始弄。</p>
+<p>仅有提交代码的也是没什么太大希望了，保守了，没有任何希望。</p>
+<p>但是老师说那个华科大老师讲义中有源码级别的drop table，我看了一下还真是，瞬间手又痒痒了，又花了一个晚上的时间开搞。</p>
+<p>结果这个也没好到哪里，直接抄不行，只有实现，需要在include中加声明（还是王运来（就上面被我骂的那个）教我的），不过这都是小事，有的代码还是会报错，好像是因为这个是之前的版本，很多地方不一样，费了九牛二虎之力，终于可以运行了，提交一下没过。</p>
+<p>啊啊啊啊啊，又浪费了一晚上的时间。</p>
 <h1 id="追加内容"><a href="#追加内容" class="headerlink" title="追加内容"></a>追加内容</h1><h2 id="vscode-快速搜索文件"><a href="#vscode-快速搜索文件" class="headerlink" title="vscode 快速搜索文件"></a>vscode 快速搜索文件</h2><p>在写这个<code>miniob</code>的工程的时候就一直需要搜索文件，看录制视频的老师用命令行有快捷搜索的功能，很方便我只能靠人眼搜索。因为<code>vscode</code>在文件列表里面只能搜索已经展开的文件夹，也没有找到全部展开的功能，有时候会全部打开再搜索一下。</p>
 <p>放弃这个比赛后，学习别的过程中，偶然发现，按两次<code>shift</code>键会打开文件搜索，可以搜当前工作目录下的所有文件，跟老师那个功能很像，这个在写大的工程项目的时候应该很有用吧。</p>
+<p>然而在我手痒没忍住又去做了的时候，发现在container里两次shift调不出来快速搜索，不知道是插件的缘故还是设置的缘故。</p>
 ]]></content>
   </entry>
   <entry>
-    <title>AI写作外挂开发随笔</title>
-    <url>/posts/2376/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>参加西北工业大学第二届未来AI大师国际夏令营，做出的软件 —— AI 写作外挂，获第一名，已开源。</p>
+    <title>我把环境变量Path搞没了</title>
+    <url>/posts/55469/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>安装 JAVA 要配置环境变量，跟着教程新建了 path 变量，结果原本的 Path 变量没了。。。</p>
 <span id="more"></span>
 
-<p>只想看最终的软件不想听流水账的可以跳转<a href="#%E8%BD%AF%E4%BB%B6%E4%BB%8B%E7%BB%8D">软件介绍</a></p>
-<h1 id="契机"><a href="#契机" class="headerlink" title="契机"></a>契机</h1><img src="/posts/2376/%E8%A5%BF%E5%B7%A5%E5%A4%A7%E7%AC%AC%E4%BA%8C%E5%B1%8A%E6%9C%AA%E6%9D%A5AI%E5%A4%A7%E5%B8%88%E5%9B%BD%E9%99%85%E5%A4%8F%E4%BB%A4%E8%90%A5%E6%B5%B7%E6%8A%A5.jpg" class="" title="西工大第二届未来AI大师国际夏令营海报">
+<h1 id="1-犯罪记录"><a href="#1-犯罪记录" class="headerlink" title="1.犯罪记录"></a>1.犯罪记录</h1><p>大二下学期要学习 JAVA，还有四天开下一学期的线上课，我就寻思着自己先把 JAVA 装了，先学习着，还跟老师要了安装包。</p>
+<p>然后就自己上网搜安装教程，看到了要配置环境变量，这我熟啊。Matlab，Python 等等我都配置过环境变量，看到下图的时候我已经心生疑惑了</p>
+<img src="/posts/55469/%E7%BD%91%E4%B8%8A%E6%95%99%E7%A8%8B%E6%88%AA%E5%9B%BE.png" class="" title="这是网上安装教程的截图">
 
-<p>参加过第一届，是线下的，第二届是线上了，感觉会不一样，就想着报名。不过不知道参加过一次会不会不让重复参加，不过还是报名了。</p>
-<p>报名的时候分为两个组，启蒙探索和竞赛创新。启蒙探索主要是听专家讲座，这个我在第一届也听过很多，而且变成线上的夏令营，都是讲座感觉效果不会很好。于是选择竞赛创新组。但是竞赛这个词很是令人害怕，怕自己根本完不成任务，最后咬咬牙还是选择了这个。</p>
-<p>竞赛创新组里面又分为两个组别，A 组是基础组，做出一个 PPT 产品，主要考察创意，不用实现。B 组为进阶组，不仅要有创意，还要做出一个完整的产品，相当于一个完整的项目流程。</p>
-<p>那必然秒选 B 呀，不然我这一身的代码功夫无处施展，可以借此机会完整体验一把项目开发过程。</p>
-<p>分组是需要自己组队，</p>
-<center>——————分割线——————</center>
+<p>“直接新建path变量会不会把我原来的覆盖掉啊。。。”</p>
+<p>我每一步都走的小心翼翼，我先打开命令输入 javac，看看不配置行不行，结果是不行。</p>
+<p>我又像我原来配置 Python 环境变量那样，在原系统环境变量 Path 下新建了一个项，再测试 javac，但还是不行。</p>
+<p>细心如我，发现了已有的名字叫 <strong>P</strong>ath，新建的变量叫 <strong>p</strong>ath。根据我一年半的编程经验，大小写敏感已经刻在了我的基因里，所以我觉得没事，就直接新建了。</p>
+<p>但是万万没想到，这样输入 javac 也不行，突然意识到，每次更改环境变量后要重启 cmd 窗口，大意了。</p>
+<p>但是至此我还是不慌的，根据我上面大小写敏感的推断，这也不影响什么。于是我开开心心的去找 JAVA 教程去了，直到。。。</p>
+<p>临睡觉前，我想把我那天写的文章推上去，运行 hexo 提示 node 不是命令。哇的发？我这个时候已经意识到问题开始严重了，配置 JAVA 的环境把 node 的环境搞坏了，又好气又好笑。</p>
+<p>然而我意识的没有那么深刻，事情的严重性远远超乎我想象，但那个时候我只想睡觉，每天十一点上床是必须的。直接关了电脑去洗漱了。然而我体内的编程之魂在召唤我，心里痒痒的，总想现在就看看是什么情况，不然睡不好觉。</p>
+<p>还是没忍住，又打开了电脑。再试了一下，发现还是提示 node 不是命令，根据我一年半编程经验的直觉，这肯定是环境变量的问题，我再把它的路径加进去应该就找到了。</p>
+<p>熟练的打开环境变量配置，找了半天，发现 </p>
+<p><strong>没 有 Path 了</strong></p>
+<p>只剩下一个 path 安静的躺在那里，我的内心也只剩下凌乱，慌的一批。</p>
+<h1 id="2-解决办法"><a href="#2-解决办法" class="headerlink" title="2.解决办法"></a>2.解决办法</h1><p>我马上搜一下环境变量 Path 没了怎么办，emmm，没发现什么有用的。</p>
+<p>有一个提供了系统初始的几个常见 Path，我直接新建了 Path 变量，把它加入进去了。</p>
+<p>灵机一动，我想到我有一个好习惯，原来配置环境变量的时候 Path 会往用户里面的 Path 和系统里面的 Path 都加上。于是我把用户里面的 Path 复制了一下到系统的 Path 里。</p>
+<p>然而运行 hexo 还是报找不到 node 命令，这时候再配合 Everything 这个软件，找到 node.exe，把它所在目录添加到环境变量里，再次运行 hexo，大功告成。</p>
+<p>检查了一下，上面创建的 JAVA 的 path 路径又没了，这时候把那个路径添加到 Path 的子项里面，<strong>重启cmd</strong>，运行 javac，成功。</p>
+<h1 id="3-总结"><a href="#3-总结" class="headerlink" title="3.总结"></a>3.总结</h1><p>1.配置完环境变量后要重启 cmd 窗口再测试环境是否装好<br>2.设置环境变量名的时候，它的名字是大小写不敏感的，会直接覆盖<br>3.留下了一个巨大的后患，以后可能会出现乱七八糟的找不到命令类似的报错，要自己找路径加进去了</p>
+<h1 id="4-拓展"><a href="#4-拓展" class="headerlink" title="4.拓展"></a>4.拓展</h1><p>其实文件夹名字也是大小写不敏感的，创建一个 JAVA 的文件夹和 java 的文件夹，它会提示重复。我竟然刚刚知道，震惊我一百年。</p>
+<p>在我的理解里，Path的作用其实是给系统一个路径，你要在 cmd 中运行一个命令，本质上就像打开一个 .exe 文件，比如运行 javac，系统要知道 javac.exe 在哪儿。我系统找不到 node 这个命令，那我就搜索一下 node.exe 在哪儿，（可能会有好几个，看路径决定是哪一个），把它的路径加入到 Path 里面就好了。</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>建站第六天的反思</title>
+    <url>/posts/8001/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>2021.12.31~2022.1.5 六天建站过程，于 1.5 晚进行的反思。</p>
+<span id="more"></span>
 
-<p>上面的内容是 8 月 1 号写的，写了一丢丢，<del>我才不说是因为我懒加上有拖延症所以没写完呢</del>，肯定是因为证书和奖品没有发下来，写了文章也不会发出来所以推到了现在。没错，今天拿了证书和纪念奖品，如下：</p>
-<img src="/posts/2376/%E7%BB%93%E4%B8%9A%E8%AF%81%E4%B9%A6.jpg" class="" title="结业证书">
-
-<p>我怀疑他是不知道我名字怎么打出来，所以空着，等打印出来证书手写上去的。</p>
-<img src="/posts/2376/%E5%A5%96%E5%93%81%E9%BC%A0%E6%A0%87%E5%9E%AB.jpg" class="" title="奖品鼠标垫">
-
-<p>一个长但不是很长的鼠标垫，舍友建议配个键盘放上去，就是为了这点醋才包的饺子对吧。</p>
-<p>时隔一个多月，捡回逝去的记忆，9 月 13 号继续写。</p>
-<center>——————分割线——————</center>
-
-<p>分组是需要自己组队的，然而我是肯定不会主动去找别人组队的，也没有认识的人找我组队。经过上个学期小组作孽的摧残，对组队的期望不大，自己干自己的，没问题！</p>
-<h1 id="创意"><a href="#创意" class="headerlink" title="创意"></a>创意</h1><h2 id="众里寻它千百度"><a href="#众里寻它千百度" class="headerlink" title="众里寻它千百度"></a>众里寻它千百度</h2><p>首先试玩了一下这个大模型，功能全部体验了一番。也就三种，一种是通过提供的文字描述生成图片，一种是类似语音助手的问答对话，一种是自然语言处理（术语NLP）。</p>
-<p>通过文字描述生成图片，生成的风景还看的过去，有抽象派艺术画风，但是生成的人像完全是掉入恐怖谷了。同时生成的过程太漫长，以分钟来计时。这个功能可以不用。</p>
-<p>人工智能的对话，首先想到的应用场景是在客服里面，或者直接开一个 AI 对话服务，但是不足以支撑整个产品，所以这个暂时不考虑。</p>
-<p>只有最后一个自然语言处理可以用啦，简单来说就是，（凭我自己的理解），它已经看过千万级别的文字了，知识储备很充分，我们需要做的，就是设定特定的引导词，开发出它的功能。</p>
-<p>一种做软件的思路是，利用模型开发出来的某个功能，整合到软件里面，作为一部分，算是模型落地的应用，只是一个软件的一环。这种思路我想了好久没有想到比较好的创意。</p>
-<h2 id="暮然回首"><a href="#暮然回首" class="headerlink" title="暮然回首"></a>暮然回首</h2><p>换了一种思路，既然这个模型只能做自然语言处理，那我不如直接围绕自然语言处理来开发一个软件，软件的全部功能都由这个模型来提供。只能处理文字，那就把文字处理到极致。所以第一天就有了这个创意—— AI 写作外挂。</p>
-<p>“AI”是产品的亮点，必须写在名称里面，“写作”是软件的主要功能，“外挂”二字则有标题党那味了，属于点睛之笔。</p>
-<p>对这个名字我很满意，填写完之后，注意到别的组有一个叫 “AI文章辅助工具”，感觉和我的软件撞车了，<del>不过我感觉自己在名字上已经赢过它了！</del> but 当我跟妈妈炫耀的时候，她说外挂是啥意思，你这个名字看不懂。喔~ <del>还好看不懂外挂意思的大概率也不是这个软件的受众群体</del>，外挂就是指这个东西很厉害，厉害到你用了这个东西相当于作弊一样的，对别人有碾压效果。</p>
-<h1 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h1><p>这个软件的核心技术部分是调用 api（应用接口，你传入数据，它返回结果），这部分有现成的调用实例，而且之前我也玩过 api，技术上难题不大。</p>
-<p>真正遇到的问题是在界面设计上，由于之前没有写过图形化的界面，如何写出一个像样的GUI（图形用户界面）成为了我遇到的第一个难题。</p>
-<p>有三个选项，电脑端软件，手机端软件，网页，三种呈现形式。我都没写过。。。但是我敢想呀，我一开始设想的是，我全都要，做出一个全平台的软件。什么？你问我没写过怎么办？我可以学呀！</p>
-<p>然而现实很残酷，准备从电脑端软件下手，使用的是百度那边活动负责人自己封装的 python 库 <code>qgui</code> ，一上手就遇到了问题，去问助教，助教发过来 github 链接，说有开源代码实例，让我自己学习一下，那就开始学吧。</p>
-<p>一天时间做好了第一版，将示例功能中和写作有关的部分放到了自己的软件上，属于是站在巨人的肩膀上，有现成的就要直接用。从早到晚写了一整天，软件的基本骨架已经搭好，就在我觉得十拿九稳的时候， 意外到来了……</p>
-<h2 id="至暗时刻"><a href="#至暗时刻" class="headerlink" title="至暗时刻"></a>至暗时刻</h2><p>晚上九点，我写好了第一版本的代码，需要把代码打包成软件，这样用户就可以直接使用。</p>
-<p>然而打包完成后运行一直出错，就相当于什么呢，相当于你洗菜切菜炒菜盛菜，都做的没有问题。但是你把菜端到用户桌子上的时候，突然发现里面有一只苍蝇，不能吃了。那你说再做一份不就好了，现实世界进苍蝇是偶然事件，代码世界出的 bug 是必然事件，排查不出来问题，运行一万遍也是不行。</p>
-<p>于是整个晚上我就在不断的打包，运行，报错。据不完全统计，几十次肯定是有的，每次需要十来分钟。次数说明不了什么，我从九点弄到十一点，往常这个点我要睡了，但是还是弄了一会儿，十二点了，必须睡了。躺在床上，脑子里面控制不住的想这件事，感觉自己肝的这两天，到临门一脚的时候功亏一篑了，怎么着也睡不着。于是在床上抱着电脑继续肝。</p>
-<p>一晚上也不是完全没有进步的，至少一开始报的错被我上网查到了解决方案，打包的时候加了一条命令。解决了这个错误，又蹦出来一个新的错误，关键我也不知道这个改变是正向的还是负向的。想到新的解决办法，只好在加命令和不加命令两种情况下都试一下，每试一下都要十来分钟，因为有两种情况，枚举的集合扩大为两倍。</p>
-<p>最后我想，至少得拿出来一个可以运行的东西出来吧。于是注释掉一部分代码，删去一些功能和界面，再打包试试，看看到底是哪里的问题。再类比做菜的话，可以理解为，你知道菜里面有的东西会招苍蝇，那你就少放几种菜，虽然没那么好吃了，至少不会有苍蝇，用户可以先吃着，试试哪种菜出了问题。</p>
-<p>不幸中的万幸，删去了一些非功能性界面，软件可以成功运行了，软件的功能没有受影响，只是丑了一些，少了一些提示语，终于可以睡着了，时间凌晨一点。</p>
-<h2 id="曙光升起"><a href="#曙光升起" class="headerlink" title="曙光升起"></a>曙光升起</h2><p>早上五点，太阳即将升起，随之起来的，是被早上五点的核酸检测大喇叭吵醒的人们，还有我胜利的曙光。</p>
-<p>迷迷糊糊起床，做核酸，回家，坐到电脑前。打开代码，精神抖擞，全神贯注，继续进行打包，运行，报错的无限循环。</p>
-<p>早饭没吃，继续去看代码。你问我为什么不吃饭？bug 管饱。（其实后面还是吃了的）</p>
-<p>上回书说到，已经删去一点非功能部分，软件可以成功运行，那么问题就出现在被删去的部分。有了这个突破口，再结合报错的一些信息，最终确定，问题没有出在我的代码上，而在于那个封装的库上，由于某些我也不太清楚的原因，最终结果是打包出来的软件没有办法运行。</p>
-<p>于是我把库的代码有关的部分理解了一下，根据自己的理解，做了一点改动，最终可以说几乎没有影响软件的功能从而可以正常打包软件，正常运行。类比一下就是一个厨子，发现菜里进苍蝇是因为厨房漏了个缝，于是这个厨子自学了一下装修把缝补上了。</p>
-<h2 id="劫后余生"><a href="#劫后余生" class="headerlink" title="劫后余生"></a>劫后余生</h2><p>大难不死，必须抒发一下感想。</p>
-<p>有时候我也会很奇怪呀，很多事情，差一步，就是天壤之别。或者说，我做的那些操作，但凡有一步没想到的，最终都不会是这样的结果。无法解释，为什么偏偏历经多次磨难，每次的困难都几乎把我绊倒，可每次都可以说近乎奇迹般的活了过来。无法解释我当时为什么会那么想，为什么会那么做，可我就是想到了，可我就是做成了。</p>
-<p>歪一下，程序员掉头发的原因找到了，一个项目做不完，或者说只出了一个 bug，就算再小，这个软件还是不能用，相当于什么用都没有。有时候只是一个小小的错误，需要花费大量的精力去排查。一步错，则功亏一篑，这也太有魅力了吧。</p>
-<h2 id="不断迭代"><a href="#不断迭代" class="headerlink" title="不断迭代"></a>不断迭代</h2><p>第一代产品做出来之后，首先找了我的小伙伴做内测，在此衷心感谢小伙伴的大力支持。前面说第一代的功能几乎都是抄的示例功能，只有轻微的改动，第一轮内测之后是产品的脱胎换骨。</p>
-<p>首先是软件的提示语上，一个好的软件，是用户一看就要会用的。可是我的测试发现都需要来问我，这肯定不能怪用户对吧，肯定是我的界面设计的不够明显。虽然我也很烦软件打开是一个弹窗，但是为了用户能自主使用软件，思考再三，还是加一个烦人的弹窗，轻喷。</p>
-<p>重点还是软件功能的增加，一轮内测后，我的重心可以不在软件界面的设计上了，大的框架已经很完整了，有足够的时间去试模型的引导语，开发新的功能。加上小伙伴也有很多好的点子，在此再次衷心感谢。最后项目评审的时候，老师说，感觉这个软件的作者像是很熟悉大模型的人，重度使用者，开发出各种各样的功能。我想这么高度的评价是靠 很 nice 的小伙伴提供的很 nice 的点子 和 我一整天的试验 取得的。</p>
-<p>后面第二轮内测就没有较大的改动了，加了一个功能，整个软件下来是比较满意的，三天做出来自己想要的成果了。最后一天录了一下演示视频，写了一下文档，就没有什么值得提的事情了，提交后就是一天漫长的等待。</p>
-<h1 id="成果"><a href="#成果" class="headerlink" title="成果"></a>成果</h1><h2 id="评审"><a href="#评审" class="headerlink" title="评审"></a>评审</h2><p>在评审的前一天，我首先在系统里面看到了自己的分数，93 分，听着应该是很高了吧，不过不知道别人的分数，上面还有很大的提升空间，这个分数看来并没有让我很安心。</p>
-<p>第二天评审，评委的 PPT 划过，看到了获奖队伍那一页，找我的名字，中间没有，下面没有，在第一个！</p>
-<p>只看到了这么多信息，PPT 被切到了封面页，好消息是我获奖了，剩下的悬念是，这个排名有没有按照名次，紧张焦急的等待后，尘埃落定，第一名！！！</p>
-<img src="/posts/2376/%E7%AC%AC%E4%B8%80%E5%90%8D.jpg" class="" title="第一名">
-
-<h2 id="感想"><a href="#感想" class="headerlink" title="感想"></a>感想</h2><p>这个故事告诉我们一个道理，当你觉得自己很菜的时候，<del>没准别人比你还菜</del>，不妨试试，结果怎么样要试了才知道。</p>
-<p>好吧我是真的没想到会这么完美的结果，明明五天前还一直在纠结犹豫要不要报竞赛组，心里打了很多次退堂鼓，最终还是鼓起勇气参加了。明明四天前压根没有听说过什么叫大模型，最终评审的时候却得到了“作者像是非常熟悉这个文心大模型的人”的高度评价。明明三天前对软件的图像化设计可以说是一无所知，最终历经千辛万苦成功做出软件甚至还是在自己修改了库的情况下。</p>
-<p>所以以后遇到什么不敢去尝试的事情，如果尝试的代价不是很大，那就去试试吧，万一成了呢？</p>
-<div class="note primary"><p>这世间，有那么多个美好的万一啊 </p>
-</div>
-
-<h2 id="软件介绍"><a href="#软件介绍" class="headerlink" title="软件介绍"></a>软件介绍</h2><h3 id="使用需知"><a href="#使用需知" class="headerlink" title="使用需知"></a>使用需知</h3><ul>
-<li>只可以在 windows 电脑端运行</li>
-</ul>
-<p>所以在手机上是运行不了这个软件的。</p>
+<h1 id="1-就是你把鬼子引进村的"><a href="#1-就是你把鬼子引进村的" class="headerlink" title="1.就是你把鬼子引进村的"></a>1.就是你把鬼子引进村的</h1><p>大二学生，2021.12.27因疫情封在宿舍，考试推迟，又复习了两天之后，感觉再复习的话，考试的时候就忘了，没那么大动力，想干一些自己想干的。看到了自己收藏夹里吃灰的markdown学习教程，就开始学习markdown写作了，后面跟着一本书来学习，就是这本书，让我从此走上了不归路。</p>
+<p>好好的markdown教程，有一章是教怎么搭建个人博客网站的。我大致翻了一下，感觉好麻烦呀，不弄了不弄了。可能是刻在骨子里的兴趣点吧，之后的一段时间建网站的想法一直在我脑海中萦绕，我还是没忍住。。。</p>
+<h1 id="2-激情建站"><a href="#2-激情建站" class="headerlink" title="2.激情建站"></a>2.激情建站</h1><p>12.31号，跨年呢对吧。我从下午开始一直搞，直到晚上的11:30，当你投入某种热情的时候，真的可以忘记时间的。</p>
+<p>接下来的三天（1.1~1.3），我还保有理智，跟自己约定好上午复习，吃完午饭了再弄网站。可我真的控制不住自己的脑子，边抄英语重点，边想网站框架，边写大物习题，边想怎么解决bug。我是个倒头就睡的人，十一点上床，不玩手机的话一会儿就睡着了，可能有时候刷b站，十二点前放下手机，真的秒睡。</p>
+<p>我失眠了。</p>
+<p>从十一点干巴巴的躺着，脑子却异常活跃，一直在想我今天开发了什么功能，还有什么功能待开发，网站博文的框架怎么写……以至于到了凌晨一点多才睡着。第二天早上七点，又自己醒了。要知道我平时没课的话睡到九点都是习以为常，我只能说，它对于我真的是很有魅力。</p>
+<p>1.4和1.5这两天，我干脆放下了复习，考试要到年后了，现在不着急复习。整天搜一些插件和教程，逐渐上线新功能。看了很多别人的博客，看到好的东西就搜怎么实现，一逛可以一整天。可以说除了吃饭睡觉做核酸以外，就是在搞自己的网站了。（当然一直看电脑确实很累，眼睛酸了就躺一会儿。</p>
+<p>今天看了很多很多别人的博客，n多友链反复横跳，我发现他们都做的好好啊，每个人都有自己的风格。</p>
+<p>那我的风格呢？</p>
+<h1 id="3-灵魂拷问"><a href="#3-灵魂拷问" class="headerlink" title="3.灵魂拷问"></a>3.灵魂拷问</h1><p>我发现我已经渐渐忘记我真正想要的是什么了。</p>
+<p>一开始就是凭着自己对计算机的热爱，搞个网页这是我没有接触过的，很新鲜，就来尝试了一下，这是最本源的内在驱动力。那么外在驱动呢，最朴素的想法就是装X吧，跟好朋友说我自己建了个网站哦，这一听就是非常非常酷的事情。（其实我用的都是模版和插件，就下下插件，改改配置文件，js代码也是搜网上教程cv来的，毕竟还没学网页相关知识，（就这？就这我都弄了五六天，（然而配置环境是真的难，那么多bug呜呜呜</p>
+<p>还有一个宏大的愿望，我是用自己名字命名的博客（然而现在不想用了，要不要改呢。。），我想让自己个人博客网站有很多很多的浏览量，以至于百度我的名字可以搜到这个网站。这又是顶级的装X操作！出于对新用户友好的想法，有很多人看的想法，我尽可能尝试很多很多的功能，希望我的网站非常的好看，然而很多人浏览也不能卡呀，我也希望它要访问很快。</p>
+<p>我也问自己这有什么实质性作用，我想到了很好玩的是，我希望未来可以在自己的简历上写，建立个人博客网站，访问人次几千亿亿什么玩意儿的哈哈哈哈。</p>
+<p>我想要的太多了。</p>
+<p>搞了很多插件，推送网站的url给搜索引擎，期望能够被搜到。我会分享给朋友链接，在b站自己的视频下面推这个博客，期望有很多人访问它。每天看一遍网站访问量，看一看新访客，要看好久。起初，我喜欢个人博客的一点就是，各大平台都是被流量裹挟的，发布的内容为了博人眼球，我怎么也开始注重流量了？</p>
+<p>感觉情况不妙，遂进行了深刻的反思。</p>
+<h1 id="4-开始反思"><a href="#4-开始反思" class="headerlink" title="4.开始反思"></a>4.开始反思</h1><p>我不再期望自己的网页可以出现在搜索引擎的推荐里了，毕竟那是无良医院掏钱就可以占据头部的地方。但是我还是会给小伙伴分享我又写了什么好玩的东西，会在其他平台放上我的博客链接，（这里指在我写的内容会对他有帮助的情况下）。</p>
+<p>我会去掉一些东西，让它尽可能的简洁，现阶段更像是一个我自己的树洞，一个记录自己学习生活的地方。草原上的草还没长出来，马来了又有什么用呢。下阶段的任务就是要充实一下自己的内容吧。</p>
+<h1 id="5-我会写什么？"><a href="#5-我会写什么？" class="headerlink" title="5.我会写什么？"></a>5.我会写什么？</h1><p>这几天接触了很多新鲜玩意儿呢，要趁早记录下来，就算是建站过程的分享吧。主题配置，插件介绍，还有文章里面的一些 html 或其他格式的插入。</p>
+<p>然后自己如果有什么可以公开的学习笔记的话也会发上来，（话说我这个人很少记笔记的，这可不太好，emmm，这个网站也是督促我要写一些东西了</p>
+<p>遇到好的代码软件什么的也会分享上来，我这个人最爱折腾软件和代码，折腾的步骤写上来也行。</p>
+<p>可能也会开生活区，分享一些我觉得值得记录的日常。</p>
+<h1 id="6-我不会写什么？"><a href="#6-我不会写什么？" class="headerlink" title="6.我不会写什么？"></a>6.我不会写什么？</h1><p>违法的。。。个人博客不是法外之地</p>
+<p>涉及个人隐私的，我想把这个博客和自己分离出来吧，网络姻缘一线牵</p>
+<p>还有一些处于灰色地带的什么我觉得不适合发的东西，不冒那个险了</p>
+<p>很重要的是，我不会发网上已经详细充分解决了的东西。最烦那种搜个什么问题，完了下面是各大平台的结果，点击去看全是重复的，还有那种一个字没有只有引用链接，又跳到相同的网址去了，要么是作者多平台发送（这个给予理解，但从个人角度看很烦），要么有人直接搬运抄袭。我认为有我自己独特的地方的话，才值得发出来。</p>
+<hr>
+<p>于2022.1.6 早上 补充</p>
+<hr>
+<h1 id="7-我的风格"><a href="#7-我的风格" class="headerlink" title="7.我的风格"></a>7.我的风格</h1><p>一方面又想极简主义，要网站的最快访问速度，一方面又想它会变好看一点，这两个还需要我做出取舍，这个再想想。</p>
+<p>极强的强迫症，我是不允许有没用的东西出现在我的界面上的。还有任何影响观感的东西我都会把它去了。</p>
+<p>结构方面，条理性是必须的，从每个标题就可以看出来，会将此发扬光大。</p>
+<p>文笔方面，可能从这篇文章也看出来了，偏生活，偏叙事，就像自己给自己说话，不能嫌我啰嗦。自认为还是有那么一点点幽默元素的，得益于网上冲浪。这点和很多大佬的博客风格不一样，非常敬佩于他们的切中要害，言简意赅，我会学习的，但是这就是我的风格，人还是要有自己的风格。</p>
+<p>目前（给自己真香留后路）</p>
 <ul>
-<li>生成字数多（如作文）会很慢，耐心等待</li>
-<li>偶尔会出现人工智障的情况，自行甄别</li>
-<li>一个账号每日使用次数上限 200 次，总使用次数上限 2000 次</li>
+<li>不想给自己捆绑一些其他的东西，现阶段我也不打算靠这个挣钱，保留它的纯粹性。</li>
+<li>不会强制跳转（我尽量做到，有些网站有限制我也没办法，就像我自己的b站视频我直接嵌套进来，注重读者体验，你们要想更清晰，发弹幕，那只能跳到b站，b站规定的那我也没办法），</li>
+<li>不会强制关注公众号（我现在也没有），</li>
+<li>现在每篇下面会有打赏，我想把它去了，因为并没有什么人会打赏，放那里也很碍事。但是但是，我还是非常喜欢这种形式的，这首先是对我内容的高度认可，非常开心。我也不指望这个发家致富（若有土豪带飞我绝不拒绝），一分钱就好，就像点了个赞那样的。（虽然本人以前也是个白嫖狗，自己尝试做视频写文章之后观念就慢慢转变了，有人会喜欢自己的东西真的很开心</li>
+<li>我还是会保留打赏的吧</li>
 </ul>
-<p>事实上我只是把接口封装成了一个软件，上面是所调用的大模型的限制，所以即使我知道会出现这些问题也无能为力。现阶段这个软件只能说是体验 AI 的写作。</p>
-<ul>
-<li>软件免费，欢迎赞赏</li>
-</ul>
-<h3 id="演示视频"><a href="#演示视频" class="headerlink" title="演示视频"></a>演示视频</h3><div style="position:relative; padding-bottom:75%; width:100%; height:0">
-    <iframe src="//player.bilibili.com/player.html?bvid=BV1Nd4y167LA&amp;page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="position:absolute; height: 100%; width: 100%;"></iframe>
-</div>
-
-<h3 id="软件下载"><a href="#软件下载" class="headerlink" title="软件下载"></a>软件下载</h3><p>github开源：<a href="https://github.com/guohuan78/AI_writing_helper">guohuan78&#x2F;AI_writing_helper (github.com)</a></p>
-<p>考虑到国内访问 github 困难，上面的链接打不开很正常，可以通过下面的链接下载软件。</p>
-<p>蓝奏云盘：<a href="https://wwz.lanzoum.com/iB3CX0bnhzwj">AI写作外挂 V1.3.2.zip - 蓝奏云 (lanzoum.com)</a></p>
-<h3 id="软件使用"><a href="#软件使用" class="headerlink" title="软件使用"></a>软件使用</h3><p>打开会是一个弹窗，虽然很烦，还是建议认真看一下，毕竟是我斟酌很久写出来的。</p>
-<p>关闭弹窗会自动打开一个网站，虽然这个行为也很流氓，但是是为了节省用户的力气，直接帮你们打开这个网站，按照弹窗的提示登录百度账号，申请 key，复制 key，填写到软件里面。</p>
-<p>建议填写后点击右边的 “保存key”，这样以后软件就不会弹窗，也不会打开网页，即开即用。</p>
-<p>填写完 key，选择上面标签页的功能，填写文字，点击 “开始执行”，下面控制台会输出结果。</p>
-]]></content>
-  </entry>
-  <entry>
-    <title>python解放文件夹脚本</title>
-    <url>/posts/5114/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>本文用 Python 实现了将文件夹中 一级子文件夹内的文件 批量自动化移动脚本，内涵源码。</p>
-<span id="more"></span>
-
-<h1 id="动机"><a href="#动机" class="headerlink" title="动机"></a>动机</h1><p>用 WPS 下载模版的时候，WPS 会把 PPT 外面套一个文件夹的壳，如下图：</p>
-<img src="/posts/5114/WPS%E6%B7%BB%E5%8A%A0%E7%9A%84%E6%96%87%E4%BB%B6%E5%A4%B9.jpg" class="" title="WPS添加的文件夹">
-
-<p>可能是为了防止 PPT 名字一样而覆盖？不清楚为什么，但是很影响使用，下载的多了的话还要手动一个一个拖出来。</p>
-<p>重复机械的工作不应该由人类去干，于是就想着用 Python 写一个自动化脚本来帮助去掉文件夹的壳，一劳永逸。</p>
-<h1 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h1><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> shutil</span><br><span class="line">src_folder = <span class="string">r&#x27;D:\3下载\WPS下载模板\下载&#x27;</span>+<span class="string">&#x27;\\&#x27;</span></span><br><span class="line">des_folder = <span class="string">r&#x27;D:\3下载\WPS下载模板\科技风&#x27;</span>+<span class="string">&#x27;\\&#x27;</span></span><br><span class="line"><span class="comment">#直接粘贴地址栏复制好的src和des分别替换前一个引号里面的</span></span><br><span class="line">folders = os.listdir(src_folder)<span class="comment">#读取src下的文件及文件夹</span></span><br><span class="line"><span class="keyword">if</span> <span class="keyword">not</span> os.path.exists(des_folder):<span class="comment">#不存在目标路径就创建</span></span><br><span class="line">    os.makedirs(des_folder)</span><br><span class="line">des_folders =os.listdir(des_folder)<span class="comment">#读取des下文件及文件夹</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> folders:<span class="comment">#遍历得到的文件及文件夹</span></span><br><span class="line">    <span class="keyword">if</span> os.path.isdir(src_folder + i):<span class="comment">#如果是文件夹，向下执行</span></span><br><span class="line">        files = os.listdir(src_folder + i)<span class="comment">#读取子文件夹下的所有文件及文件夹</span></span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">len</span>(files) == <span class="number">0</span>:<span class="comment">#空文件夹直接删除</span></span><br><span class="line">            os.rmdir(src_folder + i)</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> files:<span class="comment">#遍历子文件夹下所有文件</span></span><br><span class="line">            <span class="keyword">if</span> j <span class="keyword">in</span> des_folders:<span class="comment">#若与目标路径文件夹中内容有同名不予操作，并输出路径</span></span><br><span class="line">                <span class="built_in">print</span>(<span class="string">&quot;有同名文件:&quot;</span> + src_folder + i + <span class="string">&#x27;\\&#x27;</span> + j)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                src_path = src_folder + i + <span class="string">&#x27;\\&#x27;</span> + j<span class="comment">#得到子文件夹下的内容路径</span></span><br><span class="line">                <span class="keyword">if</span> os.path.isfile(src_path):<span class="comment">#如果是文件，准备移动</span></span><br><span class="line">                    shutil.move(src_path,des_folder)<span class="comment">#移动</span></span><br><span class="line">                    des_folders = os.listdir(des_folder)<span class="comment">#更新des_folders内容</span></span><br><span class="line">                    <span class="keyword">if</span> <span class="built_in">len</span>(os.listdir(src_folder + i)) == <span class="number">0</span>:<span class="comment">#移动后再次检查文件夹，空则删除</span></span><br><span class="line">                        os.rmdir(src_folder + i)</span><br></pre></td></tr></table></figure>
-
-<h1 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h1><img src="/posts/5114/%E5%A4%84%E7%90%86%E6%95%88%E6%9E%9C.jpg" class="" title="处理效果">
-
-<p>PPT 被从原路径输出到目标路径，没有了文件夹，可以选择 <code>src_folder</code> 和 <code>des_folder</code> 相同，原地输出。</p>
-<p>若碰到同名的文件，会输出提示信息，并打印出来同名文件的路径，可以自行处理。</p>
-<p>移动过后，<code>src_folder</code> 中剩下的空文件夹会被删除。</p>
-<h1 id="拓展"><a href="#拓展" class="headerlink" title="拓展"></a>拓展</h1><p>其实上述代码完全符合在我最初场景的期望，所以可以到此为止了。</p>
-<p>可以改进的地方，同名以后直接加后缀再移动，不过考虑到重名的几率很小，基本不会重名，或者重名的文件也不会太多，就留下自行处理吧。</p>
-<p>此代码只移动一级目录，文件夹里套文件夹会被忽略。自己目前也没有遇到这种需求，故没有加入这个功能。或许遇到了再实现吧。</p>
-]]></content>
-  </entry>
-  <entry>
-    <title>评论区改版</title>
-    <url>/posts/40193/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>从 Livere 到 Waline</p>
-<span id="more"></span>
-
-<h3 id="原评论区用-Livere"><a href="#原评论区用-Livere" class="headerlink" title="原评论区用 Livere"></a>原评论区用 Livere</h3><p>初步调研选定 Livere 和 gittalk，考虑到很多浏览的小伙伴都没有 Github 账号，又因为</p>
-<p>我大天朝无奇不有，Github 处于半墙状态，不好弄</p>
-<p>而 Livere 支持 QQ，微信等第三方登陆，降低大众评论门槛，<del>然而还是没有一个人评论</del>。</p>
-<p>最终选定 Livere ，这个评论系统好在配置简单，主题直接集成，缺点嘛就是由于是韩国公司提供的，而且只有刷到文章最下面才会加载，Livere 的评论系统加载有一丢丢慢，不过也不是不能用。</p>
-<p>可就在今天，我竟然在 Livere 的评论区下看到了很大一栏的广告，还是韩文的。搜了一下了解到它确实和广告公司合作在评论区插广告了。</p>
-<p>重度强迫症患者不会允许自己的网站有别人家的广告，不能惯着，直接把评论区关了。</p>
-<p>还把自己的 Livere 账户冻结了，下一步企图删除账户（<del>反正也没有一条评论</del>），很气人的不知道为什么到了最后一步点击确定删除，一直点都没反应，一点取消就取消了，我不知道是它的问题还是我的问题，如果它故意这样，那就真气人。</p>
-<p>想着评论区要不就直接关了吧，再三强调，访客次数到一千了也没有一条评论，确实没有存在的必要。</p>
-<p>又想着不忘初心，自己本来也就没打算怎样，都是出于兴趣，自己爱折腾，就继续折腾一下，找别的评论系统。</p>
-<h3 id="从-Valine-到-Waline"><a href="#从-Valine-到-Waline" class="headerlink" title="从 Valine 到 Waline"></a>从 Valine 到 Waline</h3><p>又进一步发掘，找到了 Valine 这个评论系统，也经常在别人博客中看见，无需登陆，可以留下自己的信息，进一步降低评论门槛，留下邮箱还有评论回复提醒，功能挺符合我想要的呢。</p>
-<p>动手干了以后，第一遍不行，评论区的框是有了，可是写完提交没反应，数据库里也没有记录。又找了个教程，一步一步跟着做了一遍，还是不行。搜为什么 Valine 提交没反应，按着几个解决方案来了一遍，就是不行。真能折腾啊。</p>
-<p>更让我没想到的是，要折腾的更在后面。</p>
-<p>一篇文章说，Valine 停止对高版本 Next 主题的支持，所以想用 Valine 建议回退到 5.x 的 Next 版本，让我退步是不可能的。它还说现在有一个更好的 Waline，听名字就是 Valine 的兄弟，说是等于 Valine + 后端，咱也不懂，就说这个比 Valine 更难部署一点，但是更加安全，于是就继续折腾。</p>
-<p>还说使用这个 Next 主题最好要更到 8.x ，我的是 7.x ，看它升级一次主题好麻烦呀，配置文件要重新搞，还有原来功能就没了，兼容问题也要考虑。纠结了老大一会儿，试着搞了一下，还真给搞坏了。幸好我改之前备份了一下，立马式的换回来了。想着要不就算了。。。</p>
-<p>但咱就是爱折腾</p>
-<p>就是为了这个评论区才升级了 Next 主题</p>
-<p>整个主题都变了，又从头修改了一下 Next 主题 config.yml 的配置，第二遍弄就是不一样，大概一个晚上就基本配置完成了。</p>
-<p>最令人头疼的是那种改了 css 文件的更改项，比如下面这个修改文章内链接文本样式。这种需要直接改网页生成文件，而 Next 主题变了以后这些文件又变成初始那样了，还有可能跟原版文件结构不同。</p>
-<h3 id="修改文章内链接文本样式"><a href="#修改文章内链接文本样式" class="headerlink" title="修改文章内链接文本样式"></a>修改文章内链接文本样式</h3><p>参考文章：<a href="https://www.jianshu.com/p/3a05351a37dc">Hexo的Next主题详细配置 - 简书 (jianshu.com)</a> 第12点</p>
-<p>Next主题自带的链接文本只有下划线，看起来很不明显，主题配置文件中也没有提供可供更改的配置项，只能通过更改 css 文件来实现，这种是升级主题过程中最麻烦的一种。</p>
-<p>找了很多文章，都让改 <code>./themes/source/css/_custom/custom.styl</code> ，但是我根本没找到 <code>_custom</code> 这个文件夹，用了参考文章的办法做出来了。</p>
-<p>打开文件 <code>themes/next/source/css/_common/components/post/post-body.styl</code>，在末尾添加</p>
-<figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.post-body</span> <span class="selector-tag">p</span> <span class="selector-tag">a</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#0593d3</span>;</span><br><span class="line">  <span class="attribute">border-bottom</span>: none;</span><br><span class="line">  <span class="attribute">border-bottom</span>: <span class="number">1px</span> solid <span class="number">#0593d3</span>;</span><br><span class="line">  <span class="selector-pseudo">&amp;:hover</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: <span class="number">#fc6423</span>;</span><br><span class="line">    <span class="attribute">border-bottom</span>: none;</span><br><span class="line">    <span class="attribute">border-bottom</span>: <span class="number">1px</span> solid <span class="number">#fc6423</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>这里的末尾是真真正正的末尾，我还自作聪明在那个最大的花括号里面加的，但是不行。拉到文件最最后什么的也没有的地方粘贴以上代码。</p>
 ]]></content>
   </entry>
   <entry>
@@ -292,6 +949,74 @@
 <p>所以现在的配置和直接把图片拖到网页的处理效果相同。</p>
 <p>这里面的每个坑，我都以为是死胡同，但人的主观能动性是很强的，无法解释我怎么就突然想到了解决办法，可我就是想出来了解决办法，但凡有一步想不出来，整个工程就挂了。</p>
 <div class="note danger"><p>绝望之处，寻找希望。 </p>
+</div>]]></content>
+  </entry>
+  <entry>
+    <title>疫情封宿舍第十一天有感</title>
+    <url>/posts/48849/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>2021.12.27，因西安疫情，困于宿舍，时至2022.1.7，有感而发。</p>
+<span id="more"></span>
+
+<h1 id="0-前情提要"><a href="#0-前情提要" class="headerlink" title="0.前情提要"></a>0.前情提要</h1><blockquote class="blockquote-center">
+<p>起初，没有人在意这场灾难，这不过是一场山火，一场旱灾，一个物种的灭绝，一座城市的消失<br>直到这场灾难与每个人息息相关。</p>
+
+</blockquote>
+
+<p>2021.12.27，记得那是一个寒冷的下午，疫情初露锋芒，每两天要做一次核酸，那天也是要做核酸的。</p>
+<p>我那天原本是有场英语考试的，考试前两天进行了认真系统的复习，终于，在考试的前一天下午考试推迟了。同学们大多是开心的，据说，通知下来的十分钟里，图书馆的人走了一大半。我只觉得离谱，虽然自己也没背什么，复习的总会一点点忘却，夜长梦多，我只想考试早点结束。</p>
+<p>没有了考试，大家纷纷喊着“开摆”“上号”。吐槽了许久，发觉考试虽然推迟，复习还得继续，这波叫秋后问斩。</p>
+<p>没有了考试，有了更多的休闲时间。那天，好友邀我去打乒乓球，打的很尽兴。期间，他说这可能是这学期最后一次出来打球了。我笑了笑，说不至于吧。</p>
+<p>打完球做完核酸，途径大超（注：大学生超市），想着买点东西，远远的就看到一条队伍长龙，得，东西是买不成了。差一个小时到饭点，纠结于直接吃饭还是再玩儿会儿。猛地听到有过路的同学说要封宿舍了，心里咯噔一下，看了看自己的通知群，还没发，在原地踌躇了一会儿，通知下来了</p>
+<div class="note danger"><p>封宿舍了。 </p>
+</div>
+
+<h1 id="1-开端"><a href="#1-开端" class="headerlink" title="1.开端"></a>1.开端</h1><p>我们不用选择了，我们没有选择了。</p>
+<p>收到通知，下一步直接从不确定状态塌陷为确定状态，回宿舍。我们相互道别，再见，明年再见。</p>
+<p>封宿舍第一天晚上，可能是因为太仓促的缘故吧，一定是很仓促的。朋友圈中可见一斑：</p>
+<img src="/posts/48849/%E6%9C%8B%E5%8F%8B%E5%9C%88%E9%A3%9F%E7%89%A9%E9%80%92%E5%87%8F.jpg" class="" title="此图来自朋友圈">
+
+<p>最晚的同学，十一点多才拿到饭，还是非常的《朴素》，面条+芹菜，面条+西葫芦，对此表示深深的同情。然而另一边，有同学还在喊饿，吃不饱。导员说，我们现在要解决的是有没有的问题，不是够不够的问题。我深以为然。</p>
+<p>我是比较幸运的，第一批拿到的饭。然而我也开心不起来，我最担心的也来了，从听到有封宿舍的消息就开始担心，家在北方，晚饭基本不吃米饭，天天米饭，胃要遭殃了。（此处禁止地域对立，大家相互理解）</p>
+<p>好在第二天开始，学校确实解决了有没有的问题。</p>
+<p>每天就是，睡觉，吃饭，做核酸。</p>
+<div class="note warning"><p>我们没有选择。 </p>
+</div>
+
+<p>“今天的饭好凉啊。今天的包子怎么是辣的，吃不了辣怎么办。这什么呀，吃不惯。今天的菜怎么这么难吃。我不喜欢吃这个菜怎么全是这个菜。怎么别的宿舍楼饭那么好我们这里这么差。怎么饭这么少不够吃。怎么刚吃完早饭就来午饭了。怎么这都几点了还不来饭。怎么我刚开一把游戏就来饭了。我不敢玩游戏等着饭来怎么还不来。”</p>
+<div class="note warning"><p>我们没有选择。 </p>
+</div>
+
+<p>“我们做核酸为什么非要集中走。我们回来的时候为什么要绕远路。那么远为什么不让我们骑车去。好远啊能不能在宿舍附近做核酸。怎么刚吃完饭就让我们去做核酸。饭刚来还没吃呢就走了。怎么这么早就要去做核酸。怎么那么晚才让我们做核酸。怎么说好的九点一直不走。怎么你八点二十才通知八点半就要去。怎么你说错峰核酸了还要排这么长的队。”</p>
+<div class="note warning"><p>我们没有选择。 </p>
+</div>
+
+<p>刚开始的时候两天一次核酸，后面一天一次核酸。偶尔一次可能没事，做多了以后，喉咙真的会变的很敏感。导员跟我们开线上会议的时候就一直咳嗽，他特意解释是因为做了很多次核酸以后嗓子真是很敏感。深有同感，有时候有的医生检测时候棉签会伸很深还会很大力左右晃（当然很多大部分医生还是很温柔的），做完的一段时间里，正常的呼吸都会触发它，很痒，止不住的咳。</p>
+<div class="note warning"><p>我们没有选择。 </p>
+</div>
+
+<h1 id="2-发展"><a href="#2-发展" class="headerlink" title="2.发展"></a>2.发展</h1><div class="note primary"><p>我们其实有的选。 </p>
+</div>
+
+<p>我们可以选择去当志愿者。帮助组织核酸检测工作，帮助送餐。有一分热，便发一分光。</p>
+<p>至少，我们可以选择去配合，去尊重，去感恩。工作刚开始难免有不足的地方，但只要有一个我们都去遵守的规定，那它起码还是有序的。事后可以合理的提出建议。我们可以选择在志愿者送饭的时候，在食堂阿姨打饭的时候，说声谢谢。</p>
+<p>我们戏称每日的核酸检测为吃棉签，封宿舍以后变成了监狱生活，出去做核酸成了放风。其实我还挺喜欢走做核酸的那很长一段路的，从学校的这个角走到学校的那个角，一来可以给我们久坐不起的监狱生活增加不小的运动量，二来可以欣赏沿途的美景和那久违的，没有经过玻璃折射的太阳。</p>
+<p>渐渐的，肉眼可见饭菜质量开始提升了，（大抵是因为后来开始收钱了吧），分量也确实足了那么一些。可以感受到食堂的工作人员尽心尽力尽可能丰富一下我们的饮食结构，送饭的时间也日趋规律合理，听到走廊里有送饭的动静就早早到门口等着了。敲门，开门，谢谢，早已形成了条件反射。</p>
+<p>早上还没起床，送饭的志愿者会把饭放到门口，尽量不打扰。感动于跨年夜的饺子，感动于跨年夜学校送来的苹果，感动于两次送来的口罩，满满的安全感。感动于班主任的“有任何困难可以私信我”，感动于导员线上会议关注我们思想动态搜集解决问题，感动于学业导师的细心叮嘱，感动于好友的关心和提醒，感动于室友共处一室的互相包容，感动于妈妈事无巨细的考虑和关切。</p>
+<p>曾跟好友分享入狱以来的生活状况，有句话很受触动，“以前都是在网络上看疫情怎么怎么样，听你这么一说才感觉到了真实。”我也真真切切感受到了真实。</p>
+<p>实话说，这次西安和学校的防疫和后勤保障工作并没有做到让人完全满意。在最阴暗的时候，甚至感到了失望。但我相信，大家一定是做了最大的努力的。</p>
+<h1 id="3-高潮"><a href="#3-高潮" class="headerlink" title="3.高潮"></a>3.高潮</h1><p>西安疫情已过拐点，我们看到了希望。</p>
+<p>从前天（1.5）开始，我们不用做核酸了。从昨天（1.6）开始，我们可以一个宿舍派一个人去买饭了。</p>
+<p>为什么我非得是今天有感呢，因为今天我买饭。</p>
+<p>十一天以来，第一次，可以全天都吃到自己想吃的饭。</p>
+<p>今天下午，第一次感受到食物充满整个胃的感觉。（就是吃撑了）</p>
+<p>平时天天吃宿舍附近这个食堂，嘴上都说吃腻了，天天到饭点不知道吃什么。经过了十天的分配制度，现在选择权重新回到了自己手上。</p>
+<p>经历过黑暗后，发觉平常就是幸福。我们习以为常的一切被夺走以后，才发现，那些我们早已习惯的已经是最幸福的了。放学的途中看看夕阳，没课的上午去打个乒乓球，不想复习的晚上去跑步打卡，和好朋友站在食堂的窗口前说“吃什么”“随便”。这些都会慢慢回来的。</p>
+<p>这次疫情的亲身经历提醒我，多珍惜自己已经拥有的。</p>
+<div class="note info"><p>日常就是幸福。 </p>
+</div>
+
+<h1 id="4-结局"><a href="#4-结局" class="headerlink" title="4.结局"></a>4.结局</h1><p>我希望是，</p>
+<div class="note success"><p>世界健康 </p>
 </div>]]></content>
   </entry>
   <entry>
@@ -518,224 +1243,98 @@
 ]]></content>
   </entry>
   <entry>
-    <title>疫情封宿舍第十一天有感</title>
-    <url>/posts/48849/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>2021.12.27，因西安疫情，困于宿舍，时至2022.1.7，有感而发。</p>
+    <title>AI写作外挂开发随笔</title>
+    <url>/posts/2376/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>参加西北工业大学第二届未来AI大师国际夏令营，做出的软件 —— AI 写作外挂，获第一名，已开源。</p>
 <span id="more"></span>
 
-<h1 id="0-前情提要"><a href="#0-前情提要" class="headerlink" title="0.前情提要"></a>0.前情提要</h1><blockquote class="blockquote-center">
-<p>起初，没有人在意这场灾难，这不过是一场山火，一场旱灾，一个物种的灭绝，一座城市的消失<br>直到这场灾难与每个人息息相关。</p>
+<p>只想看最终的软件不想听流水账的可以跳转<a href="#%E8%BD%AF%E4%BB%B6%E4%BB%8B%E7%BB%8D">软件介绍</a></p>
+<h1 id="契机"><a href="#契机" class="headerlink" title="契机"></a>契机</h1><img src="/posts/2376/%E8%A5%BF%E5%B7%A5%E5%A4%A7%E7%AC%AC%E4%BA%8C%E5%B1%8A%E6%9C%AA%E6%9D%A5AI%E5%A4%A7%E5%B8%88%E5%9B%BD%E9%99%85%E5%A4%8F%E4%BB%A4%E8%90%A5%E6%B5%B7%E6%8A%A5.jpg" class="" title="西工大第二届未来AI大师国际夏令营海报">
 
-</blockquote>
+<p>参加过第一届，是线下的，第二届是线上了，感觉会不一样，就想着报名。不过不知道参加过一次会不会不让重复参加，不过还是报名了。</p>
+<p>报名的时候分为两个组，启蒙探索和竞赛创新。启蒙探索主要是听专家讲座，这个我在第一届也听过很多，而且变成线上的夏令营，都是讲座感觉效果不会很好。于是选择竞赛创新组。但是竞赛这个词很是令人害怕，怕自己根本完不成任务，最后咬咬牙还是选择了这个。</p>
+<p>竞赛创新组里面又分为两个组别，A 组是基础组，做出一个 PPT 产品，主要考察创意，不用实现。B 组为进阶组，不仅要有创意，还要做出一个完整的产品，相当于一个完整的项目流程。</p>
+<p>那必然秒选 B 呀，不然我这一身的代码功夫无处施展，可以借此机会完整体验一把项目开发过程。</p>
+<p>分组是需要自己组队，</p>
+<center>——————分割线——————</center>
 
-<p>2021.12.27，记得那是一个寒冷的下午，疫情初露锋芒，每两天要做一次核酸，那天也是要做核酸的。</p>
-<p>我那天原本是有场英语考试的，考试前两天进行了认真系统的复习，终于，在考试的前一天下午考试推迟了。同学们大多是开心的，据说，通知下来的十分钟里，图书馆的人走了一大半。我只觉得离谱，虽然自己也没背什么，复习的总会一点点忘却，夜长梦多，我只想考试早点结束。</p>
-<p>没有了考试，大家纷纷喊着“开摆”“上号”。吐槽了许久，发觉考试虽然推迟，复习还得继续，这波叫秋后问斩。</p>
-<p>没有了考试，有了更多的休闲时间。那天，好友邀我去打乒乓球，打的很尽兴。期间，他说这可能是这学期最后一次出来打球了。我笑了笑，说不至于吧。</p>
-<p>打完球做完核酸，途径大超（注：大学生超市），想着买点东西，远远的就看到一条队伍长龙，得，东西是买不成了。差一个小时到饭点，纠结于直接吃饭还是再玩儿会儿。猛地听到有过路的同学说要封宿舍了，心里咯噔一下，看了看自己的通知群，还没发，在原地踌躇了一会儿，通知下来了</p>
-<div class="note danger"><p>封宿舍了。 </p>
+<p>上面的内容是 8 月 1 号写的，写了一丢丢，<del>我才不说是因为我懒加上有拖延症所以没写完呢</del>，肯定是因为证书和奖品没有发下来，写了文章也不会发出来所以推到了现在。没错，今天拿了证书和纪念奖品，如下：</p>
+<img src="/posts/2376/%E7%BB%93%E4%B8%9A%E8%AF%81%E4%B9%A6.jpg" class="" title="结业证书">
+
+<p>我怀疑他是不知道我名字怎么打出来，所以空着，等打印出来证书手写上去的。</p>
+<img src="/posts/2376/%E5%A5%96%E5%93%81%E9%BC%A0%E6%A0%87%E5%9E%AB.jpg" class="" title="奖品鼠标垫">
+
+<p>一个长但不是很长的鼠标垫，舍友建议配个键盘放上去，就是为了这点醋才包的饺子对吧。</p>
+<p>时隔一个多月，捡回逝去的记忆，9 月 13 号继续写。</p>
+<center>——————分割线——————</center>
+
+<p>分组是需要自己组队的，然而我是肯定不会主动去找别人组队的，也没有认识的人找我组队。经过上个学期小组作孽的摧残，对组队的期望不大，自己干自己的，没问题！</p>
+<h1 id="创意"><a href="#创意" class="headerlink" title="创意"></a>创意</h1><h2 id="众里寻它千百度"><a href="#众里寻它千百度" class="headerlink" title="众里寻它千百度"></a>众里寻它千百度</h2><p>首先试玩了一下这个大模型，功能全部体验了一番。也就三种，一种是通过提供的文字描述生成图片，一种是类似语音助手的问答对话，一种是自然语言处理（术语NLP）。</p>
+<p>通过文字描述生成图片，生成的风景还看的过去，有抽象派艺术画风，但是生成的人像完全是掉入恐怖谷了。同时生成的过程太漫长，以分钟来计时。这个功能可以不用。</p>
+<p>人工智能的对话，首先想到的应用场景是在客服里面，或者直接开一个 AI 对话服务，但是不足以支撑整个产品，所以这个暂时不考虑。</p>
+<p>只有最后一个自然语言处理可以用啦，简单来说就是，（凭我自己的理解），它已经看过千万级别的文字了，知识储备很充分，我们需要做的，就是设定特定的引导词，开发出它的功能。</p>
+<p>一种做软件的思路是，利用模型开发出来的某个功能，整合到软件里面，作为一部分，算是模型落地的应用，只是一个软件的一环。这种思路我想了好久没有想到比较好的创意。</p>
+<h2 id="暮然回首"><a href="#暮然回首" class="headerlink" title="暮然回首"></a>暮然回首</h2><p>换了一种思路，既然这个模型只能做自然语言处理，那我不如直接围绕自然语言处理来开发一个软件，软件的全部功能都由这个模型来提供。只能处理文字，那就把文字处理到极致。所以第一天就有了这个创意—— AI 写作外挂。</p>
+<p>“AI”是产品的亮点，必须写在名称里面，“写作”是软件的主要功能，“外挂”二字则有标题党那味了，属于点睛之笔。</p>
+<p>对这个名字我很满意，填写完之后，注意到别的组有一个叫 “AI文章辅助工具”，感觉和我的软件撞车了，<del>不过我感觉自己在名字上已经赢过它了！</del> but 当我跟妈妈炫耀的时候，她说外挂是啥意思，你这个名字看不懂。喔~ <del>还好看不懂外挂意思的大概率也不是这个软件的受众群体</del>，外挂就是指这个东西很厉害，厉害到你用了这个东西相当于作弊一样的，对别人有碾压效果。</p>
+<h1 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h1><p>这个软件的核心技术部分是调用 api（应用接口，你传入数据，它返回结果），这部分有现成的调用实例，而且之前我也玩过 api，技术上难题不大。</p>
+<p>真正遇到的问题是在界面设计上，由于之前没有写过图形化的界面，如何写出一个像样的GUI（图形用户界面）成为了我遇到的第一个难题。</p>
+<p>有三个选项，电脑端软件，手机端软件，网页，三种呈现形式。我都没写过。。。但是我敢想呀，我一开始设想的是，我全都要，做出一个全平台的软件。什么？你问我没写过怎么办？我可以学呀！</p>
+<p>然而现实很残酷，准备从电脑端软件下手，使用的是百度那边活动负责人自己封装的 python 库 <code>qgui</code> ，一上手就遇到了问题，去问助教，助教发过来 github 链接，说有开源代码实例，让我自己学习一下，那就开始学吧。</p>
+<p>一天时间做好了第一版，将示例功能中和写作有关的部分放到了自己的软件上，属于是站在巨人的肩膀上，有现成的就要直接用。从早到晚写了一整天，软件的基本骨架已经搭好，就在我觉得十拿九稳的时候， 意外到来了……</p>
+<h2 id="至暗时刻"><a href="#至暗时刻" class="headerlink" title="至暗时刻"></a>至暗时刻</h2><p>晚上九点，我写好了第一版本的代码，需要把代码打包成软件，这样用户就可以直接使用。</p>
+<p>然而打包完成后运行一直出错，就相当于什么呢，相当于你洗菜切菜炒菜盛菜，都做的没有问题。但是你把菜端到用户桌子上的时候，突然发现里面有一只苍蝇，不能吃了。那你说再做一份不就好了，现实世界进苍蝇是偶然事件，代码世界出的 bug 是必然事件，排查不出来问题，运行一万遍也是不行。</p>
+<p>于是整个晚上我就在不断的打包，运行，报错。据不完全统计，几十次肯定是有的，每次需要十来分钟。次数说明不了什么，我从九点弄到十一点，往常这个点我要睡了，但是还是弄了一会儿，十二点了，必须睡了。躺在床上，脑子里面控制不住的想这件事，感觉自己肝的这两天，到临门一脚的时候功亏一篑了，怎么着也睡不着。于是在床上抱着电脑继续肝。</p>
+<p>一晚上也不是完全没有进步的，至少一开始报的错被我上网查到了解决方案，打包的时候加了一条命令。解决了这个错误，又蹦出来一个新的错误，关键我也不知道这个改变是正向的还是负向的。想到新的解决办法，只好在加命令和不加命令两种情况下都试一下，每试一下都要十来分钟，因为有两种情况，枚举的集合扩大为两倍。</p>
+<p>最后我想，至少得拿出来一个可以运行的东西出来吧。于是注释掉一部分代码，删去一些功能和界面，再打包试试，看看到底是哪里的问题。再类比做菜的话，可以理解为，你知道菜里面有的东西会招苍蝇，那你就少放几种菜，虽然没那么好吃了，至少不会有苍蝇，用户可以先吃着，试试哪种菜出了问题。</p>
+<p>不幸中的万幸，删去了一些非功能性界面，软件可以成功运行了，软件的功能没有受影响，只是丑了一些，少了一些提示语，终于可以睡着了，时间凌晨一点。</p>
+<h2 id="曙光升起"><a href="#曙光升起" class="headerlink" title="曙光升起"></a>曙光升起</h2><p>早上五点，太阳即将升起，随之起来的，是被早上五点的核酸检测大喇叭吵醒的人们，还有我胜利的曙光。</p>
+<p>迷迷糊糊起床，做核酸，回家，坐到电脑前。打开代码，精神抖擞，全神贯注，继续进行打包，运行，报错的无限循环。</p>
+<p>早饭没吃，继续去看代码。你问我为什么不吃饭？bug 管饱。（其实后面还是吃了的）</p>
+<p>上回书说到，已经删去一点非功能部分，软件可以成功运行，那么问题就出现在被删去的部分。有了这个突破口，再结合报错的一些信息，最终确定，问题没有出在我的代码上，而在于那个封装的库上，由于某些我也不太清楚的原因，最终结果是打包出来的软件没有办法运行。</p>
+<p>于是我把库的代码有关的部分理解了一下，根据自己的理解，做了一点改动，最终可以说几乎没有影响软件的功能从而可以正常打包软件，正常运行。类比一下就是一个厨子，发现菜里进苍蝇是因为厨房漏了个缝，于是这个厨子自学了一下装修把缝补上了。</p>
+<h2 id="劫后余生"><a href="#劫后余生" class="headerlink" title="劫后余生"></a>劫后余生</h2><p>大难不死，必须抒发一下感想。</p>
+<p>有时候我也会很奇怪呀，很多事情，差一步，就是天壤之别。或者说，我做的那些操作，但凡有一步没想到的，最终都不会是这样的结果。无法解释，为什么偏偏历经多次磨难，每次的困难都几乎把我绊倒，可每次都可以说近乎奇迹般的活了过来。无法解释我当时为什么会那么想，为什么会那么做，可我就是想到了，可我就是做成了。</p>
+<p>歪一下，程序员掉头发的原因找到了，一个项目做不完，或者说只出了一个 bug，就算再小，这个软件还是不能用，相当于什么用都没有。有时候只是一个小小的错误，需要花费大量的精力去排查。一步错，则功亏一篑，这也太有魅力了吧。</p>
+<h2 id="不断迭代"><a href="#不断迭代" class="headerlink" title="不断迭代"></a>不断迭代</h2><p>第一代产品做出来之后，首先找了我的小伙伴做内测，在此衷心感谢小伙伴的大力支持。前面说第一代的功能几乎都是抄的示例功能，只有轻微的改动，第一轮内测之后是产品的脱胎换骨。</p>
+<p>首先是软件的提示语上，一个好的软件，是用户一看就要会用的。可是我的测试发现都需要来问我，这肯定不能怪用户对吧，肯定是我的界面设计的不够明显。虽然我也很烦软件打开是一个弹窗，但是为了用户能自主使用软件，思考再三，还是加一个烦人的弹窗，轻喷。</p>
+<p>重点还是软件功能的增加，一轮内测后，我的重心可以不在软件界面的设计上了，大的框架已经很完整了，有足够的时间去试模型的引导语，开发新的功能。加上小伙伴也有很多好的点子，在此再次衷心感谢。最后项目评审的时候，老师说，感觉这个软件的作者像是很熟悉大模型的人，重度使用者，开发出各种各样的功能。我想这么高度的评价是靠 很 nice 的小伙伴提供的很 nice 的点子 和 我一整天的试验 取得的。</p>
+<p>后面第二轮内测就没有较大的改动了，加了一个功能，整个软件下来是比较满意的，三天做出来自己想要的成果了。最后一天录了一下演示视频，写了一下文档，就没有什么值得提的事情了，提交后就是一天漫长的等待。</p>
+<h1 id="成果"><a href="#成果" class="headerlink" title="成果"></a>成果</h1><h2 id="评审"><a href="#评审" class="headerlink" title="评审"></a>评审</h2><p>在评审的前一天，我首先在系统里面看到了自己的分数，93 分，听着应该是很高了吧，不过不知道别人的分数，上面还有很大的提升空间，这个分数看来并没有让我很安心。</p>
+<p>第二天评审，评委的 PPT 划过，看到了获奖队伍那一页，找我的名字，中间没有，下面没有，在第一个！</p>
+<p>只看到了这么多信息，PPT 被切到了封面页，好消息是我获奖了，剩下的悬念是，这个排名有没有按照名次，紧张焦急的等待后，尘埃落定，第一名！！！</p>
+<img src="/posts/2376/%E7%AC%AC%E4%B8%80%E5%90%8D.jpg" class="" title="第一名">
+
+<h2 id="感想"><a href="#感想" class="headerlink" title="感想"></a>感想</h2><p>这个故事告诉我们一个道理，当你觉得自己很菜的时候，<del>没准别人比你还菜</del>，不妨试试，结果怎么样要试了才知道。</p>
+<p>好吧我是真的没想到会这么完美的结果，明明五天前还一直在纠结犹豫要不要报竞赛组，心里打了很多次退堂鼓，最终还是鼓起勇气参加了。明明四天前压根没有听说过什么叫大模型，最终评审的时候却得到了“作者像是非常熟悉这个文心大模型的人”的高度评价。明明三天前对软件的图像化设计可以说是一无所知，最终历经千辛万苦成功做出软件甚至还是在自己修改了库的情况下。</p>
+<p>所以以后遇到什么不敢去尝试的事情，如果尝试的代价不是很大，那就去试试吧，万一成了呢？</p>
+<div class="note primary"><p>这世间，有那么多个美好的万一啊 </p>
 </div>
 
-<h1 id="1-开端"><a href="#1-开端" class="headerlink" title="1.开端"></a>1.开端</h1><p>我们不用选择了，我们没有选择了。</p>
-<p>收到通知，下一步直接从不确定状态塌陷为确定状态，回宿舍。我们相互道别，再见，明年再见。</p>
-<p>封宿舍第一天晚上，可能是因为太仓促的缘故吧，一定是很仓促的。朋友圈中可见一斑：</p>
-<img src="/posts/48849/%E6%9C%8B%E5%8F%8B%E5%9C%88%E9%A3%9F%E7%89%A9%E9%80%92%E5%87%8F.jpg" class="" title="此图来自朋友圈">
-
-<p>最晚的同学，十一点多才拿到饭，还是非常的《朴素》，面条+芹菜，面条+西葫芦，对此表示深深的同情。然而另一边，有同学还在喊饿，吃不饱。导员说，我们现在要解决的是有没有的问题，不是够不够的问题。我深以为然。</p>
-<p>我是比较幸运的，第一批拿到的饭。然而我也开心不起来，我最担心的也来了，从听到有封宿舍的消息就开始担心，家在北方，晚饭基本不吃米饭，天天米饭，胃要遭殃了。（此处禁止地域对立，大家相互理解）</p>
-<p>好在第二天开始，学校确实解决了有没有的问题。</p>
-<p>每天就是，睡觉，吃饭，做核酸。</p>
-<div class="note warning"><p>我们没有选择。 </p>
-</div>
-
-<p>“今天的饭好凉啊。今天的包子怎么是辣的，吃不了辣怎么办。这什么呀，吃不惯。今天的菜怎么这么难吃。我不喜欢吃这个菜怎么全是这个菜。怎么别的宿舍楼饭那么好我们这里这么差。怎么饭这么少不够吃。怎么刚吃完早饭就来午饭了。怎么这都几点了还不来饭。怎么我刚开一把游戏就来饭了。我不敢玩游戏等着饭来怎么还不来。”</p>
-<div class="note warning"><p>我们没有选择。 </p>
-</div>
-
-<p>“我们做核酸为什么非要集中走。我们回来的时候为什么要绕远路。那么远为什么不让我们骑车去。好远啊能不能在宿舍附近做核酸。怎么刚吃完饭就让我们去做核酸。饭刚来还没吃呢就走了。怎么这么早就要去做核酸。怎么那么晚才让我们做核酸。怎么说好的九点一直不走。怎么你八点二十才通知八点半就要去。怎么你说错峰核酸了还要排这么长的队。”</p>
-<div class="note warning"><p>我们没有选择。 </p>
-</div>
-
-<p>刚开始的时候两天一次核酸，后面一天一次核酸。偶尔一次可能没事，做多了以后，喉咙真的会变的很敏感。导员跟我们开线上会议的时候就一直咳嗽，他特意解释是因为做了很多次核酸以后嗓子真是很敏感。深有同感，有时候有的医生检测时候棉签会伸很深还会很大力左右晃（当然很多大部分医生还是很温柔的），做完的一段时间里，正常的呼吸都会触发它，很痒，止不住的咳。</p>
-<div class="note warning"><p>我们没有选择。 </p>
-</div>
-
-<h1 id="2-发展"><a href="#2-发展" class="headerlink" title="2.发展"></a>2.发展</h1><div class="note primary"><p>我们其实有的选。 </p>
-</div>
-
-<p>我们可以选择去当志愿者。帮助组织核酸检测工作，帮助送餐。有一分热，便发一分光。</p>
-<p>至少，我们可以选择去配合，去尊重，去感恩。工作刚开始难免有不足的地方，但只要有一个我们都去遵守的规定，那它起码还是有序的。事后可以合理的提出建议。我们可以选择在志愿者送饭的时候，在食堂阿姨打饭的时候，说声谢谢。</p>
-<p>我们戏称每日的核酸检测为吃棉签，封宿舍以后变成了监狱生活，出去做核酸成了放风。其实我还挺喜欢走做核酸的那很长一段路的，从学校的这个角走到学校的那个角，一来可以给我们久坐不起的监狱生活增加不小的运动量，二来可以欣赏沿途的美景和那久违的，没有经过玻璃折射的太阳。</p>
-<p>渐渐的，肉眼可见饭菜质量开始提升了，（大抵是因为后来开始收钱了吧），分量也确实足了那么一些。可以感受到食堂的工作人员尽心尽力尽可能丰富一下我们的饮食结构，送饭的时间也日趋规律合理，听到走廊里有送饭的动静就早早到门口等着了。敲门，开门，谢谢，早已形成了条件反射。</p>
-<p>早上还没起床，送饭的志愿者会把饭放到门口，尽量不打扰。感动于跨年夜的饺子，感动于跨年夜学校送来的苹果，感动于两次送来的口罩，满满的安全感。感动于班主任的“有任何困难可以私信我”，感动于导员线上会议关注我们思想动态搜集解决问题，感动于学业导师的细心叮嘱，感动于好友的关心和提醒，感动于室友共处一室的互相包容，感动于妈妈事无巨细的考虑和关切。</p>
-<p>曾跟好友分享入狱以来的生活状况，有句话很受触动，“以前都是在网络上看疫情怎么怎么样，听你这么一说才感觉到了真实。”我也真真切切感受到了真实。</p>
-<p>实话说，这次西安和学校的防疫和后勤保障工作并没有做到让人完全满意。在最阴暗的时候，甚至感到了失望。但我相信，大家一定是做了最大的努力的。</p>
-<h1 id="3-高潮"><a href="#3-高潮" class="headerlink" title="3.高潮"></a>3.高潮</h1><p>西安疫情已过拐点，我们看到了希望。</p>
-<p>从前天（1.5）开始，我们不用做核酸了。从昨天（1.6）开始，我们可以一个宿舍派一个人去买饭了。</p>
-<p>为什么我非得是今天有感呢，因为今天我买饭。</p>
-<p>十一天以来，第一次，可以全天都吃到自己想吃的饭。</p>
-<p>今天下午，第一次感受到食物充满整个胃的感觉。（就是吃撑了）</p>
-<p>平时天天吃宿舍附近这个食堂，嘴上都说吃腻了，天天到饭点不知道吃什么。经过了十天的分配制度，现在选择权重新回到了自己手上。</p>
-<p>经历过黑暗后，发觉平常就是幸福。我们习以为常的一切被夺走以后，才发现，那些我们早已习惯的已经是最幸福的了。放学的途中看看夕阳，没课的上午去打个乒乓球，不想复习的晚上去跑步打卡，和好朋友站在食堂的窗口前说“吃什么”“随便”。这些都会慢慢回来的。</p>
-<p>这次疫情的亲身经历提醒我，多珍惜自己已经拥有的。</p>
-<div class="note info"><p>日常就是幸福。 </p>
-</div>
-
-<h1 id="4-结局"><a href="#4-结局" class="headerlink" title="4.结局"></a>4.结局</h1><p>我希望是，</p>
-<div class="note success"><p>世界健康 </p>
-</div>]]></content>
-  </entry>
-  <entry>
-    <title>我把环境变量Path搞没了</title>
-    <url>/posts/55469/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>安装 JAVA 要配置环境变量，跟着教程新建了 path 变量，结果原本的 Path 变量没了。。。</p>
-<span id="more"></span>
-
-<h1 id="1-犯罪记录"><a href="#1-犯罪记录" class="headerlink" title="1.犯罪记录"></a>1.犯罪记录</h1><p>大二下学期要学习 JAVA，还有四天开下一学期的线上课，我就寻思着自己先把 JAVA 装了，先学习着，还跟老师要了安装包。</p>
-<p>然后就自己上网搜安装教程，看到了要配置环境变量，这我熟啊。Matlab，Python 等等我都配置过环境变量，看到下图的时候我已经心生疑惑了</p>
-<img src="/posts/55469/%E7%BD%91%E4%B8%8A%E6%95%99%E7%A8%8B%E6%88%AA%E5%9B%BE.png" class="" title="这是网上安装教程的截图">
-
-<p>“直接新建path变量会不会把我原来的覆盖掉啊。。。”</p>
-<p>我每一步都走的小心翼翼，我先打开命令输入 javac，看看不配置行不行，结果是不行。</p>
-<p>我又像我原来配置 Python 环境变量那样，在原系统环境变量 Path 下新建了一个项，再测试 javac，但还是不行。</p>
-<p>细心如我，发现了已有的名字叫 <strong>P</strong>ath，新建的变量叫 <strong>p</strong>ath。根据我一年半的编程经验，大小写敏感已经刻在了我的基因里，所以我觉得没事，就直接新建了。</p>
-<p>但是万万没想到，这样输入 javac 也不行，突然意识到，每次更改环境变量后要重启 cmd 窗口，大意了。</p>
-<p>但是至此我还是不慌的，根据我上面大小写敏感的推断，这也不影响什么。于是我开开心心的去找 JAVA 教程去了，直到。。。</p>
-<p>临睡觉前，我想把我那天写的文章推上去，运行 hexo 提示 node 不是命令。哇的发？我这个时候已经意识到问题开始严重了，配置 JAVA 的环境把 node 的环境搞坏了，又好气又好笑。</p>
-<p>然而我意识的没有那么深刻，事情的严重性远远超乎我想象，但那个时候我只想睡觉，每天十一点上床是必须的。直接关了电脑去洗漱了。然而我体内的编程之魂在召唤我，心里痒痒的，总想现在就看看是什么情况，不然睡不好觉。</p>
-<p>还是没忍住，又打开了电脑。再试了一下，发现还是提示 node 不是命令，根据我一年半编程经验的直觉，这肯定是环境变量的问题，我再把它的路径加进去应该就找到了。</p>
-<p>熟练的打开环境变量配置，找了半天，发现 </p>
-<p><strong>没 有 Path 了</strong></p>
-<p>只剩下一个 path 安静的躺在那里，我的内心也只剩下凌乱，慌的一批。</p>
-<h1 id="2-解决办法"><a href="#2-解决办法" class="headerlink" title="2.解决办法"></a>2.解决办法</h1><p>我马上搜一下环境变量 Path 没了怎么办，emmm，没发现什么有用的。</p>
-<p>有一个提供了系统初始的几个常见 Path，我直接新建了 Path 变量，把它加入进去了。</p>
-<p>灵机一动，我想到我有一个好习惯，原来配置环境变量的时候 Path 会往用户里面的 Path 和系统里面的 Path 都加上。于是我把用户里面的 Path 复制了一下到系统的 Path 里。</p>
-<p>然而运行 hexo 还是报找不到 node 命令，这时候再配合 Everything 这个软件，找到 node.exe，把它所在目录添加到环境变量里，再次运行 hexo，大功告成。</p>
-<p>检查了一下，上面创建的 JAVA 的 path 路径又没了，这时候把那个路径添加到 Path 的子项里面，<strong>重启cmd</strong>，运行 javac，成功。</p>
-<h1 id="3-总结"><a href="#3-总结" class="headerlink" title="3.总结"></a>3.总结</h1><p>1.配置完环境变量后要重启 cmd 窗口再测试环境是否装好<br>2.设置环境变量名的时候，它的名字是大小写不敏感的，会直接覆盖<br>3.留下了一个巨大的后患，以后可能会出现乱七八糟的找不到命令类似的报错，要自己找路径加进去了</p>
-<h1 id="4-拓展"><a href="#4-拓展" class="headerlink" title="4.拓展"></a>4.拓展</h1><p>其实文件夹名字也是大小写不敏感的，创建一个 JAVA 的文件夹和 java 的文件夹，它会提示重复。我竟然刚刚知道，震惊我一百年。</p>
-<p>在我的理解里，Path的作用其实是给系统一个路径，你要在 cmd 中运行一个命令，本质上就像打开一个 .exe 文件，比如运行 javac，系统要知道 javac.exe 在哪儿。我系统找不到 node 这个命令，那我就搜索一下 node.exe 在哪儿，（可能会有好几个，看路径决定是哪一个），把它的路径加入到 Path 里面就好了。</p>
-]]></content>
-  </entry>
-  <entry>
-    <title>建站第六天的反思</title>
-    <url>/posts/8001/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>2021.12.31~2022.1.5 六天建站过程，于 1.5 晚进行的反思。</p>
-<span id="more"></span>
-
-<h1 id="1-就是你把鬼子引进村的"><a href="#1-就是你把鬼子引进村的" class="headerlink" title="1.就是你把鬼子引进村的"></a>1.就是你把鬼子引进村的</h1><p>大二学生，2021.12.27因疫情封在宿舍，考试推迟，又复习了两天之后，感觉再复习的话，考试的时候就忘了，没那么大动力，想干一些自己想干的。看到了自己收藏夹里吃灰的markdown学习教程，就开始学习markdown写作了，后面跟着一本书来学习，就是这本书，让我从此走上了不归路。</p>
-<p>好好的markdown教程，有一章是教怎么搭建个人博客网站的。我大致翻了一下，感觉好麻烦呀，不弄了不弄了。可能是刻在骨子里的兴趣点吧，之后的一段时间建网站的想法一直在我脑海中萦绕，我还是没忍住。。。</p>
-<h1 id="2-激情建站"><a href="#2-激情建站" class="headerlink" title="2.激情建站"></a>2.激情建站</h1><p>12.31号，跨年呢对吧。我从下午开始一直搞，直到晚上的11:30，当你投入某种热情的时候，真的可以忘记时间的。</p>
-<p>接下来的三天（1.1~1.3），我还保有理智，跟自己约定好上午复习，吃完午饭了再弄网站。可我真的控制不住自己的脑子，边抄英语重点，边想网站框架，边写大物习题，边想怎么解决bug。我是个倒头就睡的人，十一点上床，不玩手机的话一会儿就睡着了，可能有时候刷b站，十二点前放下手机，真的秒睡。</p>
-<p>我失眠了。</p>
-<p>从十一点干巴巴的躺着，脑子却异常活跃，一直在想我今天开发了什么功能，还有什么功能待开发，网站博文的框架怎么写……以至于到了凌晨一点多才睡着。第二天早上七点，又自己醒了。要知道我平时没课的话睡到九点都是习以为常，我只能说，它对于我真的是很有魅力。</p>
-<p>1.4和1.5这两天，我干脆放下了复习，考试要到年后了，现在不着急复习。整天搜一些插件和教程，逐渐上线新功能。看了很多别人的博客，看到好的东西就搜怎么实现，一逛可以一整天。可以说除了吃饭睡觉做核酸以外，就是在搞自己的网站了。（当然一直看电脑确实很累，眼睛酸了就躺一会儿。</p>
-<p>今天看了很多很多别人的博客，n多友链反复横跳，我发现他们都做的好好啊，每个人都有自己的风格。</p>
-<p>那我的风格呢？</p>
-<h1 id="3-灵魂拷问"><a href="#3-灵魂拷问" class="headerlink" title="3.灵魂拷问"></a>3.灵魂拷问</h1><p>我发现我已经渐渐忘记我真正想要的是什么了。</p>
-<p>一开始就是凭着自己对计算机的热爱，搞个网页这是我没有接触过的，很新鲜，就来尝试了一下，这是最本源的内在驱动力。那么外在驱动呢，最朴素的想法就是装X吧，跟好朋友说我自己建了个网站哦，这一听就是非常非常酷的事情。（其实我用的都是模版和插件，就下下插件，改改配置文件，js代码也是搜网上教程cv来的，毕竟还没学网页相关知识，（就这？就这我都弄了五六天，（然而配置环境是真的难，那么多bug呜呜呜</p>
-<p>还有一个宏大的愿望，我是用自己名字命名的博客（然而现在不想用了，要不要改呢。。），我想让自己个人博客网站有很多很多的浏览量，以至于百度我的名字可以搜到这个网站。这又是顶级的装X操作！出于对新用户友好的想法，有很多人看的想法，我尽可能尝试很多很多的功能，希望我的网站非常的好看，然而很多人浏览也不能卡呀，我也希望它要访问很快。</p>
-<p>我也问自己这有什么实质性作用，我想到了很好玩的是，我希望未来可以在自己的简历上写，建立个人博客网站，访问人次几千亿亿什么玩意儿的哈哈哈哈。</p>
-<p>我想要的太多了。</p>
-<p>搞了很多插件，推送网站的url给搜索引擎，期望能够被搜到。我会分享给朋友链接，在b站自己的视频下面推这个博客，期望有很多人访问它。每天看一遍网站访问量，看一看新访客，要看好久。起初，我喜欢个人博客的一点就是，各大平台都是被流量裹挟的，发布的内容为了博人眼球，我怎么也开始注重流量了？</p>
-<p>感觉情况不妙，遂进行了深刻的反思。</p>
-<h1 id="4-开始反思"><a href="#4-开始反思" class="headerlink" title="4.开始反思"></a>4.开始反思</h1><p>我不再期望自己的网页可以出现在搜索引擎的推荐里了，毕竟那是无良医院掏钱就可以占据头部的地方。但是我还是会给小伙伴分享我又写了什么好玩的东西，会在其他平台放上我的博客链接，（这里指在我写的内容会对他有帮助的情况下）。</p>
-<p>我会去掉一些东西，让它尽可能的简洁，现阶段更像是一个我自己的树洞，一个记录自己学习生活的地方。草原上的草还没长出来，马来了又有什么用呢。下阶段的任务就是要充实一下自己的内容吧。</p>
-<h1 id="5-我会写什么？"><a href="#5-我会写什么？" class="headerlink" title="5.我会写什么？"></a>5.我会写什么？</h1><p>这几天接触了很多新鲜玩意儿呢，要趁早记录下来，就算是建站过程的分享吧。主题配置，插件介绍，还有文章里面的一些 html 或其他格式的插入。</p>
-<p>然后自己如果有什么可以公开的学习笔记的话也会发上来，（话说我这个人很少记笔记的，这可不太好，emmm，这个网站也是督促我要写一些东西了</p>
-<p>遇到好的代码软件什么的也会分享上来，我这个人最爱折腾软件和代码，折腾的步骤写上来也行。</p>
-<p>可能也会开生活区，分享一些我觉得值得记录的日常。</p>
-<h1 id="6-我不会写什么？"><a href="#6-我不会写什么？" class="headerlink" title="6.我不会写什么？"></a>6.我不会写什么？</h1><p>违法的。。。个人博客不是法外之地</p>
-<p>涉及个人隐私的，我想把这个博客和自己分离出来吧，网络姻缘一线牵</p>
-<p>还有一些处于灰色地带的什么我觉得不适合发的东西，不冒那个险了</p>
-<p>很重要的是，我不会发网上已经详细充分解决了的东西。最烦那种搜个什么问题，完了下面是各大平台的结果，点击去看全是重复的，还有那种一个字没有只有引用链接，又跳到相同的网址去了，要么是作者多平台发送（这个给予理解，但从个人角度看很烦），要么有人直接搬运抄袭。我认为有我自己独特的地方的话，才值得发出来。</p>
-<hr>
-<p>于2022.1.6 早上 补充</p>
-<hr>
-<h1 id="7-我的风格"><a href="#7-我的风格" class="headerlink" title="7.我的风格"></a>7.我的风格</h1><p>一方面又想极简主义，要网站的最快访问速度，一方面又想它会变好看一点，这两个还需要我做出取舍，这个再想想。</p>
-<p>极强的强迫症，我是不允许有没用的东西出现在我的界面上的。还有任何影响观感的东西我都会把它去了。</p>
-<p>结构方面，条理性是必须的，从每个标题就可以看出来，会将此发扬光大。</p>
-<p>文笔方面，可能从这篇文章也看出来了，偏生活，偏叙事，就像自己给自己说话，不能嫌我啰嗦。自认为还是有那么一点点幽默元素的，得益于网上冲浪。这点和很多大佬的博客风格不一样，非常敬佩于他们的切中要害，言简意赅，我会学习的，但是这就是我的风格，人还是要有自己的风格。</p>
-<p>目前（给自己真香留后路）</p>
-<ul>
-<li>不想给自己捆绑一些其他的东西，现阶段我也不打算靠这个挣钱，保留它的纯粹性。</li>
-<li>不会强制跳转（我尽量做到，有些网站有限制我也没办法，就像我自己的b站视频我直接嵌套进来，注重读者体验，你们要想更清晰，发弹幕，那只能跳到b站，b站规定的那我也没办法），</li>
-<li>不会强制关注公众号（我现在也没有），</li>
-<li>现在每篇下面会有打赏，我想把它去了，因为并没有什么人会打赏，放那里也很碍事。但是但是，我还是非常喜欢这种形式的，这首先是对我内容的高度认可，非常开心。我也不指望这个发家致富（若有土豪带飞我绝不拒绝），一分钱就好，就像点了个赞那样的。（虽然本人以前也是个白嫖狗，自己尝试做视频写文章之后观念就慢慢转变了，有人会喜欢自己的东西真的很开心</li>
-<li>我还是会保留打赏的吧</li>
+<h2 id="软件介绍"><a href="#软件介绍" class="headerlink" title="软件介绍"></a>软件介绍</h2><h3 id="使用需知"><a href="#使用需知" class="headerlink" title="使用需知"></a>使用需知</h3><ul>
+<li>只可以在 windows 电脑端运行</li>
 </ul>
-]]></content>
-  </entry>
-  <entry>
-    <title>Matlab图像边缘检测制作视频</title>
-    <url>/posts/17737/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>用Matlab来进行图像边缘检测，输出边缘线条视频，过程全记录，内含全部源码。</p>
-<span id="more"></span>
-
-<h1 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h1><p>放在了我的b站上：<a href="https://www.bilibili.com/video/BV1934y1z74s?spm_id_from=333.999.0.0">我用Matlab摆烂了你的AE作业_哔哩哔哩_bilibili</a></p>
-<p>下面可以直接观看：</p>
-<div style="position:relative; padding-bottom:75%; width:100%; height:0">
-    <iframe src="//player.bilibili.com/player.html?bvid=BV1934y1z74s&amp;page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="position:absolute; height: 100%; width: 100%;"></iframe>
+<p>所以在手机上是运行不了这个软件的。</p>
+<ul>
+<li>生成字数多（如作文）会很慢，耐心等待</li>
+<li>偶尔会出现人工智障的情况，自行甄别</li>
+<li>一个账号每日使用次数上限 200 次，总使用次数上限 2000 次</li>
+</ul>
+<p>事实上我只是把接口封装成了一个软件，上面是所调用的大模型的限制，所以即使我知道会出现这些问题也无能为力。现阶段这个软件只能说是体验 AI 的写作。</p>
+<ul>
+<li>软件免费，欢迎赞赏</li>
+</ul>
+<h3 id="演示视频"><a href="#演示视频" class="headerlink" title="演示视频"></a>演示视频</h3><div style="position:relative; padding-bottom:75%; width:100%; height:0">
+    <iframe src="//player.bilibili.com/player.html?bvid=BV1Nd4y167LA&amp;page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="position:absolute; height: 100%; width: 100%;"></iframe>
 </div>
 
-<p>源视频在这里：  AE原作：<a href="https://www.bilibili.com/video/BV1xL4y1E7nT">大二AE结课作业 《过 年》（已摆烂）_哔哩哔哩_bilibili</a></p>
-<p>b站上其他版本：《友 商 链 接》：<br><a href="https://www.bilibili.com/video/BV1wT4y1m7rs">我用Matlab摆烂了你的AE作业_哔哩哔哩_bilibili</a> （他是红色的<br><a href="https://www.bilibili.com/video/BV1Mu411U78T">我用Matlab摆烂了你的ae作业_哔哩哔哩_bilibili</a> （黑色，点更细致了<br><a href="https://www.bilibili.com/video/BV1Xm4y1S7rm">我用Matlab摆烂了你的ae作业_哔哩哔哩_bilibili</a> （这个跟第一个差不多，甚至个人感觉比第一个要清晰，<del>但是没有第一个火</del>，第一个比这个早发布六小时，那这样说我岂不是更加凉凉了。。。</p>
-<hr>
-<h1 id="如何制作"><a href="#如何制作" class="headerlink" title="如何制作"></a>如何制作</h1><p>吃瓜的到这里可以走了（若想当个故事看也不是不行），有matlab的同学想玩一玩可以往下看，源码全分享。（这里不讲怎么下载matlab，为此专门下载30G大小的matlab不划算。）</p>
-<h2 id="1-工作目录"><a href="#1-工作目录" class="headerlink" title="1 工作目录"></a>1 工作目录</h2><p>创建<code>edges</code>和<code>pics</code>两个空文件夹，<code>pics</code>是视频逐帧输出后的图片存放的路径，<code>edges</code>是<code>pics</code>文件夹中图片经边缘处理后生成图片的存放路径。</p>
-<p><code>out2pic.m</code>，<code>zed.m</code>和<code>pic2video.m</code>三个matlab脚本文件</p>
-<p>放入<code>source.mp4</code>原视频</p>
-<p><code>output.mp4</code>是处理后生成的视频</p>
-<img src="/posts/17737/%E5%B7%A5%E4%BD%9C%E7%9B%AE%E5%BD%95.png" class="" title="工作目录文件图片">
-
-<h2 id="2-源码"><a href="#2-源码" class="headerlink" title="2 源码"></a>2 源码</h2><p>源码是我从网上搜来的，改了一点，但是那是好几十天前的事情了，原网站我已经找不到了，侵删。其实我把代码放网上搜了一下确实搜到一个，但那个和我最初参考的不一样，他也没放源码链接，我也不知道哪个是原创，反正代码我不是原创。但是本文章的内容确实是原创。天下代码一大抄</p>
-<p>代码中 “你的工作路径” 要替换为自己的，就是上图中的文件存放在哪里了。例如我的是</p>
-<p><code>D:\0programing\matlab_work\ImageEdgeDetection</code></p>
-<p><code>zed.m</code>和<code>pic2video.m</code>代码中的for循环用到了帧数，要根据具体视频来改变，运行完<code>out2pic.m</code>后，<code>pics</code>文件夹中有几张图片就是几帧。</p>
-<h3 id="2-1-out2pic-m：将视频分割逐帧分割为图片"><a href="#2-1-out2pic-m：将视频分割逐帧分割为图片" class="headerlink" title="2.1 out2pic.m：将视频分割逐帧分割为图片"></a>2.1 <code>out2pic.m</code>：将视频分割逐帧分割为图片</h3><figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">clear;</span><br><span class="line">clc;</span><br><span class="line">se = strel(<span class="string">&#x27;line&#x27;</span>,<span class="number">11</span>,<span class="number">90</span>);</span><br><span class="line">path=<span class="string">&#x27;你的工作路径\source.mp4&#x27;</span>;   <span class="comment">%视频存放路径</span></span><br><span class="line">obj=VideoReader(path);</span><br><span class="line">num=obj.NumberOfFrames;</span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span>=<span class="number">1</span>:num  <span class="comment">%帧数，这里的i最终为1801</span></span><br><span class="line">    frame=read(obj,<span class="built_in">i</span>);</span><br><span class="line">    lujing=strcat(<span class="string">&#x27;你的工作路径\pics\&#x27;,num2str(i));  %帧图输出路径</span></span><br><span class="line"><span class="string">    lujing=strcat(lujing,&#x27;</span>.jpg&#x27;);</span><br><span class="line">    imwrite(frame,lujing)</span><br><span class="line"><span class="keyword">end</span> </span><br></pre></td></tr></table></figure>
-
-<h3 id="2-2-zed-m：逐个图片运用边缘检测算法"><a href="#2-2-zed-m：逐个图片运用边缘检测算法" class="headerlink" title="2.2 zed.m：逐个图片运用边缘检测算法"></a>2.2 <code>zed.m</code>：逐个图片运用边缘检测算法</h3><figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">close all;</span><br><span class="line">clc;</span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span>=<span class="number">1</span>:<span class="number">1801</span>  <span class="comment">%前面所得的视频帧数</span></span><br><span class="line">    path=<span class="string">&#x27;你的工作路径\pics\&#x27;; %帧图路径</span></span><br><span class="line"><span class="string">     disp(i); </span></span><br><span class="line"><span class="string">     path=strcat(path,num2str(i));</span></span><br><span class="line"><span class="string">    p=strcat(path,&#x27;</span>.jpg&#x27;);</span><br><span class="line">    f=imread(p);</span><br><span class="line">    f=rgb2gray(f);</span><br><span class="line">   roberts=edge(f,<span class="string">&#x27;roberts&#x27;</span>);   <span class="comment">%roberts算子</span></span><br><span class="line">   [m,n]=<span class="built_in">find</span>(roberts==<span class="number">1</span>);</span><br><span class="line">  <span class="comment">%scatter(n,-m,&#x27;.&#x27;);   %  1     去掉注释直接展示</span></span><br><span class="line">    mh=<span class="built_in">scatter</span>(n,-m,<span class="string">&#x27;.&#x27;</span>); <span class="comment">%  2     确定输出</span></span><br><span class="line">    axis([<span class="number">0</span> <span class="number">1280</span> <span class="number">-720</span> <span class="number">0</span>]);   <span class="comment">%可依据窗口大小自行调整坐标系，这里输出图片是1280x720</span></span><br><span class="line">    lujing=strcat(<span class="string">&#x27;你的工作路径\edges\&#x27;,num2str(i)); %  3    输出存放路径</span></span><br><span class="line"><span class="string">    lujing=strcat(lujing,&#x27;</span>.jpg&#x27;); <span class="comment">%  4     输出格式为ipg</span></span><br><span class="line">    saveas(mh,lujing); <span class="comment">%  5     保存</span></span><br><span class="line">    <span class="comment">%这里默认是将边缘检测的每一张图片保存，方便后续合成视频；也可以不用保存直接展示，只需将注释编号为1的语句取消注释，将2、3、4、5加上注释即可。但直接展示的话效果不太好，比较卡。</span></span><br><span class="line">    pause(<span class="number">0.05</span>);</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
-<p>9:28开始运行边缘检测算法，10:15运行结束，1801张图片跑了四五十分钟，最后可以生成一分多钟的视频。</p>
-<h3 id="2-3-pic2video-m：将生成的边缘检测图片合成视频"><a href="#2-3-pic2video-m：将生成的边缘检测图片合成视频" class="headerlink" title="2.3 pic2video.m：将生成的边缘检测图片合成视频"></a>2.3 <code>pic2video.m</code>：将生成的边缘检测图片合成视频</h3><figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">clear;</span><br><span class="line">clc;</span><br><span class="line">WriterObj=VideoWriter(<span class="string">&#x27;output.mp4&#x27;</span>, <span class="string">&#x27;MPEG-4&#x27;</span>);   <span class="comment">%这里输出的路径是默认路径，合成的视频的格式是mp4</span></span><br><span class="line">WriterObj.FrameRate = <span class="number">25</span>; <span class="comment">%控制输出视频帧率，原视频为25，没有这行的话默认30</span></span><br><span class="line">open(WriterObj);</span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span>=<span class="number">1</span>:<span class="number">1801</span>  <span class="comment">%帧图数量</span></span><br><span class="line">  pic=<span class="string">&#x27;你的工作路径\edges\&#x27;;  %前面边缘检测的图片的存储路径</span></span><br><span class="line"><span class="string">  pic=strcat(pic,num2str(i));</span></span><br><span class="line"><span class="string">  ppic=strcat(pic,&#x27;</span>.jpg&#x27;);</span><br><span class="line">  frame=imread(ppic);  <span class="comment">% 读取图像，放在变量frame中</span></span><br><span class="line">  <span class="built_in">disp</span>(ppic);</span><br><span class="line">  writeVideo(WriterObj,frame);  <span class="comment">% 将frame放到变量WriterObj中</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line">close(WriterObj);</span><br></pre></td></tr></table></figure>
-
-<p>至此，视频合成好了，但是没有声音，用剪辑软件添加声音。</p>
-<h2 id="3-遇到的问题"><a href="#3-遇到的问题" class="headerlink" title="3 遇到的问题"></a>3 遇到的问题</h2><h3 id="3-1-运行zed-m时弹出的figure窗口不要关闭！！！"><a href="#3-1-运行zed-m时弹出的figure窗口不要关闭！！！" class="headerlink" title="3.1 运行zed.m时弹出的figure窗口不要关闭！！！"></a>3.1 运行<code>zed.m</code>时弹出的figure窗口不要关闭！！！</h3><p>别问我怎么知道的，说多了都是泪……</p>
-<p>这个是figure窗口：</p>
-<img src="/posts/17737/figure%E7%AA%97%E5%8F%A3.png" class="" title="这是一个figure窗口">
-
-<p>这个是可能报的错：</p>
-<img src="/posts/17737/%E5%85%B3%E9%97%ADfigure%E7%AA%97%E5%8F%A3%E6%8A%A5%E9%94%99.png" class="" title="这是关闭figure窗口后可能报的错">
-
-<p>千万别关！！！！</p>
-<h3 id="3-2-合成视频时图片分辨率不符报错"><a href="#3-2-合成视频时图片分辨率不符报错" class="headerlink" title="3.2 合成视频时图片分辨率不符报错"></a>3.2 合成视频时图片分辨率不符报错</h3><img src="/posts/17737/%E5%88%86%E8%BE%A8%E7%8E%87%E6%8A%A5%E9%94%99.png" class="" title="图片分辨率不符报的错">
-
-<p>查一下472.jpg和473.jpg的分辨率属性</p>
-<img src="/posts/17737/472%E5%88%86%E8%BE%A8%E7%8E%87%E5%B1%9E%E6%80%A7.png" class="" title="这是472图片的分辨率属性">
-
-<img src="/posts/17737/473%E5%88%86%E8%BE%A8%E7%8E%87%E5%B1%9E%E6%80%A7.png" class="" title="这是473图片的分辨率属性">
-
-<p>我也不知道什么原因，原图都是1280x720，可能上面我图中关闭了一下figure导致的？但是我关闭窗口的时候应该没合成到472吧。472及以前的分辨率是875x65<strong>6</strong>,473及以后的分辨率是875x65<strong>7</strong>。给<code>writeVideo</code>整不会了，罢工了。</p>
-<p>再跑一遍<code>zed.m</code>是不可能的，累死。机智如我，把前472张合成一下<code>output1.mp4</code>，473后面的合成一个<code>output2.mp4</code>，通过控制<code>pic2video.m</code>中for循环i的取值来实现，记得合成后改名，不然合成第二个会覆盖第一个。之后用剪辑软件拼接起来，就算前后两个视频分辨率不同，剪辑软件可不会像<code>writeVideo</code>那样罢工。</p>
-<h3 id="3-3-合成视频后与原视频帧数不符"><a href="#3-3-合成视频后与原视频帧数不符" class="headerlink" title="3.3 合成视频后与原视频帧数不符"></a>3.3 合成视频后与原视频帧数不符</h3><p>合成视频发现它短了，查属性，发现原视频是25帧的，我输出的是30帧的。</p>
-<img src="/posts/17737/source%E5%B8%A7%E6%95%B0.png" class="" title="原视频帧数属性25帧">
-
-<img src="/posts/17737/output%E5%B8%A7%E6%95%B0.png" class="" title="合成的视频帧数属性30帧">
-
-<p>网上查了一下怎么改<code>VideoWriter</code>输出的帧数，代码里加了一行。</p>
-<p>再次输出视频，帧数还为30，离谱。。。幸好我慧眼如炬，发现我从网上抄的代码和原来的代码大小写不一样，如下：（我不说你们也发现不了W和w不一样吧</p>
-<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">WriterObj=VideoWriter(<span class="string">&#x27;output.mp4&#x27;</span>, <span class="string">&#x27;MPEG-4&#x27;</span>);</span><br><span class="line">writerObj.FrameRate = <span class="number">25</span>;</span><br></pre></td></tr></table></figure>
-<p>改了以后代码运行正常（上面给的源码已经是修改过的了，放心食用。</p>
-<h2 id="4-待改进"><a href="#4-待改进" class="headerlink" title="4 待改进"></a>4 待改进</h2><p>在只有matlab进程的条件下：</p>
-<img src="/posts/17737/%E4%BB%BB%E5%8A%A1%E7%AE%A1%E7%90%86%E5%99%A8%E8%BF%9B%E7%A8%8B.png" class="" title="这是运行边缘检测算法时电脑的进程">
-
-<p>CPU利用率：</p>
-<img src="/posts/17737/cpu%E5%88%A9%E7%94%A8%E7%8E%87.png" class="" title="这是只运行边缘检测算法时电脑CPU利用率">
-
-<p>GPU利用率：</p>
-<img src="/posts/17737/gpu%E5%88%A9%E7%94%A8%E7%8E%87.png" class="" title="这是只运行边缘检测算法时电脑GPU利用率">
-
-<p>我也不知道怎么能把CPU占满一点，也不知道怎么调用GPU来处理，产出个一分钟的视频要操作将近一个小时，辛苦我的CPU了。</p>
-<p>这是本站第一篇实质性内容的文章，实操的小伙伴遇到什么问题可以在评论区留言。</p>
+<h3 id="软件下载"><a href="#软件下载" class="headerlink" title="软件下载"></a>软件下载</h3><p>github开源：<a href="https://github.com/guohuan78/AI_writing_helper">guohuan78&#x2F;AI_writing_helper (github.com)</a></p>
+<p>考虑到国内访问 github 困难，上面的链接打不开很正常，可以通过下面的链接下载软件。</p>
+<p>蓝奏云盘：<a href="https://wwz.lanzoum.com/iB3CX0bnhzwj">AI写作外挂 V1.3.2.zip - 蓝奏云 (lanzoum.com)</a></p>
+<h3 id="软件使用"><a href="#软件使用" class="headerlink" title="软件使用"></a>软件使用</h3><p>打开会是一个弹窗，虽然很烦，还是建议认真看一下，毕竟是我斟酌很久写出来的。</p>
+<p>关闭弹窗会自动打开一个网站，虽然这个行为也很流氓，但是是为了节省用户的力气，直接帮你们打开这个网站，按照弹窗的提示登录百度账号，申请 key，复制 key，填写到软件里面。</p>
+<p>建议填写后点击右边的 “保存key”，这样以后软件就不会弹窗，也不会打开网页，即开即用。</p>
+<p>填写完 key，选择上面标签页的功能，填写文字，点击 “开始执行”，下面控制台会输出结果。</p>
 ]]></content>
   </entry>
 </search>
