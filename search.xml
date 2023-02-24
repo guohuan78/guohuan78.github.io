@@ -1,132 +1,969 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>评论区改版</title>
-    <url>/posts/40193/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>从 Livere 到 Waline</p>
+    <title>毛概期末复习</title>
+    <url>/posts/47993/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>毛概前七讲知识点总结，后附选择题及答案。</p>
 <span id="more"></span>
 
-<h3 id="原评论区用-Livere"><a href="#原评论区用-Livere" class="headerlink" title="原评论区用 Livere"></a>原评论区用 Livere</h3><p>初步调研选定 Livere 和 gittalk，考虑到很多浏览的小伙伴都没有 Github 账号，又因为</p>
-<p>我大天朝无奇不有，Github 处于半墙状态，不好弄</p>
-<p>而 Livere 支持 QQ，微信等第三方登陆，降低大众评论门槛，<del>然而还是没有一个人评论</del>。</p>
-<p>最终选定 Livere ，这个评论系统好在配置简单，主题直接集成，缺点嘛就是由于是韩国公司提供的，而且只有刷到文章最下面才会加载，Livere 的评论系统加载有一丢丢慢，不过也不是不能用。</p>
-<p>可就在今天，我竟然在 Livere 的评论区下看到了很大一栏的广告，还是韩文的。搜了一下了解到它确实和广告公司合作在评论区插广告了。</p>
-<p>重度强迫症患者不会允许自己的网站有别人家的广告，不能惯着，直接把评论区关了。</p>
-<p>还把自己的 Livere 账户冻结了，下一步企图删除账户（<del>反正也没有一条评论</del>），很气人的不知道为什么到了最后一步点击确定删除，一直点都没反应，一点取消就取消了，我不知道是它的问题还是我的问题，如果它故意这样，那就真气人。</p>
-<p>想着评论区要不就直接关了吧，再三强调，访客次数到一千了也没有一条评论，确实没有存在的必要。</p>
-<p>又想着不忘初心，自己本来也就没打算怎样，都是出于兴趣，自己爱折腾，就继续折腾一下，找别的评论系统。</p>
-<h3 id="从-Valine-到-Waline"><a href="#从-Valine-到-Waline" class="headerlink" title="从 Valine 到 Waline"></a>从 Valine 到 Waline</h3><p>又进一步发掘，找到了 Valine 这个评论系统，也经常在别人博客中看见，无需登陆，可以留下自己的信息，进一步降低评论门槛，留下邮箱还有评论回复提醒，功能挺符合我想要的呢。</p>
-<p>动手干了以后，第一遍不行，评论区的框是有了，可是写完提交没反应，数据库里也没有记录。又找了个教程，一步一步跟着做了一遍，还是不行。搜为什么 Valine 提交没反应，按着几个解决方案来了一遍，就是不行。真能折腾啊。</p>
-<p>更让我没想到的是，要折腾的更在后面。</p>
-<p>一篇文章说，Valine 停止对高版本 Next 主题的支持，所以想用 Valine 建议回退到 5.x 的 Next 版本，让我退步是不可能的。它还说现在有一个更好的 Waline，听名字就是 Valine 的兄弟，说是等于 Valine + 后端，咱也不懂，就说这个比 Valine 更难部署一点，但是更加安全，于是就继续折腾。</p>
-<p>还说使用这个 Next 主题最好要更到 8.x ，我的是 7.x ，看它升级一次主题好麻烦呀，配置文件要重新搞，还有原来功能就没了，兼容问题也要考虑。纠结了老大一会儿，试着搞了一下，还真给搞坏了。幸好我改之前备份了一下，立马式的换回来了。想着要不就算了。。。</p>
-<p>但咱就是爱折腾</p>
-<p>就是为了这个评论区才升级了 Next 主题</p>
-<p>整个主题都变了，又从头修改了一下 Next 主题 config.yml 的配置，第二遍弄就是不一样，大概一个晚上就基本配置完成了。</p>
-<p>最令人头疼的是那种改了 css 文件的更改项，比如下面这个修改文章内链接文本样式。这种需要直接改网页生成文件，而 Next 主题变了以后这些文件又变成初始那样了，还有可能跟原版文件结构不同。</p>
-<h3 id="修改文章内链接文本样式"><a href="#修改文章内链接文本样式" class="headerlink" title="修改文章内链接文本样式"></a>修改文章内链接文本样式</h3><p>参考文章：<a href="https://www.jianshu.com/p/3a05351a37dc">Hexo的Next主题详细配置 - 简书 (jianshu.com)</a> 第12点</p>
-<p>Next主题自带的链接文本只有下划线，看起来很不明显，主题配置文件中也没有提供可供更改的配置项，只能通过更改 css 文件来实现，这种是升级主题过程中最麻烦的一种。</p>
-<p>找了很多文章，都让改 <code>./themes/source/css/_custom/custom.styl</code> ，但是我根本没找到 <code>_custom</code> 这个文件夹，用了参考文章的办法做出来了。</p>
-<p>打开文件 <code>themes/next/source/css/_common/components/post/post-body.styl</code>，在末尾添加</p>
-<figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.post-body</span> <span class="selector-tag">p</span> <span class="selector-tag">a</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#0593d3</span>;</span><br><span class="line">  <span class="attribute">border-bottom</span>: none;</span><br><span class="line">  <span class="attribute">border-bottom</span>: <span class="number">1px</span> solid <span class="number">#0593d3</span>;</span><br><span class="line">  <span class="selector-pseudo">&amp;:hover</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: <span class="number">#fc6423</span>;</span><br><span class="line">    <span class="attribute">border-bottom</span>: none;</span><br><span class="line">    <span class="attribute">border-bottom</span>: <span class="number">1px</span> solid <span class="number">#fc6423</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>这里的末尾是真真正正的末尾，我还自作聪明在那个最大的花括号里面加的，但是不行。拉到文件最最后什么的也没有的地方粘贴以上代码。</p>
-]]></content>
-  </entry>
-  <entry>
-    <title>python解放文件夹脚本</title>
-    <url>/posts/5114/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>本文用 Python 实现了将文件夹中 一级子文件夹内的文件 批量自动化移动脚本，内涵源码。</p>
-<span id="more"></span>
-
-<h1 id="动机"><a href="#动机" class="headerlink" title="动机"></a>动机</h1><p>用 WPS 下载模版的时候，WPS 会把 PPT 外面套一个文件夹的壳，如下图：</p>
-<img src="/posts/5114/WPS%E6%B7%BB%E5%8A%A0%E7%9A%84%E6%96%87%E4%BB%B6%E5%A4%B9.jpg" class="" title="WPS添加的文件夹">
-
-<p>可能是为了防止 PPT 名字一样而覆盖？不清楚为什么，但是很影响使用，下载的多了的话还要手动一个一个拖出来。</p>
-<p>重复机械的工作不应该由人类去干，于是就想着用 Python 写一个自动化脚本来帮助去掉文件夹的壳，一劳永逸。</p>
-<h1 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h1><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> shutil</span><br><span class="line">src_folder = <span class="string">r&#x27;D:\3下载\WPS下载模板\下载&#x27;</span>+<span class="string">&#x27;\\&#x27;</span></span><br><span class="line">des_folder = <span class="string">r&#x27;D:\3下载\WPS下载模板\科技风&#x27;</span>+<span class="string">&#x27;\\&#x27;</span></span><br><span class="line"><span class="comment">#直接粘贴地址栏复制好的src和des分别替换前一个引号里面的</span></span><br><span class="line">folders = os.listdir(src_folder)<span class="comment">#读取src下的文件及文件夹</span></span><br><span class="line"><span class="keyword">if</span> <span class="keyword">not</span> os.path.exists(des_folder):<span class="comment">#不存在目标路径就创建</span></span><br><span class="line">    os.makedirs(des_folder)</span><br><span class="line">des_folders =os.listdir(des_folder)<span class="comment">#读取des下文件及文件夹</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> folders:<span class="comment">#遍历得到的文件及文件夹</span></span><br><span class="line">    <span class="keyword">if</span> os.path.isdir(src_folder + i):<span class="comment">#如果是文件夹，向下执行</span></span><br><span class="line">        files = os.listdir(src_folder + i)<span class="comment">#读取子文件夹下的所有文件及文件夹</span></span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">len</span>(files) == <span class="number">0</span>:<span class="comment">#空文件夹直接删除</span></span><br><span class="line">            os.rmdir(src_folder + i)</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> files:<span class="comment">#遍历子文件夹下所有文件</span></span><br><span class="line">            <span class="keyword">if</span> j <span class="keyword">in</span> des_folders:<span class="comment">#若与目标路径文件夹中内容有同名不予操作，并输出路径</span></span><br><span class="line">                <span class="built_in">print</span>(<span class="string">&quot;有同名文件:&quot;</span> + src_folder + i + <span class="string">&#x27;\\&#x27;</span> + j)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                src_path = src_folder + i + <span class="string">&#x27;\\&#x27;</span> + j<span class="comment">#得到子文件夹下的内容路径</span></span><br><span class="line">                <span class="keyword">if</span> os.path.isfile(src_path):<span class="comment">#如果是文件，准备移动</span></span><br><span class="line">                    shutil.move(src_path,des_folder)<span class="comment">#移动</span></span><br><span class="line">                    des_folders = os.listdir(des_folder)<span class="comment">#更新des_folders内容</span></span><br><span class="line">                    <span class="keyword">if</span> <span class="built_in">len</span>(os.listdir(src_folder + i)) == <span class="number">0</span>:<span class="comment">#移动后再次检查文件夹，空则删除</span></span><br><span class="line">                        os.rmdir(src_folder + i)</span><br></pre></td></tr></table></figure>
-
-<h1 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h1><img src="/posts/5114/%E5%A4%84%E7%90%86%E6%95%88%E6%9E%9C.jpg" class="" title="处理效果">
-
-<p>PPT 被从原路径输出到目标路径，没有了文件夹，可以选择 <code>src_folder</code> 和 <code>des_folder</code> 相同，原地输出。</p>
-<p>若碰到同名的文件，会输出提示信息，并打印出来同名文件的路径，可以自行处理。</p>
-<p>移动过后，<code>src_folder</code> 中剩下的空文件夹会被删除。</p>
-<h1 id="拓展"><a href="#拓展" class="headerlink" title="拓展"></a>拓展</h1><p>其实上述代码完全符合在我最初场景的期望，所以可以到此为止了。</p>
-<p>可以改进的地方，同名以后直接加后缀再移动，不过考虑到重名的几率很小，基本不会重名，或者重名的文件也不会太多，就留下自行处理吧。</p>
-<p>此代码只移动一级目录，文件夹里套文件夹会被忽略。自己目前也没有遇到这种需求，故没有加入这个功能。或许遇到了再实现吧。</p>
-]]></content>
-  </entry>
-  <entry>
-    <title>Matlab图像边缘检测制作视频</title>
-    <url>/posts/17737/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>用Matlab来进行图像边缘检测，输出边缘线条视频，过程全记录，内含全部源码。</p>
-<span id="more"></span>
-
-<h1 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h1><p>放在了我的b站上：<a href="https://www.bilibili.com/video/BV1934y1z74s?spm_id_from=333.999.0.0">我用Matlab摆烂了你的AE作业_哔哩哔哩_bilibili</a></p>
-<p>下面可以直接观看：</p>
-<div style="position:relative; padding-bottom:75%; width:100%; height:0">
-    <iframe src="//player.bilibili.com/player.html?bvid=BV1934y1z74s&amp;page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="position:absolute; height: 100%; width: 100%;"></iframe>
-</div>
-
-<p>源视频在这里：  AE原作：<a href="https://www.bilibili.com/video/BV1xL4y1E7nT">大二AE结课作业 《过 年》（已摆烂）_哔哩哔哩_bilibili</a></p>
-<p>b站上其他版本：《友 商 链 接》：<br><a href="https://www.bilibili.com/video/BV1wT4y1m7rs">我用Matlab摆烂了你的AE作业_哔哩哔哩_bilibili</a> （他是红色的<br><a href="https://www.bilibili.com/video/BV1Mu411U78T">我用Matlab摆烂了你的ae作业_哔哩哔哩_bilibili</a> （黑色，点更细致了<br><a href="https://www.bilibili.com/video/BV1Xm4y1S7rm">我用Matlab摆烂了你的ae作业_哔哩哔哩_bilibili</a> （这个跟第一个差不多，甚至个人感觉比第一个要清晰，<del>但是没有第一个火</del>，第一个比这个早发布六小时，那这样说我岂不是更加凉凉了。。。</p>
-<hr>
-<h1 id="如何制作"><a href="#如何制作" class="headerlink" title="如何制作"></a>如何制作</h1><p>吃瓜的到这里可以走了（若想当个故事看也不是不行），有matlab的同学想玩一玩可以往下看，源码全分享。（这里不讲怎么下载matlab，为此专门下载30G大小的matlab不划算。）</p>
-<h2 id="1-工作目录"><a href="#1-工作目录" class="headerlink" title="1 工作目录"></a>1 工作目录</h2><p>创建<code>edges</code>和<code>pics</code>两个空文件夹，<code>pics</code>是视频逐帧输出后的图片存放的路径，<code>edges</code>是<code>pics</code>文件夹中图片经边缘处理后生成图片的存放路径。</p>
-<p><code>out2pic.m</code>，<code>zed.m</code>和<code>pic2video.m</code>三个matlab脚本文件</p>
-<p>放入<code>source.mp4</code>原视频</p>
-<p><code>output.mp4</code>是处理后生成的视频</p>
-<img src="/posts/17737/%E5%B7%A5%E4%BD%9C%E7%9B%AE%E5%BD%95.png" class="" title="工作目录文件图片">
-
-<h2 id="2-源码"><a href="#2-源码" class="headerlink" title="2 源码"></a>2 源码</h2><p>源码是我从网上搜来的，改了一点，但是那是好几十天前的事情了，原网站我已经找不到了，侵删。其实我把代码放网上搜了一下确实搜到一个，但那个和我最初参考的不一样，他也没放源码链接，我也不知道哪个是原创，反正代码我不是原创。但是本文章的内容确实是原创。天下代码一大抄</p>
-<p>代码中 “你的工作路径” 要替换为自己的，就是上图中的文件存放在哪里了。例如我的是</p>
-<p><code>D:\0programing\matlab_work\ImageEdgeDetection</code></p>
-<p><code>zed.m</code>和<code>pic2video.m</code>代码中的for循环用到了帧数，要根据具体视频来改变，运行完<code>out2pic.m</code>后，<code>pics</code>文件夹中有几张图片就是几帧。</p>
-<h3 id="2-1-out2pic-m：将视频分割逐帧分割为图片"><a href="#2-1-out2pic-m：将视频分割逐帧分割为图片" class="headerlink" title="2.1 out2pic.m：将视频分割逐帧分割为图片"></a>2.1 <code>out2pic.m</code>：将视频分割逐帧分割为图片</h3><figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">clear;</span><br><span class="line">clc;</span><br><span class="line">se = strel(<span class="string">&#x27;line&#x27;</span>,<span class="number">11</span>,<span class="number">90</span>);</span><br><span class="line">path=<span class="string">&#x27;你的工作路径\source.mp4&#x27;</span>;   <span class="comment">%视频存放路径</span></span><br><span class="line">obj=VideoReader(path);</span><br><span class="line">num=obj.NumberOfFrames;</span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span>=<span class="number">1</span>:num  <span class="comment">%帧数，这里的i最终为1801</span></span><br><span class="line">    frame=read(obj,<span class="built_in">i</span>);</span><br><span class="line">    lujing=strcat(<span class="string">&#x27;你的工作路径\pics\&#x27;,num2str(i));  %帧图输出路径</span></span><br><span class="line"><span class="string">    lujing=strcat(lujing,&#x27;</span>.jpg&#x27;);</span><br><span class="line">    imwrite(frame,lujing)</span><br><span class="line"><span class="keyword">end</span> </span><br></pre></td></tr></table></figure>
-
-<h3 id="2-2-zed-m：逐个图片运用边缘检测算法"><a href="#2-2-zed-m：逐个图片运用边缘检测算法" class="headerlink" title="2.2 zed.m：逐个图片运用边缘检测算法"></a>2.2 <code>zed.m</code>：逐个图片运用边缘检测算法</h3><figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">close all;</span><br><span class="line">clc;</span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span>=<span class="number">1</span>:<span class="number">1801</span>  <span class="comment">%前面所得的视频帧数</span></span><br><span class="line">    path=<span class="string">&#x27;你的工作路径\pics\&#x27;; %帧图路径</span></span><br><span class="line"><span class="string">     disp(i); </span></span><br><span class="line"><span class="string">     path=strcat(path,num2str(i));</span></span><br><span class="line"><span class="string">    p=strcat(path,&#x27;</span>.jpg&#x27;);</span><br><span class="line">    f=imread(p);</span><br><span class="line">    f=rgb2gray(f);</span><br><span class="line">   roberts=edge(f,<span class="string">&#x27;roberts&#x27;</span>);   <span class="comment">%roberts算子</span></span><br><span class="line">   [m,n]=<span class="built_in">find</span>(roberts==<span class="number">1</span>);</span><br><span class="line">  <span class="comment">%scatter(n,-m,&#x27;.&#x27;);   %  1     去掉注释直接展示</span></span><br><span class="line">    mh=<span class="built_in">scatter</span>(n,-m,<span class="string">&#x27;.&#x27;</span>); <span class="comment">%  2     确定输出</span></span><br><span class="line">    axis([<span class="number">0</span> <span class="number">1280</span> <span class="number">-720</span> <span class="number">0</span>]);   <span class="comment">%可依据窗口大小自行调整坐标系，这里输出图片是1280x720</span></span><br><span class="line">    lujing=strcat(<span class="string">&#x27;你的工作路径\edges\&#x27;,num2str(i)); %  3    输出存放路径</span></span><br><span class="line"><span class="string">    lujing=strcat(lujing,&#x27;</span>.jpg&#x27;); <span class="comment">%  4     输出格式为ipg</span></span><br><span class="line">    saveas(mh,lujing); <span class="comment">%  5     保存</span></span><br><span class="line">    <span class="comment">%这里默认是将边缘检测的每一张图片保存，方便后续合成视频；也可以不用保存直接展示，只需将注释编号为1的语句取消注释，将2、3、4、5加上注释即可。但直接展示的话效果不太好，比较卡。</span></span><br><span class="line">    pause(<span class="number">0.05</span>);</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
-<p>9:28开始运行边缘检测算法，10:15运行结束，1801张图片跑了四五十分钟，最后可以生成一分多钟的视频。</p>
-<h3 id="2-3-pic2video-m：将生成的边缘检测图片合成视频"><a href="#2-3-pic2video-m：将生成的边缘检测图片合成视频" class="headerlink" title="2.3 pic2video.m：将生成的边缘检测图片合成视频"></a>2.3 <code>pic2video.m</code>：将生成的边缘检测图片合成视频</h3><figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">clear;</span><br><span class="line">clc;</span><br><span class="line">WriterObj=VideoWriter(<span class="string">&#x27;output.mp4&#x27;</span>, <span class="string">&#x27;MPEG-4&#x27;</span>);   <span class="comment">%这里输出的路径是默认路径，合成的视频的格式是mp4</span></span><br><span class="line">WriterObj.FrameRate = <span class="number">25</span>; <span class="comment">%控制输出视频帧率，原视频为25，没有这行的话默认30</span></span><br><span class="line">open(WriterObj);</span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span>=<span class="number">1</span>:<span class="number">1801</span>  <span class="comment">%帧图数量</span></span><br><span class="line">  pic=<span class="string">&#x27;你的工作路径\edges\&#x27;;  %前面边缘检测的图片的存储路径</span></span><br><span class="line"><span class="string">  pic=strcat(pic,num2str(i));</span></span><br><span class="line"><span class="string">  ppic=strcat(pic,&#x27;</span>.jpg&#x27;);</span><br><span class="line">  frame=imread(ppic);  <span class="comment">% 读取图像，放在变量frame中</span></span><br><span class="line">  <span class="built_in">disp</span>(ppic);</span><br><span class="line">  writeVideo(WriterObj,frame);  <span class="comment">% 将frame放到变量WriterObj中</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line">close(WriterObj);</span><br></pre></td></tr></table></figure>
-
-<p>至此，视频合成好了，但是没有声音，用剪辑软件添加声音。</p>
-<h2 id="3-遇到的问题"><a href="#3-遇到的问题" class="headerlink" title="3 遇到的问题"></a>3 遇到的问题</h2><h3 id="3-1-运行zed-m时弹出的figure窗口不要关闭！！！"><a href="#3-1-运行zed-m时弹出的figure窗口不要关闭！！！" class="headerlink" title="3.1 运行zed.m时弹出的figure窗口不要关闭！！！"></a>3.1 运行<code>zed.m</code>时弹出的figure窗口不要关闭！！！</h3><p>别问我怎么知道的，说多了都是泪……</p>
-<p>这个是figure窗口：</p>
-<img src="/posts/17737/figure%E7%AA%97%E5%8F%A3.png" class="" title="这是一个figure窗口">
-
-<p>这个是可能报的错：</p>
-<img src="/posts/17737/%E5%85%B3%E9%97%ADfigure%E7%AA%97%E5%8F%A3%E6%8A%A5%E9%94%99.png" class="" title="这是关闭figure窗口后可能报的错">
-
-<p>千万别关！！！！</p>
-<h3 id="3-2-合成视频时图片分辨率不符报错"><a href="#3-2-合成视频时图片分辨率不符报错" class="headerlink" title="3.2 合成视频时图片分辨率不符报错"></a>3.2 合成视频时图片分辨率不符报错</h3><img src="/posts/17737/%E5%88%86%E8%BE%A8%E7%8E%87%E6%8A%A5%E9%94%99.png" class="" title="图片分辨率不符报的错">
-
-<p>查一下472.jpg和473.jpg的分辨率属性</p>
-<img src="/posts/17737/472%E5%88%86%E8%BE%A8%E7%8E%87%E5%B1%9E%E6%80%A7.png" class="" title="这是472图片的分辨率属性">
-
-<img src="/posts/17737/473%E5%88%86%E8%BE%A8%E7%8E%87%E5%B1%9E%E6%80%A7.png" class="" title="这是473图片的分辨率属性">
-
-<p>我也不知道什么原因，原图都是1280x720，可能上面我图中关闭了一下figure导致的？但是我关闭窗口的时候应该没合成到472吧。472及以前的分辨率是875x65<strong>6</strong>,473及以后的分辨率是875x65<strong>7</strong>。给<code>writeVideo</code>整不会了，罢工了。</p>
-<p>再跑一遍<code>zed.m</code>是不可能的，累死。机智如我，把前472张合成一下<code>output1.mp4</code>，473后面的合成一个<code>output2.mp4</code>，通过控制<code>pic2video.m</code>中for循环i的取值来实现，记得合成后改名，不然合成第二个会覆盖第一个。之后用剪辑软件拼接起来，就算前后两个视频分辨率不同，剪辑软件可不会像<code>writeVideo</code>那样罢工。</p>
-<h3 id="3-3-合成视频后与原视频帧数不符"><a href="#3-3-合成视频后与原视频帧数不符" class="headerlink" title="3.3 合成视频后与原视频帧数不符"></a>3.3 合成视频后与原视频帧数不符</h3><p>合成视频发现它短了，查属性，发现原视频是25帧的，我输出的是30帧的。</p>
-<img src="/posts/17737/source%E5%B8%A7%E6%95%B0.png" class="" title="原视频帧数属性25帧">
-
-<img src="/posts/17737/output%E5%B8%A7%E6%95%B0.png" class="" title="合成的视频帧数属性30帧">
-
-<p>网上查了一下怎么改<code>VideoWriter</code>输出的帧数，代码里加了一行。</p>
-<p>再次输出视频，帧数还为30，离谱。。。幸好我慧眼如炬，发现我从网上抄的代码和原来的代码大小写不一样，如下：（我不说你们也发现不了W和w不一样吧</p>
-<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">WriterObj=VideoWriter(<span class="string">&#x27;output.mp4&#x27;</span>, <span class="string">&#x27;MPEG-4&#x27;</span>);</span><br><span class="line">writerObj.FrameRate = <span class="number">25</span>;</span><br></pre></td></tr></table></figure>
-<p>改了以后代码运行正常（上面给的源码已经是修改过的了，放心食用。</p>
-<h2 id="4-待改进"><a href="#4-待改进" class="headerlink" title="4 待改进"></a>4 待改进</h2><p>在只有matlab进程的条件下：</p>
-<img src="/posts/17737/%E4%BB%BB%E5%8A%A1%E7%AE%A1%E7%90%86%E5%99%A8%E8%BF%9B%E7%A8%8B.png" class="" title="这是运行边缘检测算法时电脑的进程">
-
-<p>CPU利用率：</p>
-<img src="/posts/17737/cpu%E5%88%A9%E7%94%A8%E7%8E%87.png" class="" title="这是只运行边缘检测算法时电脑CPU利用率">
-
-<p>GPU利用率：</p>
-<img src="/posts/17737/gpu%E5%88%A9%E7%94%A8%E7%8E%87.png" class="" title="这是只运行边缘检测算法时电脑GPU利用率">
-
-<p>我也不知道怎么能把CPU占满一点，也不知道怎么调用GPU来处理，产出个一分钟的视频要操作将近一个小时，辛苦我的CPU了。</p>
-<p>这是本站第一篇实质性内容的文章，实操的小伙伴遇到什么问题可以在评论区留言。</p>
-]]></content>
+<h1 id="毛概期末复习"><a href="#毛概期末复习" class="headerlink" title="毛概期末复习"></a>毛概期末复习</h1><blockquote>
+<p>只考前七讲</p>
+<p>参考视频：<a href="https://www.bilibili.com/video/BV11A4y1f7fb/?spm_id_from=333.337.search-card.all.click&vd_source=45fffd802ff7c83560572f8d7398edd2">卷不动了！全部免费！b站最良心的《毛中特》3小时学完，冲高分（期末&#x2F;专升本&#x2F;考研）毛概&#x2F;政治公开课【云图】_哔哩哔哩_bilibili</a></p>
+<p>参考资料：<a href="https://www.pksou.com/2021/dangtuanfanwen_1206/642216.html">2021最新版毛概课后习题（思考题）答案（1-11章） (pksou.com)</a></p>
+<p><a href="http://cunguan.youth.cn/stgw/201608/t20160822_8578167.htm">村官考试：常识储备之毛泽东思想的形成与发展_大学生村官_中国青年网 (youth.cn)</a></p>
+</blockquote>
+<h2 id="第一讲-毛泽东思想及其历史地位"><a href="#第一讲-毛泽东思想及其历史地位" class="headerlink" title="第一讲 毛泽东思想及其历史地位"></a>第一讲 毛泽东思想及其历史地位</h2><h3 id="一、毛泽东思想形成发展的历史条件"><a href="#一、毛泽东思想形成发展的历史条件" class="headerlink" title="一、毛泽东思想形成发展的历史条件"></a>一、毛泽东思想形成发展的历史条件</h3><p><strong>时代条件</strong>：世界进入帝国主义（侵略）和无产阶级<strong>革命</strong>（反抗）阶段。（战争 革命）</p>
+<p><strong>实践基础</strong>（历史任务）：革命和建设</p>
+<h3 id="二、毛泽东思想形成发展的过程（简答题）"><a href="#二、毛泽东思想形成发展的过程（简答题）" class="headerlink" title="二、毛泽东思想形成发展的过程（简答题）"></a>二、毛泽东思想形成发展的过程（简答题）</h3><h4 id="1-毛泽东思想的萌芽"><a href="#1-毛泽东思想的萌芽" class="headerlink" title="1.毛泽东思想的萌芽"></a>1.毛泽东思想的萌芽</h4><ul>
+<li><p><strong>时期</strong>：党的创立（1921年）和第一次国内革命战争时期（1924-1927年，又称国民革命，大革命）（1921-1927年）</p>
+</li>
+<li><p><strong>标志</strong>：初步形成了关于新民主主义革命的<strong>基本思想</strong></p>
+</li>
+<li><p><strong>主要思想</strong></p>
+<ul>
+<li>反帝反封建的民主革命纲领</li>
+<li>无产阶级在民主革命中的领导权问题和农民同盟军等问题</li>
+<li>中国革命的对象、动力和前途等问题</li>
+</ul>
+</li>
+<li><p><strong>主要代表作</strong></p>
+<ul>
+<li>《中国社会各阶级的分析》（1925年）</li>
+<li>《湖南农民运动考察报告》（1927年）</li>
+</ul>
+</li>
+</ul>
+<h4 id="2-毛泽东思想的形成"><a href="#2-毛泽东思想的形成" class="headerlink" title="2.毛泽东思想的形成"></a>2.毛泽东思想的形成</h4><ul>
+<li><p><strong>时期</strong>：土地革命战争前中期（1927-1935年）</p>
+<blockquote>
+<p>土地革命战争时期为 1927-1937 年</p>
+</blockquote>
+</li>
+<li><p><strong>标志</strong>：“<strong>农村包围城市，武装夺取政权</strong>”的有中国特色的民主革命道路理论的形成。</p>
+</li>
+<li><p><strong>主要思想</strong></p>
+<ul>
+<li>“工农武装割据”思想</li>
+<li>农村包围城市，武装夺取政权理论</li>
+<li>初步阐述了作为毛泽东思想的<strong>活的灵魂</strong>的实事求是、群众路线、独立自主的基本思想</li>
+</ul>
+</li>
+<li><p><strong>主要代表作</strong></p>
+<ul>
+<li>《中国的红色政权为什么能够存在》（1928年）</li>
+<li>《井冈山的斗争》（1928年）</li>
+<li>《星星之火，可以燎原》（1930年）</li>
+<li>《反对本本主义》（1930年）</li>
+</ul>
+</li>
+</ul>
+<h4 id="3-毛泽东思想的成熟"><a href="#3-毛泽东思想的成熟" class="headerlink" title="3.毛泽东思想的成熟"></a>3.毛泽东思想的成熟</h4><ul>
+<li><p><strong>时期</strong>：<strong>遵义会议</strong>（1935年）到抗日战争时期（1931-1945年）（1935-1949年）</p>
+</li>
+<li><p><strong>标志</strong>：新民主主义革命理论形成</p>
+<blockquote>
+<p>萌芽时期是<strong>基本思想</strong>，这里是完整形成</p>
+</blockquote>
+</li>
+<li><p><strong>主要思想</strong></p>
+<ul>
+<li>形成了新民主主义革命理论的完整体系</li>
+<li>总结出了党领导新民主主义革命的<strong>三大法宝</strong></li>
+<li>实现了毛泽东哲学思想体系的构建</li>
+</ul>
+</li>
+<li><p><strong>主要代表作</strong></p>
+<ul>
+<li>《矛盾论》（1937年）</li>
+<li>《实践论》（1937年）</li>
+<li>《&lt;共产党人&gt;发刊词》（1939年）</li>
+<li>《中国革命和中国共产党》（1939年）</li>
+<li>《新民主主义论》（1940年）</li>
+<li>《论联合政府》（1945年）</li>
+</ul>
+<p>1945年<strong>党的七大</strong>将毛泽东思想<strong>写入党章</strong>，确立为党必须长期坚持的指导思想，是毛泽东思想发展史上的一个里程碑</p>
+</li>
+</ul>
+<h4 id="4-毛泽东思想的继续发展"><a href="#4-毛泽东思想的继续发展" class="headerlink" title="4.毛泽东思想的继续发展"></a>4.毛泽东思想的继续发展</h4><ul>
+<li><p><strong>时期</strong>：解放战争时期（1944-1949年）和中华人民共和国成立以后（1949-）（1945-1976年）</p>
+</li>
+<li><p><strong>主要代表作</strong></p>
+<ul>
+<li>《论人民民主专政》（1949年）</li>
+<li>《论十大关系》（1956年）</li>
+<li>《关于正确处理人民内部矛盾的问题》（1957年）</li>
+</ul>
+</li>
+</ul>
+<h3 id="三、毛泽东思想的主要内容（略）"><a href="#三、毛泽东思想的主要内容（略）" class="headerlink" title="三、毛泽东思想的主要内容（略）"></a>三、毛泽东思想的主要内容（略）</h3><ol>
+<li>新民主主义革命理论</li>
+<li>社会主义革命和社会主义建设理论</li>
+<li>革命军队的建设和军事战略理论</li>
+<li>政策和策略的理论</li>
+<li>思想政治工作和文化工作的理论</li>
+<li>党的建设理论</li>
+</ol>
+<h3 id="四、毛泽东思想活的灵魂（简答题，四个三之一）"><a href="#四、毛泽东思想活的灵魂（简答题，四个三之一）" class="headerlink" title="四、毛泽东思想活的灵魂（简答题，四个三之一）"></a>四、毛泽东思想活的灵魂（简答题，四个三之一）</h3><ol>
+<li><strong>实事求是</strong>：一切从实际出发，理论联系实际，坚持<strong>在实践中检验真理和发展真理</strong></li>
+<li><strong>群众路线</strong>：一切为了群众，一切依靠群众，从群众中来，到群众中去，把党的正确主张变为群众的自觉行为</li>
+<li><strong>独立自主</strong>：坚持独立思考，走自己的路，坚定不移的维护民族独立、捍卫国家主权，把立足点放在依靠自己力量的基础上，同时积极争取外援，开展国际经济文化交流，学习外国一切对我们有益的先进事务<br>（不会干涉别国内政，不允许别国干涉中国内政）</li>
+</ol>
+<p>实事求是是毛泽东思想的<strong>精髓</strong>，群众路线是党的<strong>根本路线</strong>，独立自主是中国革命和建设的<strong>基本落足点</strong>。</p>
+<h3 id="五、毛泽东思想的历史地位"><a href="#五、毛泽东思想的历史地位" class="headerlink" title="五、毛泽东思想的历史地位"></a>五、毛泽东思想的历史地位</h3><ul>
+<li><p>马克思主义中国化<strong>第一个</strong>重大理论成果</p>
+</li>
+<li><p>中国<strong>革命和建设</strong>的科学指南</p>
+<blockquote>
+<p>毛泽东思想只涉及<strong>革命和建设</strong></p>
+<p>之后的邓小平理论，三个代表，科学发展观，习思想只涉及到<strong>建设和改革</strong>（没有革命了）</p>
+</blockquote>
+</li>
+<li><p>中国共产党和中国人民宝贵的<strong>精神财富</strong>（思想类的通用评价）</p>
+</li>
+</ul>
+<h2 id="第二讲-新民主主义革命理论"><a href="#第二讲-新民主主义革命理论" class="headerlink" title="第二讲 新民主主义革命理论"></a>第二讲 新民主主义革命理论</h2><p>内容最多，最重要，1919-1949年</p>
+<h3 id="一、新民主主义革命理论形成的依据（简答题）"><a href="#一、新民主主义革命理论形成的依据（简答题）" class="headerlink" title="一、新民主主义革命理论形成的依据（简答题）"></a>一、新民主主义革命理论形成的依据（简答题）</h3><h4 id="1-近代中国国情和中国革命的时代特征"><a href="#1-近代中国国情和中国革命的时代特征" class="headerlink" title="1.近代中国国情和中国革命的时代特征"></a>1.近代中国国情和中国革命的时代特征</h4><ol>
+<li><p>中国逐渐成为<strong>半殖民地半封建社会</strong>，这是近代中国最基本的国情</p>
+</li>
+<li><p><strong>主要矛盾</strong>是帝国主义和中华民族的矛盾、封建主义和人民大众的矛盾</p>
+</li>
+<li><p>近代中国革命的<strong>根本任务</strong>是推翻帝国主义、封建主义和官僚资本主义的统治</p>
+<blockquote>
+<p>前三点说中国国情</p>
+<table>
+<thead>
+<tr>
+<th>1.社会性质→</th>
+<th>2.主要矛盾→</th>
+<th>3.历史任务</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>半殖</td>
+<td>帝国主义和中华民族</td>
+<td>反帝</td>
+</tr>
+<tr>
+<td>半封</td>
+<td>封建主义和人民大众</td>
+<td>反封</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>反官僚资本主义（与帝封有联系）</td>
+</tr>
+</tbody></table>
+</blockquote>
+</li>
+<li><p>以<strong>俄国十月革命</strong>的胜利为标志，从原来属于旧的世界资产阶级民主主义革命的范畴，属于旧的世界资产阶级民主主义革命的一部分，转变为属于新的资产阶级民主主义革命的范畴，属于<strong>世界无产阶级社会主义革命</strong>的一部分</p>
+</li>
+<li><p>以<strong>五四运动</strong>为标志，中国进入<strong>新民主主义革命</strong>阶段</p>
+<blockquote>
+<p>后两点说时代特征</p>
+<p>4.国际上俄国十月革命使中国的的革命属于世界无产阶级社会主义革命的一部分</p>
+<p>5.国内五四运动使中国民主主义革命由旧到新，根本区别为领导阶级不同，五四运动使工人阶级登上历史舞台，完成由旧到新</p>
+</blockquote>
+</li>
+</ol>
+<h4 id="2-新民主主义革命理论的实践基础"><a href="#2-新民主主义革命理论的实践基础" class="headerlink" title="2.新民主主义革命理论的实践基础"></a>2.新民主主义革命理论的实践基础</h4><ol>
+<li><p>旧民主主义革命的<strong>失败</strong>呼唤新的革命理论</p>
+<blockquote>
+<p>旧民主主义革命的历程：</p>
+<p>帝国主义对中国的入侵（以鸦片战争为开端）→农民受剥削和压迫，反抗（太平天国）→威胁清政府的统治，自救（洋务运动）→资产阶级自救（改良派戊戌维新，革命派辛亥革命）</p>
+</blockquote>
+</li>
+<li><p>新民主主义革命（工人阶级）的<strong>艰辛探索</strong>奠定了革命理论形成的实践基础</p>
+</li>
+</ol>
+<h3 id="二、新民主主义革命的总路线"><a href="#二、新民主主义革命的总路线" class="headerlink" title="二、新民主主义革命的总路线"></a>二、新民主主义革命的总路线</h3><h4 id="1-内容"><a href="#1-内容" class="headerlink" title="1.内容"></a>1.内容</h4><p>无产阶级领导的，人民大众的，反对帝国主义、封建主义和官僚资本主义的革命</p>
+<h4 id="2-革命对象"><a href="#2-革命对象" class="headerlink" title="2.革命对象"></a>2.革命对象</h4><ul>
+<li>帝国主义：中国革命的<strong>首要对象</strong>（帝国主义要灭亡中国）</li>
+<li>封建地主阶级：<strong>帝国主义</strong>统治中国和封建军阀实行专制统治的社会基础（帝国主义对中国的统治是间接的，主要依靠的是封建地主阶级）</li>
+<li>官僚资本主义：依靠<strong>帝国主义</strong>、勾结<strong>封建势力</strong>、利用国家政权力量而发展起来的买办（走狗）的封建的国家<strong>垄断</strong>资本主义</li>
+</ul>
+<h4 id="3-革命动力（朋友）"><a href="#3-革命动力（朋友）" class="headerlink" title="3.革命动力（朋友）"></a>3.革命动力（朋友）</h4><blockquote>
+<p>五星红旗中间的星星指中国共产党，四颗小星星如下</p>
+</blockquote>
+<ul>
+<li><strong>无产阶级</strong>是中国革命的最基本动力（领导者，先进阶级）</li>
+<li><strong>农民</strong>是中国革命的主力军（人多）</li>
+<li><strong>城市小资产阶级</strong>是无产阶级的可靠同盟者（劳动者，同样受剥削）</li>
+<li><strong>民族资产阶级</strong>也是中国革命的动力之一（爱国）</li>
+</ul>
+<h4 id="4-革命领导"><a href="#4-革命领导" class="headerlink" title="4.革命领导"></a>4.革命领导</h4><ul>
+<li><strong>资产阶级不能领导革命</strong><ol>
+<li><strong>帝国主义不允许</strong>中国民族资产阶级建立独立的资产阶级共和国</li>
+<li>由于<strong>中国民族资产阶级的软弱性和妥协性</strong>，他们不愿意也不能够彻底推翻帝国主义和封建势力</li>
+<li>由于中国<strong>无产阶级的强大和革命的彻底性</strong>，领导中国革命的重任历史地落到了中国无产阶级及其政党肩上</li>
+</ol>
+</li>
+<li><strong>无产阶级自身的特点和优点</strong><ol>
+<li>从诞生之日起，就深受外国资本主义、本国封建势力和资产阶级的<strong>三重压迫</strong>（压迫大）</li>
+<li><strong>分布集中</strong>（沿海，大中城市），有利于无产阶级队伍的组织和团结，有利于革命思想的传播和强大革命力量的形成</li>
+<li>成员中大部分出身于破产农民，<strong>和农民有着天然的联系</strong>（农民是主力军）</li>
+</ol>
+</li>
+<li><strong>无产阶级及其政党对中国革命的领导权不是自然而然得来的，而是在与资产阶级争夺领导权的斗争中实现的</strong></li>
+</ul>
+<h4 id="5-革命的性质和前途"><a href="#5-革命的性质和前途" class="headerlink" title="5.革命的性质和前途"></a>5.革命的性质和前途</h4><ul>
+<li><p><strong>革命的性质：资产阶级民主主义革命</strong></p>
+<blockquote>
+<p>简答题：近代中国革命性质为什么是资产阶级民主主义革命？</p>
+<p>答：资产阶级民主主义革命包括旧民主主义革命和新民主主义革命，二者转变的标志是五四运动，但二者都是资产阶级民主主义革命。</p>
+<p>社会性质→主要矛盾→根本任务→革命性质</p>
+<p>前面三者决定最后的革命性质</p>
+<p>跟领导阶级无关</p>
+</blockquote>
+</li>
+<li><p><strong>新民主主义革命与旧民主主义革命相比</strong></p>
+<ol>
+<li>中国革命处于世界无产阶级社会主义革命时代，是世界无产阶级社会主义革命的一部分（<strong>所属范围</strong>）</li>
+<li>革命的<strong>领导力量</strong>是中国无产阶级及其先锋队——中国共产党</li>
+<li>革命的<strong>指导思想</strong>是马克思列宁主义</li>
+<li>革命的<strong>前途</strong>是社会主义</li>
+</ol>
+</li>
+<li><p><strong>新民主主义革命与社会主义革命性质不同</strong></p>
+<ol>
+<li>新民主主义革命仍然属于<strong>资产阶级民主主义革命</strong>的范畴</li>
+<li>社会主义革命是<strong>无产阶级性质的革命</strong>，它所要实现的目标是消灭资本主义剥削制度和改造小生产的私有制（消灭私有和剥削）（任务不同）</li>
+</ol>
+</li>
+<li><p><strong>新民主主义革命与社会主义革命又是相互联系、紧密衔接的，中间不容横插一个资产阶级专政</strong>（陈独秀右倾）</p>
+<ol>
+<li>民主主义革命是社会主义革命的<strong>必要准备</strong></li>
+<li>社会主义革命是民主主义革命的<strong>必然趋势</strong></li>
+</ol>
+</li>
+</ul>
+<h3 id="三、新民主主义的基本纲领"><a href="#三、新民主主义的基本纲领" class="headerlink" title="三、新民主主义的基本纲领"></a>三、新民主主义的基本纲领</h3><ul>
+<li><p>新民主主义的<strong>政治纲领</strong>：<strong>推翻</strong><u>帝国主义和封建主义</u>的统治，<strong>建立</strong>一个<u>无产阶级</u><strong>领导</strong>的、以<u>工农联盟</u>为<strong>基础</strong>的、<u>各革命阶级联合专政</u>的<u>新民主主义共和国</u></p>
+<blockquote>
+<p>国体：国家的权力属于谁？</p>
+<p>新民主主义时期国家的权力属于<strong>各革命阶级联合专政</strong>，照顾到当时各个参与革命的阶级</p>
+<p>现在国家的权力属于人民，<strong>人民民主专政</strong> </p>
+</blockquote>
+</li>
+<li><p>新民主主义的<strong>经济纲领</strong>：<strong>没收封建</strong>地主阶级的<strong>土地归农民</strong>所有，<strong>没收官僚</strong>资产阶级的垄断资本<strong>归</strong>新民主主义的<strong>国家</strong>所有，<strong>保护民族工商业</strong>（两没收一保护）</p>
+</li>
+<li><p>新民主主义<strong>文化</strong>：无产阶级领导的人民大众的反帝反封建的文化，即<strong>民族的科学的大众的文化</strong></p>
+</li>
+</ul>
+<h3 id="四、新民主主义革命的道路（四个三之二）"><a href="#四、新民主主义革命的道路（四个三之二）" class="headerlink" title="四、新民主主义革命的道路（四个三之二）"></a>四、新民主主义革命的道路（四个三之二）</h3><h4 id="农村包围城市，武装夺取政权"><a href="#农村包围城市，武装夺取政权" class="headerlink" title="农村包围城市，武装夺取政权"></a>农村包围城市，武装夺取政权</h4><h4 id="1-必然性"><a href="#1-必然性" class="headerlink" title="1.必然性"></a>1.必然性</h4><ul>
+<li>在半殖民地半封建的中国社会，<strong>内无民主制度</strong>而受<strong>封建主义</strong>的压迫，<strong>外无民族独立</strong>而受<strong>帝国主义</strong>的压迫（→武装夺取政权）</li>
+<li>近代中国是一个<strong>农业大国</strong>，农民占全国人口的绝大多数，是无产阶级可靠的同盟军和革命的主力军（→农村包围城市）</li>
+</ul>
+<h4 id="2-可能性"><a href="#2-可能性" class="headerlink" title="2.可能性"></a>2.可能性</h4><ol>
+<li>社会政治经济发展极端<strong>不平衡</strong>（农村为薄弱环节）</li>
+<li>人民<strong>革命愿望强烈</strong>，加之经过大革命的洗礼，革命的<strong>群众基础好</strong>（人民想革命）</li>
+<li>全国<strong>革命形势</strong>的继续向前发展（侵略存在，势必革命）</li>
+<li>相当力量<strong>红军</strong>的存在</li>
+<li><strong>党</strong>的领导的有力量及其政策的不错误</li>
+</ol>
+<h4 id="3-内容"><a href="#3-内容" class="headerlink" title="3.内容"></a>3.内容</h4><p>中国革命走<strong>农村包围城市、武装夺取政权</strong>的道路</p>
+<p>根本在处理好<strong>土地革命、武装斗争、农村革命根据地建设</strong>（四个三之二）三者之间的关系</p>
+<h4 id="4-重大意义"><a href="#4-重大意义" class="headerlink" title="4.重大意义"></a>4.重大意义</h4><ol>
+<li>在<strong>实践</strong>上，走农村包围城市道路被证明是中国革命走向胜利的<strong>唯一正确道路</strong></li>
+<li>在<strong>理论</strong>上，走农村包围城市道路理论对马克思主义理论做出了<strong>独创性的贡献</strong></li>
+<li>走农村包围城市道路理论是中国共产党在反对教条主义和经验主义的斗争中，坚持实事求是，一切从实际出发，独立自主地解决中国问题的<strong>典范</strong></li>
+</ol>
+<h3 id="五、新民主主义革命的三大法宝（四个三之三）"><a href="#五、新民主主义革命的三大法宝（四个三之三）" class="headerlink" title="五、新民主主义革命的三大法宝（四个三之三）"></a>五、新民主主义革命的三大法宝（四个三之三）</h3><h4 id="统一战线、武装斗争、党的建设"><a href="#统一战线、武装斗争、党的建设" class="headerlink" title="统一战线、武装斗争、党的建设"></a>统一战线、武装斗争、党的建设</h4><h4 id="1-统一战线"><a href="#1-统一战线" class="headerlink" title="1.统一战线"></a>1.统一战线</h4><ol>
+<li>由中国半殖民地半封建社会的<strong>阶级状况</strong>所决定的（工人阶级先进但人少，农民阶级占大多数）</li>
+<li>由中国革命的<strong>长期性</strong>、<strong>残酷性</strong>及其<strong>发展的不平衡性</strong>所决定的</li>
+<li>在半殖民地半封建的中国社会，<strong>诸多矛盾</strong>交织在一起，客观上为无产阶级及其政党利用这些<strong>矛盾</strong>（帝与帝，帝与封均存在矛盾）建立和发展统一战线提供了<strong>可能性</strong>（敌人的敌人可能是朋友）</li>
+</ol>
+<p>▷经历了</p>
+<ul>
+<li><p><strong>第一次国共合作</strong>的统一战线（大革命，反对帝国主义，打北洋军阀）</p>
+</li>
+<li><p><strong>工农民主</strong>统一战线（土地革命）</p>
+</li>
+<li><p><strong>抗日民族</strong>统一战线（抗日时期）</p>
+</li>
+<li><p><strong>人民民主</strong>统一战线（解放战争时期）</p>
+<p>等几个时期</p>
+</li>
+</ul>
+<p>▷党总结建立、巩固和发展统一战线的<strong>实践经验</strong>，主要在于这样几个方面：</p>
+<ol>
+<li>建立巩固的<strong>工农联盟</strong></li>
+<li>正确对待<strong>资产阶级</strong>，尤其是<strong>民族资产阶级</strong></li>
+<li>采取<strong>区别对待</strong>的方针</li>
+</ol>
+<h4 id="2-武装斗争"><a href="#2-武装斗争" class="headerlink" title="2.武装斗争"></a>2.武装斗争</h4><ol>
+<li>坚持<strong>党</strong>对军队的绝对领导</li>
+<li>建设<strong>全心全意为人民服务</strong>的人民军队</li>
+<li>坚持正确的<strong>战略战术</strong>原则</li>
+</ol>
+<h4 id="3-党的建设"><a href="#3-党的建设" class="headerlink" title="3.党的建设"></a>3.党的建设</h4><ol>
+<li>把<strong>思想建设</strong>始终放在党的建设的<strong>首位</strong>（农民和城市小资产阶级革命有私心，主要矛盾为无产阶级思想与非无产阶级思想的矛盾）</li>
+<li>在任何时候都重视党的<strong>组织建设</strong>（不允许拉帮结派）</li>
+<li>重视党的<strong>作风建设</strong>（作风优良）</li>
+<li>联系党的<strong>政治路线</strong>加强党的建设（当时中国共产党不是执政党，所以不能称为政治建设）</li>
+</ol>
+<h4 id="4-关系"><a href="#4-关系" class="headerlink" title="4.关系"></a>4.关系</h4><p><strong>统一战线</strong>（盾）和<strong>武装斗争</strong>（矛）是中国革命的两个<strong>基本特点</strong>，是战胜敌人的两个<strong>基本武器</strong>（选择题）</p>
+<p><strong>党的建设</strong>是思想</p>
+<h2 id="第三讲-社会主义改造理论"><a href="#第三讲-社会主义改造理论" class="headerlink" title="第三讲 社会主义改造理论"></a>第三讲 社会主义改造理论</h2><h3 id="一、新民主主义社会是一个过渡性的社会"><a href="#一、新民主主义社会是一个过渡性的社会" class="headerlink" title="一、新民主主义社会是一个过渡性的社会"></a>一、新民主主义社会是一个过渡性的社会</h3><blockquote>
+<p>——<strong>1840年</strong>——半殖民地半封建社会——<strong>1949年</strong>——新民主主义社会——<strong>1956年</strong>——社会主义社会——</p>
+<p>新中国成立时（1949年）我国并不是社会主义国家，三大改造完成后才是</p>
+</blockquote>
+<ul>
+<li><p><strong>社会性质</strong></p>
+<p>我国社会性质是<strong>新民主主义社会</strong></p>
+</li>
+<li><p><strong>经济成分</strong></p>
+<p>（<strong>主要</strong>）社会主义性质的<strong>国营经济</strong>（没收官僚资本归国家所有）</p>
+<p>（过渡）半社会主义性质的<strong>合作社经济</strong>（农村合作社）</p>
+<p>（<strong>主要</strong>）农民和手工业者的<strong>个体经济</strong>（没收地主土地归农民所有）</p>
+<p>（<strong>主要</strong>）<strong>私人资本</strong>主义经济（保护民族工商业形成）</p>
+<p>（过渡）<strong>国家资本</strong>主义经济（国家和企业合作）</p>
+<blockquote>
+<p>个体经济——→合作社经济（过渡）——→集体经济</p>
+<p>私人资本主义经济——→国家资本主义经济（过渡）——→国营经济</p>
+</blockquote>
+</li>
+<li><p><strong>阶级构成</strong></p>
+<p>工人阶级、农民阶级、其他小资产阶级、民族资产阶级</p>
+</li>
+<li><p><strong>主要矛盾</strong></p>
+<p>社会主义和资本主义两条<strong>道路</strong>、工人阶级和资产阶级两个<strong>阶级</strong>的矛盾</p>
+</li>
+</ul>
+<h3 id="二、党在过渡时期的总路线及其理论依据"><a href="#二、党在过渡时期的总路线及其理论依据" class="headerlink" title="二、党在过渡时期的总路线及其理论依据"></a>二、党在过渡时期的总路线及其理论依据</h3><ul>
+<li><p><strong>内容</strong></p>
+<p>“一化三改”</p>
+<p>“一化”：<strong>社会主义工业化</strong>（搞建设）</p>
+<p>“三改”：对<strong>个体农业</strong>、<strong>手工业</strong>和<strong>资本主义工商业</strong>的社会主义<strong>改造</strong>（消灭私有和剥削）</p>
+</li>
+<li><p><strong>关系</strong></p>
+<p>社会主义<strong>建设</strong>和<strong>改造</strong>   <u><strong>同时并举</strong></u></p>
+<p>体现了社会主义<strong>工业化</strong>和社会主义<strong>改造</strong>的紧密结合</p>
+<p>体现了<strong>解放生产力</strong>（改造）和<strong>发展生产力</strong>（建设）、<strong>变革生产关系</strong>（改造）与<strong>发展生产力</strong>（建设）的有机统一</p>
+</li>
+<li><p><strong>我国由新民主主义社会逐步过渡到社会主义社会这一过渡时期之所以必要，并且需要一个相当长时间，是由于</strong>（简答题）</p>
+<ol>
+<li>我国<strong>经济和文化的落后</strong>，要求一个相当长的时期来创造为保证社会主义完全胜利所必要的经济上和文化上的前提</li>
+<li>我国有极其<strong>广大</strong>的个体的<strong>农业和手工业</strong>及在国民经济中占很大一部分比重的<strong>资本主义工商业</strong>，要求一个相当长的时期来改造它们</li>
+</ol>
+</li>
+</ul>
+<h3 id="三、适合中国特点的社会主义改造道路"><a href="#三、适合中国特点的社会主义改造道路" class="headerlink" title="三、适合中国特点的社会主义改造道路"></a>三、适合中国特点的社会主义改造道路</h3><p><strong><u>和平方式</u></strong></p>
+<ul>
+<li><p><strong>农业的社会主义改造</strong>（消灭私有）</p>
+<ol>
+<li><p><strong>积极引导</strong>农民组织起来，走合作互助道路</p>
+</li>
+<li><p>遵循<strong>自愿互利</strong>、<strong>典型示范</strong>和<strong>国家帮助</strong>的原则，以互助合作的优越性吸引农民走互助合作道路</p>
+</li>
+<li><p>正确分析农村的阶级和阶层状况，制定正确的<strong>阶级政策</strong>（贫农，中农，富农）</p>
+</li>
+<li><p>坚持<strong>积极领导</strong>、<strong>稳步前进</strong>的方针，采取<strong>循序渐进</strong>的步骤</p>
+<p>农业社会主义改造大体上经历了<strong>互助组</strong>、<strong>初级社</strong>和<strong>高级社</strong>三个发展阶段</p>
+</li>
+</ol>
+</li>
+<li><p><strong>手工业的社会主义改造</strong>（消灭私有）</p>
+<ol>
+<li><p>党和政府采取<strong>积极领导</strong>、<strong>稳步前进</strong>的方针</p>
+</li>
+<li><p>在方法步骤上，从供销合作入手，逐步发展到走生产合作的道路</p>
+<p>第一步是办手工业<strong>供销小组</strong>，第二步是办手工业<strong>供销合作社</strong>，第三步是建立手工业<strong>生产合作社</strong></p>
+</li>
+<li><p>在手工业的社会主义改造中，党采取<strong>说服教育</strong>、<strong>示范</strong>和<strong>国家帮助</strong>的方法</p>
+</li>
+</ol>
+</li>
+<li><p><strong>资本主义工商业的社会主义改造</strong></p>
+<ol>
+<li><p>用<strong>和平赎买</strong>的方法改造资本主义工商业（用你的利润买你的厂）</p>
+</li>
+<li><p>采取从低级到高级的<strong>国家资本主义</strong>的过渡形式</p>
+<p><strong>初级形式</strong>的国家资本主义、<strong>个别企业</strong>的公私合营、<strong>全行业</strong>的公私合营</p>
+</li>
+<li><p>把资本主义工商业者<strong>改造</strong>成为自食其力的<strong>社会主义劳动者</strong></p>
+</li>
+</ol>
+</li>
+</ul>
+<h3 id="四、社会主义改造的历史经验"><a href="#四、社会主义改造的历史经验" class="headerlink" title="四、社会主义改造的历史经验"></a>四、社会主义改造的历史经验</h3><ol>
+<li>坚持社会主义工业化<strong>建设</strong>与社会主义<strong>改造</strong>  <strong><u>同时并举</u></strong></li>
+<li>采取<strong>积极引导</strong>、<strong>逐步过渡</strong>的方式（通用）</li>
+<li>用<strong>和平改造</strong>的方式（通用）</li>
+</ol>
+<h3 id="五、确立社会主义基本制度的重大意义"><a href="#五、确立社会主义基本制度的重大意义" class="headerlink" title="五、确立社会主义基本制度的重大意义"></a>五、确立社会主义基本制度的重大意义</h3><ol>
+<li>极大地提高了工人阶级和广大劳动人民的<strong>积极性</strong>、<strong>创造性</strong>，<strong>极大地促进了我国社会生产力的发展</strong></li>
+<li>促进了我国<strong>生产力的突飞猛进</strong>的发展</li>
+<li>是中国几千年来<strong>阶级关系最根本变革</strong>（人民成为国家真正的主人）</li>
+<li>使占世界人口1&#x2F;4的东方大国<strong>进入了社会主义社会</strong></li>
+<li>是以毛泽东为主要代表的中国共产党人对一个脱胎于半殖民地半封建的东方大国如何进行社会主义革命命题的系统回答和正确解决，<strong>是马克思列宁主义关于社会主义革命理论在中国的正确运用和创造性发展的结果</strong></li>
+</ol>
+<h2 id="第四讲-社会主义建设道路初步探索的理论成果"><a href="#第四讲-社会主义建设道路初步探索的理论成果" class="headerlink" title="第四讲 社会主义建设道路初步探索的理论成果"></a>第四讲 社会主义建设道路初步探索的理论成果</h2><h3 id="一、初步探索的重要理论成果"><a href="#一、初步探索的重要理论成果" class="headerlink" title="一、初步探索的重要理论成果"></a>一、初步探索的重要理论成果</h3><h4 id="1-调动一切积极因素为社会主义事业服务"><a href="#1-调动一切积极因素为社会主义事业服务" class="headerlink" title="1.调动一切积极因素为社会主义事业服务"></a>1.调动一切积极因素为社会主义事业服务</h4><p>《<strong>论十大关系</strong>》确定了一个<strong>基本方针</strong>，就是”<u>努力把党内党外、国内国外的一切积极的因素，直接的、间接的积极因素，全部调动起来</u>“为社会主义建设服务</p>
+<ol>
+<li><p>必须坚持中国共产<strong>党的领导</strong></p>
+</li>
+<li><p>必须发展社会主义<strong>民主政治</strong></p>
+</li>
+<li><p>有一个如何认识社会主义<strong>发展阶段</strong>和社会主义<strong>建设规律</strong>的问题</p>
+<blockquote>
+<p><strong>毛泽东</strong>把社会主义分为两个阶段：<strong>不发达阶段</strong>和<strong>比较发达阶段</strong>（长期）</p>
+<p>之后<strong>邓小平</strong>把<strong>不发达阶段</strong>定义为<strong>社会主义初级阶段</strong></p>
+<p><strong>2050年</strong>我国进入比较发达的社会主义时期</p>
+</blockquote>
+</li>
+</ol>
+<h4 id="2-正确认识和处理社会主义社会矛盾的思想"><a href="#2-正确认识和处理社会主义社会矛盾的思想" class="headerlink" title="2.正确认识和处理社会主义社会矛盾的思想"></a>2.正确认识和处理社会主义社会矛盾的思想</h4><p>毛泽东指出，<strong>矛盾</strong>是<strong>普遍存在</strong>的，社会主义社会同样充满着矛盾，正是这些矛盾<strong>推动</strong>着社会主义社会不断地向前发展</p>
+<blockquote>
+<p>马克思恩格斯列宁著作中没有对社会主义国家有矛盾做论述</p>
+<p>斯大林刚开始不承认社会主义有矛盾，之后承认但只说社会主义矛盾是阶级矛盾</p>
+</blockquote>
+<ul>
+<li><p><strong>关于社会主义社会的基本矛盾</strong></p>
+<p>在社会主义社会中，基本的矛盾仍然是<strong>生产关系和生产力</strong>之间的矛盾，<strong>上层建筑和经济基础</strong>之间的矛盾</p>
+<p>社会主义社会的基本矛盾是在生产关系和生产力<strong>基本适应</strong>、上层建筑和经济基础<strong>基本适应</strong>条件下的矛盾</p>
+<p>是在<strong>人民根本利益一致</strong>基础上的矛盾，是<strong>非对抗性</strong>的矛盾</p>
+</li>
+<li><p><strong>关于我国社会的主要矛盾和根本任务</strong></p>
+<p>党的八大提出我们国内的主要矛盾</p>
+<p>已经是人民对于建立<strong>先进的工业国</strong>的要求同<strong>落后的农业国</strong>的现实之间的矛盾</p>
+<p>已经是人民对于<strong>经济文化迅速发展的需要</strong>同<strong>当前经济文化不能满足人民需要</strong>的状况之间的矛盾</p>
+<p>根本任务：发展生产力</p>
+<blockquote>
+<p>社会主义社会的<strong>基本矛盾</strong>：生产关系和生产力、上层建筑和经济基础</p>
+<p>1842年<strong>鸦片战争</strong>后我国社会的<strong>主要矛盾</strong>：帝国主义与中华民族、封建主义与人民大众</p>
+<p>1956年<strong>中共八大</strong>：</p>
+<p>人民对于建立先进的工业国的要求同落后的农业国的现实之间的矛盾</p>
+<p>人民对于经济文化迅速发展的需要同当前经济文化不能满足人民需要的状况之间的矛盾</p>
+<p>1981年党的<strong>十一届六中全会</strong>：</p>
+<p>人民日益增长的物质文化需要同落后的社会生产之间的矛盾</p>
+<p>2017年<strong>十九大</strong>：</p>
+<p>人民日益增长的美好生活需要与不平衡不充分的发展之间的矛盾</p>
+</blockquote>
+</li>
+<li><p><strong>关于社会主义社会存在两种不同性质矛盾的理论</strong></p>
+<p>毛泽东强调，社会主义社会的矛盾反映在政治上可以划分为<strong>敌我矛盾</strong>和<strong>人民内部矛盾</strong></p>
+<p>敌我矛盾是<strong>对抗性</strong>的矛盾（敌我矛盾不单单包括外国人与中国人，杀人放火也是）</p>
+<p>一般来说，人民内部矛盾是在人民利益根本一致的基础上的矛盾，因而是<strong>非对抗性</strong>的矛盾</p>
+</li>
+<li><p><strong>关于正确处理两类不同性质社会矛盾的基本方法、方针和意义</strong></p>
+<p>解决<strong>敌我矛盾</strong>需要用<strong>专政</strong>的方法</p>
+<p>解决<strong>人民内部矛盾</strong>则采用<strong>民主</strong>的方法</p>
+</li>
+</ul>
+<h4 id="3-走中国工业化道路的思想"><a href="#3-走中国工业化道路的思想" class="headerlink" title="3.走中国工业化道路的思想"></a>3.走中国工业化道路的思想</h4><p>毛泽东提出了<strong>以农业为基础</strong>，<strong>以工业为主导</strong>，<strong>以<u>农轻重</u>为序</strong>发展国民经济的<strong>总方针</strong></p>
+<ul>
+<li><p><strong>”两条腿走路“的工业化发展思路</strong>（了解即可）</p>
+<ul>
+<li><p><strong>重工业</strong>和<strong>轻工业</strong>同时并举</p>
+</li>
+<li><p><strong>中央工业</strong>和<strong>地方工业</strong>同时并举</p>
+</li>
+<li><p><strong>沿海工业</strong>和<strong>内地工业</strong>同时并举</p>
+</li>
+<li><p><strong>大型企业</strong>和<strong>中小型企业</strong>同时并举等等</p>
+</li>
+</ul>
+</li>
+<li><p><strong>如何走中国工业化道路？</strong></p>
+<ol>
+<li>明确<strong>战略目标</strong>和<strong>战略步骤</strong></li>
+<li>采取正确的<strong>经济建设方针</strong></li>
+<li>发展<strong>科学技术</strong>和<strong>文化</strong>教育</li>
+<li>重视<strong>知识分子</strong>工作</li>
+<li>调整和完善<strong>所有制结构</strong></li>
+<li>积极探索适合我国情况的<strong>经济体制</strong>和<strong>运行机制</strong></li>
+</ol>
+</li>
+</ul>
+<h3 id="二、初步探索的意义"><a href="#二、初步探索的意义" class="headerlink" title="二、初步探索的意义"></a>二、初步探索的意义</h3><ol>
+<li><strong>巩固</strong>和<strong>发展</strong>了我国的<strong>社会主义制度</strong></li>
+<li>为开创中国特色社会主义提供了<strong>宝贵经验</strong>、<strong>理论准备</strong>、<strong>物质基础</strong></li>
+<li>丰富了科学社会主义的<strong>理论</strong>和<strong>实践</strong></li>
+</ol>
+<h3 id="三、初步探索的经验教训"><a href="#三、初步探索的经验教训" class="headerlink" title="三、初步探索的经验教训"></a>三、初步探索的经验教训</h3><ol>
+<li>把<strong>马克思主义与中国实际相结合</strong>，探索符合中国特点的社会主义建设道路</li>
+<li>正确认识社会主义社会的<strong>主要矛盾</strong>和<strong>根本任务</strong>，集中力量<strong>发展生产力</strong></li>
+<li><strong>从实际出发</strong>进行社会主义建设，建设规模和速度要和国力相适应，不能急于求成</li>
+<li><strong>发展社会主义民主</strong>，健全社会主义法制</li>
+<li>坚持<strong>党的民主集中制和集体领导制度</strong>，加强执政党建设</li>
+<li>坚持<strong>对外开放</strong>，借鉴和吸收人类文明成果建设社会主义，不能关起门来搞建设</li>
+</ol>
+<h2 id="第五讲-邓小平理论"><a href="#第五讲-邓小平理论" class="headerlink" title="第五讲 邓小平理论"></a>第五讲 邓小平理论</h2><h3 id="一、邓小平理论的形成条件"><a href="#一、邓小平理论的形成条件" class="headerlink" title="一、邓小平理论的形成条件"></a>一、邓小平理论的形成条件</h3><ol>
+<li><strong>时代背景</strong>：和平与发展成为时代主题</li>
+<li><strong>历史根据</strong>：社会主义建设的经验教训</li>
+<li><strong>现实依据</strong>：改革开放和现代化建设的实践</li>
+</ol>
+<h3 id="二、邓小平理论的形成过程"><a href="#二、邓小平理论的形成过程" class="headerlink" title="二、邓小平理论的形成过程"></a>二、邓小平理论的形成过程</h3><ul>
+<li><p>1978年<strong>十一届三中全会</strong>：实现了党的历史上具有深远意义的<strong>伟大转折</strong></p>
+<blockquote>
+<p>改革开放，经济建设为重点，停止使用”以阶级斗争为纲“</p>
+<p>会议实际上形成了以邓小平为核心的党中央领导集体</p>
+</blockquote>
+</li>
+<li><p>1987年召开的<strong>党的十三大</strong>：第一次对中国特色社会主义理论进行<strong>系统的概括</strong>，标志着邓小平理论<strong>轮廓的形成</strong></p>
+</li>
+<li><p>1992年邓小平<strong>南方谈话</strong>：标志着邓小平理论也逐步走向<strong>成熟</strong></p>
+</li>
+<li><p>1997年召开的<strong>党的十五大</strong>：<strong>正式提出</strong>”邓小平理论“这一概念（成为党的指导思想，写入党章）</p>
+</li>
+</ul>
+<h3 id="三、邓小平理论回答的基本问题"><a href="#三、邓小平理论回答的基本问题" class="headerlink" title="三、邓小平理论回答的基本问题"></a>三、邓小平理论回答的基本问题</h3><ul>
+<li><p><strong>基本问题</strong></p>
+<p>什么是<strong>社会主义</strong>、怎样建设社会主义</p>
+<blockquote>
+<p>毛泽东思想：什么是<strong>马克思主义</strong>、怎么来运用马克思主义</p>
+<p>三个代表：建设什么样的<strong>党</strong>、怎样来建设党</p>
+<p>科学发展观：实现什么样的<strong>发展</strong>、怎么来发展</p>
+<p>习思想：坚持和发展什么样的<strong>中国特色社会主义</strong>，怎样坚持和发展中国特色社会主义</p>
+</blockquote>
+</li>
+<li><p><strong>社会主义的本质</strong></p>
+<p>解放生产力，发展生产力（生产力）；消灭剥削，消除两极分化，最终达到共同富裕（目标）</p>
+</li>
+</ul>
+<h3 id="四、邓小平理论的主要内容"><a href="#四、邓小平理论的主要内容" class="headerlink" title="四、邓小平理论的主要内容"></a>四、邓小平理论的主要内容</h3><h4 id="1-解放思想、实事求是的思想路线"><a href="#1-解放思想、实事求是的思想路线" class="headerlink" title="1.解放思想、实事求是的思想路线"></a>1.解放思想、实事求是的思想路线</h4><p><strong>十一届三中全会</strong>：标志着党<strong>重新</strong>确立了马克思主义的思想路线</p>
+<p>解放思想、实事求是的思想路线：是邓小平理论<strong>活的灵魂</strong>，是邓小平理论的<strong>精髓</strong></p>
+<blockquote>
+<p>毛泽东思想活的灵魂：实事求是、群众路线、独立自主</p>
+<p>之前没有做到 实事求是</p>
+</blockquote>
+<h4 id="2-社会主义初级阶段理论"><a href="#2-社会主义初级阶段理论" class="headerlink" title="2.社会主义初级阶段理论"></a>2.社会主义初级阶段理论</h4><p>我国在<strong>生产力落后</strong>、<strong>商品经济不发达</strong>条件下<strong>建设</strong>社会主义必然要经历的<strong>特定</strong>阶段</p>
+<ol>
+<li>我国<strong>已经进入</strong>社会主义社会，必须坚持而<strong>不能离开</strong>社会主义（社会主义）</li>
+<li>我国的社会主义社会还处在<strong>不发达阶段</strong>，必须<strong>正视</strong>而不能超越初级阶段（初级阶段）</li>
+</ol>
+<h4 id="3-党的基本路线（简答题）"><a href="#3-党的基本路线（简答题）" class="headerlink" title="3.党的基本路线（简答题）"></a>3.党的基本路线（简答题）</h4><p>领导和团结全国各族人民（领导阶级，依靠）</p>
+<p>以经济建设为中心，坚持四项基本原则，坚持改革开放（一个中心两个基本点）</p>
+<blockquote>
+<p>“<strong>以经济建设为中心</strong>”回答了社会主义的<strong>根本任务</strong>问题，体现了<strong>发展生产力</strong>的<strong>本质要求</strong>。</p>
+<p>“<strong>坚持四项基本原则</strong>”回答了<strong>解放和发展生产力</strong>的<strong>政治保证</strong>问题，体现了社会主义<strong>基本制度</strong>的要求。</p>
+<p>“<strong>坚持改革开放</strong>”回答了社会主义的<strong>发展动力</strong>和<strong>外部条件</strong>问题，体现了<strong>解放生产力</strong>的<strong>本质要求</strong>。</p>
+</blockquote>
+<p>自力更生，艰苦创业（立足点）</p>
+<p>为把我国建设成为富强、民主、文明的社会主义现代化国家而奋斗</p>
+<blockquote>
+<p>现为：富强、民主、文明、<strong>和谐</strong>、<strong>美丽</strong>的社会主义现代化<strong>强国</strong></p>
+</blockquote>
+<h4 id="4-社会主义根本任务"><a href="#4-社会主义根本任务" class="headerlink" title="4.社会主义根本任务"></a>4.社会主义根本任务</h4><p>社会主义的根本任务是<strong>发展生产力</strong></p>
+<blockquote>
+<p><strong>发展生产力</strong>是：</p>
+<ul>
+<li>实现共产主义的物质基础</li>
+<li>社会主义本质的内在要求</li>
+<li>显示社会主义制度优越性</li>
+<li>巩固社会主义制度的要求</li>
+<li>解决社会主要矛盾的要求</li>
+</ul>
+</blockquote>
+<p>邓小平强调，发展才是硬道理：</p>
+<ol>
+<li>中国解决<strong>所有问题的关键</strong>是要靠<strong>自己的发展</strong></li>
+<li>发展要<strong>抓住机遇</strong></li>
+<li>中国的发展，<strong>离不开科学</strong>（科学技术是第一生产力）</li>
+</ol>
+<h4 id="5-”三步走“战略（简单了解）"><a href="#5-”三步走“战略（简单了解）" class="headerlink" title="5.”三步走“战略（简单了解）"></a>5.”三步走“战略（简单了解）</h4><p>党的十三大确立“三步走”现代化战略：第一步，从1981年到1990年实现国民生产总值比1980年翻一番，解决人民的温饱问题；第二步，从1991年到20世纪末，使国民生产总值再翻一番，达到小康水平；第三步，到21世纪中叶，国民生产总值再翻两番，达到中等发达国家水平，基本实现现代化。然后在这个基础上继续前进。</p>
+<blockquote>
+<p>现在是习近平提倡的”两步走“战略：</p>
+<p>从二〇二〇年到二〇三五年基本实现社会主义现代化；</p>
+<p>从二〇三五年到本世纪中叶把我国建成富强民主文明和谐美丽的社会主义现代化强国。</p>
+</blockquote>
+<h4 id="6-改革开放理论"><a href="#6-改革开放理论" class="headerlink" title="6.改革开放理论"></a>6.改革开放理论</h4><p><strong>对内改革，对外开放</strong></p>
+<ul>
+<li>改革：是中国的<strong>第二次革命</strong>，是社会主义<strong>制度</strong>的自我完善和发展，是对<strong>体制</strong>的根本性变革（不改制度改体制）</li>
+<li>改革的实质和目标：是要从根本上改变束缚我国生产力发展的<strong>经济体制</strong>，建立充满生机和活力的社会主义<strong>新经济体制</strong>，同时相应地改革政治体制和其他方面的体制，以<strong>实现中国社会主义现代化</strong>（先改经济，再改其他方面体制）</li>
+<li>改革是社会主义社会发展的<strong>直接动力</strong></li>
+<li><strong>改革</strong>中始终坚持两条<strong>根本原则</strong><ol>
+<li>以社会主义公有制经济为主体</li>
+<li>共同富裕</li>
+</ol>
+</li>
+<li>判断改革和各方面工作的是非得失，归根到底，要以：（两力一水平）（三个有利于）<ol>
+<li>是否有利于发展社会主义社会的<strong>生产力</strong></li>
+<li>是否有利于增强社会主义国家的<strong>综合国力</strong></li>
+<li>是否有利于提高人民的<strong>生活水平</strong>为标准</li>
+</ol>
+</li>
+<li><strong>开放也是改革</strong>，对外开放是建设中国特色社会主义的一项基本国策</li>
+<li>对外开放，包括对发达国家的开放，也包括对发展中国家的开放，是<strong>对世界所有国家开放</strong>。它不仅是经济领域的开放，还包括科技、教育、文化等领域的开放（并不开放所有领域，如军事政治领域）<ol>
+<li>实行对外开放要<strong>正确对待</strong>资本主义社会创造的现代化文明成果（取其精华去其糟粕）</li>
+<li>对外开放要高度珍惜并坚决维护中国人民经过长期奋斗得来的<strong>独立自主权利</strong></li>
+</ol>
+</li>
+</ul>
+<h4 id="7-社会主义市场经济理论"><a href="#7-社会主义市场经济理论" class="headerlink" title="7.社会主义市场经济理论"></a>7.社会主义市场经济理论</h4><ul>
+<li>传统观念认为，计划经济是社会主义的基本特征，市场经济是资本主义特有的东西</li>
+<li>社会主义市场经济的理论要点有：<ol>
+<li>计划经济和市场经济<strong>不是</strong>划分社会制度的标志</li>
+<li>计划和市场都是<strong>经济手段</strong>，对经济活动的调节各有优势和长处，社会主义实行市场经济要把两者<strong>结合</strong>起来</li>
+<li>市场经济作为<strong>资源配置的一种方式</strong>本身不具有制度属性，可以和不同的社会制度结合，从而表现出不同的性质</li>
+</ol>
+</li>
+</ul>
+<h4 id="8-“两手抓，两手都要硬”（简单了解）"><a href="#8-“两手抓，两手都要硬”（简单了解）" class="headerlink" title="8.“两手抓，两手都要硬”（简单了解）"></a>8.“两手抓，两手都要硬”（简单了解）</h4><ul>
+<li>邓小平强调，物质文明和精神文明都搞好，才是中国特色的社会主义</li>
+<li>“一手抓建设，一手抓法制”</li>
+<li>“一手抓改革开放，一手抓惩治腐败”</li>
+</ul>
+<h4 id="9-“一国两制”"><a href="#9-“一国两制”" class="headerlink" title="9.“一国两制”"></a>9.“一国两制”</h4><p>“和平统一，一国两制”构想的<strong>基本内容</strong>主要有：</p>
+<ol>
+<li>坚持一个中国（核心）</li>
+<li>两制并存</li>
+<li>高度自治（不是绝对自治，没有军事权和外交权）</li>
+<li>尽最大努力争取<strong>和平统一</strong>，但<strong>不承诺放弃使用武力</strong></li>
+<li>解决台湾问题，实现祖国统一，<strong>寄希望于台湾人民</strong></li>
+</ol>
+<h4 id="10-中国问题的关键在于党（了解）"><a href="#10-中国问题的关键在于党（了解）" class="headerlink" title="10.中国问题的关键在于党（了解）"></a>10.中国问题的关键在于党（了解）</h4><h3 id="五、邓小平理论的历史地位"><a href="#五、邓小平理论的历史地位" class="headerlink" title="五、邓小平理论的历史地位"></a>五、邓小平理论的历史地位</h3><ol>
+<li>马克思列宁主义、毛泽东思想的<strong>继承和发展</strong></li>
+<li>中国特色社会主义理论体系的<strong>开篇之作</strong></li>
+<li><strong>改革</strong>开放和社会主义现代化<strong>建设</strong>的科学指南</li>
+</ol>
+<h2 id="第六讲-“三个代表”重要思想"><a href="#第六讲-“三个代表”重要思想" class="headerlink" title="第六讲 “三个代表”重要思想"></a>第六讲 “三个代表”重要思想</h2><p><strong>十六大</strong>把“三个代表”重要思想写入党章</p>
+<p>贯彻“三个代表”的根本要求“<strong>关键</strong>在坚持<strong>与时俱进</strong>,<strong>核心</strong>在保持党的<strong>先进性</strong>,<strong>本质</strong>在坚持<strong>执政为民</strong></p>
+<h3 id="一、“三个代表”重要思想形成的社会历史条件"><a href="#一、“三个代表”重要思想形成的社会历史条件" class="headerlink" title="一、“三个代表”重要思想形成的社会历史条件"></a>一、“三个代表”重要思想形成的社会历史条件</h3><ol>
+<li>对冷战结束后<strong>国际局势</strong>科学判断</li>
+<li>科学判断<strong>党</strong>的历史方位和总结历史经验</li>
+<li>在建设<strong>中国特色社会主义</strong>伟大实践的基础上形成</li>
+</ol>
+<h3 id="二、“三个代表”重要思想的核心观点"><a href="#二、“三个代表”重要思想的核心观点" class="headerlink" title="二、“三个代表”重要思想的核心观点"></a>二、“三个代表”重要思想的核心观点</h3><ol>
+<li>始终代表中国<strong>先进生产力的发展要求</strong>。社会主义的<strong>根本任务</strong>是<strong>发展社会生产力</strong>；广大工人、农民和知识分子，始终是推动我国先进生产力发展和社会全面进步的<strong>根本力量</strong>。<strong>科学技术是第一生产力</strong>，是先进生产力的集中体现和主要标志</li>
+<li>始终代表中国<strong>先进文化的前进方向</strong></li>
+<li>始终代表中国<strong>最广大人民的根本利益</strong></li>
+</ol>
+<h3 id="三、“三个代表”重要思想的历史地位"><a href="#三、“三个代表”重要思想的历史地位" class="headerlink" title="三、“三个代表”重要思想的历史地位"></a>三、“三个代表”重要思想的历史地位</h3><ol>
+<li>中国特色社会主义理论体系的<strong>丰富和发展</strong></li>
+<li>加强和改进<strong>党的建设</strong>，推进中国特色社会主义事业的强大理论武器</li>
+</ol>
+<h2 id="第七讲-科学发展观"><a href="#第七讲-科学发展观" class="headerlink" title="第七讲 科学发展观"></a>第七讲 科学发展观</h2><h3 id="一、科学发展观形成发展的社会历史条件"><a href="#一、科学发展观形成发展的社会历史条件" class="headerlink" title="一、科学发展观形成发展的社会历史条件"></a>一、科学发展观形成发展的社会历史条件</h3><ol>
+<li><strong>现实基础</strong>：深刻把握我国<strong>基本国情</strong>和新的阶段性特征</li>
+<li><strong>历史依据</strong>：深入总结<strong>改革开放以来</strong>特别是党的十六大以来的<strong>实践经验</strong></li>
+<li><strong>国际背景</strong>：深刻分析<strong>国际形势</strong>，顺应世界发展趋势、借鉴国外发展经验</li>
+</ol>
+<h3 id="二、科学发展观的科学内涵"><a href="#二、科学发展观的科学内涵" class="headerlink" title="二、科学发展观的科学内涵"></a>二、科学发展观的科学内涵</h3><p>第一要义是<strong>发展</strong>，核心立场是<strong>以人为本</strong>，基本要求是<strong>全面协调可持续</strong>，根本方法是<strong>统筹兼顾</strong></p>
+<h3 id="三、科学发展观的历史地位"><a href="#三、科学发展观的历史地位" class="headerlink" title="三、科学发展观的历史地位"></a>三、科学发展观的历史地位</h3><ol>
+<li>中国特色社会主义理论体系的<strong>接续发展</strong></li>
+<li>全面建成小康社会，加快推进社会主义现代化的<strong>根本指针</strong></li>
+<li>发展中国特色社会主义必须长期坚持的<strong>指导思想</strong></li>
+</ol>
+<h2 id="会议总结"><a href="#会议总结" class="headerlink" title="会议总结"></a>会议总结</h2><ul>
+<li><strong>遵义会议</strong>（1935年）：<strong>新民主主义革命理论</strong>的<strong>系统阐述</strong>。毛泽东思想<strong>成熟</strong>。确立了毛泽东的<strong>领导地位</strong></li>
+<li><strong>六届六中全会</strong>（1938年）：毛泽东在《论新阶段》率先提出“<strong>马克思主义中国化</strong>”命题。</li>
+<li><strong>党的七大</strong>（1945年）：将毛泽东思想<strong>写入党章</strong></li>
+<li><strong>十一届三中全会</strong>（1978年）：<strong>伟大转折</strong>。<strong>改革开放</strong>。<strong>邓小平实际上成为党的中央领导集体的核心</strong>。</li>
+<li><strong>党的十二大</strong>（1982年）：邓小平在开幕词中明确提出：“把马克思主义的普遍真理同我国的具体实际结合起来，走自己的道路，建设有<strong>中国特色的社会主义</strong>。</li>
+<li><strong>党的十三大</strong>（1987年）：第一次对中国特色社会主义理论进行<strong>系统的概括</strong>，标志邓小平理论<strong>轮廓的形成</strong></li>
+<li><strong>党的十五大</strong>（1997年）：<strong>正式提出</strong>”邓小平理论“，写入党章。</li>
+<li><strong>党的十六大</strong>（2002年）：把“<strong>三个代表</strong>”重要思想写入党章</li>
+<li><strong>党的十七大</strong>（2007年）：提出“中国特色社会主义理论体系”科学概念，将<strong>科学发展观</strong>写入党章。</li>
+</ul>
+<h2 id="选择题"><a href="#选择题" class="headerlink" title="选择题"></a>选择题</h2><ol>
+<li><p><strong>第一次提出“马克思主义中国化”的会议是（）<sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="**C**。1938年**六届六中全会**毛泽东在《论新阶段》率先提出“马克思主义中国化”命题。
+">[1]</span></a></sup></strong></p>
+<p>A. 中国二大</p>
+<p>B. 中共四大</p>
+<p>C. 六届六中全会</p>
+<p>D. 中国七大</p>
+</li>
+<li><p>中国共产党提出新民主主义革命的基本思想在（）<sup id="fnref:2"><a href="#fn:2" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="**A**。在第一次国内革命战争时期（1924-1927年，又称国民革命，大革命）提出了新民主主义革命的**基本思想**。
+">[2]</span></a></sup></p>
+<p>A. 国民革命战争时期</p>
+<p>B. 土地革命战争时期</p>
+<p>C. 抗日战争时期</p>
+<p>D. 解放战争时期</p>
+</li>
+<li><p>以毛泽东为代表的中国共产党人初步开辟了农村包围城市、武装夺取政权革命道路是在（）<sup id="fnref:3"><a href="#fn:3" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="**B**。土地革命战争期间（第一次国共内战 1927-1937）：提出并阐述了**农村包围城市，武装夺取政权**的思想，标志着毛泽东思想的**初步形成**。1930年毛泽东《星星之火，可以燎原》实际上已经形成了以农村包围城市，然后夺取城市的思想。
+">[3]</span></a></sup></p>
+<p>A. 国民革命战争时期</p>
+<p>B. 土地革命战争时期</p>
+<p>C. 抗日战争时期</p>
+<p>D. 解放战争时期</p>
+</li>
+<li><p>毛泽东思想得到系统总结和多方面展开而趋于成熟是在（）<sup id="fnref:4"><a href="#fn:4" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="**C**。1935年遵义会议以后：**新民主主义革命理论**的系统阐述标志着毛泽东思想得到了多方面展开而趋于**成熟**。1945年党的七大将毛泽东思想写入党章，确立为党必须长期坚持的指导思想。抗日战争时期为1931年到1945年。
+">[4]</span></a></sup></p>
+<p>A. 国民革命战争时期</p>
+<p>B. 土地革命战争时期</p>
+<p>C. 抗日战争时期</p>
+<p>D. 解放战争时期</p>
+</li>
+<li><p>中国革命战争在长时期内的主要作战形式是（）<sup id="fnref:5"><a href="#fn:5" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="**C**。**游击战**和带游击性质的**运动战**。
+">[5]</span></a></sup></p>
+<p>A. 游击战</p>
+<p>B. 阵地战</p>
+<p>C. 游击战和运动站</p>
+<p>D. 游击战和阵地战</p>
+</li>
+<li><p>中国共产党历史上，第一次使用“毛泽东思想活的灵魂”的表述是在（）<sup id="fnref:6"><a href="#fn:6" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="**D**。1981年党的十一届六中全会通过的《**关于建国以来党的若干历史问题的决议**》首次提出，实事求是、群众路线、独立自主，**是毛泽东思想的活的灵魂**。毛泽东85年前写就的《反对本本主义》，明确表达了实事求是、群众路线、独立自主的基本观点。这里问的是“活的灵魂的表述”，故为《关于建国以来党的若干历史问题的决议》。
+">[6]</span></a></sup></p>
+<p>A. 《反对本本主义》</p>
+<p>B. 《关于若干历史问题的决议》</p>
+<p>C. 《关于修改党章的报告》</p>
+<p>D. 《关于建国以来党的若干历史问题的决议》</p>
+</li>
+<li><p>开始形成了以毛泽东同志为核心的党的第一代中央领导集体的会议是（）<sup id="fnref:7"><a href="#fn:7" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="**A**。1935年**遵义会议**事实上确立了毛泽东在党中央和红军的**领导地位**，开始确立了以毛泽东同志为主要代表的马克思主义正确路线在党中央的领导地位
+">[7]</span></a></sup></p>
+<p>A. 遵义会议</p>
+<p>B. 洛川会议</p>
+<p>C. 六届六中全会</p>
+<p>D. 中共七大</p>
+</li>
+<li><p>毛泽东思想的精髓是（）<sup id="fnref:8"><a href="#fn:8" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="**A**。
+">[8]</span></a></sup></p>
+<p>A. 实事求是</p>
+<p>B. 群众路线</p>
+<p>C. 独立自主</p>
+<p>D. 艰苦奋斗</p>
+</li>
+<li><p>中国共产党的根本工作路线是（）<sup id="fnref:9"><a href="#fn:9" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="**B**。
+">[9]</span></a></sup></p>
+<p>A. 实事求是</p>
+<p>B. 群众路线</p>
+<p>C. 独立自主</p>
+<p>D. 艰苦奋斗</p>
+</li>
+<li><p>毛泽东思想继续得到发展是在（）<sup id="fnref:10"><a href="#fn:10" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="**CD**。
+">[10]</span></a></sup></p>
+<p>A. 国民革命时期</p>
+<p>B. 土地革命时期</p>
+<p>C. 解放战争时期</p>
+<p>D. 中华人民共和国建立后</p>
+</li>
+<li><p>第一次国内革命战争时期，毛泽东提出的新民主主义革命基本思想主要体现在以下著作中（）<sup id="fnref:11"><a href="#fn:11" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="**BD**。
+">[11]</span></a></sup></p>
+<p>A. 《星星之火，可以燎原》</p>
+<p>B. 《中国社会各阶级的分析》</p>
+<p>C. 《反对本本主义》</p>
+<p>D. 《湖南农民运动考察报告》</p>
+</li>
+<li><p>标志着毛泽东思想初步形成的重要文章主要有（）<sup id="fnref:12"><a href="#fn:12" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="**ABCD**。
+">[12]</span></a></sup></p>
+<p>A. 《中国的红色政权为什么能够存在？》</p>
+<p>B. 《井冈山的斗争》</p>
+<p>C. 《星星之火可以燎原》</p>
+<p>D. 《反对本本主义》</p>
+</li>
+<li><p>体现毛泽东思想得到多方面展开而趋于成熟的著作主要有（）<sup id="fnref:13"><a href="#fn:13" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="**ABCD**。
+">[13]</span></a></sup></p>
+<p>A. 《新民主主义论》</p>
+<p>B. 《矛盾论》、《实践论》</p>
+<p>C. 《中国革命和中国共产党》、《论联合政府》</p>
+<p>D. 《&lt;共产党人&gt;发刊词》</p>
+</li>
+<li><p><strong>毛泽东思想成熟的突出表现是（）<sup id="fnref:14"><a href="#fn:14" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="**ABCD**。
+">[14]</span></a></sup></strong></p>
+<p>A. 科学阐述了新民主主义革命的对象、动力、领导力量、性质和前途等基本问题</p>
+<p>B. 提出了新民主主义革命的总路线</p>
+<p>C. 制定了相应的经济、政治、文化纲领</p>
+<p>D. 指明了新民主主义革命的具体目标</p>
+</li>
+<li><p>毛泽东认为，中国资产阶级包括（）<sup id="fnref:15"><a href="#fn:15" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="**AC**。毛泽东在《中国社会各阶级的分析》中把中国民族资产阶级分为买**办资产阶级**和**民族资产阶级**两个部分
+">[15]</span></a></sup></p>
+<p>A. 大资产阶级（或买办资产阶级）</p>
+<p>B. 城市小资产阶级</p>
+<p>C. 民族资产阶级</p>
+<p>D. 知识分子</p>
+</li>
+<li><p>无产阶级及其政党要实现自己对同盟者的领导，必须具备的条件是（）<sup id="fnref:16"><a href="#fn:16" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="**AD**。
+">[16]</span></a></sup></p>
+<p>A. 率领被领导者向着共同的敌人作坚决斗争并取得胜利</p>
+<p>B. 对同盟者采取“有理、有利、有节”的策略原则</p>
+<p>C. 坚持独立自主的原则，对同盟者实行又联合又斗争的政策</p>
+<p>D. 对被领导者给以物质利益，至少不损害其利益，同时给以政治教育</p>
+</li>
+<li><p>毛泽东思想的历史地位主要表现为（）<sup id="fnref:17"><a href="#fn:17" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="**ABC**。**中国特色社会主义理论体系**是新时期全党全国各族人民团结奋斗的共同思想基础，不选D。
+">[17]</span></a></sup></p>
+<p>A. 是马克思主义中国化的第一个重大理论成果</p>
+<p>B. 是中国革命和建设的科学指南</p>
+<p>C. 是中国共产党和中国人民宝贵的精神财富</p>
+<p>D. 是新时期全党全国各族人民团结奋斗的共同思想基础</p>
+</li>
+<li><p>以下属于毛泽东思想的主要内容的有（）<sup id="fnref:18"><a href="#fn:18" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="**ABCD**。毛泽东思想的基本内容主要由6个方面组成。**新民主主义革命理论**、**社会主义革命和社会主义建设理论**、革命军队的建设和军事战略理论、**政策和策略的理论**、**思想政治工作和文化工作的理论**、党的建设理论。
+">[18]</span></a></sup></p>
+<p>A. 新民主主义革命理论</p>
+<p>B. 社会主义革命和社会主义建设理论</p>
+<p>C. 政策和策略的理论</p>
+<p>D. 思想政治工作和文化工作理论</p>
+</li>
+<li><p>毛泽东第一次提出了“新民主主义革命”的科学概念的著作是（）<sup id="fnref:19"><a href="#fn:19" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="**C**。1939年《**中国革命和中国共产党**》，毛泽东首次提出“**新民主主义革命**”的科学概念，之后在《新民主主义论》中大为发展。
+">[19]</span></a></sup></p>
+<p>A. 《&lt;共产党人&gt;发刊词》</p>
+<p>B. 《论政策》</p>
+<p>C. 《中国革命和中国共产党》</p>
+<p>D. 《新民主主义论》</p>
+</li>
+<li><p>毛泽东认为，中国革命的基本问题是（）<sup id="fnref:20"><a href="#fn:20" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="**B**。**农民问题**是中国革命的基本问题，农民是中国革命的基本力量，是中国革命的最广泛的动力，是中国革命队伍的主力。">[20]</span></a></sup></p>
+<p>A. 工人问题</p>
+<p>B. 农民问题</p>
+<p>C. 知识分子问题</p>
+<p>D. 资产阶级问题</p>
+</li>
+<li><p>中国共产党区别于其他任何政党的显著标志是（）<sup id="fnref:21"><a href="#fn:21" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="**ACD**。中国共产党的三大优良作风：**理论联系实际**，**密切联系群众**，**批评和自我批评**。三大优良作风是中国共产党区别于其他任何政党的显著标志。
+">[21]</span></a></sup></p>
+<p>A. 批评与自我批评相结合的作风</p>
+<p>B. 有一套完整的纪律</p>
+<p>C. 理论联系实际</p>
+<p>D. 密切联系群众</p>
+</li>
+<li><p>提出“三个主体，三个补充”设想的领导人是（）<sup id="fnref:22"><a href="#fn:22" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="**D**。
+">[22]</span></a></sup></p>
+<p>A. 毛泽东</p>
+<p>B. 周恩来</p>
+<p>C. 邓小平</p>
+<p>D. 陈云</p>
+</li>
+<li><p>社会主义国家政治生活的主题是（）<sup id="fnref:23"><a href="#fn:23" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="**A**。毛泽东在1957年《关于正确处理人民内部矛盾的问题》,系统论述了社会主义社会矛盾的理论。毛泽东强调,社会主义国家政治生活的主题是**正确处理人民内部矛盾**。
+">[23]</span></a></sup></p>
+<p>A. 正确处理人民内部矛盾</p>
+<p>B. 处理敌我矛盾</p>
+<p>C. 为人民服务</p>
+<p>D. 坚持党的领导</p>
+</li>
+<li><p>中共八大提出我国国内的主要矛盾是（）<sup id="fnref:24"><a href="#fn:24" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="**D**。我国社会的**基本矛盾**是：生产力和生产关系、经济基础与上层建筑之间的矛盾。1956年党的八大提出我国社会的主要矛盾是人民对于建立先进的工业国的要求同落后的农业国的现实之间的矛盾、**人民对于经济文化迅速发展的需要同当前经济文化不能满足人民需要的状况**之间的矛盾。
+">[24]</span></a></sup></p>
+<p>A. 无产阶级与资产阶级的矛盾</p>
+<p>B. 社会主义道路与资本主义道路的矛盾</p>
+<p>C. 先进的生产关系与落后的生产力之间的矛盾</p>
+<p>D. 人民对于经济文化迅速发展的需要同当前经济文化不能满足人民需要状况之间的矛盾</p>
+</li>
+<li><p><strong>邓小平在（）会议中明确指出：“把马克思主义的普遍真理同我国的具体实际结合起来，走自己的道路，建设有中国特色的社会主义。”<sup id="fnref:25"><a href="#fn:25" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="**B**。1982年邓小平在**十二大**开幕词中明确提出：“把马克思主义的普遍真理同我国的具体实际结合起来，走自己的道路，建设有中国特色的社会主义。
+">[25]</span></a></sup></strong></p>
+<p>A. 党的十一届三中全会</p>
+<p>B. 党的十二大</p>
+<p>C. 党的十二届三中全会</p>
+<p>D. 党的十三大</p>
+</li>
+<li><p><strong>党的（）正式提出“邓小平理论”这一概念<sup id="fnref:26"><a href="#fn:26" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="**B**。1997年**党的十五大**：**正式提出**”邓小平理论“这一概念（成为党的指导思想，写入党章）
+">[26]</span></a></sup></strong></p>
+<p>A. 十三大</p>
+<p>B. 十四大</p>
+<p>C. 十五大</p>
+<p>D. 十六大</p>
+</li>
+<li><p>社会主义国家改革的性质应该是（）<sup id="fnref:27"><a href="#fn:27" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="**D**。改革是中国的**第二次革命**，是社会主义**制度**的自我完善和发展，是对**体制**的根本性变革（不改制度改体制）
+">[27]</span></a></sup></p>
+<p>A. 社会主义基本制度的变革</p>
+<p>B. 社会主义经济运行方式的改革</p>
+<p>C. 社会主义原有体制的修补</p>
+<p>D. 社会主义制度的自我完善和发展</p>
+</li>
+<li><p>坚持党在社会主义初级阶段基本路线不动摇，关键是坚持（）<sup id="fnref:28"><a href="#fn:28" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="**C**。
+">[28]</span></a></sup></p>
+<p>A. 四项基本原则</p>
+<p>B. 改革开放</p>
+<p>C. 以经济建设为中心</p>
+<p>D. 安定团结的社会政治局面</p>
+</li>
+<li><p>邓小平指出，在改革中社会主义必须始终坚持的两条根本原则是（）<sup id="fnref:29"><a href="#fn:29" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="**B**。党的基本路线中的两个基本点为坚持四项基本原则，坚持改革开放。邓小平指出：“在**改革**中，我们始终坚持两条根本原则，一是**以社会主义公有制经济为主体**，一是**共同富裕**。”
+">[29]</span></a></sup></p>
+<p>A. 坚持四项基本原则，坚持改革开放</p>
+<p>B. 坚持公有制为主体，实现共同富裕</p>
+<p>C. 不断发展社会生产，增加社会财富</p>
+<p>D. 实行按劳分配，增强综合国力</p>
+</li>
+<li><p>（）回答了社会主义的发展动力和外部条件问题，体现了解放生产力的本质要求。<sup id="fnref:30"><a href="#fn:30" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="**C**。“以经济建设为中心”回答了社会主义的根本任务问题，体现了发展生产力的本质要求。“坚持四项基本原则”回答了解放和发展生产力的政治保证问题，体现了社会主义基本制度的要求。“**坚持改革开放**”回答了社会主义的**发展动力**和**外部条件**问题，体现了**解放生产力**的**本质要求**。
+">[30]</span></a></sup></p>
+<p>A. “以经济建设为中心”</p>
+<p>B. “坚持四项基本原则”</p>
+<p>C. “坚持改革开放”</p>
+<p>D. “坚持解放思想”</p>
+</li>
+<li><p>社会主义的根本任务是发展生产力，这是因为，发展生产力是（）<sup id="fnref:31"><a href="#fn:31" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="**ACD**。**发展生产力**是：实现共产主义的物质基础、**社会主义本质的内在要求**、显示社会主义制度优越性、**巩固社会主义制度的要求**、**解决社会主要矛盾的要求**。建立社会义市场经济体制是发展生产力的需要，故不选B。
+">[31]</span></a></sup></p>
+<p>A. 社会主义本质的内在要求</p>
+<p>B. 建立社会主义市场经济体制的要求</p>
+<p>C. 解决社会主要矛盾的要求</p>
+<p>D. 巩固社会主义制度的要求</p>
+</li>
+<li><p><strong>社会主义初级阶段的必要性和长期性，从根本上说是由（）<sup id="fnref:32"><a href="#fn:32" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="**AB**。
+">[32]</span></a></sup></strong></p>
+<p>A. 中国进入社会主义的历史条件决定的</p>
+<p>B. 建成社会主义所需要的物质基础决定的</p>
+<p>C. 时代主题决定的</p>
+<p>D. 社会主义制度和资本主义制度的和平共处决定的</p>
+</li>
+<li><p><strong>“三个代表”重要思想是有机联系科学体系，“贯彻三个代表”要求，关键在（）<sup id="fnref:33"><a href="#fn:33" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="**A**。贯彻“三个代表”的根本要求“**关键**在坚持**与时俱进**,核心在保持党的先进性,本质在坚持执政为民
+">[33]</span></a></sup></strong></p>
+<p>A. 坚持与时俱进</p>
+<p>B. 保持党的先进性</p>
+<p>C. 坚持执政为民</p>
+<p>D. 以人为本的立场</p>
+</li>
+<li><p>江泽民曾强调指出，马克思主义最重要的理论品质是（）<sup id="fnref:34"><a href="#fn:34" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="**C**。
+">[34]</span></a></sup></p>
+<p>A. 批评与自我批评</p>
+<p>B. 敢讲真话，做实事</p>
+<p>C. 与时俱进</p>
+<p>D. 尊重实践、尊重群众</p>
+</li>
+<li><p>明确提出使用“社会主义市场经济体制”这个提法的是（）<sup id="fnref:35"><a href="#fn:35" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="**B**。**江泽民**同志**明确提出**使用“**社会主义市场经济体制**”这个提法,党的十四大正式把建立社会主义市场经济体制确立为我国经济体制改革的目标。
+">[35]</span></a></sup></p>
+<p>A. 邓小平</p>
+<p>B. 江泽民</p>
+<p>C. 胡锦涛</p>
+<p>D. 习近平</p>
+</li>
+<li><p>江泽民强调，我们党执政后最大的危险是（）<sup id="fnref:36"><a href="#fn:36" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="**C**。**江泽民**在十六大报告上提出我们党的最大政治优势是密切联系群众，党执政后的最大**危险**是**脱离群众**。
+">[36]</span></a></sup></p>
+<p>A. 能力不足</p>
+<p>B. 精神懈怠</p>
+<p>C. 脱离群众</p>
+<p>D. 消极腐败</p>
+</li>
+<li><p>江泽民同志认为，中国共产党必须解决好的两大历史性课题是（）<sup id="fnref:37"><a href="#fn:37" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="**BD**。1997年**江泽民**在十五大报告中初步提出了我们党建设过程中面临的“两大历史性课题”。2001年，他在“七一”讲话中明确指出：“我们必须继续围绕在新的历史条件下建设一个什么样的党和怎样建设党这两个基本问题，**进一步解决提高党的执政能力和领导水平**、**提高拒腐防变和抵御风险能力**这两大历史性课题”
+">[37]</span></a></sup></p>
+<p>A. 纠正党的不良作风</p>
+<p>B. 进一步提高党的领导水平和执政水平</p>
+<p>C. 防范“四大危险“</p>
+<p>D. 提高拒腐防变和抵御风险的能力</p>
+</li>
+<li><p>科学发展观形成的现实依据是（）<sup id="fnref:38"><a href="#fn:38" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="**B**。
+">[38]</span></a></sup></p>
+<p>A. 党带领人民战胜各种风险挑战、坚持和发展中国特色社会主义的成功探索</p>
+<p>B. 社会主义初级阶段基本国情和新的阶段性特征</p>
+<p>C. 当今世界发展大势、国外发展的经验教训</p>
+<p>D. 科学判断党的历史方位和总结历史经验</p>
+</li>
+<li><p>科学发展观强调，社会主义民主政治的本质和核心是（）<sup id="fnref:39"><a href="#fn:39" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="**A**。
+">[39]</span></a></sup></p>
+<p>A. 人民当家作主</p>
+<p>B. 发展社会主义社会生产力</p>
+<p>C. 建立现代经济体系</p>
+<p>D. 实现人民愿望、满足人民需要、维护人民利益</p>
+</li>
+<li><p>胡锦涛强调，决定着中国特色社会主义发展方向是（）<sup id="fnref:40"><a href="#fn:40" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="**A**。
+">[40]</span></a></sup></p>
+<p>A. 社会主义核心价值体系</p>
+<p>B. 社会主义市场经济体制</p>
+<p>C. 中国共产党的领导和执政</p>
+<p>D. 发展社会主义生产力，特别是先进生产力</p>
+</li>
+<li><p><strong>提出“中国特色社会主义理论体系”科学概念的是（）<sup id="fnref:41"><a href="#fn:41" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="**C**。
+">[41]</span></a></sup></strong></p>
+<p>A. 党十七届三中全会</p>
+<p>B. 党十六届六中全会</p>
+<p>C. 党的十七大</p>
+<p>D. 党的十七届二中全会现代化</p>
+</li>
+<li><p>以人为本是社会主义发展观的核心立场，集中体现了（）<sup id="fnref:42"><a href="#fn:42" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="**ABC**。
+">[42]</span></a></sup></p>
+<p>A. 马克思主义历史唯物论的基本原理</p>
+<p>B. 体现了我们党全心全意为人民服务的根本宗旨</p>
+<p>C. 推动经济社会发展的根本目的</p>
+<p>D. 马克思主义中国化的独创性内容</p>
+</li>
+<li><p>全面协调可持续中的“全面”是指，发展要有（），不仅经济发展，而且各个方面都要发展。<sup id="fnref:43"><a href="#fn:43" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="**AB**。
+">[43]</span></a></sup></p>
+<p>A. 全面性</p>
+<p>B. 整体性</p>
+<p>C. 协调性</p>
+<p>D. 均衡性</p>
+</li>
+<li><p>构建社会主义和谐社会的总要求（）<sup id="fnref:44"><a href="#fn:44" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="**ABD**。">[44]</span></a></sup></p>
+<p>A. 民主法治、公平正义</p>
+<p>B. 诚信友爱、充满活力</p>
+<p>C. 尊重自然、顺应自然、保护自然</p>
+<p>D. 安定有序、人与自然和谐相处</p>
+</li>
+</ol>
+<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><strong>C</strong>。1938年<strong>六届六中全会</strong>毛泽东在《论新阶段》率先提出“马克思主义中国化”命题。<a href="#fnref:1" rev="footnote"> ↩</a></span></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">2.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><strong>A</strong>。在第一次国内革命战争时期（1924-1927年，又称国民革命，大革命）提出了新民主主义革命的<strong>基本思想</strong>。<a href="#fnref:2" rev="footnote"> ↩</a></span></li><li id="fn:3"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">3.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><strong>B</strong>。土地革命战争期间（第一次国共内战 1927-1937）：提出并阐述了<strong>农村包围城市，武装夺取政权</strong>的思想，标志着毛泽东思想的<strong>初步形成</strong>。1930年毛泽东《星星之火，可以燎原》实际上已经形成了以农村包围城市，然后夺取城市的思想。<a href="#fnref:3" rev="footnote"> ↩</a></span></li><li id="fn:4"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">4.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><strong>C</strong>。1935年遵义会议以后：<strong>新民主主义革命理论</strong>的系统阐述标志着毛泽东思想得到了多方面展开而趋于<strong>成熟</strong>。1945年党的七大将毛泽东思想写入党章，确立为党必须长期坚持的指导思想。抗日战争时期为1931年到1945年。<a href="#fnref:4" rev="footnote"> ↩</a></span></li><li id="fn:5"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">5.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><strong>C</strong>。<strong>游击战</strong>和带游击性质的<strong>运动战</strong>。<a href="#fnref:5" rev="footnote"> ↩</a></span></li><li id="fn:6"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">6.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><strong>D</strong>。1981年党的十一届六中全会通过的《<strong>关于建国以来党的若干历史问题的决议</strong>》首次提出，实事求是、群众路线、独立自主，<strong>是毛泽东思想的活的灵魂</strong>。毛泽东85年前写就的《反对本本主义》，明确表达了实事求是、群众路线、独立自主的基本观点。这里问的是“活的灵魂的表述”，故为《关于建国以来党的若干历史问题的决议》。<a href="#fnref:6" rev="footnote"> ↩</a></span></li><li id="fn:7"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">7.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><strong>A</strong>。1935年<strong>遵义会议</strong>事实上确立了毛泽东在党中央和红军的<strong>领导地位</strong>，开始确立了以毛泽东同志为主要代表的马克思主义正确路线在党中央的领导地位<a href="#fnref:7" rev="footnote"> ↩</a></span></li><li id="fn:8"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">8.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><strong>A</strong>。<a href="#fnref:8" rev="footnote"> ↩</a></span></li><li id="fn:9"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">9.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><strong>B</strong>。<a href="#fnref:9" rev="footnote"> ↩</a></span></li><li id="fn:10"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">10.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><strong>CD</strong>。<a href="#fnref:10" rev="footnote"> ↩</a></span></li><li id="fn:11"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">11.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><strong>BD</strong>。<a href="#fnref:11" rev="footnote"> ↩</a></span></li><li id="fn:12"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">12.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><strong>ABCD</strong>。<a href="#fnref:12" rev="footnote"> ↩</a></span></li><li id="fn:13"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">13.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><strong>ABCD</strong>。<a href="#fnref:13" rev="footnote"> ↩</a></span></li><li id="fn:14"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">14.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><strong>ABCD</strong>。<a href="#fnref:14" rev="footnote"> ↩</a></span></li><li id="fn:15"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">15.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><strong>AC</strong>。毛泽东在《中国社会各阶级的分析》中把中国民族资产阶级分为买<strong>办资产阶级</strong>和<strong>民族资产阶级</strong>两个部分<a href="#fnref:15" rev="footnote"> ↩</a></span></li><li id="fn:16"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">16.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><strong>AD</strong>。<a href="#fnref:16" rev="footnote"> ↩</a></span></li><li id="fn:17"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">17.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><strong>ABC</strong>。<strong>中国特色社会主义理论体系</strong>是新时期全党全国各族人民团结奋斗的共同思想基础，不选D。<a href="#fnref:17" rev="footnote"> ↩</a></span></li><li id="fn:18"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">18.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><strong>ABCD</strong>。毛泽东思想的基本内容主要由6个方面组成。<strong>新民主主义革命理论</strong>、<strong>社会主义革命和社会主义建设理论</strong>、革命军队的建设和军事战略理论、<strong>政策和策略的理论</strong>、<strong>思想政治工作和文化工作的理论</strong>、党的建设理论。<a href="#fnref:18" rev="footnote"> ↩</a></span></li><li id="fn:19"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">19.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><strong>C</strong>。1939年《<strong>中国革命和中国共产党</strong>》，毛泽东首次提出“<strong>新民主主义革命</strong>”的科学概念，之后在《新民主主义论》中大为发展。<a href="#fnref:19" rev="footnote"> ↩</a></span></li><li id="fn:20"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">20.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><strong>B</strong>。<strong>农民问题</strong>是中国革命的基本问题，农民是中国革命的基本力量，是中国革命的最广泛的动力，是中国革命队伍的主力。<a href="#fnref:20" rev="footnote"> ↩</a></span></li><li id="fn:21"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">21.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><strong>ACD</strong>。中国共产党的三大优良作风：<strong>理论联系实际</strong>，<strong>密切联系群众</strong>，<strong>批评和自我批评</strong>。三大优良作风是中国共产党区别于其他任何政党的显著标志。<a href="#fnref:21" rev="footnote"> ↩</a></span></li><li id="fn:22"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">22.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><strong>D</strong>。<a href="#fnref:22" rev="footnote"> ↩</a></span></li><li id="fn:23"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">23.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><strong>A</strong>。毛泽东在1957年《关于正确处理人民内部矛盾的问题》,系统论述了社会主义社会矛盾的理论。毛泽东强调,社会主义国家政治生活的主题是<strong>正确处理人民内部矛盾</strong>。<a href="#fnref:23" rev="footnote"> ↩</a></span></li><li id="fn:24"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">24.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><strong>D</strong>。我国社会的<strong>基本矛盾</strong>是：生产力和生产关系、经济基础与上层建筑之间的矛盾。1956年党的八大提出我国社会的主要矛盾是人民对于建立先进的工业国的要求同落后的农业国的现实之间的矛盾、<strong>人民对于经济文化迅速发展的需要同当前经济文化不能满足人民需要的状况</strong>之间的矛盾。<a href="#fnref:24" rev="footnote"> ↩</a></span></li><li id="fn:25"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">25.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><strong>B</strong>。1982年邓小平在<strong>十二大</strong>开幕词中明确提出：“把马克思主义的普遍真理同我国的具体实际结合起来，走自己的道路，建设有中国特色的社会主义。<a href="#fnref:25" rev="footnote"> ↩</a></span></li><li id="fn:26"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">26.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><strong>B</strong>。1997年<strong>党的十五大</strong>：<strong>正式提出</strong>”邓小平理论“这一概念（成为党的指导思想，写入党章）<a href="#fnref:26" rev="footnote"> ↩</a></span></li><li id="fn:27"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">27.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><strong>D</strong>。改革是中国的<strong>第二次革命</strong>，是社会主义<strong>制度</strong>的自我完善和发展，是对<strong>体制</strong>的根本性变革（不改制度改体制）<a href="#fnref:27" rev="footnote"> ↩</a></span></li><li id="fn:28"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">28.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><strong>C</strong>。<a href="#fnref:28" rev="footnote"> ↩</a></span></li><li id="fn:29"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">29.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><strong>B</strong>。党的基本路线中的两个基本点为坚持四项基本原则，坚持改革开放。邓小平指出：“在<strong>改革</strong>中，我们始终坚持两条根本原则，一是<strong>以社会主义公有制经济为主体</strong>，一是<strong>共同富裕</strong>。”<a href="#fnref:29" rev="footnote"> ↩</a></span></li><li id="fn:30"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">30.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><strong>C</strong>。“以经济建设为中心”回答了社会主义的根本任务问题，体现了发展生产力的本质要求。“坚持四项基本原则”回答了解放和发展生产力的政治保证问题，体现了社会主义基本制度的要求。“<strong>坚持改革开放</strong>”回答了社会主义的<strong>发展动力</strong>和<strong>外部条件</strong>问题，体现了<strong>解放生产力</strong>的<strong>本质要求</strong>。<a href="#fnref:30" rev="footnote"> ↩</a></span></li><li id="fn:31"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">31.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><strong>ACD</strong>。<strong>发展生产力</strong>是：实现共产主义的物质基础、<strong>社会主义本质的内在要求</strong>、显示社会主义制度优越性、<strong>巩固社会主义制度的要求</strong>、<strong>解决社会主要矛盾的要求</strong>。建立社会义市场经济体制是发展生产力的需要，故不选B。<a href="#fnref:31" rev="footnote"> ↩</a></span></li><li id="fn:32"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">32.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><strong>AB</strong>。<a href="#fnref:32" rev="footnote"> ↩</a></span></li><li id="fn:33"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">33.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><strong>A</strong>。贯彻“三个代表”的根本要求“<strong>关键</strong>在坚持<strong>与时俱进</strong>,核心在保持党的先进性,本质在坚持执政为民<a href="#fnref:33" rev="footnote"> ↩</a></span></li><li id="fn:34"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">34.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><strong>C</strong>。<a href="#fnref:34" rev="footnote"> ↩</a></span></li><li id="fn:35"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">35.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><strong>B</strong>。<strong>江泽民</strong>同志<strong>明确提出</strong>使用“<strong>社会主义市场经济体制</strong>”这个提法,党的十四大正式把建立社会主义市场经济体制确立为我国经济体制改革的目标。<a href="#fnref:35" rev="footnote"> ↩</a></span></li><li id="fn:36"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">36.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><strong>C</strong>。<strong>江泽民</strong>在十六大报告上提出我们党的最大政治优势是密切联系群众，党执政后的最大<strong>危险</strong>是<strong>脱离群众</strong>。<a href="#fnref:36" rev="footnote"> ↩</a></span></li><li id="fn:37"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">37.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><strong>BD</strong>。1997年<strong>江泽民</strong>在十五大报告中初步提出了我们党建设过程中面临的“两大历史性课题”。2001年，他在“七一”讲话中明确指出：“我们必须继续围绕在新的历史条件下建设一个什么样的党和怎样建设党这两个基本问题，<strong>进一步解决提高党的执政能力和领导水平</strong>、<strong>提高拒腐防变和抵御风险能力</strong>这两大历史性课题”<a href="#fnref:37" rev="footnote"> ↩</a></span></li><li id="fn:38"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">38.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><strong>B</strong>。<a href="#fnref:38" rev="footnote"> ↩</a></span></li><li id="fn:39"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">39.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><strong>A</strong>。<a href="#fnref:39" rev="footnote"> ↩</a></span></li><li id="fn:40"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">40.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><strong>A</strong>。<a href="#fnref:40" rev="footnote"> ↩</a></span></li><li id="fn:41"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">41.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><strong>C</strong>。<a href="#fnref:41" rev="footnote"> ↩</a></span></li><li id="fn:42"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">42.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><strong>ABC</strong>。<a href="#fnref:42" rev="footnote"> ↩</a></span></li><li id="fn:43"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">43.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><strong>AB</strong>。<a href="#fnref:43" rev="footnote"> ↩</a></span></li><li id="fn:44"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">44.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><strong>ABD</strong>。<a href="#fnref:44" rev="footnote"> ↩</a></span></li></ol></div></div>]]></content>
   </entry>
   <entry>
     <title>词根词缀表</title>
@@ -819,84 +1656,154 @@
 ]]></content>
   </entry>
   <entry>
-    <title>我把环境变量Path搞没了</title>
-    <url>/posts/55469/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>安装 JAVA 要配置环境变量，跟着教程新建了 path 变量，结果原本的 Path 变量没了。。。</p>
+    <title>AI写作外挂开发随笔</title>
+    <url>/posts/2376/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>参加西北工业大学第二届未来AI大师国际夏令营，做出的软件 —— AI 写作外挂，获第一名，已开源。</p>
 <span id="more"></span>
 
-<h1 id="1-犯罪记录"><a href="#1-犯罪记录" class="headerlink" title="1.犯罪记录"></a>1.犯罪记录</h1><p>大二下学期要学习 JAVA，还有四天开下一学期的线上课，我就寻思着自己先把 JAVA 装了，先学习着，还跟老师要了安装包。</p>
-<p>然后就自己上网搜安装教程，看到了要配置环境变量，这我熟啊。Matlab，Python 等等我都配置过环境变量，看到下图的时候我已经心生疑惑了</p>
-<img src="/posts/55469/%E7%BD%91%E4%B8%8A%E6%95%99%E7%A8%8B%E6%88%AA%E5%9B%BE.png" class="" title="这是网上安装教程的截图">
+<p>只想看最终的软件不想听流水账的可以跳转<a href="#%E8%BD%AF%E4%BB%B6%E4%BB%8B%E7%BB%8D">软件介绍</a></p>
+<h1 id="契机"><a href="#契机" class="headerlink" title="契机"></a>契机</h1><img src="/posts/2376/%E8%A5%BF%E5%B7%A5%E5%A4%A7%E7%AC%AC%E4%BA%8C%E5%B1%8A%E6%9C%AA%E6%9D%A5AI%E5%A4%A7%E5%B8%88%E5%9B%BD%E9%99%85%E5%A4%8F%E4%BB%A4%E8%90%A5%E6%B5%B7%E6%8A%A5.jpg" class="" title="西工大第二届未来AI大师国际夏令营海报">
 
-<p>“直接新建path变量会不会把我原来的覆盖掉啊。。。”</p>
-<p>我每一步都走的小心翼翼，我先打开命令输入 javac，看看不配置行不行，结果是不行。</p>
-<p>我又像我原来配置 Python 环境变量那样，在原系统环境变量 Path 下新建了一个项，再测试 javac，但还是不行。</p>
-<p>细心如我，发现了已有的名字叫 <strong>P</strong>ath，新建的变量叫 <strong>p</strong>ath。根据我一年半的编程经验，大小写敏感已经刻在了我的基因里，所以我觉得没事，就直接新建了。</p>
-<p>但是万万没想到，这样输入 javac 也不行，突然意识到，每次更改环境变量后要重启 cmd 窗口，大意了。</p>
-<p>但是至此我还是不慌的，根据我上面大小写敏感的推断，这也不影响什么。于是我开开心心的去找 JAVA 教程去了，直到。。。</p>
-<p>临睡觉前，我想把我那天写的文章推上去，运行 hexo 提示 node 不是命令。哇的发？我这个时候已经意识到问题开始严重了，配置 JAVA 的环境把 node 的环境搞坏了，又好气又好笑。</p>
-<p>然而我意识的没有那么深刻，事情的严重性远远超乎我想象，但那个时候我只想睡觉，每天十一点上床是必须的。直接关了电脑去洗漱了。然而我体内的编程之魂在召唤我，心里痒痒的，总想现在就看看是什么情况，不然睡不好觉。</p>
-<p>还是没忍住，又打开了电脑。再试了一下，发现还是提示 node 不是命令，根据我一年半编程经验的直觉，这肯定是环境变量的问题，我再把它的路径加进去应该就找到了。</p>
-<p>熟练的打开环境变量配置，找了半天，发现 </p>
-<p><strong>没 有 Path 了</strong></p>
-<p>只剩下一个 path 安静的躺在那里，我的内心也只剩下凌乱，慌的一批。</p>
-<h1 id="2-解决办法"><a href="#2-解决办法" class="headerlink" title="2.解决办法"></a>2.解决办法</h1><p>我马上搜一下环境变量 Path 没了怎么办，emmm，没发现什么有用的。</p>
-<p>有一个提供了系统初始的几个常见 Path，我直接新建了 Path 变量，把它加入进去了。</p>
-<p>灵机一动，我想到我有一个好习惯，原来配置环境变量的时候 Path 会往用户里面的 Path 和系统里面的 Path 都加上。于是我把用户里面的 Path 复制了一下到系统的 Path 里。</p>
-<p>然而运行 hexo 还是报找不到 node 命令，这时候再配合 Everything 这个软件，找到 node.exe，把它所在目录添加到环境变量里，再次运行 hexo，大功告成。</p>
-<p>检查了一下，上面创建的 JAVA 的 path 路径又没了，这时候把那个路径添加到 Path 的子项里面，<strong>重启cmd</strong>，运行 javac，成功。</p>
-<h1 id="3-总结"><a href="#3-总结" class="headerlink" title="3.总结"></a>3.总结</h1><p>1.配置完环境变量后要重启 cmd 窗口再测试环境是否装好<br>2.设置环境变量名的时候，它的名字是大小写不敏感的，会直接覆盖<br>3.留下了一个巨大的后患，以后可能会出现乱七八糟的找不到命令类似的报错，要自己找路径加进去了</p>
-<h1 id="4-拓展"><a href="#4-拓展" class="headerlink" title="4.拓展"></a>4.拓展</h1><p>其实文件夹名字也是大小写不敏感的，创建一个 JAVA 的文件夹和 java 的文件夹，它会提示重复。我竟然刚刚知道，震惊我一百年。</p>
-<p>在我的理解里，Path的作用其实是给系统一个路径，你要在 cmd 中运行一个命令，本质上就像打开一个 .exe 文件，比如运行 javac，系统要知道 javac.exe 在哪儿。我系统找不到 node 这个命令，那我就搜索一下 node.exe 在哪儿，（可能会有好几个，看路径决定是哪一个），把它的路径加入到 Path 里面就好了。</p>
+<p>参加过第一届，是线下的，第二届是线上了，感觉会不一样，就想着报名。不过不知道参加过一次会不会不让重复参加，不过还是报名了。</p>
+<p>报名的时候分为两个组，启蒙探索和竞赛创新。启蒙探索主要是听专家讲座，这个我在第一届也听过很多，而且变成线上的夏令营，都是讲座感觉效果不会很好。于是选择竞赛创新组。但是竞赛这个词很是令人害怕，怕自己根本完不成任务，最后咬咬牙还是选择了这个。</p>
+<p>竞赛创新组里面又分为两个组别，A 组是基础组，做出一个 PPT 产品，主要考察创意，不用实现。B 组为进阶组，不仅要有创意，还要做出一个完整的产品，相当于一个完整的项目流程。</p>
+<p>那必然秒选 B 呀，不然我这一身的代码功夫无处施展，可以借此机会完整体验一把项目开发过程。</p>
+<p>分组是需要自己组队，</p>
+<center>——————分割线——————</center>
+
+<p>上面的内容是 8 月 1 号写的，写了一丢丢，<del>我才不说是因为我懒加上有拖延症所以没写完呢</del>，肯定是因为证书和奖品没有发下来，写了文章也不会发出来所以推到了现在。没错，今天拿了证书和纪念奖品，如下：</p>
+<img src="/posts/2376/%E7%BB%93%E4%B8%9A%E8%AF%81%E4%B9%A6.jpg" class="" title="结业证书">
+
+<p>我怀疑他是不知道我名字怎么打出来，所以空着，等打印出来证书手写上去的。</p>
+<img src="/posts/2376/%E5%A5%96%E5%93%81%E9%BC%A0%E6%A0%87%E5%9E%AB.jpg" class="" title="奖品鼠标垫">
+
+<p>一个长但不是很长的鼠标垫，舍友建议配个键盘放上去，就是为了这点醋才包的饺子对吧。</p>
+<p>时隔一个多月，捡回逝去的记忆，9 月 13 号继续写。</p>
+<center>——————分割线——————</center>
+
+<p>分组是需要自己组队的，然而我是肯定不会主动去找别人组队的，也没有认识的人找我组队。经过上个学期小组作孽的摧残，对组队的期望不大，自己干自己的，没问题！</p>
+<h1 id="创意"><a href="#创意" class="headerlink" title="创意"></a>创意</h1><h2 id="众里寻它千百度"><a href="#众里寻它千百度" class="headerlink" title="众里寻它千百度"></a>众里寻它千百度</h2><p>首先试玩了一下这个大模型，功能全部体验了一番。也就三种，一种是通过提供的文字描述生成图片，一种是类似语音助手的问答对话，一种是自然语言处理（术语NLP）。</p>
+<p>通过文字描述生成图片，生成的风景还看的过去，有抽象派艺术画风，但是生成的人像完全是掉入恐怖谷了。同时生成的过程太漫长，以分钟来计时。这个功能可以不用。</p>
+<p>人工智能的对话，首先想到的应用场景是在客服里面，或者直接开一个 AI 对话服务，但是不足以支撑整个产品，所以这个暂时不考虑。</p>
+<p>只有最后一个自然语言处理可以用啦，简单来说就是，（凭我自己的理解），它已经看过千万级别的文字了，知识储备很充分，我们需要做的，就是设定特定的引导词，开发出它的功能。</p>
+<p>一种做软件的思路是，利用模型开发出来的某个功能，整合到软件里面，作为一部分，算是模型落地的应用，只是一个软件的一环。这种思路我想了好久没有想到比较好的创意。</p>
+<h2 id="暮然回首"><a href="#暮然回首" class="headerlink" title="暮然回首"></a>暮然回首</h2><p>换了一种思路，既然这个模型只能做自然语言处理，那我不如直接围绕自然语言处理来开发一个软件，软件的全部功能都由这个模型来提供。只能处理文字，那就把文字处理到极致。所以第一天就有了这个创意—— AI 写作外挂。</p>
+<p>“AI”是产品的亮点，必须写在名称里面，“写作”是软件的主要功能，“外挂”二字则有标题党那味了，属于点睛之笔。</p>
+<p>对这个名字我很满意，填写完之后，注意到别的组有一个叫 “AI文章辅助工具”，感觉和我的软件撞车了，<del>不过我感觉自己在名字上已经赢过它了！</del> but 当我跟妈妈炫耀的时候，她说外挂是啥意思，你这个名字看不懂。喔~ <del>还好看不懂外挂意思的大概率也不是这个软件的受众群体</del>，外挂就是指这个东西很厉害，厉害到你用了这个东西相当于作弊一样的，对别人有碾压效果。</p>
+<h1 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h1><p>这个软件的核心技术部分是调用 api（应用接口，你传入数据，它返回结果），这部分有现成的调用实例，而且之前我也玩过 api，技术上难题不大。</p>
+<p>真正遇到的问题是在界面设计上，由于之前没有写过图形化的界面，如何写出一个像样的GUI（图形用户界面）成为了我遇到的第一个难题。</p>
+<p>有三个选项，电脑端软件，手机端软件，网页，三种呈现形式。我都没写过。。。但是我敢想呀，我一开始设想的是，我全都要，做出一个全平台的软件。什么？你问我没写过怎么办？我可以学呀！</p>
+<p>然而现实很残酷，准备从电脑端软件下手，使用的是百度那边活动负责人自己封装的 python 库 <code>qgui</code> ，一上手就遇到了问题，去问助教，助教发过来 github 链接，说有开源代码实例，让我自己学习一下，那就开始学吧。</p>
+<p>一天时间做好了第一版，将示例功能中和写作有关的部分放到了自己的软件上，属于是站在巨人的肩膀上，有现成的就要直接用。从早到晚写了一整天，软件的基本骨架已经搭好，就在我觉得十拿九稳的时候， 意外到来了……</p>
+<h2 id="至暗时刻"><a href="#至暗时刻" class="headerlink" title="至暗时刻"></a>至暗时刻</h2><p>晚上九点，我写好了第一版本的代码，需要把代码打包成软件，这样用户就可以直接使用。</p>
+<p>然而打包完成后运行一直出错，就相当于什么呢，相当于你洗菜切菜炒菜盛菜，都做的没有问题。但是你把菜端到用户桌子上的时候，突然发现里面有一只苍蝇，不能吃了。那你说再做一份不就好了，现实世界进苍蝇是偶然事件，代码世界出的 bug 是必然事件，排查不出来问题，运行一万遍也是不行。</p>
+<p>于是整个晚上我就在不断的打包，运行，报错。据不完全统计，几十次肯定是有的，每次需要十来分钟。次数说明不了什么，我从九点弄到十一点，往常这个点我要睡了，但是还是弄了一会儿，十二点了，必须睡了。躺在床上，脑子里面控制不住的想这件事，感觉自己肝的这两天，到临门一脚的时候功亏一篑了，怎么着也睡不着。于是在床上抱着电脑继续肝。</p>
+<p>一晚上也不是完全没有进步的，至少一开始报的错被我上网查到了解决方案，打包的时候加了一条命令。解决了这个错误，又蹦出来一个新的错误，关键我也不知道这个改变是正向的还是负向的。想到新的解决办法，只好在加命令和不加命令两种情况下都试一下，每试一下都要十来分钟，因为有两种情况，枚举的集合扩大为两倍。</p>
+<p>最后我想，至少得拿出来一个可以运行的东西出来吧。于是注释掉一部分代码，删去一些功能和界面，再打包试试，看看到底是哪里的问题。再类比做菜的话，可以理解为，你知道菜里面有的东西会招苍蝇，那你就少放几种菜，虽然没那么好吃了，至少不会有苍蝇，用户可以先吃着，试试哪种菜出了问题。</p>
+<p>不幸中的万幸，删去了一些非功能性界面，软件可以成功运行了，软件的功能没有受影响，只是丑了一些，少了一些提示语，终于可以睡着了，时间凌晨一点。</p>
+<h2 id="曙光升起"><a href="#曙光升起" class="headerlink" title="曙光升起"></a>曙光升起</h2><p>早上五点，太阳即将升起，随之起来的，是被早上五点的核酸检测大喇叭吵醒的人们，还有我胜利的曙光。</p>
+<p>迷迷糊糊起床，做核酸，回家，坐到电脑前。打开代码，精神抖擞，全神贯注，继续进行打包，运行，报错的无限循环。</p>
+<p>早饭没吃，继续去看代码。你问我为什么不吃饭？bug 管饱。（其实后面还是吃了的）</p>
+<p>上回书说到，已经删去一点非功能部分，软件可以成功运行，那么问题就出现在被删去的部分。有了这个突破口，再结合报错的一些信息，最终确定，问题没有出在我的代码上，而在于那个封装的库上，由于某些我也不太清楚的原因，最终结果是打包出来的软件没有办法运行。</p>
+<p>于是我把库的代码有关的部分理解了一下，根据自己的理解，做了一点改动，最终可以说几乎没有影响软件的功能从而可以正常打包软件，正常运行。类比一下就是一个厨子，发现菜里进苍蝇是因为厨房漏了个缝，于是这个厨子自学了一下装修把缝补上了。</p>
+<h2 id="劫后余生"><a href="#劫后余生" class="headerlink" title="劫后余生"></a>劫后余生</h2><p>大难不死，必须抒发一下感想。</p>
+<p>有时候我也会很奇怪呀，很多事情，差一步，就是天壤之别。或者说，我做的那些操作，但凡有一步没想到的，最终都不会是这样的结果。无法解释，为什么偏偏历经多次磨难，每次的困难都几乎把我绊倒，可每次都可以说近乎奇迹般的活了过来。无法解释我当时为什么会那么想，为什么会那么做，可我就是想到了，可我就是做成了。</p>
+<p>歪一下，程序员掉头发的原因找到了，一个项目做不完，或者说只出了一个 bug，就算再小，这个软件还是不能用，相当于什么用都没有。有时候只是一个小小的错误，需要花费大量的精力去排查。一步错，则功亏一篑，这也太有魅力了吧。</p>
+<h2 id="不断迭代"><a href="#不断迭代" class="headerlink" title="不断迭代"></a>不断迭代</h2><p>第一代产品做出来之后，首先找了我的小伙伴做内测，在此衷心感谢小伙伴的大力支持。前面说第一代的功能几乎都是抄的示例功能，只有轻微的改动，第一轮内测之后是产品的脱胎换骨。</p>
+<p>首先是软件的提示语上，一个好的软件，是用户一看就要会用的。可是我的测试发现都需要来问我，这肯定不能怪用户对吧，肯定是我的界面设计的不够明显。虽然我也很烦软件打开是一个弹窗，但是为了用户能自主使用软件，思考再三，还是加一个烦人的弹窗，轻喷。</p>
+<p>重点还是软件功能的增加，一轮内测后，我的重心可以不在软件界面的设计上了，大的框架已经很完整了，有足够的时间去试模型的引导语，开发新的功能。加上小伙伴也有很多好的点子，在此再次衷心感谢。最后项目评审的时候，老师说，感觉这个软件的作者像是很熟悉大模型的人，重度使用者，开发出各种各样的功能。我想这么高度的评价是靠 很 nice 的小伙伴提供的很 nice 的点子 和 我一整天的试验 取得的。</p>
+<p>后面第二轮内测就没有较大的改动了，加了一个功能，整个软件下来是比较满意的，三天做出来自己想要的成果了。最后一天录了一下演示视频，写了一下文档，就没有什么值得提的事情了，提交后就是一天漫长的等待。</p>
+<h1 id="成果"><a href="#成果" class="headerlink" title="成果"></a>成果</h1><h2 id="评审"><a href="#评审" class="headerlink" title="评审"></a>评审</h2><p>在评审的前一天，我首先在系统里面看到了自己的分数，93 分，听着应该是很高了吧，不过不知道别人的分数，上面还有很大的提升空间，这个分数看来并没有让我很安心。</p>
+<p>第二天评审，评委的 PPT 划过，看到了获奖队伍那一页，找我的名字，中间没有，下面没有，在第一个！</p>
+<p>只看到了这么多信息，PPT 被切到了封面页，好消息是我获奖了，剩下的悬念是，这个排名有没有按照名次，紧张焦急的等待后，尘埃落定，第一名！！！</p>
+<img src="/posts/2376/%E7%AC%AC%E4%B8%80%E5%90%8D.jpg" class="" title="第一名">
+
+<h2 id="感想"><a href="#感想" class="headerlink" title="感想"></a>感想</h2><p>这个故事告诉我们一个道理，当你觉得自己很菜的时候，<del>没准别人比你还菜</del>，不妨试试，结果怎么样要试了才知道。</p>
+<p>好吧我是真的没想到会这么完美的结果，明明五天前还一直在纠结犹豫要不要报竞赛组，心里打了很多次退堂鼓，最终还是鼓起勇气参加了。明明四天前压根没有听说过什么叫大模型，最终评审的时候却得到了“作者像是非常熟悉这个文心大模型的人”的高度评价。明明三天前对软件的图像化设计可以说是一无所知，最终历经千辛万苦成功做出软件甚至还是在自己修改了库的情况下。</p>
+<p>所以以后遇到什么不敢去尝试的事情，如果尝试的代价不是很大，那就去试试吧，万一成了呢？</p>
+<div class="note primary"><p>这世间，有那么多个美好的万一啊 </p>
+</div>
+
+<h2 id="软件介绍"><a href="#软件介绍" class="headerlink" title="软件介绍"></a>软件介绍</h2><h3 id="使用需知"><a href="#使用需知" class="headerlink" title="使用需知"></a>使用需知</h3><ul>
+<li>只可以在 windows 电脑端运行</li>
+</ul>
+<p>所以在手机上是运行不了这个软件的。</p>
+<ul>
+<li>生成字数多（如作文）会很慢，耐心等待</li>
+<li>偶尔会出现人工智障的情况，自行甄别</li>
+<li>一个账号每日使用次数上限 200 次，总使用次数上限 2000 次</li>
+</ul>
+<p>事实上我只是把接口封装成了一个软件，上面是所调用的大模型的限制，所以即使我知道会出现这些问题也无能为力。现阶段这个软件只能说是体验 AI 的写作。</p>
+<ul>
+<li>软件免费，欢迎赞赏</li>
+</ul>
+<h3 id="演示视频"><a href="#演示视频" class="headerlink" title="演示视频"></a>演示视频</h3><div style="position:relative; padding-bottom:75%; width:100%; height:0">
+    <iframe src="//player.bilibili.com/player.html?bvid=BV1Nd4y167LA&amp;page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="position:absolute; height: 100%; width: 100%;"></iframe>
+</div>
+
+<h3 id="软件下载"><a href="#软件下载" class="headerlink" title="软件下载"></a>软件下载</h3><p>github开源：<a href="https://github.com/guohuan78/AI_writing_helper">guohuan78&#x2F;AI_writing_helper (github.com)</a></p>
+<p>考虑到国内访问 github 困难，上面的链接打不开很正常，可以通过下面的链接下载软件。</p>
+<p>蓝奏云盘：<a href="https://wwz.lanzoum.com/iB3CX0bnhzwj">AI写作外挂 V1.3.2.zip - 蓝奏云 (lanzoum.com)</a></p>
+<h3 id="软件使用"><a href="#软件使用" class="headerlink" title="软件使用"></a>软件使用</h3><p>打开会是一个弹窗，虽然很烦，还是建议认真看一下，毕竟是我斟酌很久写出来的。</p>
+<p>关闭弹窗会自动打开一个网站，虽然这个行为也很流氓，但是是为了节省用户的力气，直接帮你们打开这个网站，按照弹窗的提示登录百度账号，申请 key，复制 key，填写到软件里面。</p>
+<p>建议填写后点击右边的 “保存key”，这样以后软件就不会弹窗，也不会打开网页，即开即用。</p>
+<p>填写完 key，选择上面标签页的功能，填写文字，点击 “开始执行”，下面控制台会输出结果。</p>
 ]]></content>
   </entry>
   <entry>
-    <title>建站第六天的反思</title>
-    <url>/posts/8001/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>2021.12.31~2022.1.5 六天建站过程，于 1.5 晚进行的反思。</p>
+    <title>python解放文件夹脚本</title>
+    <url>/posts/5114/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>本文用 Python 实现了将文件夹中 一级子文件夹内的文件 批量自动化移动脚本，内涵源码。</p>
 <span id="more"></span>
 
-<h1 id="1-就是你把鬼子引进村的"><a href="#1-就是你把鬼子引进村的" class="headerlink" title="1.就是你把鬼子引进村的"></a>1.就是你把鬼子引进村的</h1><p>大二学生，2021.12.27因疫情封在宿舍，考试推迟，又复习了两天之后，感觉再复习的话，考试的时候就忘了，没那么大动力，想干一些自己想干的。看到了自己收藏夹里吃灰的markdown学习教程，就开始学习markdown写作了，后面跟着一本书来学习，就是这本书，让我从此走上了不归路。</p>
-<p>好好的markdown教程，有一章是教怎么搭建个人博客网站的。我大致翻了一下，感觉好麻烦呀，不弄了不弄了。可能是刻在骨子里的兴趣点吧，之后的一段时间建网站的想法一直在我脑海中萦绕，我还是没忍住。。。</p>
-<h1 id="2-激情建站"><a href="#2-激情建站" class="headerlink" title="2.激情建站"></a>2.激情建站</h1><p>12.31号，跨年呢对吧。我从下午开始一直搞，直到晚上的11:30，当你投入某种热情的时候，真的可以忘记时间的。</p>
-<p>接下来的三天（1.1~1.3），我还保有理智，跟自己约定好上午复习，吃完午饭了再弄网站。可我真的控制不住自己的脑子，边抄英语重点，边想网站框架，边写大物习题，边想怎么解决bug。我是个倒头就睡的人，十一点上床，不玩手机的话一会儿就睡着了，可能有时候刷b站，十二点前放下手机，真的秒睡。</p>
-<p>我失眠了。</p>
-<p>从十一点干巴巴的躺着，脑子却异常活跃，一直在想我今天开发了什么功能，还有什么功能待开发，网站博文的框架怎么写……以至于到了凌晨一点多才睡着。第二天早上七点，又自己醒了。要知道我平时没课的话睡到九点都是习以为常，我只能说，它对于我真的是很有魅力。</p>
-<p>1.4和1.5这两天，我干脆放下了复习，考试要到年后了，现在不着急复习。整天搜一些插件和教程，逐渐上线新功能。看了很多别人的博客，看到好的东西就搜怎么实现，一逛可以一整天。可以说除了吃饭睡觉做核酸以外，就是在搞自己的网站了。（当然一直看电脑确实很累，眼睛酸了就躺一会儿。</p>
-<p>今天看了很多很多别人的博客，n多友链反复横跳，我发现他们都做的好好啊，每个人都有自己的风格。</p>
-<p>那我的风格呢？</p>
-<h1 id="3-灵魂拷问"><a href="#3-灵魂拷问" class="headerlink" title="3.灵魂拷问"></a>3.灵魂拷问</h1><p>我发现我已经渐渐忘记我真正想要的是什么了。</p>
-<p>一开始就是凭着自己对计算机的热爱，搞个网页这是我没有接触过的，很新鲜，就来尝试了一下，这是最本源的内在驱动力。那么外在驱动呢，最朴素的想法就是装X吧，跟好朋友说我自己建了个网站哦，这一听就是非常非常酷的事情。（其实我用的都是模版和插件，就下下插件，改改配置文件，js代码也是搜网上教程cv来的，毕竟还没学网页相关知识，（就这？就这我都弄了五六天，（然而配置环境是真的难，那么多bug呜呜呜</p>
-<p>还有一个宏大的愿望，我是用自己名字命名的博客（然而现在不想用了，要不要改呢。。），我想让自己个人博客网站有很多很多的浏览量，以至于百度我的名字可以搜到这个网站。这又是顶级的装X操作！出于对新用户友好的想法，有很多人看的想法，我尽可能尝试很多很多的功能，希望我的网站非常的好看，然而很多人浏览也不能卡呀，我也希望它要访问很快。</p>
-<p>我也问自己这有什么实质性作用，我想到了很好玩的是，我希望未来可以在自己的简历上写，建立个人博客网站，访问人次几千亿亿什么玩意儿的哈哈哈哈。</p>
-<p>我想要的太多了。</p>
-<p>搞了很多插件，推送网站的url给搜索引擎，期望能够被搜到。我会分享给朋友链接，在b站自己的视频下面推这个博客，期望有很多人访问它。每天看一遍网站访问量，看一看新访客，要看好久。起初，我喜欢个人博客的一点就是，各大平台都是被流量裹挟的，发布的内容为了博人眼球，我怎么也开始注重流量了？</p>
-<p>感觉情况不妙，遂进行了深刻的反思。</p>
-<h1 id="4-开始反思"><a href="#4-开始反思" class="headerlink" title="4.开始反思"></a>4.开始反思</h1><p>我不再期望自己的网页可以出现在搜索引擎的推荐里了，毕竟那是无良医院掏钱就可以占据头部的地方。但是我还是会给小伙伴分享我又写了什么好玩的东西，会在其他平台放上我的博客链接，（这里指在我写的内容会对他有帮助的情况下）。</p>
-<p>我会去掉一些东西，让它尽可能的简洁，现阶段更像是一个我自己的树洞，一个记录自己学习生活的地方。草原上的草还没长出来，马来了又有什么用呢。下阶段的任务就是要充实一下自己的内容吧。</p>
-<h1 id="5-我会写什么？"><a href="#5-我会写什么？" class="headerlink" title="5.我会写什么？"></a>5.我会写什么？</h1><p>这几天接触了很多新鲜玩意儿呢，要趁早记录下来，就算是建站过程的分享吧。主题配置，插件介绍，还有文章里面的一些 html 或其他格式的插入。</p>
-<p>然后自己如果有什么可以公开的学习笔记的话也会发上来，（话说我这个人很少记笔记的，这可不太好，emmm，这个网站也是督促我要写一些东西了</p>
-<p>遇到好的代码软件什么的也会分享上来，我这个人最爱折腾软件和代码，折腾的步骤写上来也行。</p>
-<p>可能也会开生活区，分享一些我觉得值得记录的日常。</p>
-<h1 id="6-我不会写什么？"><a href="#6-我不会写什么？" class="headerlink" title="6.我不会写什么？"></a>6.我不会写什么？</h1><p>违法的。。。个人博客不是法外之地</p>
-<p>涉及个人隐私的，我想把这个博客和自己分离出来吧，网络姻缘一线牵</p>
-<p>还有一些处于灰色地带的什么我觉得不适合发的东西，不冒那个险了</p>
-<p>很重要的是，我不会发网上已经详细充分解决了的东西。最烦那种搜个什么问题，完了下面是各大平台的结果，点击去看全是重复的，还有那种一个字没有只有引用链接，又跳到相同的网址去了，要么是作者多平台发送（这个给予理解，但从个人角度看很烦），要么有人直接搬运抄袭。我认为有我自己独特的地方的话，才值得发出来。</p>
-<hr>
-<p>于2022.1.6 早上 补充</p>
-<hr>
-<h1 id="7-我的风格"><a href="#7-我的风格" class="headerlink" title="7.我的风格"></a>7.我的风格</h1><p>一方面又想极简主义，要网站的最快访问速度，一方面又想它会变好看一点，这两个还需要我做出取舍，这个再想想。</p>
-<p>极强的强迫症，我是不允许有没用的东西出现在我的界面上的。还有任何影响观感的东西我都会把它去了。</p>
-<p>结构方面，条理性是必须的，从每个标题就可以看出来，会将此发扬光大。</p>
-<p>文笔方面，可能从这篇文章也看出来了，偏生活，偏叙事，就像自己给自己说话，不能嫌我啰嗦。自认为还是有那么一点点幽默元素的，得益于网上冲浪。这点和很多大佬的博客风格不一样，非常敬佩于他们的切中要害，言简意赅，我会学习的，但是这就是我的风格，人还是要有自己的风格。</p>
-<p>目前（给自己真香留后路）</p>
-<ul>
-<li>不想给自己捆绑一些其他的东西，现阶段我也不打算靠这个挣钱，保留它的纯粹性。</li>
-<li>不会强制跳转（我尽量做到，有些网站有限制我也没办法，就像我自己的b站视频我直接嵌套进来，注重读者体验，你们要想更清晰，发弹幕，那只能跳到b站，b站规定的那我也没办法），</li>
-<li>不会强制关注公众号（我现在也没有），</li>
-<li>现在每篇下面会有打赏，我想把它去了，因为并没有什么人会打赏，放那里也很碍事。但是但是，我还是非常喜欢这种形式的，这首先是对我内容的高度认可，非常开心。我也不指望这个发家致富（若有土豪带飞我绝不拒绝），一分钱就好，就像点了个赞那样的。（虽然本人以前也是个白嫖狗，自己尝试做视频写文章之后观念就慢慢转变了，有人会喜欢自己的东西真的很开心</li>
-<li>我还是会保留打赏的吧</li>
-</ul>
+<h1 id="动机"><a href="#动机" class="headerlink" title="动机"></a>动机</h1><p>用 WPS 下载模版的时候，WPS 会把 PPT 外面套一个文件夹的壳，如下图：</p>
+<img src="/posts/5114/WPS%E6%B7%BB%E5%8A%A0%E7%9A%84%E6%96%87%E4%BB%B6%E5%A4%B9.jpg" class="" title="WPS添加的文件夹">
+
+<p>可能是为了防止 PPT 名字一样而覆盖？不清楚为什么，但是很影响使用，下载的多了的话还要手动一个一个拖出来。</p>
+<p>重复机械的工作不应该由人类去干，于是就想着用 Python 写一个自动化脚本来帮助去掉文件夹的壳，一劳永逸。</p>
+<h1 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h1><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> shutil</span><br><span class="line">src_folder = <span class="string">r&#x27;D:\3下载\WPS下载模板\下载&#x27;</span>+<span class="string">&#x27;\\&#x27;</span></span><br><span class="line">des_folder = <span class="string">r&#x27;D:\3下载\WPS下载模板\科技风&#x27;</span>+<span class="string">&#x27;\\&#x27;</span></span><br><span class="line"><span class="comment">#直接粘贴地址栏复制好的src和des分别替换前一个引号里面的</span></span><br><span class="line">folders = os.listdir(src_folder)<span class="comment">#读取src下的文件及文件夹</span></span><br><span class="line"><span class="keyword">if</span> <span class="keyword">not</span> os.path.exists(des_folder):<span class="comment">#不存在目标路径就创建</span></span><br><span class="line">    os.makedirs(des_folder)</span><br><span class="line">des_folders =os.listdir(des_folder)<span class="comment">#读取des下文件及文件夹</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> folders:<span class="comment">#遍历得到的文件及文件夹</span></span><br><span class="line">    <span class="keyword">if</span> os.path.isdir(src_folder + i):<span class="comment">#如果是文件夹，向下执行</span></span><br><span class="line">        files = os.listdir(src_folder + i)<span class="comment">#读取子文件夹下的所有文件及文件夹</span></span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">len</span>(files) == <span class="number">0</span>:<span class="comment">#空文件夹直接删除</span></span><br><span class="line">            os.rmdir(src_folder + i)</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> files:<span class="comment">#遍历子文件夹下所有文件</span></span><br><span class="line">            <span class="keyword">if</span> j <span class="keyword">in</span> des_folders:<span class="comment">#若与目标路径文件夹中内容有同名不予操作，并输出路径</span></span><br><span class="line">                <span class="built_in">print</span>(<span class="string">&quot;有同名文件:&quot;</span> + src_folder + i + <span class="string">&#x27;\\&#x27;</span> + j)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                src_path = src_folder + i + <span class="string">&#x27;\\&#x27;</span> + j<span class="comment">#得到子文件夹下的内容路径</span></span><br><span class="line">                <span class="keyword">if</span> os.path.isfile(src_path):<span class="comment">#如果是文件，准备移动</span></span><br><span class="line">                    shutil.move(src_path,des_folder)<span class="comment">#移动</span></span><br><span class="line">                    des_folders = os.listdir(des_folder)<span class="comment">#更新des_folders内容</span></span><br><span class="line">                    <span class="keyword">if</span> <span class="built_in">len</span>(os.listdir(src_folder + i)) == <span class="number">0</span>:<span class="comment">#移动后再次检查文件夹，空则删除</span></span><br><span class="line">                        os.rmdir(src_folder + i)</span><br></pre></td></tr></table></figure>
+
+<h1 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h1><img src="/posts/5114/%E5%A4%84%E7%90%86%E6%95%88%E6%9E%9C.jpg" class="" title="处理效果">
+
+<p>PPT 被从原路径输出到目标路径，没有了文件夹，可以选择 <code>src_folder</code> 和 <code>des_folder</code> 相同，原地输出。</p>
+<p>若碰到同名的文件，会输出提示信息，并打印出来同名文件的路径，可以自行处理。</p>
+<p>移动过后，<code>src_folder</code> 中剩下的空文件夹会被删除。</p>
+<h1 id="拓展"><a href="#拓展" class="headerlink" title="拓展"></a>拓展</h1><p>其实上述代码完全符合在我最初场景的期望，所以可以到此为止了。</p>
+<p>可以改进的地方，同名以后直接加后缀再移动，不过考虑到重名的几率很小，基本不会重名，或者重名的文件也不会太多，就留下自行处理吧。</p>
+<p>此代码只移动一级目录，文件夹里套文件夹会被忽略。自己目前也没有遇到这种需求，故没有加入这个功能。或许遇到了再实现吧。</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>评论区改版</title>
+    <url>/posts/40193/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>从 Livere 到 Waline</p>
+<span id="more"></span>
+
+<h3 id="原评论区用-Livere"><a href="#原评论区用-Livere" class="headerlink" title="原评论区用 Livere"></a>原评论区用 Livere</h3><p>初步调研选定 Livere 和 gittalk，考虑到很多浏览的小伙伴都没有 Github 账号，又因为</p>
+<p>我大天朝无奇不有，Github 处于半墙状态，不好弄</p>
+<p>而 Livere 支持 QQ，微信等第三方登陆，降低大众评论门槛，<del>然而还是没有一个人评论</del>。</p>
+<p>最终选定 Livere ，这个评论系统好在配置简单，主题直接集成，缺点嘛就是由于是韩国公司提供的，而且只有刷到文章最下面才会加载，Livere 的评论系统加载有一丢丢慢，不过也不是不能用。</p>
+<p>可就在今天，我竟然在 Livere 的评论区下看到了很大一栏的广告，还是韩文的。搜了一下了解到它确实和广告公司合作在评论区插广告了。</p>
+<p>重度强迫症患者不会允许自己的网站有别人家的广告，不能惯着，直接把评论区关了。</p>
+<p>还把自己的 Livere 账户冻结了，下一步企图删除账户（<del>反正也没有一条评论</del>），很气人的不知道为什么到了最后一步点击确定删除，一直点都没反应，一点取消就取消了，我不知道是它的问题还是我的问题，如果它故意这样，那就真气人。</p>
+<p>想着评论区要不就直接关了吧，再三强调，访客次数到一千了也没有一条评论，确实没有存在的必要。</p>
+<p>又想着不忘初心，自己本来也就没打算怎样，都是出于兴趣，自己爱折腾，就继续折腾一下，找别的评论系统。</p>
+<h3 id="从-Valine-到-Waline"><a href="#从-Valine-到-Waline" class="headerlink" title="从 Valine 到 Waline"></a>从 Valine 到 Waline</h3><p>又进一步发掘，找到了 Valine 这个评论系统，也经常在别人博客中看见，无需登陆，可以留下自己的信息，进一步降低评论门槛，留下邮箱还有评论回复提醒，功能挺符合我想要的呢。</p>
+<p>动手干了以后，第一遍不行，评论区的框是有了，可是写完提交没反应，数据库里也没有记录。又找了个教程，一步一步跟着做了一遍，还是不行。搜为什么 Valine 提交没反应，按着几个解决方案来了一遍，就是不行。真能折腾啊。</p>
+<p>更让我没想到的是，要折腾的更在后面。</p>
+<p>一篇文章说，Valine 停止对高版本 Next 主题的支持，所以想用 Valine 建议回退到 5.x 的 Next 版本，让我退步是不可能的。它还说现在有一个更好的 Waline，听名字就是 Valine 的兄弟，说是等于 Valine + 后端，咱也不懂，就说这个比 Valine 更难部署一点，但是更加安全，于是就继续折腾。</p>
+<p>还说使用这个 Next 主题最好要更到 8.x ，我的是 7.x ，看它升级一次主题好麻烦呀，配置文件要重新搞，还有原来功能就没了，兼容问题也要考虑。纠结了老大一会儿，试着搞了一下，还真给搞坏了。幸好我改之前备份了一下，立马式的换回来了。想着要不就算了。。。</p>
+<p>但咱就是爱折腾</p>
+<p>就是为了这个评论区才升级了 Next 主题</p>
+<p>整个主题都变了，又从头修改了一下 Next 主题 config.yml 的配置，第二遍弄就是不一样，大概一个晚上就基本配置完成了。</p>
+<p>最令人头疼的是那种改了 css 文件的更改项，比如下面这个修改文章内链接文本样式。这种需要直接改网页生成文件，而 Next 主题变了以后这些文件又变成初始那样了，还有可能跟原版文件结构不同。</p>
+<h3 id="修改文章内链接文本样式"><a href="#修改文章内链接文本样式" class="headerlink" title="修改文章内链接文本样式"></a>修改文章内链接文本样式</h3><p>参考文章：<a href="https://www.jianshu.com/p/3a05351a37dc">Hexo的Next主题详细配置 - 简书 (jianshu.com)</a> 第12点</p>
+<p>Next主题自带的链接文本只有下划线，看起来很不明显，主题配置文件中也没有提供可供更改的配置项，只能通过更改 css 文件来实现，这种是升级主题过程中最麻烦的一种。</p>
+<p>找了很多文章，都让改 <code>./themes/source/css/_custom/custom.styl</code> ，但是我根本没找到 <code>_custom</code> 这个文件夹，用了参考文章的办法做出来了。</p>
+<p>打开文件 <code>themes/next/source/css/_common/components/post/post-body.styl</code>，在末尾添加</p>
+<figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.post-body</span> <span class="selector-tag">p</span> <span class="selector-tag">a</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#0593d3</span>;</span><br><span class="line">  <span class="attribute">border-bottom</span>: none;</span><br><span class="line">  <span class="attribute">border-bottom</span>: <span class="number">1px</span> solid <span class="number">#0593d3</span>;</span><br><span class="line">  <span class="selector-pseudo">&amp;:hover</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: <span class="number">#fc6423</span>;</span><br><span class="line">    <span class="attribute">border-bottom</span>: none;</span><br><span class="line">    <span class="attribute">border-bottom</span>: <span class="number">1px</span> solid <span class="number">#fc6423</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这里的末尾是真真正正的末尾，我还自作聪明在那个最大的花括号里面加的，但是不行。拉到文件最最后什么的也没有的地方粘贴以上代码。</p>
 ]]></content>
   </entry>
   <entry>
@@ -949,74 +1856,6 @@
 <p>所以现在的配置和直接把图片拖到网页的处理效果相同。</p>
 <p>这里面的每个坑，我都以为是死胡同，但人的主观能动性是很强的，无法解释我怎么就突然想到了解决办法，可我就是想出来了解决办法，但凡有一步想不出来，整个工程就挂了。</p>
 <div class="note danger"><p>绝望之处，寻找希望。 </p>
-</div>]]></content>
-  </entry>
-  <entry>
-    <title>疫情封宿舍第十一天有感</title>
-    <url>/posts/48849/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>2021.12.27，因西安疫情，困于宿舍，时至2022.1.7，有感而发。</p>
-<span id="more"></span>
-
-<h1 id="0-前情提要"><a href="#0-前情提要" class="headerlink" title="0.前情提要"></a>0.前情提要</h1><blockquote class="blockquote-center">
-<p>起初，没有人在意这场灾难，这不过是一场山火，一场旱灾，一个物种的灭绝，一座城市的消失<br>直到这场灾难与每个人息息相关。</p>
-
-</blockquote>
-
-<p>2021.12.27，记得那是一个寒冷的下午，疫情初露锋芒，每两天要做一次核酸，那天也是要做核酸的。</p>
-<p>我那天原本是有场英语考试的，考试前两天进行了认真系统的复习，终于，在考试的前一天下午考试推迟了。同学们大多是开心的，据说，通知下来的十分钟里，图书馆的人走了一大半。我只觉得离谱，虽然自己也没背什么，复习的总会一点点忘却，夜长梦多，我只想考试早点结束。</p>
-<p>没有了考试，大家纷纷喊着“开摆”“上号”。吐槽了许久，发觉考试虽然推迟，复习还得继续，这波叫秋后问斩。</p>
-<p>没有了考试，有了更多的休闲时间。那天，好友邀我去打乒乓球，打的很尽兴。期间，他说这可能是这学期最后一次出来打球了。我笑了笑，说不至于吧。</p>
-<p>打完球做完核酸，途径大超（注：大学生超市），想着买点东西，远远的就看到一条队伍长龙，得，东西是买不成了。差一个小时到饭点，纠结于直接吃饭还是再玩儿会儿。猛地听到有过路的同学说要封宿舍了，心里咯噔一下，看了看自己的通知群，还没发，在原地踌躇了一会儿，通知下来了</p>
-<div class="note danger"><p>封宿舍了。 </p>
-</div>
-
-<h1 id="1-开端"><a href="#1-开端" class="headerlink" title="1.开端"></a>1.开端</h1><p>我们不用选择了，我们没有选择了。</p>
-<p>收到通知，下一步直接从不确定状态塌陷为确定状态，回宿舍。我们相互道别，再见，明年再见。</p>
-<p>封宿舍第一天晚上，可能是因为太仓促的缘故吧，一定是很仓促的。朋友圈中可见一斑：</p>
-<img src="/posts/48849/%E6%9C%8B%E5%8F%8B%E5%9C%88%E9%A3%9F%E7%89%A9%E9%80%92%E5%87%8F.jpg" class="" title="此图来自朋友圈">
-
-<p>最晚的同学，十一点多才拿到饭，还是非常的《朴素》，面条+芹菜，面条+西葫芦，对此表示深深的同情。然而另一边，有同学还在喊饿，吃不饱。导员说，我们现在要解决的是有没有的问题，不是够不够的问题。我深以为然。</p>
-<p>我是比较幸运的，第一批拿到的饭。然而我也开心不起来，我最担心的也来了，从听到有封宿舍的消息就开始担心，家在北方，晚饭基本不吃米饭，天天米饭，胃要遭殃了。（此处禁止地域对立，大家相互理解）</p>
-<p>好在第二天开始，学校确实解决了有没有的问题。</p>
-<p>每天就是，睡觉，吃饭，做核酸。</p>
-<div class="note warning"><p>我们没有选择。 </p>
-</div>
-
-<p>“今天的饭好凉啊。今天的包子怎么是辣的，吃不了辣怎么办。这什么呀，吃不惯。今天的菜怎么这么难吃。我不喜欢吃这个菜怎么全是这个菜。怎么别的宿舍楼饭那么好我们这里这么差。怎么饭这么少不够吃。怎么刚吃完早饭就来午饭了。怎么这都几点了还不来饭。怎么我刚开一把游戏就来饭了。我不敢玩游戏等着饭来怎么还不来。”</p>
-<div class="note warning"><p>我们没有选择。 </p>
-</div>
-
-<p>“我们做核酸为什么非要集中走。我们回来的时候为什么要绕远路。那么远为什么不让我们骑车去。好远啊能不能在宿舍附近做核酸。怎么刚吃完饭就让我们去做核酸。饭刚来还没吃呢就走了。怎么这么早就要去做核酸。怎么那么晚才让我们做核酸。怎么说好的九点一直不走。怎么你八点二十才通知八点半就要去。怎么你说错峰核酸了还要排这么长的队。”</p>
-<div class="note warning"><p>我们没有选择。 </p>
-</div>
-
-<p>刚开始的时候两天一次核酸，后面一天一次核酸。偶尔一次可能没事，做多了以后，喉咙真的会变的很敏感。导员跟我们开线上会议的时候就一直咳嗽，他特意解释是因为做了很多次核酸以后嗓子真是很敏感。深有同感，有时候有的医生检测时候棉签会伸很深还会很大力左右晃（当然很多大部分医生还是很温柔的），做完的一段时间里，正常的呼吸都会触发它，很痒，止不住的咳。</p>
-<div class="note warning"><p>我们没有选择。 </p>
-</div>
-
-<h1 id="2-发展"><a href="#2-发展" class="headerlink" title="2.发展"></a>2.发展</h1><div class="note primary"><p>我们其实有的选。 </p>
-</div>
-
-<p>我们可以选择去当志愿者。帮助组织核酸检测工作，帮助送餐。有一分热，便发一分光。</p>
-<p>至少，我们可以选择去配合，去尊重，去感恩。工作刚开始难免有不足的地方，但只要有一个我们都去遵守的规定，那它起码还是有序的。事后可以合理的提出建议。我们可以选择在志愿者送饭的时候，在食堂阿姨打饭的时候，说声谢谢。</p>
-<p>我们戏称每日的核酸检测为吃棉签，封宿舍以后变成了监狱生活，出去做核酸成了放风。其实我还挺喜欢走做核酸的那很长一段路的，从学校的这个角走到学校的那个角，一来可以给我们久坐不起的监狱生活增加不小的运动量，二来可以欣赏沿途的美景和那久违的，没有经过玻璃折射的太阳。</p>
-<p>渐渐的，肉眼可见饭菜质量开始提升了，（大抵是因为后来开始收钱了吧），分量也确实足了那么一些。可以感受到食堂的工作人员尽心尽力尽可能丰富一下我们的饮食结构，送饭的时间也日趋规律合理，听到走廊里有送饭的动静就早早到门口等着了。敲门，开门，谢谢，早已形成了条件反射。</p>
-<p>早上还没起床，送饭的志愿者会把饭放到门口，尽量不打扰。感动于跨年夜的饺子，感动于跨年夜学校送来的苹果，感动于两次送来的口罩，满满的安全感。感动于班主任的“有任何困难可以私信我”，感动于导员线上会议关注我们思想动态搜集解决问题，感动于学业导师的细心叮嘱，感动于好友的关心和提醒，感动于室友共处一室的互相包容，感动于妈妈事无巨细的考虑和关切。</p>
-<p>曾跟好友分享入狱以来的生活状况，有句话很受触动，“以前都是在网络上看疫情怎么怎么样，听你这么一说才感觉到了真实。”我也真真切切感受到了真实。</p>
-<p>实话说，这次西安和学校的防疫和后勤保障工作并没有做到让人完全满意。在最阴暗的时候，甚至感到了失望。但我相信，大家一定是做了最大的努力的。</p>
-<h1 id="3-高潮"><a href="#3-高潮" class="headerlink" title="3.高潮"></a>3.高潮</h1><p>西安疫情已过拐点，我们看到了希望。</p>
-<p>从前天（1.5）开始，我们不用做核酸了。从昨天（1.6）开始，我们可以一个宿舍派一个人去买饭了。</p>
-<p>为什么我非得是今天有感呢，因为今天我买饭。</p>
-<p>十一天以来，第一次，可以全天都吃到自己想吃的饭。</p>
-<p>今天下午，第一次感受到食物充满整个胃的感觉。（就是吃撑了）</p>
-<p>平时天天吃宿舍附近这个食堂，嘴上都说吃腻了，天天到饭点不知道吃什么。经过了十天的分配制度，现在选择权重新回到了自己手上。</p>
-<p>经历过黑暗后，发觉平常就是幸福。我们习以为常的一切被夺走以后，才发现，那些我们早已习惯的已经是最幸福的了。放学的途中看看夕阳，没课的上午去打个乒乓球，不想复习的晚上去跑步打卡，和好朋友站在食堂的窗口前说“吃什么”“随便”。这些都会慢慢回来的。</p>
-<p>这次疫情的亲身经历提醒我，多珍惜自己已经拥有的。</p>
-<div class="note info"><p>日常就是幸福。 </p>
-</div>
-
-<h1 id="4-结局"><a href="#4-结局" class="headerlink" title="4.结局"></a>4.结局</h1><p>我希望是，</p>
-<div class="note success"><p>世界健康 </p>
 </div>]]></content>
   </entry>
   <entry>
@@ -1243,98 +2082,224 @@
 ]]></content>
   </entry>
   <entry>
-    <title>AI写作外挂开发随笔</title>
-    <url>/posts/2376/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>参加西北工业大学第二届未来AI大师国际夏令营，做出的软件 —— AI 写作外挂，获第一名，已开源。</p>
+    <title>疫情封宿舍第十一天有感</title>
+    <url>/posts/48849/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>2021.12.27，因西安疫情，困于宿舍，时至2022.1.7，有感而发。</p>
 <span id="more"></span>
 
-<p>只想看最终的软件不想听流水账的可以跳转<a href="#%E8%BD%AF%E4%BB%B6%E4%BB%8B%E7%BB%8D">软件介绍</a></p>
-<h1 id="契机"><a href="#契机" class="headerlink" title="契机"></a>契机</h1><img src="/posts/2376/%E8%A5%BF%E5%B7%A5%E5%A4%A7%E7%AC%AC%E4%BA%8C%E5%B1%8A%E6%9C%AA%E6%9D%A5AI%E5%A4%A7%E5%B8%88%E5%9B%BD%E9%99%85%E5%A4%8F%E4%BB%A4%E8%90%A5%E6%B5%B7%E6%8A%A5.jpg" class="" title="西工大第二届未来AI大师国际夏令营海报">
+<h1 id="0-前情提要"><a href="#0-前情提要" class="headerlink" title="0.前情提要"></a>0.前情提要</h1><blockquote class="blockquote-center">
+<p>起初，没有人在意这场灾难，这不过是一场山火，一场旱灾，一个物种的灭绝，一座城市的消失<br>直到这场灾难与每个人息息相关。</p>
 
-<p>参加过第一届，是线下的，第二届是线上了，感觉会不一样，就想着报名。不过不知道参加过一次会不会不让重复参加，不过还是报名了。</p>
-<p>报名的时候分为两个组，启蒙探索和竞赛创新。启蒙探索主要是听专家讲座，这个我在第一届也听过很多，而且变成线上的夏令营，都是讲座感觉效果不会很好。于是选择竞赛创新组。但是竞赛这个词很是令人害怕，怕自己根本完不成任务，最后咬咬牙还是选择了这个。</p>
-<p>竞赛创新组里面又分为两个组别，A 组是基础组，做出一个 PPT 产品，主要考察创意，不用实现。B 组为进阶组，不仅要有创意，还要做出一个完整的产品，相当于一个完整的项目流程。</p>
-<p>那必然秒选 B 呀，不然我这一身的代码功夫无处施展，可以借此机会完整体验一把项目开发过程。</p>
-<p>分组是需要自己组队，</p>
-<center>——————分割线——————</center>
+</blockquote>
 
-<p>上面的内容是 8 月 1 号写的，写了一丢丢，<del>我才不说是因为我懒加上有拖延症所以没写完呢</del>，肯定是因为证书和奖品没有发下来，写了文章也不会发出来所以推到了现在。没错，今天拿了证书和纪念奖品，如下：</p>
-<img src="/posts/2376/%E7%BB%93%E4%B8%9A%E8%AF%81%E4%B9%A6.jpg" class="" title="结业证书">
-
-<p>我怀疑他是不知道我名字怎么打出来，所以空着，等打印出来证书手写上去的。</p>
-<img src="/posts/2376/%E5%A5%96%E5%93%81%E9%BC%A0%E6%A0%87%E5%9E%AB.jpg" class="" title="奖品鼠标垫">
-
-<p>一个长但不是很长的鼠标垫，舍友建议配个键盘放上去，就是为了这点醋才包的饺子对吧。</p>
-<p>时隔一个多月，捡回逝去的记忆，9 月 13 号继续写。</p>
-<center>——————分割线——————</center>
-
-<p>分组是需要自己组队的，然而我是肯定不会主动去找别人组队的，也没有认识的人找我组队。经过上个学期小组作孽的摧残，对组队的期望不大，自己干自己的，没问题！</p>
-<h1 id="创意"><a href="#创意" class="headerlink" title="创意"></a>创意</h1><h2 id="众里寻它千百度"><a href="#众里寻它千百度" class="headerlink" title="众里寻它千百度"></a>众里寻它千百度</h2><p>首先试玩了一下这个大模型，功能全部体验了一番。也就三种，一种是通过提供的文字描述生成图片，一种是类似语音助手的问答对话，一种是自然语言处理（术语NLP）。</p>
-<p>通过文字描述生成图片，生成的风景还看的过去，有抽象派艺术画风，但是生成的人像完全是掉入恐怖谷了。同时生成的过程太漫长，以分钟来计时。这个功能可以不用。</p>
-<p>人工智能的对话，首先想到的应用场景是在客服里面，或者直接开一个 AI 对话服务，但是不足以支撑整个产品，所以这个暂时不考虑。</p>
-<p>只有最后一个自然语言处理可以用啦，简单来说就是，（凭我自己的理解），它已经看过千万级别的文字了，知识储备很充分，我们需要做的，就是设定特定的引导词，开发出它的功能。</p>
-<p>一种做软件的思路是，利用模型开发出来的某个功能，整合到软件里面，作为一部分，算是模型落地的应用，只是一个软件的一环。这种思路我想了好久没有想到比较好的创意。</p>
-<h2 id="暮然回首"><a href="#暮然回首" class="headerlink" title="暮然回首"></a>暮然回首</h2><p>换了一种思路，既然这个模型只能做自然语言处理，那我不如直接围绕自然语言处理来开发一个软件，软件的全部功能都由这个模型来提供。只能处理文字，那就把文字处理到极致。所以第一天就有了这个创意—— AI 写作外挂。</p>
-<p>“AI”是产品的亮点，必须写在名称里面，“写作”是软件的主要功能，“外挂”二字则有标题党那味了，属于点睛之笔。</p>
-<p>对这个名字我很满意，填写完之后，注意到别的组有一个叫 “AI文章辅助工具”，感觉和我的软件撞车了，<del>不过我感觉自己在名字上已经赢过它了！</del> but 当我跟妈妈炫耀的时候，她说外挂是啥意思，你这个名字看不懂。喔~ <del>还好看不懂外挂意思的大概率也不是这个软件的受众群体</del>，外挂就是指这个东西很厉害，厉害到你用了这个东西相当于作弊一样的，对别人有碾压效果。</p>
-<h1 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h1><p>这个软件的核心技术部分是调用 api（应用接口，你传入数据，它返回结果），这部分有现成的调用实例，而且之前我也玩过 api，技术上难题不大。</p>
-<p>真正遇到的问题是在界面设计上，由于之前没有写过图形化的界面，如何写出一个像样的GUI（图形用户界面）成为了我遇到的第一个难题。</p>
-<p>有三个选项，电脑端软件，手机端软件，网页，三种呈现形式。我都没写过。。。但是我敢想呀，我一开始设想的是，我全都要，做出一个全平台的软件。什么？你问我没写过怎么办？我可以学呀！</p>
-<p>然而现实很残酷，准备从电脑端软件下手，使用的是百度那边活动负责人自己封装的 python 库 <code>qgui</code> ，一上手就遇到了问题，去问助教，助教发过来 github 链接，说有开源代码实例，让我自己学习一下，那就开始学吧。</p>
-<p>一天时间做好了第一版，将示例功能中和写作有关的部分放到了自己的软件上，属于是站在巨人的肩膀上，有现成的就要直接用。从早到晚写了一整天，软件的基本骨架已经搭好，就在我觉得十拿九稳的时候， 意外到来了……</p>
-<h2 id="至暗时刻"><a href="#至暗时刻" class="headerlink" title="至暗时刻"></a>至暗时刻</h2><p>晚上九点，我写好了第一版本的代码，需要把代码打包成软件，这样用户就可以直接使用。</p>
-<p>然而打包完成后运行一直出错，就相当于什么呢，相当于你洗菜切菜炒菜盛菜，都做的没有问题。但是你把菜端到用户桌子上的时候，突然发现里面有一只苍蝇，不能吃了。那你说再做一份不就好了，现实世界进苍蝇是偶然事件，代码世界出的 bug 是必然事件，排查不出来问题，运行一万遍也是不行。</p>
-<p>于是整个晚上我就在不断的打包，运行，报错。据不完全统计，几十次肯定是有的，每次需要十来分钟。次数说明不了什么，我从九点弄到十一点，往常这个点我要睡了，但是还是弄了一会儿，十二点了，必须睡了。躺在床上，脑子里面控制不住的想这件事，感觉自己肝的这两天，到临门一脚的时候功亏一篑了，怎么着也睡不着。于是在床上抱着电脑继续肝。</p>
-<p>一晚上也不是完全没有进步的，至少一开始报的错被我上网查到了解决方案，打包的时候加了一条命令。解决了这个错误，又蹦出来一个新的错误，关键我也不知道这个改变是正向的还是负向的。想到新的解决办法，只好在加命令和不加命令两种情况下都试一下，每试一下都要十来分钟，因为有两种情况，枚举的集合扩大为两倍。</p>
-<p>最后我想，至少得拿出来一个可以运行的东西出来吧。于是注释掉一部分代码，删去一些功能和界面，再打包试试，看看到底是哪里的问题。再类比做菜的话，可以理解为，你知道菜里面有的东西会招苍蝇，那你就少放几种菜，虽然没那么好吃了，至少不会有苍蝇，用户可以先吃着，试试哪种菜出了问题。</p>
-<p>不幸中的万幸，删去了一些非功能性界面，软件可以成功运行了，软件的功能没有受影响，只是丑了一些，少了一些提示语，终于可以睡着了，时间凌晨一点。</p>
-<h2 id="曙光升起"><a href="#曙光升起" class="headerlink" title="曙光升起"></a>曙光升起</h2><p>早上五点，太阳即将升起，随之起来的，是被早上五点的核酸检测大喇叭吵醒的人们，还有我胜利的曙光。</p>
-<p>迷迷糊糊起床，做核酸，回家，坐到电脑前。打开代码，精神抖擞，全神贯注，继续进行打包，运行，报错的无限循环。</p>
-<p>早饭没吃，继续去看代码。你问我为什么不吃饭？bug 管饱。（其实后面还是吃了的）</p>
-<p>上回书说到，已经删去一点非功能部分，软件可以成功运行，那么问题就出现在被删去的部分。有了这个突破口，再结合报错的一些信息，最终确定，问题没有出在我的代码上，而在于那个封装的库上，由于某些我也不太清楚的原因，最终结果是打包出来的软件没有办法运行。</p>
-<p>于是我把库的代码有关的部分理解了一下，根据自己的理解，做了一点改动，最终可以说几乎没有影响软件的功能从而可以正常打包软件，正常运行。类比一下就是一个厨子，发现菜里进苍蝇是因为厨房漏了个缝，于是这个厨子自学了一下装修把缝补上了。</p>
-<h2 id="劫后余生"><a href="#劫后余生" class="headerlink" title="劫后余生"></a>劫后余生</h2><p>大难不死，必须抒发一下感想。</p>
-<p>有时候我也会很奇怪呀，很多事情，差一步，就是天壤之别。或者说，我做的那些操作，但凡有一步没想到的，最终都不会是这样的结果。无法解释，为什么偏偏历经多次磨难，每次的困难都几乎把我绊倒，可每次都可以说近乎奇迹般的活了过来。无法解释我当时为什么会那么想，为什么会那么做，可我就是想到了，可我就是做成了。</p>
-<p>歪一下，程序员掉头发的原因找到了，一个项目做不完，或者说只出了一个 bug，就算再小，这个软件还是不能用，相当于什么用都没有。有时候只是一个小小的错误，需要花费大量的精力去排查。一步错，则功亏一篑，这也太有魅力了吧。</p>
-<h2 id="不断迭代"><a href="#不断迭代" class="headerlink" title="不断迭代"></a>不断迭代</h2><p>第一代产品做出来之后，首先找了我的小伙伴做内测，在此衷心感谢小伙伴的大力支持。前面说第一代的功能几乎都是抄的示例功能，只有轻微的改动，第一轮内测之后是产品的脱胎换骨。</p>
-<p>首先是软件的提示语上，一个好的软件，是用户一看就要会用的。可是我的测试发现都需要来问我，这肯定不能怪用户对吧，肯定是我的界面设计的不够明显。虽然我也很烦软件打开是一个弹窗，但是为了用户能自主使用软件，思考再三，还是加一个烦人的弹窗，轻喷。</p>
-<p>重点还是软件功能的增加，一轮内测后，我的重心可以不在软件界面的设计上了，大的框架已经很完整了，有足够的时间去试模型的引导语，开发新的功能。加上小伙伴也有很多好的点子，在此再次衷心感谢。最后项目评审的时候，老师说，感觉这个软件的作者像是很熟悉大模型的人，重度使用者，开发出各种各样的功能。我想这么高度的评价是靠 很 nice 的小伙伴提供的很 nice 的点子 和 我一整天的试验 取得的。</p>
-<p>后面第二轮内测就没有较大的改动了，加了一个功能，整个软件下来是比较满意的，三天做出来自己想要的成果了。最后一天录了一下演示视频，写了一下文档，就没有什么值得提的事情了，提交后就是一天漫长的等待。</p>
-<h1 id="成果"><a href="#成果" class="headerlink" title="成果"></a>成果</h1><h2 id="评审"><a href="#评审" class="headerlink" title="评审"></a>评审</h2><p>在评审的前一天，我首先在系统里面看到了自己的分数，93 分，听着应该是很高了吧，不过不知道别人的分数，上面还有很大的提升空间，这个分数看来并没有让我很安心。</p>
-<p>第二天评审，评委的 PPT 划过，看到了获奖队伍那一页，找我的名字，中间没有，下面没有，在第一个！</p>
-<p>只看到了这么多信息，PPT 被切到了封面页，好消息是我获奖了，剩下的悬念是，这个排名有没有按照名次，紧张焦急的等待后，尘埃落定，第一名！！！</p>
-<img src="/posts/2376/%E7%AC%AC%E4%B8%80%E5%90%8D.jpg" class="" title="第一名">
-
-<h2 id="感想"><a href="#感想" class="headerlink" title="感想"></a>感想</h2><p>这个故事告诉我们一个道理，当你觉得自己很菜的时候，<del>没准别人比你还菜</del>，不妨试试，结果怎么样要试了才知道。</p>
-<p>好吧我是真的没想到会这么完美的结果，明明五天前还一直在纠结犹豫要不要报竞赛组，心里打了很多次退堂鼓，最终还是鼓起勇气参加了。明明四天前压根没有听说过什么叫大模型，最终评审的时候却得到了“作者像是非常熟悉这个文心大模型的人”的高度评价。明明三天前对软件的图像化设计可以说是一无所知，最终历经千辛万苦成功做出软件甚至还是在自己修改了库的情况下。</p>
-<p>所以以后遇到什么不敢去尝试的事情，如果尝试的代价不是很大，那就去试试吧，万一成了呢？</p>
-<div class="note primary"><p>这世间，有那么多个美好的万一啊 </p>
+<p>2021.12.27，记得那是一个寒冷的下午，疫情初露锋芒，每两天要做一次核酸，那天也是要做核酸的。</p>
+<p>我那天原本是有场英语考试的，考试前两天进行了认真系统的复习，终于，在考试的前一天下午考试推迟了。同学们大多是开心的，据说，通知下来的十分钟里，图书馆的人走了一大半。我只觉得离谱，虽然自己也没背什么，复习的总会一点点忘却，夜长梦多，我只想考试早点结束。</p>
+<p>没有了考试，大家纷纷喊着“开摆”“上号”。吐槽了许久，发觉考试虽然推迟，复习还得继续，这波叫秋后问斩。</p>
+<p>没有了考试，有了更多的休闲时间。那天，好友邀我去打乒乓球，打的很尽兴。期间，他说这可能是这学期最后一次出来打球了。我笑了笑，说不至于吧。</p>
+<p>打完球做完核酸，途径大超（注：大学生超市），想着买点东西，远远的就看到一条队伍长龙，得，东西是买不成了。差一个小时到饭点，纠结于直接吃饭还是再玩儿会儿。猛地听到有过路的同学说要封宿舍了，心里咯噔一下，看了看自己的通知群，还没发，在原地踌躇了一会儿，通知下来了</p>
+<div class="note danger"><p>封宿舍了。 </p>
 </div>
 
-<h2 id="软件介绍"><a href="#软件介绍" class="headerlink" title="软件介绍"></a>软件介绍</h2><h3 id="使用需知"><a href="#使用需知" class="headerlink" title="使用需知"></a>使用需知</h3><ul>
-<li>只可以在 windows 电脑端运行</li>
-</ul>
-<p>所以在手机上是运行不了这个软件的。</p>
-<ul>
-<li>生成字数多（如作文）会很慢，耐心等待</li>
-<li>偶尔会出现人工智障的情况，自行甄别</li>
-<li>一个账号每日使用次数上限 200 次，总使用次数上限 2000 次</li>
-</ul>
-<p>事实上我只是把接口封装成了一个软件，上面是所调用的大模型的限制，所以即使我知道会出现这些问题也无能为力。现阶段这个软件只能说是体验 AI 的写作。</p>
-<ul>
-<li>软件免费，欢迎赞赏</li>
-</ul>
-<h3 id="演示视频"><a href="#演示视频" class="headerlink" title="演示视频"></a>演示视频</h3><div style="position:relative; padding-bottom:75%; width:100%; height:0">
-    <iframe src="//player.bilibili.com/player.html?bvid=BV1Nd4y167LA&amp;page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="position:absolute; height: 100%; width: 100%;"></iframe>
+<h1 id="1-开端"><a href="#1-开端" class="headerlink" title="1.开端"></a>1.开端</h1><p>我们不用选择了，我们没有选择了。</p>
+<p>收到通知，下一步直接从不确定状态塌陷为确定状态，回宿舍。我们相互道别，再见，明年再见。</p>
+<p>封宿舍第一天晚上，可能是因为太仓促的缘故吧，一定是很仓促的。朋友圈中可见一斑：</p>
+<img src="/posts/48849/%E6%9C%8B%E5%8F%8B%E5%9C%88%E9%A3%9F%E7%89%A9%E9%80%92%E5%87%8F.jpg" class="" title="此图来自朋友圈">
+
+<p>最晚的同学，十一点多才拿到饭，还是非常的《朴素》，面条+芹菜，面条+西葫芦，对此表示深深的同情。然而另一边，有同学还在喊饿，吃不饱。导员说，我们现在要解决的是有没有的问题，不是够不够的问题。我深以为然。</p>
+<p>我是比较幸运的，第一批拿到的饭。然而我也开心不起来，我最担心的也来了，从听到有封宿舍的消息就开始担心，家在北方，晚饭基本不吃米饭，天天米饭，胃要遭殃了。（此处禁止地域对立，大家相互理解）</p>
+<p>好在第二天开始，学校确实解决了有没有的问题。</p>
+<p>每天就是，睡觉，吃饭，做核酸。</p>
+<div class="note warning"><p>我们没有选择。 </p>
 </div>
 
-<h3 id="软件下载"><a href="#软件下载" class="headerlink" title="软件下载"></a>软件下载</h3><p>github开源：<a href="https://github.com/guohuan78/AI_writing_helper">guohuan78&#x2F;AI_writing_helper (github.com)</a></p>
-<p>考虑到国内访问 github 困难，上面的链接打不开很正常，可以通过下面的链接下载软件。</p>
-<p>蓝奏云盘：<a href="https://wwz.lanzoum.com/iB3CX0bnhzwj">AI写作外挂 V1.3.2.zip - 蓝奏云 (lanzoum.com)</a></p>
-<h3 id="软件使用"><a href="#软件使用" class="headerlink" title="软件使用"></a>软件使用</h3><p>打开会是一个弹窗，虽然很烦，还是建议认真看一下，毕竟是我斟酌很久写出来的。</p>
-<p>关闭弹窗会自动打开一个网站，虽然这个行为也很流氓，但是是为了节省用户的力气，直接帮你们打开这个网站，按照弹窗的提示登录百度账号，申请 key，复制 key，填写到软件里面。</p>
-<p>建议填写后点击右边的 “保存key”，这样以后软件就不会弹窗，也不会打开网页，即开即用。</p>
-<p>填写完 key，选择上面标签页的功能，填写文字，点击 “开始执行”，下面控制台会输出结果。</p>
+<p>“今天的饭好凉啊。今天的包子怎么是辣的，吃不了辣怎么办。这什么呀，吃不惯。今天的菜怎么这么难吃。我不喜欢吃这个菜怎么全是这个菜。怎么别的宿舍楼饭那么好我们这里这么差。怎么饭这么少不够吃。怎么刚吃完早饭就来午饭了。怎么这都几点了还不来饭。怎么我刚开一把游戏就来饭了。我不敢玩游戏等着饭来怎么还不来。”</p>
+<div class="note warning"><p>我们没有选择。 </p>
+</div>
+
+<p>“我们做核酸为什么非要集中走。我们回来的时候为什么要绕远路。那么远为什么不让我们骑车去。好远啊能不能在宿舍附近做核酸。怎么刚吃完饭就让我们去做核酸。饭刚来还没吃呢就走了。怎么这么早就要去做核酸。怎么那么晚才让我们做核酸。怎么说好的九点一直不走。怎么你八点二十才通知八点半就要去。怎么你说错峰核酸了还要排这么长的队。”</p>
+<div class="note warning"><p>我们没有选择。 </p>
+</div>
+
+<p>刚开始的时候两天一次核酸，后面一天一次核酸。偶尔一次可能没事，做多了以后，喉咙真的会变的很敏感。导员跟我们开线上会议的时候就一直咳嗽，他特意解释是因为做了很多次核酸以后嗓子真是很敏感。深有同感，有时候有的医生检测时候棉签会伸很深还会很大力左右晃（当然很多大部分医生还是很温柔的），做完的一段时间里，正常的呼吸都会触发它，很痒，止不住的咳。</p>
+<div class="note warning"><p>我们没有选择。 </p>
+</div>
+
+<h1 id="2-发展"><a href="#2-发展" class="headerlink" title="2.发展"></a>2.发展</h1><div class="note primary"><p>我们其实有的选。 </p>
+</div>
+
+<p>我们可以选择去当志愿者。帮助组织核酸检测工作，帮助送餐。有一分热，便发一分光。</p>
+<p>至少，我们可以选择去配合，去尊重，去感恩。工作刚开始难免有不足的地方，但只要有一个我们都去遵守的规定，那它起码还是有序的。事后可以合理的提出建议。我们可以选择在志愿者送饭的时候，在食堂阿姨打饭的时候，说声谢谢。</p>
+<p>我们戏称每日的核酸检测为吃棉签，封宿舍以后变成了监狱生活，出去做核酸成了放风。其实我还挺喜欢走做核酸的那很长一段路的，从学校的这个角走到学校的那个角，一来可以给我们久坐不起的监狱生活增加不小的运动量，二来可以欣赏沿途的美景和那久违的，没有经过玻璃折射的太阳。</p>
+<p>渐渐的，肉眼可见饭菜质量开始提升了，（大抵是因为后来开始收钱了吧），分量也确实足了那么一些。可以感受到食堂的工作人员尽心尽力尽可能丰富一下我们的饮食结构，送饭的时间也日趋规律合理，听到走廊里有送饭的动静就早早到门口等着了。敲门，开门，谢谢，早已形成了条件反射。</p>
+<p>早上还没起床，送饭的志愿者会把饭放到门口，尽量不打扰。感动于跨年夜的饺子，感动于跨年夜学校送来的苹果，感动于两次送来的口罩，满满的安全感。感动于班主任的“有任何困难可以私信我”，感动于导员线上会议关注我们思想动态搜集解决问题，感动于学业导师的细心叮嘱，感动于好友的关心和提醒，感动于室友共处一室的互相包容，感动于妈妈事无巨细的考虑和关切。</p>
+<p>曾跟好友分享入狱以来的生活状况，有句话很受触动，“以前都是在网络上看疫情怎么怎么样，听你这么一说才感觉到了真实。”我也真真切切感受到了真实。</p>
+<p>实话说，这次西安和学校的防疫和后勤保障工作并没有做到让人完全满意。在最阴暗的时候，甚至感到了失望。但我相信，大家一定是做了最大的努力的。</p>
+<h1 id="3-高潮"><a href="#3-高潮" class="headerlink" title="3.高潮"></a>3.高潮</h1><p>西安疫情已过拐点，我们看到了希望。</p>
+<p>从前天（1.5）开始，我们不用做核酸了。从昨天（1.6）开始，我们可以一个宿舍派一个人去买饭了。</p>
+<p>为什么我非得是今天有感呢，因为今天我买饭。</p>
+<p>十一天以来，第一次，可以全天都吃到自己想吃的饭。</p>
+<p>今天下午，第一次感受到食物充满整个胃的感觉。（就是吃撑了）</p>
+<p>平时天天吃宿舍附近这个食堂，嘴上都说吃腻了，天天到饭点不知道吃什么。经过了十天的分配制度，现在选择权重新回到了自己手上。</p>
+<p>经历过黑暗后，发觉平常就是幸福。我们习以为常的一切被夺走以后，才发现，那些我们早已习惯的已经是最幸福的了。放学的途中看看夕阳，没课的上午去打个乒乓球，不想复习的晚上去跑步打卡，和好朋友站在食堂的窗口前说“吃什么”“随便”。这些都会慢慢回来的。</p>
+<p>这次疫情的亲身经历提醒我，多珍惜自己已经拥有的。</p>
+<div class="note info"><p>日常就是幸福。 </p>
+</div>
+
+<h1 id="4-结局"><a href="#4-结局" class="headerlink" title="4.结局"></a>4.结局</h1><p>我希望是，</p>
+<div class="note success"><p>世界健康 </p>
+</div>]]></content>
+  </entry>
+  <entry>
+    <title>我把环境变量Path搞没了</title>
+    <url>/posts/55469/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>安装 JAVA 要配置环境变量，跟着教程新建了 path 变量，结果原本的 Path 变量没了。。。</p>
+<span id="more"></span>
+
+<h1 id="1-犯罪记录"><a href="#1-犯罪记录" class="headerlink" title="1.犯罪记录"></a>1.犯罪记录</h1><p>大二下学期要学习 JAVA，还有四天开下一学期的线上课，我就寻思着自己先把 JAVA 装了，先学习着，还跟老师要了安装包。</p>
+<p>然后就自己上网搜安装教程，看到了要配置环境变量，这我熟啊。Matlab，Python 等等我都配置过环境变量，看到下图的时候我已经心生疑惑了</p>
+<img src="/posts/55469/%E7%BD%91%E4%B8%8A%E6%95%99%E7%A8%8B%E6%88%AA%E5%9B%BE.png" class="" title="这是网上安装教程的截图">
+
+<p>“直接新建path变量会不会把我原来的覆盖掉啊。。。”</p>
+<p>我每一步都走的小心翼翼，我先打开命令输入 javac，看看不配置行不行，结果是不行。</p>
+<p>我又像我原来配置 Python 环境变量那样，在原系统环境变量 Path 下新建了一个项，再测试 javac，但还是不行。</p>
+<p>细心如我，发现了已有的名字叫 <strong>P</strong>ath，新建的变量叫 <strong>p</strong>ath。根据我一年半的编程经验，大小写敏感已经刻在了我的基因里，所以我觉得没事，就直接新建了。</p>
+<p>但是万万没想到，这样输入 javac 也不行，突然意识到，每次更改环境变量后要重启 cmd 窗口，大意了。</p>
+<p>但是至此我还是不慌的，根据我上面大小写敏感的推断，这也不影响什么。于是我开开心心的去找 JAVA 教程去了，直到。。。</p>
+<p>临睡觉前，我想把我那天写的文章推上去，运行 hexo 提示 node 不是命令。哇的发？我这个时候已经意识到问题开始严重了，配置 JAVA 的环境把 node 的环境搞坏了，又好气又好笑。</p>
+<p>然而我意识的没有那么深刻，事情的严重性远远超乎我想象，但那个时候我只想睡觉，每天十一点上床是必须的。直接关了电脑去洗漱了。然而我体内的编程之魂在召唤我，心里痒痒的，总想现在就看看是什么情况，不然睡不好觉。</p>
+<p>还是没忍住，又打开了电脑。再试了一下，发现还是提示 node 不是命令，根据我一年半编程经验的直觉，这肯定是环境变量的问题，我再把它的路径加进去应该就找到了。</p>
+<p>熟练的打开环境变量配置，找了半天，发现 </p>
+<p><strong>没 有 Path 了</strong></p>
+<p>只剩下一个 path 安静的躺在那里，我的内心也只剩下凌乱，慌的一批。</p>
+<h1 id="2-解决办法"><a href="#2-解决办法" class="headerlink" title="2.解决办法"></a>2.解决办法</h1><p>我马上搜一下环境变量 Path 没了怎么办，emmm，没发现什么有用的。</p>
+<p>有一个提供了系统初始的几个常见 Path，我直接新建了 Path 变量，把它加入进去了。</p>
+<p>灵机一动，我想到我有一个好习惯，原来配置环境变量的时候 Path 会往用户里面的 Path 和系统里面的 Path 都加上。于是我把用户里面的 Path 复制了一下到系统的 Path 里。</p>
+<p>然而运行 hexo 还是报找不到 node 命令，这时候再配合 Everything 这个软件，找到 node.exe，把它所在目录添加到环境变量里，再次运行 hexo，大功告成。</p>
+<p>检查了一下，上面创建的 JAVA 的 path 路径又没了，这时候把那个路径添加到 Path 的子项里面，<strong>重启cmd</strong>，运行 javac，成功。</p>
+<h1 id="3-总结"><a href="#3-总结" class="headerlink" title="3.总结"></a>3.总结</h1><p>1.配置完环境变量后要重启 cmd 窗口再测试环境是否装好<br>2.设置环境变量名的时候，它的名字是大小写不敏感的，会直接覆盖<br>3.留下了一个巨大的后患，以后可能会出现乱七八糟的找不到命令类似的报错，要自己找路径加进去了</p>
+<h1 id="4-拓展"><a href="#4-拓展" class="headerlink" title="4.拓展"></a>4.拓展</h1><p>其实文件夹名字也是大小写不敏感的，创建一个 JAVA 的文件夹和 java 的文件夹，它会提示重复。我竟然刚刚知道，震惊我一百年。</p>
+<p>在我的理解里，Path的作用其实是给系统一个路径，你要在 cmd 中运行一个命令，本质上就像打开一个 .exe 文件，比如运行 javac，系统要知道 javac.exe 在哪儿。我系统找不到 node 这个命令，那我就搜索一下 node.exe 在哪儿，（可能会有好几个，看路径决定是哪一个），把它的路径加入到 Path 里面就好了。</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>建站第六天的反思</title>
+    <url>/posts/8001/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>2021.12.31~2022.1.5 六天建站过程，于 1.5 晚进行的反思。</p>
+<span id="more"></span>
+
+<h1 id="1-就是你把鬼子引进村的"><a href="#1-就是你把鬼子引进村的" class="headerlink" title="1.就是你把鬼子引进村的"></a>1.就是你把鬼子引进村的</h1><p>大二学生，2021.12.27因疫情封在宿舍，考试推迟，又复习了两天之后，感觉再复习的话，考试的时候就忘了，没那么大动力，想干一些自己想干的。看到了自己收藏夹里吃灰的markdown学习教程，就开始学习markdown写作了，后面跟着一本书来学习，就是这本书，让我从此走上了不归路。</p>
+<p>好好的markdown教程，有一章是教怎么搭建个人博客网站的。我大致翻了一下，感觉好麻烦呀，不弄了不弄了。可能是刻在骨子里的兴趣点吧，之后的一段时间建网站的想法一直在我脑海中萦绕，我还是没忍住。。。</p>
+<h1 id="2-激情建站"><a href="#2-激情建站" class="headerlink" title="2.激情建站"></a>2.激情建站</h1><p>12.31号，跨年呢对吧。我从下午开始一直搞，直到晚上的11:30，当你投入某种热情的时候，真的可以忘记时间的。</p>
+<p>接下来的三天（1.1~1.3），我还保有理智，跟自己约定好上午复习，吃完午饭了再弄网站。可我真的控制不住自己的脑子，边抄英语重点，边想网站框架，边写大物习题，边想怎么解决bug。我是个倒头就睡的人，十一点上床，不玩手机的话一会儿就睡着了，可能有时候刷b站，十二点前放下手机，真的秒睡。</p>
+<p>我失眠了。</p>
+<p>从十一点干巴巴的躺着，脑子却异常活跃，一直在想我今天开发了什么功能，还有什么功能待开发，网站博文的框架怎么写……以至于到了凌晨一点多才睡着。第二天早上七点，又自己醒了。要知道我平时没课的话睡到九点都是习以为常，我只能说，它对于我真的是很有魅力。</p>
+<p>1.4和1.5这两天，我干脆放下了复习，考试要到年后了，现在不着急复习。整天搜一些插件和教程，逐渐上线新功能。看了很多别人的博客，看到好的东西就搜怎么实现，一逛可以一整天。可以说除了吃饭睡觉做核酸以外，就是在搞自己的网站了。（当然一直看电脑确实很累，眼睛酸了就躺一会儿。</p>
+<p>今天看了很多很多别人的博客，n多友链反复横跳，我发现他们都做的好好啊，每个人都有自己的风格。</p>
+<p>那我的风格呢？</p>
+<h1 id="3-灵魂拷问"><a href="#3-灵魂拷问" class="headerlink" title="3.灵魂拷问"></a>3.灵魂拷问</h1><p>我发现我已经渐渐忘记我真正想要的是什么了。</p>
+<p>一开始就是凭着自己对计算机的热爱，搞个网页这是我没有接触过的，很新鲜，就来尝试了一下，这是最本源的内在驱动力。那么外在驱动呢，最朴素的想法就是装X吧，跟好朋友说我自己建了个网站哦，这一听就是非常非常酷的事情。（其实我用的都是模版和插件，就下下插件，改改配置文件，js代码也是搜网上教程cv来的，毕竟还没学网页相关知识，（就这？就这我都弄了五六天，（然而配置环境是真的难，那么多bug呜呜呜</p>
+<p>还有一个宏大的愿望，我是用自己名字命名的博客（然而现在不想用了，要不要改呢。。），我想让自己个人博客网站有很多很多的浏览量，以至于百度我的名字可以搜到这个网站。这又是顶级的装X操作！出于对新用户友好的想法，有很多人看的想法，我尽可能尝试很多很多的功能，希望我的网站非常的好看，然而很多人浏览也不能卡呀，我也希望它要访问很快。</p>
+<p>我也问自己这有什么实质性作用，我想到了很好玩的是，我希望未来可以在自己的简历上写，建立个人博客网站，访问人次几千亿亿什么玩意儿的哈哈哈哈。</p>
+<p>我想要的太多了。</p>
+<p>搞了很多插件，推送网站的url给搜索引擎，期望能够被搜到。我会分享给朋友链接，在b站自己的视频下面推这个博客，期望有很多人访问它。每天看一遍网站访问量，看一看新访客，要看好久。起初，我喜欢个人博客的一点就是，各大平台都是被流量裹挟的，发布的内容为了博人眼球，我怎么也开始注重流量了？</p>
+<p>感觉情况不妙，遂进行了深刻的反思。</p>
+<h1 id="4-开始反思"><a href="#4-开始反思" class="headerlink" title="4.开始反思"></a>4.开始反思</h1><p>我不再期望自己的网页可以出现在搜索引擎的推荐里了，毕竟那是无良医院掏钱就可以占据头部的地方。但是我还是会给小伙伴分享我又写了什么好玩的东西，会在其他平台放上我的博客链接，（这里指在我写的内容会对他有帮助的情况下）。</p>
+<p>我会去掉一些东西，让它尽可能的简洁，现阶段更像是一个我自己的树洞，一个记录自己学习生活的地方。草原上的草还没长出来，马来了又有什么用呢。下阶段的任务就是要充实一下自己的内容吧。</p>
+<h1 id="5-我会写什么？"><a href="#5-我会写什么？" class="headerlink" title="5.我会写什么？"></a>5.我会写什么？</h1><p>这几天接触了很多新鲜玩意儿呢，要趁早记录下来，就算是建站过程的分享吧。主题配置，插件介绍，还有文章里面的一些 html 或其他格式的插入。</p>
+<p>然后自己如果有什么可以公开的学习笔记的话也会发上来，（话说我这个人很少记笔记的，这可不太好，emmm，这个网站也是督促我要写一些东西了</p>
+<p>遇到好的代码软件什么的也会分享上来，我这个人最爱折腾软件和代码，折腾的步骤写上来也行。</p>
+<p>可能也会开生活区，分享一些我觉得值得记录的日常。</p>
+<h1 id="6-我不会写什么？"><a href="#6-我不会写什么？" class="headerlink" title="6.我不会写什么？"></a>6.我不会写什么？</h1><p>违法的。。。个人博客不是法外之地</p>
+<p>涉及个人隐私的，我想把这个博客和自己分离出来吧，网络姻缘一线牵</p>
+<p>还有一些处于灰色地带的什么我觉得不适合发的东西，不冒那个险了</p>
+<p>很重要的是，我不会发网上已经详细充分解决了的东西。最烦那种搜个什么问题，完了下面是各大平台的结果，点击去看全是重复的，还有那种一个字没有只有引用链接，又跳到相同的网址去了，要么是作者多平台发送（这个给予理解，但从个人角度看很烦），要么有人直接搬运抄袭。我认为有我自己独特的地方的话，才值得发出来。</p>
+<hr>
+<p>于2022.1.6 早上 补充</p>
+<hr>
+<h1 id="7-我的风格"><a href="#7-我的风格" class="headerlink" title="7.我的风格"></a>7.我的风格</h1><p>一方面又想极简主义，要网站的最快访问速度，一方面又想它会变好看一点，这两个还需要我做出取舍，这个再想想。</p>
+<p>极强的强迫症，我是不允许有没用的东西出现在我的界面上的。还有任何影响观感的东西我都会把它去了。</p>
+<p>结构方面，条理性是必须的，从每个标题就可以看出来，会将此发扬光大。</p>
+<p>文笔方面，可能从这篇文章也看出来了，偏生活，偏叙事，就像自己给自己说话，不能嫌我啰嗦。自认为还是有那么一点点幽默元素的，得益于网上冲浪。这点和很多大佬的博客风格不一样，非常敬佩于他们的切中要害，言简意赅，我会学习的，但是这就是我的风格，人还是要有自己的风格。</p>
+<p>目前（给自己真香留后路）</p>
+<ul>
+<li>不想给自己捆绑一些其他的东西，现阶段我也不打算靠这个挣钱，保留它的纯粹性。</li>
+<li>不会强制跳转（我尽量做到，有些网站有限制我也没办法，就像我自己的b站视频我直接嵌套进来，注重读者体验，你们要想更清晰，发弹幕，那只能跳到b站，b站规定的那我也没办法），</li>
+<li>不会强制关注公众号（我现在也没有），</li>
+<li>现在每篇下面会有打赏，我想把它去了，因为并没有什么人会打赏，放那里也很碍事。但是但是，我还是非常喜欢这种形式的，这首先是对我内容的高度认可，非常开心。我也不指望这个发家致富（若有土豪带飞我绝不拒绝），一分钱就好，就像点了个赞那样的。（虽然本人以前也是个白嫖狗，自己尝试做视频写文章之后观念就慢慢转变了，有人会喜欢自己的东西真的很开心</li>
+<li>我还是会保留打赏的吧</li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
+    <title>Matlab图像边缘检测制作视频</title>
+    <url>/posts/17737/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>用Matlab来进行图像边缘检测，输出边缘线条视频，过程全记录，内含全部源码。</p>
+<span id="more"></span>
+
+<h1 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h1><p>放在了我的b站上：<a href="https://www.bilibili.com/video/BV1934y1z74s?spm_id_from=333.999.0.0">我用Matlab摆烂了你的AE作业_哔哩哔哩_bilibili</a></p>
+<p>下面可以直接观看：</p>
+<div style="position:relative; padding-bottom:75%; width:100%; height:0">
+    <iframe src="//player.bilibili.com/player.html?bvid=BV1934y1z74s&amp;page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="position:absolute; height: 100%; width: 100%;"></iframe>
+</div>
+
+<p>源视频在这里：  AE原作：<a href="https://www.bilibili.com/video/BV1xL4y1E7nT">大二AE结课作业 《过 年》（已摆烂）_哔哩哔哩_bilibili</a></p>
+<p>b站上其他版本：《友 商 链 接》：<br><a href="https://www.bilibili.com/video/BV1wT4y1m7rs">我用Matlab摆烂了你的AE作业_哔哩哔哩_bilibili</a> （他是红色的<br><a href="https://www.bilibili.com/video/BV1Mu411U78T">我用Matlab摆烂了你的ae作业_哔哩哔哩_bilibili</a> （黑色，点更细致了<br><a href="https://www.bilibili.com/video/BV1Xm4y1S7rm">我用Matlab摆烂了你的ae作业_哔哩哔哩_bilibili</a> （这个跟第一个差不多，甚至个人感觉比第一个要清晰，<del>但是没有第一个火</del>，第一个比这个早发布六小时，那这样说我岂不是更加凉凉了。。。</p>
+<hr>
+<h1 id="如何制作"><a href="#如何制作" class="headerlink" title="如何制作"></a>如何制作</h1><p>吃瓜的到这里可以走了（若想当个故事看也不是不行），有matlab的同学想玩一玩可以往下看，源码全分享。（这里不讲怎么下载matlab，为此专门下载30G大小的matlab不划算。）</p>
+<h2 id="1-工作目录"><a href="#1-工作目录" class="headerlink" title="1 工作目录"></a>1 工作目录</h2><p>创建<code>edges</code>和<code>pics</code>两个空文件夹，<code>pics</code>是视频逐帧输出后的图片存放的路径，<code>edges</code>是<code>pics</code>文件夹中图片经边缘处理后生成图片的存放路径。</p>
+<p><code>out2pic.m</code>，<code>zed.m</code>和<code>pic2video.m</code>三个matlab脚本文件</p>
+<p>放入<code>source.mp4</code>原视频</p>
+<p><code>output.mp4</code>是处理后生成的视频</p>
+<img src="/posts/17737/%E5%B7%A5%E4%BD%9C%E7%9B%AE%E5%BD%95.png" class="" title="工作目录文件图片">
+
+<h2 id="2-源码"><a href="#2-源码" class="headerlink" title="2 源码"></a>2 源码</h2><p>源码是我从网上搜来的，改了一点，但是那是好几十天前的事情了，原网站我已经找不到了，侵删。其实我把代码放网上搜了一下确实搜到一个，但那个和我最初参考的不一样，他也没放源码链接，我也不知道哪个是原创，反正代码我不是原创。但是本文章的内容确实是原创。天下代码一大抄</p>
+<p>代码中 “你的工作路径” 要替换为自己的，就是上图中的文件存放在哪里了。例如我的是</p>
+<p><code>D:\0programing\matlab_work\ImageEdgeDetection</code></p>
+<p><code>zed.m</code>和<code>pic2video.m</code>代码中的for循环用到了帧数，要根据具体视频来改变，运行完<code>out2pic.m</code>后，<code>pics</code>文件夹中有几张图片就是几帧。</p>
+<h3 id="2-1-out2pic-m：将视频分割逐帧分割为图片"><a href="#2-1-out2pic-m：将视频分割逐帧分割为图片" class="headerlink" title="2.1 out2pic.m：将视频分割逐帧分割为图片"></a>2.1 <code>out2pic.m</code>：将视频分割逐帧分割为图片</h3><figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">clear;</span><br><span class="line">clc;</span><br><span class="line">se = strel(<span class="string">&#x27;line&#x27;</span>,<span class="number">11</span>,<span class="number">90</span>);</span><br><span class="line">path=<span class="string">&#x27;你的工作路径\source.mp4&#x27;</span>;   <span class="comment">%视频存放路径</span></span><br><span class="line">obj=VideoReader(path);</span><br><span class="line">num=obj.NumberOfFrames;</span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span>=<span class="number">1</span>:num  <span class="comment">%帧数，这里的i最终为1801</span></span><br><span class="line">    frame=read(obj,<span class="built_in">i</span>);</span><br><span class="line">    lujing=strcat(<span class="string">&#x27;你的工作路径\pics\&#x27;,num2str(i));  %帧图输出路径</span></span><br><span class="line"><span class="string">    lujing=strcat(lujing,&#x27;</span>.jpg&#x27;);</span><br><span class="line">    imwrite(frame,lujing)</span><br><span class="line"><span class="keyword">end</span> </span><br></pre></td></tr></table></figure>
+
+<h3 id="2-2-zed-m：逐个图片运用边缘检测算法"><a href="#2-2-zed-m：逐个图片运用边缘检测算法" class="headerlink" title="2.2 zed.m：逐个图片运用边缘检测算法"></a>2.2 <code>zed.m</code>：逐个图片运用边缘检测算法</h3><figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">close all;</span><br><span class="line">clc;</span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span>=<span class="number">1</span>:<span class="number">1801</span>  <span class="comment">%前面所得的视频帧数</span></span><br><span class="line">    path=<span class="string">&#x27;你的工作路径\pics\&#x27;; %帧图路径</span></span><br><span class="line"><span class="string">     disp(i); </span></span><br><span class="line"><span class="string">     path=strcat(path,num2str(i));</span></span><br><span class="line"><span class="string">    p=strcat(path,&#x27;</span>.jpg&#x27;);</span><br><span class="line">    f=imread(p);</span><br><span class="line">    f=rgb2gray(f);</span><br><span class="line">   roberts=edge(f,<span class="string">&#x27;roberts&#x27;</span>);   <span class="comment">%roberts算子</span></span><br><span class="line">   [m,n]=<span class="built_in">find</span>(roberts==<span class="number">1</span>);</span><br><span class="line">  <span class="comment">%scatter(n,-m,&#x27;.&#x27;);   %  1     去掉注释直接展示</span></span><br><span class="line">    mh=<span class="built_in">scatter</span>(n,-m,<span class="string">&#x27;.&#x27;</span>); <span class="comment">%  2     确定输出</span></span><br><span class="line">    axis([<span class="number">0</span> <span class="number">1280</span> <span class="number">-720</span> <span class="number">0</span>]);   <span class="comment">%可依据窗口大小自行调整坐标系，这里输出图片是1280x720</span></span><br><span class="line">    lujing=strcat(<span class="string">&#x27;你的工作路径\edges\&#x27;,num2str(i)); %  3    输出存放路径</span></span><br><span class="line"><span class="string">    lujing=strcat(lujing,&#x27;</span>.jpg&#x27;); <span class="comment">%  4     输出格式为ipg</span></span><br><span class="line">    saveas(mh,lujing); <span class="comment">%  5     保存</span></span><br><span class="line">    <span class="comment">%这里默认是将边缘检测的每一张图片保存，方便后续合成视频；也可以不用保存直接展示，只需将注释编号为1的语句取消注释，将2、3、4、5加上注释即可。但直接展示的话效果不太好，比较卡。</span></span><br><span class="line">    pause(<span class="number">0.05</span>);</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<p>9:28开始运行边缘检测算法，10:15运行结束，1801张图片跑了四五十分钟，最后可以生成一分多钟的视频。</p>
+<h3 id="2-3-pic2video-m：将生成的边缘检测图片合成视频"><a href="#2-3-pic2video-m：将生成的边缘检测图片合成视频" class="headerlink" title="2.3 pic2video.m：将生成的边缘检测图片合成视频"></a>2.3 <code>pic2video.m</code>：将生成的边缘检测图片合成视频</h3><figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">clear;</span><br><span class="line">clc;</span><br><span class="line">WriterObj=VideoWriter(<span class="string">&#x27;output.mp4&#x27;</span>, <span class="string">&#x27;MPEG-4&#x27;</span>);   <span class="comment">%这里输出的路径是默认路径，合成的视频的格式是mp4</span></span><br><span class="line">WriterObj.FrameRate = <span class="number">25</span>; <span class="comment">%控制输出视频帧率，原视频为25，没有这行的话默认30</span></span><br><span class="line">open(WriterObj);</span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span>=<span class="number">1</span>:<span class="number">1801</span>  <span class="comment">%帧图数量</span></span><br><span class="line">  pic=<span class="string">&#x27;你的工作路径\edges\&#x27;;  %前面边缘检测的图片的存储路径</span></span><br><span class="line"><span class="string">  pic=strcat(pic,num2str(i));</span></span><br><span class="line"><span class="string">  ppic=strcat(pic,&#x27;</span>.jpg&#x27;);</span><br><span class="line">  frame=imread(ppic);  <span class="comment">% 读取图像，放在变量frame中</span></span><br><span class="line">  <span class="built_in">disp</span>(ppic);</span><br><span class="line">  writeVideo(WriterObj,frame);  <span class="comment">% 将frame放到变量WriterObj中</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line">close(WriterObj);</span><br></pre></td></tr></table></figure>
+
+<p>至此，视频合成好了，但是没有声音，用剪辑软件添加声音。</p>
+<h2 id="3-遇到的问题"><a href="#3-遇到的问题" class="headerlink" title="3 遇到的问题"></a>3 遇到的问题</h2><h3 id="3-1-运行zed-m时弹出的figure窗口不要关闭！！！"><a href="#3-1-运行zed-m时弹出的figure窗口不要关闭！！！" class="headerlink" title="3.1 运行zed.m时弹出的figure窗口不要关闭！！！"></a>3.1 运行<code>zed.m</code>时弹出的figure窗口不要关闭！！！</h3><p>别问我怎么知道的，说多了都是泪……</p>
+<p>这个是figure窗口：</p>
+<img src="/posts/17737/figure%E7%AA%97%E5%8F%A3.png" class="" title="这是一个figure窗口">
+
+<p>这个是可能报的错：</p>
+<img src="/posts/17737/%E5%85%B3%E9%97%ADfigure%E7%AA%97%E5%8F%A3%E6%8A%A5%E9%94%99.png" class="" title="这是关闭figure窗口后可能报的错">
+
+<p>千万别关！！！！</p>
+<h3 id="3-2-合成视频时图片分辨率不符报错"><a href="#3-2-合成视频时图片分辨率不符报错" class="headerlink" title="3.2 合成视频时图片分辨率不符报错"></a>3.2 合成视频时图片分辨率不符报错</h3><img src="/posts/17737/%E5%88%86%E8%BE%A8%E7%8E%87%E6%8A%A5%E9%94%99.png" class="" title="图片分辨率不符报的错">
+
+<p>查一下472.jpg和473.jpg的分辨率属性</p>
+<img src="/posts/17737/472%E5%88%86%E8%BE%A8%E7%8E%87%E5%B1%9E%E6%80%A7.png" class="" title="这是472图片的分辨率属性">
+
+<img src="/posts/17737/473%E5%88%86%E8%BE%A8%E7%8E%87%E5%B1%9E%E6%80%A7.png" class="" title="这是473图片的分辨率属性">
+
+<p>我也不知道什么原因，原图都是1280x720，可能上面我图中关闭了一下figure导致的？但是我关闭窗口的时候应该没合成到472吧。472及以前的分辨率是875x65<strong>6</strong>,473及以后的分辨率是875x65<strong>7</strong>。给<code>writeVideo</code>整不会了，罢工了。</p>
+<p>再跑一遍<code>zed.m</code>是不可能的，累死。机智如我，把前472张合成一下<code>output1.mp4</code>，473后面的合成一个<code>output2.mp4</code>，通过控制<code>pic2video.m</code>中for循环i的取值来实现，记得合成后改名，不然合成第二个会覆盖第一个。之后用剪辑软件拼接起来，就算前后两个视频分辨率不同，剪辑软件可不会像<code>writeVideo</code>那样罢工。</p>
+<h3 id="3-3-合成视频后与原视频帧数不符"><a href="#3-3-合成视频后与原视频帧数不符" class="headerlink" title="3.3 合成视频后与原视频帧数不符"></a>3.3 合成视频后与原视频帧数不符</h3><p>合成视频发现它短了，查属性，发现原视频是25帧的，我输出的是30帧的。</p>
+<img src="/posts/17737/source%E5%B8%A7%E6%95%B0.png" class="" title="原视频帧数属性25帧">
+
+<img src="/posts/17737/output%E5%B8%A7%E6%95%B0.png" class="" title="合成的视频帧数属性30帧">
+
+<p>网上查了一下怎么改<code>VideoWriter</code>输出的帧数，代码里加了一行。</p>
+<p>再次输出视频，帧数还为30，离谱。。。幸好我慧眼如炬，发现我从网上抄的代码和原来的代码大小写不一样，如下：（我不说你们也发现不了W和w不一样吧</p>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">WriterObj=VideoWriter(<span class="string">&#x27;output.mp4&#x27;</span>, <span class="string">&#x27;MPEG-4&#x27;</span>);</span><br><span class="line">writerObj.FrameRate = <span class="number">25</span>;</span><br></pre></td></tr></table></figure>
+<p>改了以后代码运行正常（上面给的源码已经是修改过的了，放心食用。</p>
+<h2 id="4-待改进"><a href="#4-待改进" class="headerlink" title="4 待改进"></a>4 待改进</h2><p>在只有matlab进程的条件下：</p>
+<img src="/posts/17737/%E4%BB%BB%E5%8A%A1%E7%AE%A1%E7%90%86%E5%99%A8%E8%BF%9B%E7%A8%8B.png" class="" title="这是运行边缘检测算法时电脑的进程">
+
+<p>CPU利用率：</p>
+<img src="/posts/17737/cpu%E5%88%A9%E7%94%A8%E7%8E%87.png" class="" title="这是只运行边缘检测算法时电脑CPU利用率">
+
+<p>GPU利用率：</p>
+<img src="/posts/17737/gpu%E5%88%A9%E7%94%A8%E7%8E%87.png" class="" title="这是只运行边缘检测算法时电脑GPU利用率">
+
+<p>我也不知道怎么能把CPU占满一点，也不知道怎么调用GPU来处理，产出个一分钟的视频要操作将近一个小时，辛苦我的CPU了。</p>
+<p>这是本站第一篇实质性内容的文章，实操的小伙伴遇到什么问题可以在评论区留言。</p>
 ]]></content>
   </entry>
 </search>
