@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 5.4.1">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="baidu-site-verification" content="code-KUVTzM5ytZ">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/themes/blue/pace-theme-minimal.css">
+  <script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"guohuan78.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.9.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<meta name="description" content="参加比赛 OceanBase 社区，初赛阶段基于 miniob，在此记录全过程。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="miniob比赛实录">
+<meta property="og:url" content="https://guohuan78.github.io/posts/4446/index.html">
+<meta property="og:site_name" content="睆 | 个人博客">
+<meta property="og:description" content="参加比赛 OceanBase 社区，初赛阶段基于 miniob，在此记录全过程。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-10-17T05:57:53.000Z">
+<meta property="article:modified_time" content="2022-10-17T05:57:53.000Z">
+<meta property="article:author" content="睆">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://guohuan78.github.io/posts/4446/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://guohuan78.github.io/posts/4446/","path":"posts/4446/","title":"miniob比赛实录"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>miniob比赛实录 | 睆 | 个人博客</title>
+  
+
+  <script src="/js/third-party/analytics/baidu-analytics.js"></script>
+  <script async src="https://hm.baidu.com/hm.js?1100fccdafaa0f574ee06db8ff4743e6"></script>
+
+
+
+<link rel="dns-prefetch" href="blog-api-guohuan78.vercel.app">
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}</style></head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">睆 | 个人博客</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87"><span class="nav-text">环境准备</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85docker"><span class="nav-text">安装docker</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8B%89%E5%8F%96%E9%95%9C%E5%83%8F%E5%B9%B6%E8%BF%90%E8%A1%8C"><span class="nav-text">拉取镜像并运行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BC%96%E8%AF%91%E8%BF%90%E8%A1%8Cminiob"><span class="nav-text">编译运行miniob</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BC%96%E8%AF%91"><span class="nav-text">编译</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%90%E8%A1%8C"><span class="nav-text">运行</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BC%96%E8%AF%91%E8%BF%90%E8%A1%8C%E8%B8%A9%E5%9D%91"><span class="nav-text">编译运行踩坑</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%89%BE%E4%B8%8D%E5%88%B0jsoncpp-so-25"><span class="nav-text">找不到jsoncpp.so.25</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BF%90%E8%A1%8Cobserve%E5%8D%A1%E4%BD%8F"><span class="nav-text">运行observe卡住</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E4%B8%8A%E4%BC%A0docker%E9%95%9C%E5%83%8F"><span class="nav-text">创建上传docker镜像</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BC%96%E5%86%99%E8%B0%83%E8%AF%95%E7%8E%AF%E5%A2%83"><span class="nav-text">编写调试环境</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#vscode-%E8%BF%9E%E6%8E%A5-docker"><span class="nav-text">vscode 连接 docker</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vscode%E8%B0%83%E8%AF%95miniob"><span class="nav-text">vscode调试miniob</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BC%80%E5%A7%8B%E7%BC%96%E7%A8%8B"><span class="nav-text">开始编程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#select-meta"><span class="nav-text">select meta</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%84%8F%E9%9A%BE%E5%B9%B3"><span class="nav-text">意难平</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#drop-table"><span class="nav-text">drop table</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%BF%BD%E5%8A%A0%E5%86%85%E5%AE%B9"><span class="nav-text">追加内容</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#vscode-%E5%BF%AB%E9%80%9F%E6%90%9C%E7%B4%A2%E6%96%87%E4%BB%B6"><span class="nav-text">vscode 快速搜索文件</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="睆"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">睆</p>
+  <div class="site-description" itemprop="description">绝不在无聊的人和事儿上浪费时间，哪怕一天。</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">15</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/guohuan78" title="My GitHub → https:&#x2F;&#x2F;github.com&#x2F;guohuan78" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>My GitHub</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="返回顶部">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+
+  <a href="https://github.com/guohuan78" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://guohuan78.github.io/posts/4446/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="睆">
+      <meta itemprop="description" content="绝不在无聊的人和事儿上浪费时间，哪怕一天。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="睆 | 个人博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          miniob比赛实录
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-10-17 13:57:53" itemprop="dateCreated datePublished" datetime="2022-10-17T13:57:53+08:00">2022-10-17</time>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/posts/4446/#waline-comments" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" id="/posts/4446/" data-xid="/posts/4446/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>6k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>10 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>参加比赛 <a target="_blank" rel="noopener" href="https://open.oceanbase.com/competition/index#info">OceanBase 社区</a>，初赛阶段基于 <code>miniob</code>，在此记录全过程。</p>
+<span id="more"></span>
+
+<h1 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h1><h2 id="安装docker"><a href="#安装docker" class="headerlink" title="安装docker"></a>安装docker</h2><p>为了防止 c 盘爆红，创建软链接，将 <code>docker</code> 和 <code>images</code> 迁移到D盘。<a target="_blank" rel="noopener" href="https://blog.csdn.net/liangcsdn111/article/details/110236655">windows10 docker 安装在D盘_凉晓风的博客-CSDN博客_docker安装在d盘</a> 我这里在迁移<code>images</code>的时候使用的也是软链接的方法，路径为：<code>C:\Users\%username%\AppData\Local\Docker</code></p>
+<p>之后打开docker报错，参考 <a target="_blank" rel="noopener" href="https://blog.csdn.net/mythest/article/details/92999646">安装docker报错Hardware assisted virtualization and data execution protection must be enabled in the BIOS_松松哥、的博客-CSDN博客_virtualization and data execution protection enabl</a> ，解决了，其中需要多次重启才能生效。</p>
+<p>换源，<code>docker</code>设置里<code>docker engine</code>，最后添加</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;registry-mirrors&quot;</span>: [</span><br><span class="line">    <span class="string">&quot;https://9cpn8tt6.mirror.aliyuncs.com&quot;</span></span><br><span class="line">  ]</span><br></pre></td></tr></table></figure>
+
+<h2 id="拉取镜像并运行"><a href="#拉取镜像并运行" class="headerlink" title="拉取镜像并运行"></a>拉取镜像并运行</h2><p>从<a target="_blank" rel="noopener" href="https://hub.docker.com/r/oceanbase/miniob">oceanbase&#x2F;miniob - Docker Image | Docker Hub</a>官方拉取，<code>cmd</code>执行</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull oceanbase/miniob:1.0.1</span><br></pre></td></tr></table></figure>
+
+<p>在 <code>docker images</code> 栏可以找到拉取的镜像，<code>run</code>，设置参数，启动时可以配置共享文件夹。</p>
+<p><code>run</code> 的时候展开 <code>Optional settings</code> ，<code>Volumes </code>是设置共享文件夹的，配置示例如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Host path: D:\work</span><br><span class="line">Container path: /shared</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>主机路径文件夹需要存在，直接复制路径即可</li>
+<li>容器内路径需不存在，前面要有斜杠，示例会在容器的根目录下创建，进入主机默认<code>root</code>目录，需要通过<code>cd ..</code>回到根目录查看</li>
+</ul>
+<h2 id="编译运行miniob"><a href="#编译运行miniob" class="headerlink" title="编译运行miniob"></a>编译运行miniob</h2><p>看官网<a target="_blank" rel="noopener" href="https://open.oceanbase.com/competition/index#info">OceanBase 社区</a> 视频，《MiniOB上手操作指南》，由于拉取的镜像已经配置了依赖，不需要编译安装前面的依赖，直接到后半部分编译<code>miniob</code>。</p>
+<p>由于我多次尝试（因为一直报错，<a href="#%E7%BC%96%E8%AF%91%E8%BF%90%E8%A1%8C%E8%B8%A9%E5%9D%91">编译运行踩坑</a>），已经熟练的让人心疼，在此默写一下。</p>
+<h3 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h3><p>在<code>miniob</code>的项目文件夹下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mkdir build</span><br><span class="line">cd build</span><br><span class="line">cmake ..</span><br><span class="line">make -j</span><br></pre></td></tr></table></figure>
+<p>其中<code>cmake ..</code> 可以改为<code> cmake .. -DDEBUG-ON</code>，这样是编译<code>debug</code>模式</p>
+<h3 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h3><p>在<code>build</code>目录下，启动<code>observer</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./bin/observer -f ../etc/observer.ini</span><br></pre></td></tr></table></figure>
+
+<div class="note danger"><p>出现 successfully load …即表示成功启动，详情见<a href="#%E8%BF%90%E8%A1%8Cobserve%E5%8D%A1%E4%BD%8F">踩坑:运行observe卡住</a></p>
+</div>
+
+<p>新开终端，同样在<code>build</code>目录下，启动<code>obclient</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./bin/obclient</span><br></pre></td></tr></table></figure>
+
+<p>可以输入<code>help;</code>查看帮助，注意<code>help</code>后面有个分号，支持部分基本的<code>sql</code>语法。</p>
+<h3 id="编译运行踩坑"><a href="#编译运行踩坑" class="headerlink" title="编译运行踩坑"></a>编译运行踩坑</h3><h4 id="找不到jsoncpp-so-25"><a href="#找不到jsoncpp-so-25" class="headerlink" title="找不到jsoncpp.so.25"></a>找不到jsoncpp.so.25</h4><p>从官网拉取的镜像运行<code>observe</code>的时候会报错，找不到<code>jsoncpp.so.25</code>，费了九牛二虎之力，一开始怀疑是不是从官网拉取的镜像没有安装依赖，反复确认官网上清楚写了已经包含依赖，而且找系统的<code>lib</code>是可以看到别的依赖的，就是找不到<code>jsoncpp.so.25</code>，于是各处寻找这个链接库。</p>
+<p>从一篇博客<a target="_blank" rel="noopener" href="https://blog.csdn.net/xl19900502/article/details/51944550">linux添加库后出现 error while loading shared libraries: libjson.so_sail0323的博客-CSDN博客</a>中看到，很多<code>so</code>会放在<code>/usr/local/lib</code>，找了一下发现没有，灵光一现打开<code>lib64</code>看了一下，真的有！根据这篇博客的说明，修改<code>/etc/ld.so.conf</code>，添加一行<code>/usr/local/lib64</code>，保存后退出，<code>ldconfig</code>更新配置。</p>
+<h4 id="运行observe卡住"><a href="#运行observe卡住" class="headerlink" title="运行observe卡住"></a>运行observe卡住</h4><p>解决了上面的问题，运行<code>observe</code>的时候，卡在<code>successfully load …</code>，然后就一直没有动静了。</p>
+<p>最初仍然怀疑是官网拉取的镜像没有安装依赖，再次多次反复确认。决定把官网上的三个镜像都拉下来试试，发现<code>latest</code>和<code>1.0.1</code>应该是同一个，<code>1.0.0</code>版本没有<code>找不到jsoncpp.so.25</code>的报错，但是同样会卡在<code>successfully load …</code>，然而官网给的演示视频是可以输出一大堆东西，最后有一个成功连接<code>service</code>。</p>
+<p>尝试了很久决定先去吃饭，给它一个小时时间，回来后很惊讶的发现，成功了！！！异常高兴，大喊大叫，手舞足蹈，平复心情，定睛一看，幻视了，只看到了<code>success</code>，仍然卡在<code>successfully load …</code>。</p>
+<p>网上寻求解决方案，看到一位老哥，在别人有关<code>miniob</code>的博客下评论卡在<code>successfully load …</code>，不止一个地方，然而没有回应，我不是孤单一个人。</p>
+<p>正当我准备放弃<code>docker</code>，考虑转向虚拟机自己配置环境，看到了有日志文件，想着看看日志文件兴许能找到哪里出错了，是不是没有依赖的问题。打开一看，日志文件和演示视频里面的输出几乎（因为没仔细看）一模一样，于是准备<code>observer</code>在这里放着，去打开<code>obclient</code>试一下，成功了！！！这次是真的。</p>
+<p>破案了，猜测可能是<code>docker</code>里命令行没有捕捉到这些输出？或是不能成功显示输出？导致了我的界面和演示视频里的不一样，以为自己的卡住了，其实服务已经成功启动。</p>
+<h2 id="创建上传docker镜像"><a href="#创建上传docker镜像" class="headerlink" title="创建上传docker镜像"></a>创建上传docker镜像</h2><div class="note success"><p>因为自己淋过雨，所以想给别人撑把伞 </p>
+</div>
+
+<p>我把<code>oceanbase/miniob:1.0.1</code>的镜像拉下来，解决了<a href="#%E6%89%BE%E4%B8%8D%E5%88%B0jsoncpp.so.25">找不到jsoncpp.so.25</a>的问题，并且直接编译了一下，这个版本可以直接成功运行<code>miniob</code>，感觉这个对新入手是很重要的，环境报错真的很搞人。</p>
+<p>其实做这件事的主要动机是，和室友组队参加这个比赛，我帮他配环境，重新配一遍的话不如我直接打包镜像发给他。其实也不完全是这个，因为在他上面配一遍肯定比我在自己电脑上配一遍再打包再上传要省劲，也是为了自己可以尝试一下怎么创建上传镜像。往大了说可以让所有看到的人都可以用。</p>
+<p>拉取命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull cherish7812/miniob:1.0</span><br></pre></td></tr></table></figure>
+
+<p>根据教程<a target="_blank" rel="noopener" href="https://blog.csdn.net/xinaml/article/details/77573644">Docker 容器创建镜像并提交到Docker hub_xinaml的博客-CSDN博客</a>来创建提交了镜像，不在此赘述了。</p>
+<p>需要提一下的是，偶然看到，push 的操作可以直接在<code>docker</code>图形化界面里点一下，<code>images</code>里选择镜像，点击三个点的按钮，<code>push to hub</code>。</p>
+<h2 id="编写调试环境"><a href="#编写调试环境" class="headerlink" title="编写调试环境"></a>编写调试环境</h2><h3 id="vscode-连接-docker"><a href="#vscode-连接-docker" class="headerlink" title="vscode 连接 docker"></a>vscode 连接 docker</h3><p>寻求一种使用本机<code>vscode</code>连接<code>docker</code>内<code>container</code>的使用方法，首先想到的是通过<code>ssh</code>连接，很不妙，最开始花了一天时间研究这个问题，因为我这个的环境比较复杂，首先拉取的镜像是<code>centos</code>系统，不是我之前虚拟机常用的<code>ubuntu</code>系统，<code>apt-get</code>都没有，使用的<code>yum</code>来安装包。其次<code>docker</code>是基于<code>wsl2</code>的，而且不能改回去原来的基于什么什么的，据说基于<code>wsl</code>的性能会更好。</p>
+<p>只说遇到最终把我卡住的错误吧，安装<code>ssh</code>后需要重启服务，使用<code>systemctl</code>命令，会报错，提示不支持。查了一下是因为使用了<code>wsl</code>的原因不支持这个命令。查到一个可行的解决方案是使用大佬写的<code>python</code>脚本代替这个命令，但是需要安装<code>python2</code>，感觉太麻烦了，就放弃了。</p>
+<p>所以前期只能将就凑乎着使用共享文件夹的方式，也就是本机<code>vscode</code>编辑一下，进入<code>docker</code>里编译运行。最开始也不是不能用，但是后面开始写的时候需要调试，因为代码实在太多了，不知道问题出在哪里。</p>
+<p>无奈又尝试<code>vscode</code>连接的办法，又研究了半天<code>ssh</code>怎么连，不断尝试，无果。</p>
+<p>最后突然点了一下<code>vscode</code>远程资源管理器里的<code>container</code>选项，直接就出现了<code>docker</code>里的<code>container</code>，一键连接成功！可能是我装了<code>docker</code>插件的缘故，这里直接无需配置就可以连接。</p>
+<p>此时悲喜交加，喜是一定的，悲是因为折磨了我两天的问题，居然一键就可以解决，哭哭。</p>
+<h3 id="vscode调试miniob"><a href="#vscode调试miniob" class="headerlink" title="vscode调试miniob"></a>vscode调试miniob</h3><p>最初并没有想构建调试环境，因为我知道这个会很难。但是写第一题的时候就遇到了问题，由于代码太多，压根不知道在哪一步出错的。只好来构建调试环境了。</p>
+<p>根据<a target="_blank" rel="noopener" href="https://blog.csdn.net/xk_xx/article/details/126848514">使用vscode编译、调试miniob源码_夏 克的博客-CSDN博客</a>教程，复制了一下他的<code>launch.json</code>，<code>tasks.json</code>，在此前完全不知道这些是干嘛的，没想到一天之后会如此熟悉。最初遇到的问题是，<code>launch.json</code>里报错：<code>cppdbg</code>无法识别，在容器内安装了<code>c/c++</code>插件，就好啦。</p>
+<p>重新运行<code>debug</code>，成功启动，一切仿佛井然有序。可是我发现有些跳不到函数里面，就感觉有些跳转进不去，点击运行下一步，没有跳转，但是也没有出来，不过可以看到局部变量那里变化了。点开了调用堆栈，发现有的调用被折叠了，点击后显示找不到文件。我直接用“转到定义”找到那个文件，打了断点，却不会停在断点处，旁边显示这个断点不会生效。</p>
+<p>大致知道了是因为调试器找不到文件对应的位置，搜了很多很多，改了很多很多，折腾了一下午加一晚上，硬刚了六七个小时吧。感觉自己已经把能找到的相关的博客里面的解决办法都试了一遍了，还是不行。其实是因为搜到的大多不是这个问题，一般是无法调试，就是连<code>main</code>都找不到，我这个只有部分可以找到，文件夹层数深了以后就找不到了。</p>
+<p>后面不断的看代码，搜一些资料，发现<code>extent “C”</code>，搜了一下说这个是指示要用c来编译这段代码。找不到的那个文件不是一般的文件，我发现一般都是<code>.y</code>和<code>.c</code>文件，不是典型的<code>cpp</code>文件，猜测可能跟这个有关系吧。</p>
+<p>到了晚上快十一点，想到了一个最笨也最聪明的办法，调试器会指示说，在这个路径下找不到这个文件。而我是知道文件在哪里的，那我就在它找不到的位置创建一个文件，把代码复制过去，就可以正常调试啦。实测这个办法是可行的。有弊端是，如果文件很多需要创建很多，不过我调试一部分创建一部分的文件，也就四五个，还是可以接受的。还有个弊端是，两个文件夹内容同步的问题，改初始的，被复制的也要记得更新。</p>
+<h1 id="开始编程"><a href="#开始编程" class="headerlink" title="开始编程"></a>开始编程</h1><h2 id="select-meta"><a href="#select-meta" class="headerlink" title="select meta"></a>select meta</h2><p>不过上面那些弊端都不重要，因为我发现我根本看不懂这些代码，太多了，还有什么<code>.y</code>文件，好像是做语义分析的，这个文件里面还不能打断点，调试起来贼麻烦。一步步调试，看了一个多小时，大概知道在哪个地方出错了，可是这个文件也太大了，根本不知道改哪里，怎么改，第一题就这么难。</p>
+<p>放弃了。</p>
+<p>第一题改了一个错误提示，通过了一个测试用例，只差一个测试用例：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span>, address <span class="keyword">from</span> t;</span><br></pre></td></tr></table></figure>
+
+<p>题目说明里面说要实现这种 <code>*，id</code>的例子，不用实现<code>id，*</code>这样的。可是在我调试的过程中发现，这个在语法解析阶段就会被<code>pass</code>，返回<code>sql parse error</code>。那个官方给的学习视频里讲了怎么实现<code>select meta</code>，但是讲的后面那个阶段的，这个在语法阶段就被毙了。乱起八糟的文件格式，是真的不熟悉。在这里卡住了，准备不弄了。</p>
+<h2 id="意难平"><a href="#意难平" class="headerlink" title="意难平"></a>意难平</h2><p>我还有别的作业，还有别的要学习的内容，肯定不是太闲的。而且这个比赛虽说奖池丰厚（30w+），但是只有前十二名可以拿到，那对于我这个四天没有写出来一道题的人来说肯定是没有希望了。所以我最应该做的事情就是战略性放弃这个内容。</p>
+<p>但是想了想，主要还有老师会开会让汇报进度，一个是我数据库实验老师，一个是我数据库理论老师，直接放弃可能给老师留下不好的印象。</p>
+<p>还有就是，我超级不服的，为什么一题都写不出来，有个队伍已经把全部的写出来了。</p>
+<p>思考再三，最终还是选择follow my heart，我就不信了，再换一题试试！</p>
+<h2 id="drop-table"><a href="#drop-table" class="headerlink" title="drop table"></a>drop table</h2><p>这个题目多次被老师提到，课程里面也有专门介绍的视频，源码级别一步一步教着你敲，感觉很不错，希望可以写出来这个建立自信。</p>
+<p>半个小时的视频，跟着一步步敲了一个多小时，还挺麻烦，不断的分析代码，找接口，实现资源的释放。其中有两步看出来他是手误，我直接写成了我认为正确的。</p>
+<p>终于跟着写完了，看着他（视频里面）开始编译，报错，改错，再编译，再报错，再改错，还好这两个错误是我本来就发现的，我直接写的就是对的。</p>
+<p>再然后，他又编译了一次，又报错。只听他深深吸了一口气，说不改了。然后回退到他原来写好的版本上，说运行一下给大家看看效果。好的，效果看完了，可以正常运行。</p>
+<p>你问我然后呢？然后他就说“谢谢大家，今天的视频到此结束”。就。。就这？我代码呢，你写错了我可以理解，你倒是改对呀。你改不对我也可以理解，反正你之前写过对的，那你倒是让我看看呀，对的代码一眼没看，视频结束啦。</p>
+<p>我跟着他写了一个多小时的代码，收获到的是一堆bug，然后他给我看了看正确的运行结果，就没了。</p>
+<p>视频最后还欢迎我进入群交流，我是要进去骂你吗？</p>
+<p>彻底伤心了，不在这个比赛上浪费时间了，可以看出来这个视频做的一点都不用心，我就不懂了，为什么错误的写代码过程还要放上来，然后不了了之。</p>
+<p>结论就是这个比赛据它自己说是从0开始，其实根本不适合从来没有接触过这个项目的人参加，教程做的不详细，甚至不正确。</p>
+<p>官方的<code>docker</code>镜像环境都有问题，录制的教学视频跟着做下来跑不了，及时止损才是明智之举。</p>
+<p>然而，老师召集我们开了一次会，发现我居然在十几个队伍里面进度还是比较快的，甚至可以说是名列前茅。只有一个三个研究生本命还是做数据库研究的团队得了120分，还有一个队伍是20分，有五个队伍十分，别的队伍连提交都没有。也就是大部分人（一共14个队伍）基本上要么搭建不了环境，要么不会用git，要么还没开始弄。</p>
+<p>仅有提交代码的也是没什么太大希望了，保守了，没有任何希望。</p>
+<p>但是老师说那个华科大老师讲义中有源码级别的drop table，我看了一下还真是，瞬间手又痒痒了，又花了一个晚上的时间开搞。</p>
+<p>结果这个也没好到哪里，直接抄不行，只有实现，需要在include中加声明（还是王运来（就上面被我骂的那个）教我的），不过这都是小事，有的代码还是会报错，好像是因为这个是之前的版本，很多地方不一样，费了九牛二虎之力，终于可以运行了，提交一下没过。</p>
+<p>啊啊啊啊啊，又浪费了一晚上的时间。</p>
+<h1 id="追加内容"><a href="#追加内容" class="headerlink" title="追加内容"></a>追加内容</h1><h2 id="vscode-快速搜索文件"><a href="#vscode-快速搜索文件" class="headerlink" title="vscode 快速搜索文件"></a>vscode 快速搜索文件</h2><p>在写这个<code>miniob</code>的工程的时候就一直需要搜索文件，看录制视频的老师用命令行有快捷搜索的功能，很方便我只能靠人眼搜索。因为<code>vscode</code>在文件列表里面只能搜索已经展开的文件夹，也没有找到全部展开的功能，有时候会全部打开再搜索一下。</p>
+<p>放弃这个比赛后，学习别的过程中，偶然发现，按两次<code>shift</code>键会打开文件搜索，可以搜当前工作目录下的所有文件，跟老师那个功能很像，这个在写大的工程项目的时候应该很有用吧。</p>
+<p>然而在我手痒没忍住又去做了的时候，发现在container里两次shift调不出来快速搜索，不知道是插件的缘故还是设置的缘故。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div></div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="睆 微信">
+        <span>微信</span>
+      </div>
+
+  </div>
+</div>
+
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/posts/2376/" rel="prev" title="AI写作外挂开发随笔">
+                  <i class="fa fa-chevron-left"></i> AI写作外挂开发随笔
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/posts/17370/" rel="next" title="词根词缀表">
+                  词根词缀表 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments" id="waline-comments"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2021.12.31 – 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">睆</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">56k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">1:34</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+  <script src="/js/third-party/pace.js"></script>
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+<script class="next-config" data-name="waline" type="application/json">{"lang":"zh-cn","enable":true,"serverURL":"blog-api-guohuan78.vercel.app","placeholder":"请文明评论呀","avatar":"mm","pageSize":10,"visitor":false,"comment_count":true,"requiredFields":[],"meta":["nick","mail","link"],"libUrl":"https://cdn.jsdelivr.net/npm/@waline/client/dist/Waline.min.js","dark":"body.darkmode--activated","el":"#waline-comments","path":"/posts/4446/"}</script>
+<script>
+document.addEventListener('page:loaded', () => {
+  NexT.utils.loadComments(CONFIG.waline.el).then(() => 
+    NexT.utils.getScript(CONFIG.waline.libUrl, { condition: window.Waline })
+  ).then(() => {
+    new Waline(CONFIG.waline);
+  });
+});
+</script><script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '32px',
+  right: 'unset',
+  left: '32px',
+  time: '1s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: true,
+  label: '🌓',
+  autoMatchOsTheme: true
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
+</script>
+
+</body>
+</html>
