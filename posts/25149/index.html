@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.4.1">
+<meta name="generator" content="Hexo 8.1.2">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
@@ -215,7 +215,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>面试准备，java八股文学习。</p>
+        <link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>面试准备，java八股文学习。</p>
 <span id="more"></span>
 
 <h1 id="Java面试八股文"><a href="#Java面试八股文" class="headerlink" title="Java面试八股文"></a>Java面试八股文</h1><h2 id="1-Java中线程的实现方式"><a href="#1-Java中线程的实现方式" class="headerlink" title="1. Java中线程的实现方式"></a>1. Java中线程的实现方式</h2><p>可以有三种，四种，五种。追其底层，只有一种，基于Runnable。</p>
@@ -248,7 +248,7 @@
 <p>@Contended注解将当前类属性独占缓存行（剩余空间填无意义数据），避免缓存行失效造成的性能问题。</p>
 <p>需要被频繁修改的变量添加@Contended注解独占缓存行，不会影响其他变量。</p>
 <h2 id="8-Java中的四种引用类型"><a href="#8-Java中的四种引用类型" class="headerlink" title="8. Java中的四种引用类型"></a>8. Java中的四种引用类型</h2><p>强、软、弱、虚</p>
-<h3 id="8-1-强引用：把一个对象赋给引用变量"><a href="#8-1-强引用：把一个对象赋给引用变量" class="headerlink" title="8.1 强引用：把一个对象赋给引用变量"></a>8.1 强引用：把一个对象赋给引用变量</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">User user = <span class="keyword">new</span> User();</span><br></pre></td></tr></table></figure>
+<h3 id="8-1-强引用：把一个对象赋给引用变量"><a href="#8-1-强引用：把一个对象赋给引用变量" class="headerlink" title="8.1 强引用：把一个对象赋给引用变量"></a>8.1 强引用：把一个对象赋给引用变量</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">User</span> <span class="variable">user</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">User</span>();</span><br></pre></td></tr></table></figure>
 
 <p>最常见，始终处于可达状态，不会被垃圾回收机制回收（在函数内定义，弹栈后会被回收），造成Java内存泄露的主要原因之一。</p>
 <h3 id="8-2-软引用：SoftReference"><a href="#8-2-软引用：SoftReference" class="headerlink" title="8.2 软引用：SoftReference"></a>8.2 软引用：SoftReference</h3><p>系统内存足够不会被回收，内存空间不足会被回收。软引用用在内存敏感程序作为缓存使用。</p>
